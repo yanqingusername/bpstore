@@ -6,21 +6,55 @@
   <!-- 页面内容 -->
   <van-transition custom-class="block">
     <view class="search">
-      <view class="search-input">
-        <van-field
-          value="{{ searchVal }}"
-        />
-      </view>
+      <van-search
+        value="{{ searchVal }}"
+        custom-class="search-input"
+        shape="round"
+        placeholder="请输入搜索关键词"
+      />
 
-      <image class="search-add" />
+      <image class="search-add" src="/pages/assets/images/add.png" />
     </view>
 
     <van-tabs sticky>
       <van-tab title="推荐">
-        <view>
-          <scroll-view>
+        <view class="context">
+          <view class="recommend">
+            <view class="recommend-title">达人推荐</view>
+            <scroll-view scroll-x="{{true}}">
+              <view class="recommend-item" wx:for="{{7}}">
+                <image src="" />
+                <view class="recommend-item-name omit">hugh shen</view>
+              </view>
+            </scroll-view>
+          </view>
+          <!-- swiper -->
+          <view class="swiper-container">
+            <swiper indicator-dots="{{true}}" autoplay="{{true}}" interval="{{5000}}" duration="{{500}}">
+              <block wx:for="{{imgUrls}}">
+                <swiper-item>
+                  <image class="swiper-image" src="{{item}}" />
+                </swiper-item>
+              </block>
+            </swiper>
+          </view>
 
-          </scroll-view>
+          <view class="card-container">
+            <view>
+              <Card>
+                <view class="activity">
+                  <view class="activity-item"></view>
+                  <view class="activity-item-copy"></view>
+                </view>
+              </Card>
+            </view>
+
+            <view>
+              <Card>
+                <view ></view>
+              </Card>
+            </view>
+          </view>
         </view>
       </van-tab>
       <van-tab title="标签 2">内容 2</van-tab>

@@ -10,7 +10,8 @@
     "van-icon": "/components/vant/icon/index",
     "van-stepper": "/components/vant/stepper/index",
     "van-notice-bar": "/components/vant/notice-bar/index",
-    "van-field": "/components/vant/field/index"
+    "van-search": "/components/vant/search/index",
+    "Card": "/components/Card/index"
   },
   "component": true
 }

@@ -7,7 +7,7 @@ Component({
      * 关闭组件样式屏蔽 ( 组件的样式是对外屏蔽的, 就引用不到app.wxss(已废弃全局设置)中设置的主题色, 所以需要在这里打开 ) (禁止随意开启此属性!)
      */
     options: {
-        styleIsolation: 'apply-shared'
+        styleIsolation: 'shared',
     },
 
 
@@ -20,7 +20,8 @@ Component({
         },
     },
     data: {
-        searchVal: ''
+        searchVal: '',
+        imgUrls: ['https://img01.yzcdn.cn/vant/cat.jpeg', 'https://img01.yzcdn.cn/vant/cat.jpeg']
     },
     lifetimes: {
         // 在组件实例进入页面节点树时执行

@@ -1,0 +1,16 @@
+<view class="card-container">
+  <view class="card-container-header">
+    <view class="card-container-header-left">
+      <view class="line"></view>
+      <text class="title">{{ title }}</text>
+    </view>
+    <view class="card-container-header-right">
+      <view>查看全部</view>
+      <image src="/pages/assets/images/arrows-right.png"/>
+    </view>
+  </view>
+  
+  <view>
+    <slot></slot>
+  </view>
+</view>
