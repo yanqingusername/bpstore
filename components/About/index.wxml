@@ -1,0 +1,6 @@
+<view class="user {{ !over ? '' : 'user_over' }}">
+
+	<van-transition show="{{ show }}" custom-class="block">
+        <view class="" >关于我们</view>
+    </van-transition>
+</view>

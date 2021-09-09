@@ -1,0 +1,55 @@
+page {
+  -webkit-overflow-scrolling:touch;
+}
+
+.tabs-bottom {
+    position: fixed;
+    bottom: 0;
+    z-index: 8;
+    padding-top:5rpx;
+    width: 100%;
+    background-color: #FFF;
+    border-top: solid 1px #F8F8F8;
+    text-align: center;
+    display: flex;
+    height: 108rpx;
+    align-items: center;
+    justify-content: space-evenly
+}
+.b {
+    padding-bottom: 30rpx;
+}
+
+.tabs-bottom>.list {
+    width: 20%;
+    height: 75rpx;
+    position: relative;
+}
+
+.tabs-bottom>.list image {
+    width: 40rpx;
+    height: 40rpx;
+}
+
+.tabs-bottom >.list view {
+    height: 45rpx;
+}
+
+.tabs-bottom>.list .title {
+    font-size: 22rpx;
+    color: #7F8389;
+}
+
+
+.cartSum{
+  position: absolute;
+  top: -5rpx;
+  min-width: 20rpx;
+  background-color: #F63C38;
+  /* padding: 5rpx 9rpx; */
+  border-radius: 30rpx;
+  text-align: center;
+  color: #FFF;
+  font-size: 18rpx;
+  height: 20rpx;line-height: 20rpx;
+}

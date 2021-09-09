@@ -1,0 +1,23 @@
+<view class='base_shade' wx:if='{{show}}'>
+  <view class='base_shade_bgc' 
+  style='width:{{width? width + "rpx" : "580rpx"}}'>
+    <view class='base_shade_header' wx:if='{{content_title}}'>
+      <view class='header'>
+        <slot name='imgContainer' />
+        <image wx:if="{{isShowTitleImg}}" src='https://image.jiunidu.com/web/rens.png' class="header_img"/>
+        <text class='header_title' 
+        style='font-size:{{title ? title : "30rpx"}};color:{{titleColor ? titleColor : "#999"}};'>{{content_title}}</text>
+      </view>
+
+      <view class='header_body' 
+            style='font-size:{{size ? size : "32rpx"}};color:{{color ? color : "#1e2024"}};'>{{content_text}}</view>
+    </view>
+
+    <view class='button_container' wx:if='{{submit}}'>
+      <view class='line'></view>
+      <view class='btn' bind:tap="cancel" data-status='{{false}}'>取消</view>
+      <view class='btn right' bind:tap="submitButton" data-status='{{true}}'>{{affirm}}</view>
+    </view>
+
+  </view>
+</view>

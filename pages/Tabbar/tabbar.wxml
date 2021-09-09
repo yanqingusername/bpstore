@@ -1,0 +1,18 @@
+<view class='tabs'>
+    <Index wx:if='{{ current == 0 }}' id="index"  Loading='{{ Loading }}' bind:cart="cart" />
+
+    <Other wx:if='{{ current == 1 }}' id='other' Loading='{{ Loading }}' bind:cart="cart" checked="{{checked}}" />
+
+    <About  wx:if='{{ current == 2 }}' id='about' Loading='{{ Loading }}' bind:cart="cart" />
+
+    <About  wx:if='{{ current == 3 }}' id='about' Loading='{{ Loading }}' bind:cart="cart" />
+
+
+    <view class='tabs-bottom {{ phoneBool ? "b" : "" }}' fixed>
+        <view class='list' wx:for='{{ Menu }}' wx:key='index' bindtap='menuActive' data-id='{{index}}'>
+            <view><image src='{{ current == index ? item.ImageActive : item.Image }}' lazy-load /></view>
+            <view class='title' style='color: {{ current == index ? "#1E2024" : "#7F8389" }}'>{{ item.Name }}</view>
+        </view>
+    </view>
+</view>
+  

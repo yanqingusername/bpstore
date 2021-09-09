@@ -1,0 +1,214 @@
+var subStringName = function (val) {
+    if (!val) {
+      return false
+    }
+
+    return val.length > 4 ? val.substring(0,4) : val
+  }
+ 
+  var toFixedNumber = function (val) { 
+    if (!val) { 
+      return false 
+    } 
+ 
+    return val.toFixed(0) 
+  } 
+ 
+  var toDistanceNumber = function (val) { 
+    if (!val) { 
+      return false 
+    } 
+    val = val / 1000 
+ 
+    return val.toFixed(2) 
+  } 
+
+var toParseFloat = function (val) {
+  if (!val) {
+    return false
+  }
+  val = parseFloat(val)
+
+  return val.toFixed(2)
+} 
+  
+
+// 页面渲染完成后 调用
+var down = function (totalSecond,type) {
+  // let totalSecond = time - Date.parse(new Date())/1000;
+  // 秒数
+  var second = totalSecond;
+
+  // 天数位
+  var day = Math.floor(second / 3600 / 24);
+  var dayStr = day.toString();
+  if (dayStr.length == 1) dayStr = '0' + dayStr;
+
+
+  // 小时位
+  var hr = Math.floor((second - day * 3600 * 24) / 3600);
+  var hrStr;
+  hrStr = hr.toString();
+  // if (day > 0) hrStr = (day * 24 + hr).toString();
+  // else hrStr = hr.toString();
+  if (hrStr.length == 1) hrStr = '0' + hrStr;
+
+  // 分钟位
+  var min = Math.floor((second - day * 3600 * 24 - hr * 3600) / 60);
+  var minStr = min.toString();
+  if (minStr.length == 1) minStr = '0' + minStr;
+
+  // 秒位
+  var sec = second - day * 3600 * 24 - hr * 3600 - min * 60;
+  var secStr = sec.toString();
+  if (secStr.length == 1) secStr = '0' + secStr;
+
+  if (type == "shi") hrStr = hr + (day*24);
+
+  var obj = hrStr+":"+ minStr+":"+  secStr
+  return obj;
+
+}
+
+var monthDay = function (timeString) {
+  var month = timeString.substring(5,7)
+  var monthFloor = Math.floor(month)
+  var day = timeString.substring(8,10)
+  var dayFloor = Math.floor(day)
+  var saveDate = monthFloor + '月' + dayFloor + '日'
+  return saveDate
+}
+
+var timeString = function (timeString) {
+  if (!timeString) {
+    return false
+  }
+  var year = timeString.substring(0,4)
+  var yearFloor = Math.floor(year)
+  var month = timeString.substring(5,7)
+  var monthFloor = Math.floor(month)
+  var day = timeString.substring(8,10)
+  var dayFloor = Math.floor(day)
+  var saveDate = yearFloor + '.' + monthFloor + '.' + dayFloor
+  return saveDate
+}
+
+var toCoupon = function (val) { 
+  if (!val) { 
+    return false 
+  }
+  return (val * 10)
+} 
+
+
+var toNumber = function (val) { 
+  if (!val) { 
+    return false 
+  }
+  return Number(val)
+} 
+
+var toMathAbs = function (totalPayFee, coinFee) { 
+  var num = totalPayFee - coinFee
+  return Math.abs(num)
+}
+
+var jsondata=function(val){
+  return JSON.stringify(val)
+}
+
+var judge=function(val){
+  if (JSON.stringify(val) != "{}") {
+    return true
+  }else{
+    return false
+  }
+
+}
+
+// 根据用户登记id拼接标识图片 ( 注意: 需要和图片路径进行拼接!!! )
+var vip_grade = function (grade) {
+  switch (grade * 1) { // 把字符串等不确定数据类型转化为数字
+    case 1:
+      return 2;
+    case 2:
+      return 3;
+    case 3:
+      return 4;
+    case 4:
+      return 5;
+    case 5:
+      return 6;
+    case 12:
+      return 1;
+    case 11:
+      return 'ip';
+  }
+}
+
+var subStringNameTag = function (val) {
+  if (!val) {
+    return '';
+  }
+
+  return val.length > 3 ? (val.substring(0,3) + '...') : val;
+}
+
+var subStringNameTag1 = function (val) {
+    if (!val) {
+      return '';
+    }
+  
+    return val.length > 12 ? (val.substring(0,12) + '...') : val;
+  }
+
+  var subStringNameTag2 = function (val) {
+    if (!val) {
+      return '';
+    }
+  
+    return val.length > 7 ? (val.substring(0,7) + '...') : val;
+  }
+
+  var subStringNameTag3 = function (val) {
+    if (!val) {
+      return '';
+    }
+  
+    return val.length > 6 ? (val.substring(0,6) + '...') : val;
+  }
+
+
+  var lineFeed = function (val) {
+    if (!val) {
+      return '';
+    }
+  
+    return val.length >= 4 ? (val.substring(0,2) + '\n' + val.substring(2,4)) : val;
+  }
+
+  var toHide = function(array) {
+    var mphone = array.substring(0, 3) + '****' + array.substring(7);
+    return mphone;
+  }
+
+  module.exports = {
+    subStringName: subStringName, 
+    toFixedNumber: toFixedNumber, 
+    toDistanceNumber: toDistanceNumber,
+    toParseFloat: toParseFloat,
+    down: down,
+    monthDay: monthDay,
+    timeString: timeString,
+    toCoupon: toCoupon,
+    toNumber: toNumber,
+    toMathAbs: toMathAbs,
+    jsondata: jsondata,
+    vip_grade: vip_grade,
+    judge: judge,
+    subStringNameTag: subStringNameTag,
+    subStringNameTag2: subStringNameTag2,
+    lineFeed: lineFeed,
+    subStringNameTag3: subStringNameTag3,
+    toHide: toHide
+  }

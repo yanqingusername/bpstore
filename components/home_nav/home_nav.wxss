@@ -1,0 +1,13 @@
+.nav_box {
+  position: fixed;
+  right: 30rpx;
+  bottom: 130rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 99;
+}
+.nav_box image {
+  width: 70rpx;
+  height: 70rpx;
+}

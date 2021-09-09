@@ -1,0 +1,9 @@
+{
+    "usingComponents": {
+        "Index": "/components/Index/index",
+        "Other": "/components/Other/index",
+        "About":"/components/About/index"
+    },
+    "enablePullDownRefresh": true,
+    "onReachBottomDistance": 10
+}

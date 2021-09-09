@@ -1,0 +1,11 @@
+<van-transition show="{{ show }}" custom-class="block">
+    <view class='setting'>
+        <view class='list'>
+            <view class='title'>版本号</view>
+            <view class='set'><text style='margin-right:20rpx'>{{ version }}</text></view>
+        </view>
+        <view class='list' bindtap='clearStorageButton'>
+            <view class='title'>清除缓存</view>
+        </view>
+    </view>
+</van-transition>

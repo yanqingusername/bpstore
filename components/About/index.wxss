@@ -1,0 +1,11 @@
+page{
+    background: #eeeeee;
+}
+
+.user_over {
+    height: 100%;
+    position: fixed;
+    width: 100%;
+    overflow: hidden;
+  }
+

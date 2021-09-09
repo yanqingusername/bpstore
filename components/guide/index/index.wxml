@@ -1,0 +1,41 @@
+<!-- 幕帘模板 -->
+<view class='shade' wx:if='{{show}}'>
+  <view class='add'>
+    <view class='triangle'></view>
+    <view style='font-weight:bold;'>点击“添加到我的小程序”</view>
+  </view>
+
+  <view class='cantent'>
+    <view class='cantent_left'>
+      <image src='../../utils/image/add.png'  />
+    </view>
+    <view class='cantent_right'>
+
+      <view>
+        <text>点击右上角</text>
+        <view class='cantent_grid'>
+          <view class='last'></view>
+          <view class='middle'></view>
+          <view class='last'></view>
+        </view>
+      </view>
+
+      <view class='text_last'>选择“添加到我的小程序”</view>
+    </view>
+  </view>
+
+  <view class='cantent_last'>
+    <view class='cantent_left_last'>
+      <view class='border_box'>
+        <view class='pic_container'>
+          <image class='pic' src='../../utils/image/logo.png' />
+        </view>
+        <view class='text_font'>BP数字产业平台</view>
+      </view>
+    </view>
+    <view class='cantent_right'>
+      <view class='text_content_last'>回到微信首页，下拉界面快速找到我</view>
+    </view>
+  </view>
+  <image src='../../utils/image/konw.png' class='konw' bindtap='close' />
+</view>

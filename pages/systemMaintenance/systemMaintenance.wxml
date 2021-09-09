@@ -1,0 +1,5 @@
+<view class="sys_manage">
+    <image class="" src="../../utils/image/sys_manage.png" mode="aspectFit|aspectFill|widthFix" lazy-load />
+    <view class="zhawu" >{{titleMessage}}</view>
+    <!-- <view class="zhawu" style="margin-top:10px;">请您稍后再来</view> -->
+</view>

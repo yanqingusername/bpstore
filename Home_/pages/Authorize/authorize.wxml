@@ -1,0 +1,27 @@
+<view class='wx_login'>
+  <van-transition show="{{ SHOW }}" custom-class="block">
+    <view class='model' style='height:800rpx'>
+      <view class='logo'>
+        <image src='https://image.jiunidu.com/web/login.png' style='width:226rpx;height:268rpx' />
+        <view style="font-size:40rpx;font-weight:bold;color:rgba(54,21,7,1);margin-top:20rpx;" >BP数字产业平台</view>
+      </view>
+      <view class='info'>使用微信账号快捷登录</view>
+      <view style="display: flex;">
+          <button class='bottom1' type='primary' lang="zh_CN" bindtap="refuse" style="margin-right: 26rpx;">
+            取消
+          </button>
+
+          <button wx:if='{{ AuthStatus }}' class='bottom' type='primary' open-type="getPhoneNumber" lang="zh_CN"
+            bindgetphonenumber="bindPhoneNumber">
+            微信授权手机号
+          </button>
+          <button wx:else class='bottom' type='primary' open-type="getUserInfo" lang="zh_CN"
+            bindgetuserinfo="bindGetUserInfo">
+            微信授权用户信息
+          </button>
+      </view>
+      
+    </view>
+    <van-toast id="van-toast" />
+  </van-transition>
+</view>

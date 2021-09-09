@@ -1,0 +1,3 @@
+<view class="nav_box">
+    <image  src="../../utils/image/home_nav.png" bindtap="route" class="home_nav"></image>
+</view> 

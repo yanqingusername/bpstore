@@ -1,0 +1,21 @@
+<wxs src="../../utils/substring.wxs" module="tools" />
+
+<v-guide bind:close='firstLogin' show='{{firstDo}}' catchtouchmove="doNothing" />
+
+
+<view class="root">
+  <!-- 页面内容 -->
+  <van-transition custom-class="block">
+
+   <view class="" >BP数字产业平台</view>
+
+
+
+  
+
+    <!-- 底部留白区域, 不受各模块影响 -->
+    <view class="root-bottom"></view>
+   
+
+  </van-transition>
+</view>

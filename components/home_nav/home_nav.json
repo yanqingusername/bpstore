@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-transition": "/components/vant/transition/index",
+    "van-popup": "/components/vant/popup/index"
+  },
+  "component": true
+}

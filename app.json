@@ -1,0 +1,32 @@
+{
+  "pages": [
+    "pages/Tabbar/tabbar",
+    "pages/noNetwork/noNetwork",
+    "pages/Setting/setting",
+    "pages/systemMaintenance/systemMaintenance"
+  ],
+  "subpackages": [
+    {
+      "root": "Home_",
+      "pages": [
+        "pages/Authorize/authorize"
+      ]
+    }
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于自动定位城市,以便快速体验功能服务."
+    }
+  },
+  "networkTimeout": {
+    "request" : 20000
+  },
+  "window": {
+    "backgroundTextStyle": "dark",
+    "backgroundColor": "#f5f5f5",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "black"
+  },
+  "sitemapLocation": "sitemap.json"
+}

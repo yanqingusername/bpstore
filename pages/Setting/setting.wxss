@@ -1,0 +1,29 @@
+page {
+    background-color: #F5F5F5
+}
+
+.setting {
+    margin-top: 20rpx;
+    background-color: #fff;
+}
+
+.setting .list {
+    display: flex;
+    justify-content: space-between;
+    font-size: 34rpx;
+    color: #1E2024;
+    padding: 0 30rpx;
+    line-height: 110rpx;
+    border-bottom: solid 1rpx #F5F5F5;
+}
+
+.setting .list .set {
+    color: #7F8389;
+    display: flex;
+}
+
+.setting .list .set image {
+    transform: rotate(270deg);
+    margin-top:52rpx;
+
+}

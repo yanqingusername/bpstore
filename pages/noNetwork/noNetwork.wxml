@@ -1,0 +1,5 @@
+<view class="wu" >
+    <image class="" src="https://image.jiunidu.com/web/wuwangluo.png" mode="aspectFit|aspectFill|widthFix" lazy-load />
+    <view class="zhawu" >网络异常，请刷新重试</view>
+    <view class="newadd" bindtap='refresh' >刷新</view>
+</view>
