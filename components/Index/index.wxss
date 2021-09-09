@@ -2,4 +2,13 @@
   background-color: #eee;
 }
 
+.search {
+  display: flex;
+}
+.search-input {
 
+}
+.search-add {
+  width: 44rpx;
+  height: 44rpx;
+}

@@ -2,12 +2,31 @@
 
 <v-guide bind:close='firstLogin' show='{{firstDo}}' catchtouchmove="doNothing" />
 
-
 <view class="root">
   <!-- 页面内容 -->
   <van-transition custom-class="block">
+    <view class="search">
+      <view class="search-input">
+        <van-field
+          value="{{ searchVal }}"
+        />
+      </view>
 
-   <view class="" >BP数字产业平台！</view>
+      <image class="search-add" />
+    </view>
+
+    <van-tabs sticky>
+      <van-tab title="推荐">
+        <view>
+          <scroll-view>
+
+          </scroll-view>
+        </view>
+      </van-tab>
+      <van-tab title="标签 2">内容 2</van-tab>
+      <van-tab title="标签 3">内容 3</van-tab>
+      <van-tab title="标签 4">内容 4</van-tab>
+    </van-tabs>
 
 
 
@@ -15,7 +34,6 @@
 
     <!-- 底部留白区域, 不受各模块影响 -->
     <view class="root-bottom"></view>
-   
 
   </van-transition>
 </view>

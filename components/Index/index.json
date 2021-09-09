@@ -9,7 +9,8 @@
     "v-base-guide": "/components/guide/base/index",
     "van-icon": "/components/vant/icon/index",
     "van-stepper": "/components/vant/stepper/index",
-    "van-notice-bar": "/components/vant/notice-bar/index"
+    "van-notice-bar": "/components/vant/notice-bar/index",
+    "van-field": "/components/vant/field/index"
   },
   "component": true
 }
