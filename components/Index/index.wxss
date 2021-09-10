@@ -90,12 +90,46 @@ swiper {
 .activity-item {
   width: 100%;
   height: 256rpx;
+  padding: 35rpx 24rpx 20rpx;
   border-radius: 12rpx;
   box-sizing: border-box;
   box-shadow: 0 0 10rpx #b4b2b2;
   z-index: 2;
   background-color: #fff;
   position: relative;
+}
+.activity-item-title {
+  font-size: 26rpx;
+}
+.activity-item-content {
+  display: flex;
+  height: 152rpx;
+  margin-top: 24rpx;
+  box-sizing: border-box;
+}
+.activity-item-content-right {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  margin-left: 30rpx;
+}
+.activity-item-content-right-item {
+  display: flex;
+  align-items: center;
+}
+.activity-item-content-right-item > text {
+  color: #8C96A4;
+  font-size: 24rpx;
+}
+.activity-item-content-right > view > image {
+  width: 30rpx;
+  height: 30rpx;
+  margin-right: 21rpx;
+}
+.activity-item-content > image {
+  width: 245rpx;
+  height: 152rpx;
 }
 
 .activity-item-copy {
@@ -110,4 +144,93 @@ swiper {
   top: 20rpx;
   transform: translateX(-50%);
   z-index: 1;
+}
+
+/* 行业达人 */
+.expert {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 25rpx 8rpx;
+  box-sizing: border-box;
+}
+.expert-item {
+  width: 32%;
+  height: 208rpx;
+  padding: 25rpx 25rpx 0;
+  border: 1px solid #eee;
+  border-radius: 8rpx;
+  box-sizing: border-box;
+  text-align: center;
+  margin-bottom: 28rpx;
+}
+.expert-item:nth-child(3n-1) {
+  margin: 0 10rpx;
+}
+.expert-item-avatar {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  background-color: aqua;
+}
+.expert-item-name {
+  font-size: 26rpx;
+  margin: 10rpx 0 12rpx;
+}
+.expert-item-company {
+  font-size: 22rpx;
+  color: #8C96A4;
+}
+
+/* 案例 */
+.case-container {
+  padding: 0 51rpx 0 21rpx;
+  box-sizing: border-box;
+}
+.case {
+  display: flex;
+  box-sizing: border-box;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 42rpx;
+}
+.case-avatar {
+  flex-shrink: 0;
+  width: 72rpx;
+  margin-right: 20rpx;
+}
+.case-avatar > image {
+  width: 100%;
+  height: 71rpx;
+  border-radius: 50%;
+}
+.case-right {
+  flex: 1;
+}
+.case-right-title {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.case-right-content {
+  margin-top: 28rpx;
+  color: #616E7B;
+  font-size: 28rpx;
+}
+.case-right-type {
+  font-size: 22rpx;
+  color: #ACBBCB;
+  margin-top: 31rpx;
+}
+.case-right-tag {
+  display: flex;
+}
+.case-right-tag > view {
+  display: flex;
+  height: 42rpx;
+  align-items: center;
+  padding: 0 10rpx;
+  font-size: 24rpx;
+  color: #00C0C2;
+  border: 1px solid #00C0C2;
+  box-sizing: border-box;
+  border-radius: 2rpx;
+  margin-top: 21rpx;
 }

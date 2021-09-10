@@ -17,7 +17,7 @@
     </view>
 
     <van-tabs sticky>
-      <van-tab title="推荐">
+      <van-tab title="推荐" active="{{ 0 }}">
         <view class="context">
           <view class="recommend">
             <view class="recommend-title">达人推荐</view>
@@ -41,17 +41,62 @@
 
           <view class="card-container">
             <view>
-              <Card>
+              <Card title="最新活动">
                 <view class="activity">
-                  <view class="activity-item"></view>
+                  <view class="activity-item">
+                    <view class="activity-item-title omit">活动预告丨前景可期！“生物医药半+导体硬科技专场”</view>
+                    <view class="activity-item-content">
+                      <image />
+                      <view class="activity-item-content-right">
+                        <view class="activity-item-content-right-item">
+                          <image src="/pages/assets/images/record.png" />
+                          <text class="omit">2021/7/19-2021/7/19</text>
+                        </view>
+                        <view class="activity-item-content-right-item">
+                          <image src="/pages/assets/images/site.png" />
+                          <text class="omit">线下活动</text>
+                        </view>
+                        <view class="activity-item-content-right-item">
+                          <image src="/pages/assets/images/attention.png" />
+                          <text class="omit">BP数字产业平台</text>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
                   <view class="activity-item-copy"></view>
                 </view>
               </Card>
             </view>
 
             <view>
-              <Card>
-                <view ></view>
+              <Card title="行业达人">
+                <view class="expert">
+                  <view wx:for="{{5}}" class="expert-item">
+                    <image class="expert-item-avatar" />
+                    <view class="expert-item-name">sssss</view>
+                    <view class="expert-item-company omit">阿里巴巴集团创fag1</view>
+                  </view>
+                </view>
+              </Card>
+            </view>
+
+            <view>
+              <Card title="经典案例">
+                <view class="case-container">
+                  <view class="case">
+                    <view class="case-avatar">
+                      <image  />
+                    </view>
+                    <view class="case-right">
+                      <view class="case-right-title">刘佳欣正式出任大众安徽CEO</view>
+                      <view class="case-right-content multi-row">裴健如6月1日，大众汽车（安徽）有限公司（以下简称大众安徽）发布人事任命，自2021年6月1日起，配件如正式出任大众…</view>
+                      <view class="case-right-type">深圳市</view>
+                      <view class="case-right-tag">
+                        <view>安徽大众汽车</view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
               </Card>
             </view>
           </view>

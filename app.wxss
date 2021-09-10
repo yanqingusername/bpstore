@@ -27,6 +27,13 @@ image {
   white-space: nowrap;
   text-overflow: ellipsis;
 }
+.multi-row {
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
 /* 文本省略字符 end */
 
 /* 按钮 start */
