@@ -1,0 +1,89 @@
+<view class="search">
+  <view class="search-input">
+    <van-search
+      value="{{ searchVal }}"
+      custom-class="search-input"
+      shape="round"
+      placeholder="搜索案例、单位、达人"
+    />
+    
+    <view class="search-input-cancel">取消</view>
+  </view>
+
+  <view class="search-history-container" wx:if="{{ false }}">
+    <view class="search-history">
+      <view class="search-history-header">
+        <text >历史记录</text>
+        <image src="/pages/assets/images/del.png" />
+      </view>
+      <view class="search-history-main">
+        <view wx:for="{{ 5 }}" class="search-history-main-item">极客帮创投</view>
+      </view>
+    </view>
+
+    <view class="search-history">
+      <view class="search-history-header">
+        <text >热门搜索</text>
+      </view>
+      <view class="search-history-main">
+        <view wx:for="{{ 5 }}" class="search-history-main-item">极客帮创投</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 搜索结果 -->
+  <view class="search-result" wx:else>
+    <view class="search-result-case">
+      <view class="search-result-case-header">
+        <view>案例（21）</view>
+        <view>更多</view>
+      </view>
+      <view class="search-result-case-main">
+        <view class="avatar-container">
+          <image  />
+        </view>
+        <view class="content-container">
+          <view class="content-container-title">刘佳萝卜式出任大众安徽CEO</view>
+          <view class="multi-row">裴健如6月1日，大众汽车（安徽）有限公司（以下简称大众安徽）发布人事任命，自2021年6月1日起，配件如正式出任大众…</view>
+          <view> 深圳市</view>
+        </view>
+      </view>
+    </view>
+    <view class="search-result-expert">
+      <view class="search-result-case-header">
+        <view>达人（21）</view>
+        <view>更多</view>
+      </view>
+
+      <view class="search-result-expert-main">
+        <view class="search-result-expert-main-item" wx:for="{{ 2 }}">
+          <image  />
+          <view class="figure">
+            <view >Jisen 奥</view>
+            <view >耳东影业</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="search-result-unit">
+      <view class="search-result-case-header">
+        <view>单位（21）</view>
+        <view>更多</view>
+      </view>
+
+      <view class="search-result-unit-container">
+        <view >
+          <view class="logo">
+            <image  />
+          </view>
+
+          <view class="search-result-unit-container-right">
+            <view >中国萝卜石化</view>
+            <view class="omit">石油贸易、石油开发与化工等</view>
+            <view >中央企业</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

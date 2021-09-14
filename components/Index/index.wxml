@@ -6,12 +6,10 @@
   <!-- 页面内容 -->
   <van-transition custom-class="block">
     <view class="search">
-      <van-search
-        value="{{ searchVal }}"
-        custom-class="search-input"
-        shape="round"
-        placeholder="请输入搜索关键词"
-      />
+      <view class="serch-container" bindtap="navigationToPage">
+        <image src="/pages/assets/images/search.png" />
+        <text>搜索案例、单位、达人</text>
+      </view>
 
       <image class="search-add" src="/pages/assets/images/add.png" />
     </view>

@@ -53,6 +53,11 @@ Component({
 
     },
     methods: {
+			navigationToPage(page) {
+				wx.navigateTo({
+					url: '/pages/search/index'
+				})
+			},
         /**
          * 公共路由跳转方法
          * @param {String/Obejct} url 传入string即跳转, 传入事件对象默认取dataset中的 url 参数

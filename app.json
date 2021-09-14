@@ -3,7 +3,8 @@
     "pages/Tabbar/tabbar",
     "pages/noNetwork/noNetwork",
     "pages/Setting/setting",
-    "pages/systemMaintenance/systemMaintenance"
+    "pages/systemMaintenance/systemMaintenance",
+    "pages/search/index"
   ],
   "subpackages": [
     {
