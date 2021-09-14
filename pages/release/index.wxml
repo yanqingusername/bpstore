@@ -1,0 +1,31 @@
+<view class="release">
+  <view class="release-container">
+    <view class="release-main">
+      <view class="title">
+        <van-field
+          value=""
+          placeholder="请输入案例标题"
+          border="{{ false }}"
+        />
+      </view>
+      <view class="content">
+        <view>
+          <van-field
+            value="{{ message }}"
+            type="textarea"
+            placeholder="请填写案例背景"
+            autosize
+            border="{{ false }}"
+          />
+        </view>
+      </view>
+    </view>
+
+    <view class="release-option">
+      <view wx:for="{{ opitonList }}">
+        <image src="{{ item.icon }}" />
+        <view >{{ item.text }}</view>
+      </view>
+    </view>
+  </view>
+</view>

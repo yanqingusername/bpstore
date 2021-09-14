@@ -4,7 +4,8 @@
     "pages/noNetwork/noNetwork",
     "pages/Setting/setting",
     "pages/systemMaintenance/systemMaintenance",
-    "pages/search/index"
+    "pages/search/index",
+    "pages/release/index"
   ],
   "subpackages": [
     {

@@ -6,7 +6,7 @@
     </view>
     <view class="card-container-header-right">
       <view>查看全部</view>
-      <image src="/pages/assets/images/arrows-right.png"/>
+      <image src="/assets/images/arrows-right.png"/>
     </view>
   </view>
   

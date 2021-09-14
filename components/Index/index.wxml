@@ -6,12 +6,16 @@
   <!-- 页面内容 -->
   <van-transition custom-class="block">
     <view class="search">
-      <view class="serch-container" bindtap="navigationToPage">
-        <image src="/pages/assets/images/search.png" />
+      <view class="serch-container" data-page="search" bindtap="navigationToPage">
+        <image src="/assets/images/search.png" />
         <text>搜索案例、单位、达人</text>
       </view>
 
-      <image class="search-add" src="/pages/assets/images/add.png" />
+      <image class="search-add"
+        src="/assets/images/add.png"
+        data-page="release"
+        catchtap="navigationToPage" 
+      />
     </view>
 
     <van-tabs sticky>
@@ -47,15 +51,15 @@
                       <image />
                       <view class="activity-item-content-right">
                         <view class="activity-item-content-right-item">
-                          <image src="/pages/assets/images/record.png" />
+                          <image src="/assets/images/record.png" />
                           <text class="omit">2021/7/19-2021/7/19</text>
                         </view>
                         <view class="activity-item-content-right-item">
-                          <image src="/pages/assets/images/site.png" />
+                          <image src="/assets/images/site.png" />
                           <text class="omit">线下活动</text>
                         </view>
                         <view class="activity-item-content-right-item">
-                          <image src="/pages/assets/images/attention.png" />
+                          <image src="/assets/images/attention.png" />
                           <text class="omit">BP数字产业平台</text>
                         </view>
                       </view>

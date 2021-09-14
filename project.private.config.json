@@ -1,4 +1,5 @@
 {
+  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -12,8 +13,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/search/index",
-          "pathName": "pages/search/index",
+          "name": "pages/release/index",
+          "pathName": "pages/release/index",
           "query": "",
           "scene": null
         }

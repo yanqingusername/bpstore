@@ -53,9 +53,10 @@ Component({
 
     },
     methods: {
-			navigationToPage(page) {
+			navigationToPage(e) {
+                const { page } = e.target.dataset
 				wx.navigateTo({
-					url: '/pages/search/index'
+					url: `/pages/${ page }/index`
 				})
 			},
         /**

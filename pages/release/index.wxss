@@ -1,0 +1,51 @@
+.van-cell {
+  padding: 10px 0 !important;
+}
+
+.release {
+  width: 100vw;
+  height: 100vh;
+  padding: 28rpx 20rpx 0;
+  background-color: #F6F6F6;
+  box-sizing: border-box;
+}
+.release-container {
+  height: 490rpx;
+  border-radius: 20rpx;
+  background-color: #fff;
+  box-sizing: border-box;
+}
+.release-main {
+  height: 373rpx;
+  padding: 0 35rpx 35rpx;
+  box-sizing: border-box;
+}
+.title {
+  height: 118rpx;
+  padding-top: 10rpx;
+  border-bottom: 1px solid #eee;
+  box-sizing: border-box;
+}
+
+.content > view:first-child {
+  padding-top: 20rpx;
+  height: 254rpx;
+  box-sizing: border-box;
+}
+.release-option {
+  display: flex;
+  justify-content: space-between;
+}
+.release-option > view {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 26rpx;
+  color: #8C96A4;
+}
+.release-option > view > image {
+  width: 42rpx;
+  height: 42rpx;
+  margin-bottom: 15rpx;
+}
