@@ -11,14 +11,7 @@
       "list": []
     },
     "miniprogram": {
-      "list": [
-        {
-          "name": "pages/release/index",
-          "pathName": "pages/release/index",
-          "query": "",
-          "scene": null
-        }
-      ]
+      "list": []
     }
   }
 }

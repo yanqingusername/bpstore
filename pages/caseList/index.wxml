@@ -1,0 +1,13 @@
+<view class="case-list">
+  <view class="search">
+    <view class="serch-container" data-page="search" bindtap="navigationToPage">
+      <image src="/assets/images/search.png" />
+      <text>搜索案例、单位、达人</text>
+    </view>
+    <image class="search-add"
+      src="/assets/images/add.png"
+      data-page="release"
+      catchtap="navigationToPage" 
+    />
+  </view>
+</view>

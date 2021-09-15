@@ -1,8 +1,6 @@
 {
   "usingComponents": {
-    "van-field": "/components/vant/field",
-    "van-radio": "/components/vant/radio/index",
-    "van-radio-group": "/components/vant/radio-group/index"
+    "van-field": "/components/vant/field"
   },
   "component": true,
   "navigationBarTitleText": "发布案例"
