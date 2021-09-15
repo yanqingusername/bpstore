@@ -28,4 +28,82 @@
       </view>
     </view>
   </view>
+
+  <view class="common">
+    <view class="common-header">案例介绍</view>
+    <view class="common-main">
+      <view class="area">
+        <text >七大区</text>
+        <view >
+          <text >请选择</text>
+          <image src="/assets/images/arrow-right2.png" />
+        </view>
+      </view>
+
+      <view class="area">
+        <text >省份城市</text>
+        <view >
+          <text >请选择</text>
+          <image src="/assets/images/arrow-right2.png" />
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="common">
+    <view class="common-header">其它设置</view>
+    <view class="common-main">
+      <view class="area">
+        <text >面向行业</text>
+        <view >
+          <text >请选择</text>
+          <image src="/assets/images/arrow-right2.png" />
+        </view>
+      </view>
+
+      <view class="area">
+        <text >添加标签</text>
+        <view >
+          <text >请选择</text>
+          <image src="/assets/images/arrow-right2.png" />
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="common">
+    <view class="common-header">备注</view>
+    <view class="textarea-container">
+      <van-field
+        value="{{ message }}"
+        type="textarea"
+        placeholder="请填写备注说明…"
+        autosize
+        maxlength="{{ 200 }}"
+        border="{{ false }}"
+      />
+    </view>
+  </view>
+
+  <view class="select-container">
+    <view class="select-container-item">
+      <image src="{{ isJoin ? checkActiveImage : checkImage }}"  />
+      <view >
+        <text >是否参加</text>
+        <text >《BP案例大赛台》</text>
+      </view>
+    </view>
+
+    <view class="select-container-item">
+      <image src="{{ isJoin ? checkActiveImage : checkImage }}"  />
+      <view >
+        <text >已阅读并同意</text>
+        <text >《BP数字产品平台》</text>
+      </view>
+    </view>
+  </view>
+
+  <view class="btn">
+    <view>提交发布</view>
+  </view>
 </view>

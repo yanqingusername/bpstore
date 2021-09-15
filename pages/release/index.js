@@ -17,6 +17,9 @@ Page({
         icon: '/assets/images/compile.png',
         text: '文字'
       }
-    ]
+    ],
+    checkImage: '/assets/images/check.png',
+    checkActiveImage: '/assets/images/check-active.png',
+    isJoin: true
   }
 })
