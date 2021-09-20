@@ -1,0 +1,65 @@
+<wxs src="../../../utils/substring.wxs" module="tools" />
+<view class="mine-container" >
+   
+
+    <view class="mine-collection-view">
+            <view class="mine-collection-item" style="border-bottom: 1rpx solid #E8E8E8;" bind:tap="routerUrl" data-url="../SystemMessage/index">
+                <view class="mc-left">
+                    <image class="mc-left-img" src='/utils/image/icon-mine-09-09-11.png' />
+                </view>
+                <view class="mc-right">
+                    <view class="mc-right-title">
+                        <view class="mc-right-content omit">系统消息</view>
+                        <view class="mc-right-sub">星期二</view>
+                    </view>
+                    <view class="mc-right-lable omit">平台小助手恭喜您的加入BP平台大家庭</view>
+                   
+                </view>
+            </view>
+            <view class="mine-collection-item" style="border-bottom: 1rpx solid #E8E8E8;" bind:tap="routerUrl" data-url="../InteractiveMessage/index">
+                <view class="mc-left">
+                    <image class="mc-left-img" src='/utils/image/icon-mine-09-09-13.png' />
+                </view>
+                <view class="mc-right">
+                    <view class="mc-right-title">
+                        <view class="mc-right-content omit">互动消息</view>
+                        <view class="mc-right-sub">星期二</view>
+                    </view>
+                    <view class="mc-right-lable omit">全站招募1000位设计师新手，BP平台领域打…</view>
+                   
+                </view>
+            </view>
+            <view class="mine-collection-item">
+                <view class="mc-left">
+                    <image class="mc-left-img" src='/utils/image/icon-mine-09-09-12.png' />
+                </view>
+                <view class="mc-right">
+                    <view class="mc-right-title">
+                        <view class="mc-right-content omit">BP客服</view>
+                        <view class="mc-right-sub">刚刚</view>
+                    </view>
+                    <view class="mc-right-lable omit">您好，我是BP小秘书</view>
+                   
+                </view>
+            </view>
+    </view>
+    <view class="mm-line"></view>
+    <view class="mine-collection-view" style="padding: 0rpx 30rpx 30rpx 30rpx;">
+        <block wx:for="{{10}}" wx:key="index">
+            <view class="mine-collection-item" style="border-bottom: 1rpx solid #E8E8E8;">
+                <view class="mm-left">
+                    <image class="mm-left-img" src='/utils/image/icon-mine-09-09-11.png' />
+                </view>
+                <view class="mc-right">
+                    <view class="mc-right-title">
+                        <view class="mc-right-content omit">罗伯特</view>
+                        <view class="mc-right-sub">星期二</view>
+                    </view>
+                    <view class="mc-right-lable omit">欢迎您，非常高兴加入BP数字创业平台，您…</view>
+                   
+                </view>
+            </view>
+        </block>
+    </view>
+    
+</view>

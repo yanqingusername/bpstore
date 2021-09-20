@@ -5,7 +5,7 @@
 
     <About  wx:if='{{ current == 2 }}' id='about' Loading='{{ Loading }}' bind:cart="cart" />
 
-    <About  wx:if='{{ current == 3 }}' id='about' Loading='{{ Loading }}' bind:cart="cart" />
+    <Mine  wx:if='{{ current == 3 }}' id='about' Loading='{{ Loading }}' bind:cart="cart" />
 
 
     <view class='tabs-bottom {{ phoneBool ? "b" : "" }}' fixed>

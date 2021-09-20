@@ -1,0 +1,160 @@
+page{
+    background: #FFFFFF !important;
+}
+
+.mine-container{
+    background-color:#FFFFFF;
+    height: 100%;
+}
+
+.mine-header{
+    padding: 10rpx 40rpx 30rpx 20rpx;
+}
+
+.mine-header-between{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mine-header-left{
+    width: 70%;
+    display: flex;
+    align-items: center;
+}
+
+.mine-header-img{
+    width: 112rpx;
+    height: 112rpx;
+}
+
+.mine-header-name{
+    font-size: 48rpx;
+    font-weight: bold;
+    color: #242B37;
+    margin-left: 17rpx;
+}
+
+.mine-header-right{
+    position: relative;
+}
+.mine-header-message{
+    width: 40rpx;
+    height: 40rpx;
+}
+.message-radius{
+    position: absolute;
+    top: -8rpx;
+    right: -6rpx;
+    width: 18rpx;
+    height: 18rpx;
+    background: #DE4F45;
+    border: 1px solid #FFFFFF;
+    border-radius: 50%;
+}
+.mine-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 138rpx;
+    height: 40rpx;
+    background: #F7F7F7;
+    border-radius: 20rpx;
+    font-size: 20rpx;
+    font-weight: bold;
+    color: #181D24;
+    margin-top: 20rpx;
+    margin-left: 143rpx;
+}
+.mine-bottom{
+    display: flex;
+    flex: 1;
+    margin-top: 0rpx;
+    padding-bottom: 30rpx;
+}
+.mine-bottom-item{
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.mine-bottom-item-numbe{
+    font-size: 28rpx;
+    font-weight: bold;
+    color: #242B37;
+}
+.mine-bottom-item-title{
+    margin-top: 12rpx;
+    font-size: 22rpx;
+    font-weight: 500;
+    color: #8C96A4;
+}
+.mine-view{
+    border-top: 20rpx solid #F6F6F6;
+}
+
+.mine-view-between{
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+}
+
+.mine-view-left{
+    width: 38rpx;
+    height: 38rpx;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30rpx 25rpx 30rpx 30rpx;
+}
+
+.mine-view-img{
+    width: 38rpx;
+    height: 38rpx;
+}
+
+.mine-view-between-right{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 30rpx 30rpx 30rpx 0rpx;
+    border-bottom: 1px solid #F4F4F4;
+    width: 100%;
+}
+
+.mine-view-name{
+    font-size: 28rpx;
+    font-weight: bold;
+    color: #242B37;
+}
+.mine-view-arrow{
+    width: 16rpx;
+    height: 25rpx;
+}
+
+.mine-view-text{
+    font-size: 24rpx;
+    font-weight: 500;
+    color: #8C96A4;
+    margin-right: 20rpx;
+}
+
+.mine-view-radius{
+    width: 18rpx;
+    height: 18rpx;
+    background: #DE4F45;
+    border: 1px solid #FFFFFF;
+    border-radius: 50%;
+    margin-right: 20rpx;
+}
+
+.mine-view-button{
+    display: flex;
+    align-items: center;
+    padding: 0rpx;
+    background: #FFFFFF;
+    height: 106rpx;
+}
+button::after{
+    border: none;
+}

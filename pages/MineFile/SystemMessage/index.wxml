@@ -1,0 +1,29 @@
+<wxs src="../../../utils/substring.wxs" module="tools" />
+<view class="mine-container" >
+   
+
+    <view class="mine-collection-view">
+        <block wx:for="{{3}}" wx:key="index">
+            <view class="mine-collection-item">
+                <view class="sysm-time">2016.12.29  14:09</view>
+                <!-- <view class="sysm-view">
+                    <view class="sysm-content omit">欢迎来到简乐团，小乐等你好久了~</view>
+                    <view class="sysm-sub line-clampz2">欢迎来到BP系统，小B等你好久了~海量商品任您挑选，边开团。BP数字产业联盟等招募令 创始人携导师团与您共…</view>
+                </view> -->
+                <view class="sysm-view-item">
+                    <view class="sysm-content omit">长臂欧巴邀约您搞一件大事儿~</view>
+                    <view class="sysm-v-view">
+                        <image class="mc-left-img" src='/utils/image/icon_help_09_14_01.png' />
+                        <view class="mc-right">
+                            <view class="mc-right-title">北京丰台香醇崂山啤酒</view>
+                            <view class="mc-right-content line-clampz2">北京昌平香醇崂山啤酒，商品介绍内容思考是阿斯加德辣椒水懒得看案例三等奖</view>
+                        </view>
+                    </view>
+            
+                </view>
+            </view>
+        </block> 
+    </view>
+   
+    
+</view>

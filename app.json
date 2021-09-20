@@ -5,7 +5,18 @@
     "pages/Setting/setting",
     "pages/systemMaintenance/systemMaintenance",
     "pages/search/index",
-    "pages/release/index"
+    "pages/release/index",
+    "pages/MineFile/MineCollection/index",
+    "pages/MineFile/MineFollow/index",
+    "pages/MineFile/MineCertification/index",
+    "pages/MineFile/TalentCertification/index",
+    "pages/MineFile/UnitCertification/index",
+    "pages/MineFile/MineLikeIt/index",
+    "pages/MineFile/MineFans/index",
+    "pages/MineFile/MinePostedIt/index",
+    "pages/MineFile/MineMessage/index",
+    "pages/MineFile/SystemMessage/index",
+    "pages/MineFile/InteractiveMessage/index"
   ],
   "subpackages": [
     {

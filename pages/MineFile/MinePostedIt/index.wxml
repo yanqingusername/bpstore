@@ -1,0 +1,44 @@
+<wxs src="../../../utils/substring.wxs" module="tools" />
+<van-transition show="{{ true }}" custom-class="block">
+<view class="mine-container" >
+    <view class="mine-header" >
+        <van-search 
+        value="{{ kerword }}" 
+        placeholder="搜索案例" 
+        bind:change='searchChange' 
+        shape='round' 
+        bind:search="onSearch" 
+        bind:cancel="onCancel" />
+    </view>
+
+    <view class="mine-collection-view">
+        <block wx:for="{{10}}" wx:key="index">
+            <view class="mine-collection-item">
+                <!-- <view class="mc-right"> -->
+                    <view class="mc-right-title">一叶回答音乐类汇总</view>
+                    <view class="mc-right-content">音响调整到位，能接触更多好录音。</view>
+                   <view class="mc-b-view">
+                        <view class="mc-right-sub">深圳市 | 销售行业</view>
+                        <image bind:tap="deleteClick" class="mc-b-img" src='/utils/image/icon-mine-09-09-09.png' />
+                   </view>
+                <!-- </view> -->
+            </view>
+        </block>
+    </view>
+    
+</view>
+
+
+    <van-popup show="{{ isShow }}" bind:close="onClose" position="top" class="van-popup">
+      <view class="popup-posted">
+        <view class="popup-posted-view" style="border-bottom: 1px solid #EEEEEE;">
+            <image class="popup-posted-img" src='/utils/image/icon-mine-09-09-10.png' />
+            <view class="popup-posted-title">删除案例</view>
+        </view>
+        <view class="popup-posted-view">
+            <image class="popup-posted-img" src='/utils/image/icon-mine-09-09-10.png' />
+            <view class="popup-posted-title">分享</view>
+        </view>
+      </view>
+    </van-popup>
+</van-transition>
