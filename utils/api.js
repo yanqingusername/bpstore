@@ -164,8 +164,19 @@ module.exports = {
 	uploadAvatarImg,
 	uploadVideo,
 	request,
-	login: data => { //登录
+	loginStore: data => { //登录
 		return request("/wxpub/wxlogin", "post", data);
 	},
-	
+	loginSilence: data => { //静默登录
+		return request("/wxpub/loginSilence", "post", data);
+	},
+	getUserInfo: data => { //用户信息
+		return request("/user/getUserInfo", "post", data);
+	},
+	getUserStatistics: data => { //主页信息（收藏，点赞等）
+		return request("/user/getUserStatistics", "post", data);
+	},
+	getUserAuthStatistics: data => { //主页认证状态
+		return request("/user/getUserAuthStatistics", "post", data);
+	},
 };

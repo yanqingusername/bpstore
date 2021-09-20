@@ -104,5 +104,13 @@ App({
                 url: '/Home_/pages/Authorize/authorize?url=' + '/pages/Tabbar/tabbar'
             })
         }
-    }
+    },
+    globalData: {
+		isConnected: true,
+		systemInfo: null, //客户端设备信息
+		userInfo: null,
+		conversationList: [],
+		sdkReady: false,
+		tim: null,
+	}
 })

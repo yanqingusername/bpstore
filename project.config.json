@@ -43,7 +43,7 @@
 		"showES6CompileOption": false
 	},
 	"compileType": "miniprogram",
-	"appid": "wx8586d27bb538f95f",
+	"appid": "wx1ec634a95a93f232",
 	"projectname": "BP",
 	"cloudfunctionTemplateRoot": "",
 	"watchOptions": {
@@ -60,7 +60,7 @@
 	},
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
-	"libVersion": "2.14.4",
+	"libVersion": "2.16.0",
 	"condition": {
 		"plugin": {
 			"list": []
