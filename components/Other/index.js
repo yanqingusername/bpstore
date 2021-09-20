@@ -1,11 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-03-12 10:22:33
- * @LastEditTime: 2021-03-12 16:43:38
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \well_medical_care\components\Other\index.js
- */
 const app = getApp()
 const Api = require('../../utils/api')
 const Utils = require('../../utils/util')

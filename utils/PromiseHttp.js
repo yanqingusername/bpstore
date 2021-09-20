@@ -1,13 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2020-06-18 13:58:25
- * @LastEditTime: 2021-03-12 14:05:03
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \Shop\utils\ProPromiseHttp.js
- */
-
-
 const Utils = require('./util.js');
 const Api = require('./api.js');
 const app = getApp();
@@ -56,7 +46,6 @@ const PromiseHttp = (params) => {
                 } else if (res.data.code === 90008) {
                     app.goLogin();
                 } else if (res.data.code == 90011) {
-                    app.goSystemMaintenance(res['data'].message);
                 } else {
                     Utils.showToast(res.data.message);
                     reject(res.data.message);

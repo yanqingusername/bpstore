@@ -2,8 +2,7 @@
   "usingComponents": {
     "van-transition": "/components/vant/transition/index",
     "van-action-sheet": "/components/vant/action-sheet/index",
-    "van-icon": "/components/vant/icon/index",
-    "v-base": "/components/guide/base/index"
+    "van-icon": "/components/vant/icon/index"
   },
   "component": true
 }

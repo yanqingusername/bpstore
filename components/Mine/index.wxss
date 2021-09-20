@@ -26,6 +26,7 @@ page{
 .mine-header-img{
     width: 112rpx;
     height: 112rpx;
+    border-radius: 50%;
 }
 
 .mine-header-name{

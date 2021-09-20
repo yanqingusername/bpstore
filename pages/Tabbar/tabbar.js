@@ -5,23 +5,23 @@ Page({
   data: {
     Menu: [{
         Name: "首页",
-        Image: '../../utils/image/well-icon.png',
-        ImageActive: '../../utils/image/well-icon.png'
+        Image: '../../utils/image/bp-icon-bottom-01.png',
+        ImageActive: '../../utils/image/bp-icon-bottom-02.png'
       },
       {
         Name: '发现',
-        Image: '../../utils/image/well-icon.png',
-        ImageActive: '../../utils/image/well-icon.png'
+        Image: '../../utils/image/bp-icon-bottom-03.png',
+        ImageActive: '../../utils/image/bp-icon-bottom-04.png'
       },
       {
         Name: '产业',
-        Image: '../../utils/image/well-icon.png',
-        ImageActive: '../../utils/image/well-icon.png'
+        Image: '../../utils/image/bp-icon-bottom-05.png',
+        ImageActive: '../../utils/image/bp-icon-bottom-06.png'
       },
       {
         Name: '我的',
-        Image: '../../utils/image/well-icon.png',
-        ImageActive: '../../utils/image/well-icon.png'
+        Image: '../../utils/image/bp-icon-bottom-07.png',
+        ImageActive: '../../utils/image/bp-icon-bottom-08.png'
       },
     ],
     phoneBool : false,

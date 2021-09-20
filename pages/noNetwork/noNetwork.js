@@ -1,12 +1,3 @@
-/*
- * @Author: your name
- * @Date: 2021-03-12 10:22:34
- * @LastEditTime: 2021-03-12 13:24:08
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \well_medical_care\pages\noNetwork\noNetwork.js
- */
-
 const Utils = require('../../utils/util')
 Page({
 

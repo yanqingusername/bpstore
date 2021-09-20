@@ -3,7 +3,7 @@
     <view class="mine-header" >
         <view class="mine-header-between">
             <view class="mine-header-left">
-                <image class="mine-header-img" src="/utils/image/logo.png" />
+                <image class="mine-header-img" src="/utils/image/icon_help_bg_09_14_02.png" />
                 <view class="mine-header-name">Janie 萝卜</view>
             </view>
             <view class="mine-header-right" bind:tap="routerUrl" data-url="../../pages/MineFile/MineMessage/index">
@@ -11,6 +11,16 @@
                 <view class="message-radius"></view>
             </view>
         </view>
+        <!-- <view class="mine-header-between" bindtap="toLoginLink">
+            <view class="mine-header-left">
+                <image class="mine-header-img" src="/utils/image/icon_help_bg_09_14_02.png" />
+                <view class="mine-header-name">未登录</view>
+            </view>
+            <view class="mine-header-right">
+                <image class="mine-header-message" src="/utils/image/icon-mine-09-09-02.png" />
+                <view class="message-radius"></view>
+            </view>
+        </view> -->
         <view class="mine-center">未认证用户</view>
     </view>
     <view class="mine-bottom">

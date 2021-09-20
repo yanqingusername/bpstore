@@ -104,12 +104,5 @@ App({
                 url: '/Home_/pages/Authorize/authorize?url=' + '/pages/Tabbar/tabbar'
             })
         }
-    },
-    goSystemMaintenance: function (MESSAGE) {
-        // wx.clearStorage();
-        // wx.clearStorageSync();
-        wx.navigateTo({
-             url: `/pages/systemMaintenance/systemMaintenance?titleMessage=${MESSAGE}`
-        })
-    },
+    }
 })

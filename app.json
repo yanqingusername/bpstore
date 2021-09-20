@@ -3,7 +3,6 @@
     "pages/Tabbar/tabbar",
     "pages/noNetwork/noNetwork",
     "pages/Setting/setting",
-    "pages/systemMaintenance/systemMaintenance",
     "pages/search/index",
     "pages/release/index",
     "pages/MineFile/MineCollection/index",
