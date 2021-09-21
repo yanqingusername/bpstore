@@ -18,8 +18,8 @@
     "pages/MineFile/InteractiveMessage/index",
     "pages/FindDetail/index",
     "pages/ActivityDetail/index",
-    "pages/ActivityRegistration/index"
-    
+    "pages/ActivityRegistration/index",
+    "pages/IndustryExpert/index"
     
   ],
   "subpackages": [

@@ -1,0 +1,32 @@
+<wxs src="../../utils/substring.wxs" module="tools" />
+<view class="mine-container" >
+    
+   <view class="mine-header" >
+        <van-search 
+        value="{{ kerword }}" 
+        placeholder="搜索案例" 
+        bind:change='searchChange' 
+        shape='round' 
+        bind:search="onSearch" 
+        bind:cancel="onCancel" />
+    </view>
+
+    <view class="mine-f-view">
+        <block wx:for="{{10}}" wx:key="index">
+            <view class="mine-f-item">
+                <view class="mc-f-left">
+                    <image class="mc-f-left-img" src='/utils/image/icon_help_09_14_01.png' />
+                    <view class="mc-f-left-item">
+                        <view class="mc-f-left-item-title">tasennr</view>
+                        <view class="mc-f-right-sub">深圳市 | 销售行业</view>
+                    </view>
+                </view>
+                <view class="mc-f-right">
+                    <view class="mc-f-right-title">私信</view>
+                  
+                </view>
+            </view>
+        </block>
+    </view>
+    
+</view>
