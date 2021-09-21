@@ -15,7 +15,12 @@
     "pages/MineFile/MinePostedIt/index",
     "pages/MineFile/MineMessage/index",
     "pages/MineFile/SystemMessage/index",
-    "pages/MineFile/InteractiveMessage/index"
+    "pages/MineFile/InteractiveMessage/index",
+    "pages/FindDetail/index",
+    "pages/ActivityDetail/index",
+    "pages/ActivityRegistration/index"
+    
+    
   ],
   "subpackages": [
     {

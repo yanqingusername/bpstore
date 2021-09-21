@@ -21,13 +21,13 @@ Component({
      * 页面的初始数据
      */
     data: {
-        
+        indexTable: 1
     },
 
     lifetimes: {
         attached() { // 在组件实例进入页面节点树时执行
             wx.setNavigationBarTitle({
-                title: 'BP数字产业平台'
+                title: ''
             });
         },
         moved() {
@@ -51,6 +51,17 @@ Component({
         },
         homeLoad() {
            
+        },
+        handlerTable(e){
+            let id = e.currentTarget.dataset.id;
+            this.setData({
+                indexTable: id
+            })
+        },
+        routerUrl(e){
+            wx.navigateTo({
+                url: e.currentTarget.dataset.url
+            });
         },
     }
 

@@ -71,7 +71,7 @@ Page({
   // 下拉刷新
   onPullDownRefresh: function () {
     if (this.data.current == 0) this.selectComponent("#index").onPull();
-    else if (this.data.current == 1) { this.selectComponent("#other").onPull(); } 
+    else if (this.data.current == 1) { this.selectComponent("#find").onPull(); } 
     else if (this.data.current == 2) this.selectComponent("#about").onPull();
     setTimeout(() => wx.stopPullDownRefresh(), 1000)
   },
@@ -82,7 +82,7 @@ Page({
     //   Loading: true
     // })
     if (this.data.current == 0) this.selectComponent("#index").pullUp();
-    else if (this.data.current == 1) this.selectComponent("#other").homeLoad();
+    else if (this.data.current == 1) this.selectComponent("#find").homeLoad();
     else if (this.data.current == 2) this.selectComponent("#about").homeLoad();
   },
   // 页面滚动

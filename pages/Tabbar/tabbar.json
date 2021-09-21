@@ -1,7 +1,7 @@
 {
     "usingComponents": {
         "Index": "/components/Index/index",
-        "Other": "/components/Other/index",
+        "Find": "/components/Find/index",
         "About":"/components/About/index",
         "Mine":"/components/Mine/index"
     },
