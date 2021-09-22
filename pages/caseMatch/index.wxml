@@ -1,0 +1,52 @@
+<view class="case-match">
+  <van-tabs bind:click="onClick">
+    <van-tab title="案例大赛">
+
+      <view class="btn">
+        <view class="">申报案例</view>
+      </view>
+    </van-tab>
+    <van-tab title="入围案例">
+      <view class="finalist">
+        <view class="finalist-item">
+          <view class="finalist-item-title">
+            <image src="/assets/images/check2.png" />
+            <text class="omit">能说一个没有十斤脑洞问不出的问题吗？</text>
+          </view>
+          <view class="finalist-item-content">
+            <view class="finalist-item-content-left">
+              <view class="line-clampz2">来，我这真有个货真价实的商用配方。我</view>
+              <view class="hot">3151 万热度</view>
+            </view>
+            <view class="finalist-item-content-right">
+              <image  />
+            </view>
+          </view>
+        </view>
+      </view>
+    </van-tab>
+    <van-tab title="获奖案例">
+      <view class="award-winning">
+        <image src="/assets/images/award-winning.png" />
+        <view class="award-winning-list">
+          <view class="award-winning-list-item">
+            <image src="/assets/images/rank1.png" />
+            <view class="award-winning-list-item-header">
+              <view class="award-winning-list-item-header-tag">近一年涨幅TOP1</view>
+            </view>
+            <view class="award-winning-list-item-main">
+              <view class="award-winning-list-item-main-title omit">北京中小微企业生死存亡</view>
+              <view class="city-industry">
+                <view class="city-industry-left">北京市</view>
+                <view class="city-industry-right">123 万热度</view>
+              </view>
+              <view class="tag-list">
+                <view class="tag-item">热度前十</view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </van-tab>
+  </van-tabs>
+</view>

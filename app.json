@@ -7,6 +7,7 @@
     "pages/release/index",
     "pages/caseList/index",
     "pages/caseDetail/index",
+    "pages/caseMatch/index",
     "pages/activity/index",
     "pages/activityApply/index",
     "pages/MineFile/MineCollection/index",
