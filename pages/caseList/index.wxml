@@ -4,10 +4,33 @@
       <image src="/assets/images/search.png" />
       <text>搜索案例、单位、达人</text>
     </view>
-    <image class="search-add"
-      src="/assets/images/add.png"
-      data-page="release"
-      catchtap="navigationToPage" 
+  </view>
+
+  <van-dropdown-menu>
+    <van-dropdown-item
+      wx:for="{{ option }}" 
+      value="{{ item.value }}"
+      options="{{ item.option }}"
+      data-current="{{ index }}"
+      bind:open="handleClickToOpenItem"
     />
+  </van-dropdown-menu>
+
+  <view class="list">
+    <view class="case-container">
+      <view class="case">
+        <view class="case-avatar">
+          <image  />
+        </view>
+        <view class="case-right">
+          <view class="case-right-title">刘佳欣正式出任大众安徽CEO</view>
+          <view class="case-right-content multi-row">裴健如6月1日，大众汽车（安徽）有限公司（以下简称大众安徽）发布人事任命，自2021年6月1日起，配件如正式出任大众…</view>
+          <view class="case-right-type">深圳市</view>
+          <view class="case-right-tag">
+            <view>安徽大众汽车</view>
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
 </view>

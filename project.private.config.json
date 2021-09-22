@@ -11,7 +11,20 @@
       "list": []
     },
     "miniprogram": {
-      "list": []
+      "list": [
+        {
+          "name": "pages/case",
+          "pathName": "pages/caseDetail/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/activity/index",
+          "pathName": "pages/activity/index",
+          "query": "",
+          "scene": null
+        }
+      ]
     }
   }
 }

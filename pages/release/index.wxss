@@ -68,6 +68,15 @@
   background-color: #fff;
   padding: 0 57rpx;
 }
+.common-main-copy {
+  border-radius: 20rpx;
+  background-color: #fff;
+  padding: 20rpx 57rpx;
+}
+
+.introduce {
+  height: 90rpx !important;
+}
 
 .area {
   display: flex;
@@ -87,8 +96,8 @@
   color: #8C96A4;
 }
 .area > view > image {
-  width: 16rpx;
-  height: 25rpx;
+  width: 32rpx;
+  height: 32rpx;
   margin-left: 17rpx;
 }
 

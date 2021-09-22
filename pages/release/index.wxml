@@ -31,6 +31,18 @@
 
   <view class="common">
     <view class="common-header">案例介绍</view>
+    <view class="common-main-copy">
+      <view class="area introduce" wx:for="{{ introduceList }}">
+        <text >{{ item }}</text>
+        <view >
+          <image src="/assets/images/arrow-right2.png" />
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="common">
+    <view class="common-header">区域设置</view>
     <view class="common-main">
       <view class="area">
         <text >七大区</text>

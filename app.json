@@ -5,7 +5,10 @@
     "pages/Setting/setting",
     "pages/systemMaintenance/systemMaintenance",
     "pages/search/index",
-    "pages/release/index"
+    "pages/release/index",
+    "pages/caseList/index",
+    "pages/caseDetail/index",
+    "pages/activity/index"
   ],
   "subpackages": [
     {

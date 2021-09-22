@@ -18,6 +18,7 @@ Page({
         text: '文字'
       }
     ],
+    introduceList: ['案例亮点', '应用场景', '参与单位', '内容详情', '应用成效', '用户评价'],
     checkImage: '/assets/images/check.png',
     checkActiveImage: '/assets/images/check-active.png',
     isJoin: true
