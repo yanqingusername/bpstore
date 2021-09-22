@@ -8,6 +8,7 @@
     "pages/caseList/index",
     "pages/caseDetail/index",
     "pages/activity/index",
+    "pages/activityApply/index",
     "pages/MineFile/MineCollection/index",
     "pages/MineFile/MineFollow/index",
     "pages/MineFile/MineCertification/index",

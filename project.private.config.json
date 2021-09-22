@@ -20,7 +20,7 @@
         },
         {
           "name": "pages/activity/index",
-          "pathName": "pages/activity/index",
+          "pathName": "pages/activityApply/index",
           "query": "",
           "scene": null
         }
