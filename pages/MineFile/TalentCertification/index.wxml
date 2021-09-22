@@ -1,0 +1,86 @@
+<wxs src="../../../utils/substring.wxs" module="tools" />
+<view class="mine-container" >
+  
+    <view class="mine-certification-view">
+        <view class="mine-certification-view-text">为提供精准的服务内容，为您打造专属主页，请填写真实信息</view>
+    </view>
+    <view class="mine-header flex-between">
+        <view class="mine-header-text">头像</view>
+        <image class="mine-header-img"  src="/utils/image/icon_help_09_14_01.png"/>
+    </view>
+    <view class="tc-line"></view>
+    <view class="tc-view">
+        <view class="tc-a">联系方式</view>
+        <view class="tc-b flex-between">
+            <view class="tc-b-title">真实姓名</view>
+            <input type="text" placeholder="Janie 萝卜" bindinput="username" value="{{name}}" placeholder-class="placeholder" />
+        </view>
+        <view class="tc-b flex-between">
+            <view class="tc-b-title">微信</view>
+            <input type="text" placeholder="未填写" bindinput="weixin" value="{{weixin}}" placeholder-class="placeholder" />
+        </view>
+        <view class="tc-b flex-between">
+            <view class="tc-b-title">手机</view>
+            <input type="text" placeholder="未填写" bindinput="telephone" value="{{phone}}" placeholder-class="placeholder" />
+        </view>
+        <view class="tc-b flex-between">
+            <view class="tc-b-title">邮箱</view>
+            <input type="text" placeholder="未填写" bindinput="email" value="{{email}}" placeholder-class="placeholder" />
+        </view>
+    </view>
+    <view class="tc-line"></view>
+    <view class="tc-view">
+        <view class="tc-a">自我评价</view>
+        <view class="tc-c flex-between">
+            <view class="tc-b-title">个人标签</view>
+            <view style="display: flex;align-items: center;">
+                <view class="mine-view-text">请选择</view>
+                <image class="mine-view-arrow" src="/utils/image/icon-mine-09-09-01.png" />
+            </view>
+        </view>
+        <view class="tc-c flex-between">
+            <view class="tc-b-title">自我介绍</view>
+            <view style="display: flex;align-items: center;">
+                <view class="mine-view-text">未填写</view>
+                <image class="mine-view-arrow" src="/utils/image/icon-mine-09-09-01.png" />
+            </view>
+        </view>
+        <view class="tc-c flex-between">
+            <view class="tc-b-title">个人荣誉</view>
+            <view style="display: flex;align-items: center;">
+                <view class="mine-view-text">未填写</view>
+                <image class="mine-view-arrow" src="/utils/image/icon-mine-09-09-01.png" />
+            </view>
+        </view>
+    </view>
+    <view class="tc-line"></view>
+    <view class="tc-view">
+        <view class="tc-a">任职履历</view>
+        <view class="tc-b flex-between">
+            <view class="tc-b-title">单位名称</view>
+            <input type="text" placeholder="请填写" bindinput="danwei" value="{{danwei}}" placeholder-class="placeholder" />
+        </view>
+        <view class="tc-b flex-between">
+            <view class="tc-b-title">职位名称</view>
+            <input type="text" placeholder="请填写" bindinput="zhiwei" value="{{zhiwei}}" placeholder-class="placeholder" />
+        </view>
+        <view class="tc-c flex-between">
+            <view class="tc-b-title">所属行业</view>
+            <view style="display: flex;align-items: center;">
+                <view class="mine-view-text">请选择</view>
+                <image class="mine-view-arrow" src="/utils/image/icon-mine-09-09-01.png" />
+            </view>
+        </view>
+        <view class="tc-c flex-between">
+            <view class="tc-b-title">所在城市</view>
+            <view style="display: flex;align-items: center;">
+                <view class="mine-view-text">请选择</view>
+                <image class="mine-view-arrow" src="/utils/image/icon-mine-09-09-01.png" />
+            </view>
+        </view>
+    </view>
+    <view class="tc-d">
+        <view class="tc-e">提交认证</view>
+    </view>
+    <view class="tc-empty"></view>
+</view>

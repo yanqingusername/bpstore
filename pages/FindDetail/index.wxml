@@ -1,0 +1,18 @@
+<wxs src="../../utils/substring.wxs" module="tools" />
+<view class="mine-container" >
+    <view class="mine-collection-view">
+        <image class="mc-left-img" src='/utils/image/icon_help_09_14_01.png' />
+        <view class="mc-right-content line-clampz2">2021年度最佳销售排行榜非你莫属这个平台的你还在又有什么互联网新零售，搞笑榜</view>
+        <view class="mc-right-sub">线上活动·2021.06.12-2021.07.25</view>
+    </view>
+    <view class="fd-view">
+        <view class="fd-title line-clampz2">2021消费新势力榜TOP100-不惑创投专场路演资源对接大会</view>
+        <view class="fd-sub">2020年，众多新消费品牌快速崛起；2021年，消费赛道将迎来拐点，一些变化正在发生。创新供应链+工业/消费/出海/下沉/替代人工，是我们关注的方向！6月10日，共同寻找传统行业里有充分积累的聪明人！ </view>
+        <view class="fd-text">【活动地点】</view>
+        <view class="fd-address">北京市朝阳区酒仙桥彩虹路电通创意广场</view>
+        <image class="fd-img" src='/utils/image/icon_help_09_14_01.png' />
+        <view class="fd-text" style="margin-top: 28rpx;">价格不是首位考虑因素，重要的是你能在机构中学到什么东西，能做出什么类型的作品集，是否能顺利就业。</view>
+        <view class="fd-text" style="margin-top: 26rpx;">价格不是首位考虑因素，重要的是你能在机构中学到什么东西，能做出什么类型的作品集，是否能顺利就业。</view>
+    </view>
+    <view class="fd-time">2021-05-22 16:02 发布</view>
+</view>

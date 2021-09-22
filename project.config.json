@@ -44,7 +44,7 @@
   },
   "compileType": "miniprogram",
   "appid": "wx8586d27bb538f95f",
-  "projectname": "weChat_well",
+  "projectname": "BP",
   "cloudfunctionTemplateRoot": "",
   "watchOptions": {
     "ignore": []
@@ -60,7 +60,7 @@
   },
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
-  "libVersion": "2.14.4",
+  "libVersion": "2.16.0",
   "condition": {
     "plugin": {
       "list": []

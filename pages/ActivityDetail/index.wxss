@@ -1,0 +1,91 @@
+page {
+    background-color: #FFFFFF;
+}
+
+.mine-container{
+    background-color:#FFFFFF;
+    height: 100%;
+}
+.mine-collection-view{
+    padding: 0rpx 20rpx 40rpx;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.mc-left-img{
+    width: 710rpx;
+    height: 532rpx;
+}
+
+.mc-right-content{
+    font-size: 34rpx;
+font-weight: bold;
+color: #242B37;
+    margin-top: 20rpx;
+    width: 678rpx;
+}
+
+.mc-right-sub{
+    margin-top: 20rpx;
+    font-size: 24rpx;
+font-weight: bold;
+color: #ACBBCB;
+}
+
+.fd-view{
+    padding: 0rpx 20rpx 40rpx 20rpx;
+    border-bottom: 1px solid #EEEEEE;
+}
+
+.fd-title{
+    font-size: 32rpx;
+font-weight: bold;
+color: #242B37;
+    margin-top: 30rpx;
+    width: 702rpx;
+}
+
+.fd-sub{
+    margin-top: 50rpx;
+    font-size: 30rpx;
+color: #242B37;
+}
+.fd-text{
+    margin-top: 60rpx;
+    font-size: 30rpx;
+color: #242B37;
+}
+.fd-address{
+    margin-top: 20rpx;
+    font-size: 30rpx;
+color: #242B37;
+}
+.fd-img{
+    width: 710rpx;
+    height: 280rpx;
+    margin-top: 30rpx;
+}
+.fd-time{
+    margin-top: 32rpx;
+    padding-left: 20rpx;
+    font-size: 24rpx;
+color: #ACBBCB;
+padding-bottom: 60rpx;
+}
+.ad-view{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 40rpx;
+}
+.ad-view-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 690rpx;
+height: 88rpx;
+background: #2A64F5;
+border-radius: 10rpx;
+font-size: 28rpx;
+font-weight: bold;
+color: #FFFFFF;
+}

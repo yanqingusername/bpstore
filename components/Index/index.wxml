@@ -1,7 +1,5 @@
 <wxs src="../../utils/substring.wxs" module="tools" />
 
-<v-guide bind:close='firstLogin' show='{{firstDo}}' catchtouchmove="doNothing" />
-
 <view class="root">
   <!-- 页面内容 -->
   <van-transition custom-class="block">
@@ -43,7 +41,7 @@
 
           <view class="card-container">
             <view>
-              <Card title="最新活动">
+              <Card title="最新活动" bind:tap="handleRouter" data-method="reLaunch" data-url="/pages/Tabbar/tabbar?current=1">
                 <view class="activity">
                   <view class="activity-item">
                     <view class="activity-item-title omit">活动预告丨前景可期！“生物医药半+导体硬科技专场”</view>
@@ -71,7 +69,7 @@
             </view>
 
             <view>
-              <Card title="行业达人">
+              <Card title="行业达人" bind:tap="handleRouter" data-url="../../pages/IndustryExpert/index">
                 <view class="expert">
                   <view wx:for="{{5}}" class="expert-item">
                     <image class="expert-item-avatar" />

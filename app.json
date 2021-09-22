@@ -3,12 +3,24 @@
     "pages/Tabbar/tabbar",
     "pages/noNetwork/noNetwork",
     "pages/Setting/setting",
-    "pages/systemMaintenance/systemMaintenance",
     "pages/search/index",
     "pages/release/index",
-    "pages/caseList/index",
-    "pages/caseDetail/index",
-    "pages/activity/index"
+    "pages/MineFile/MineCollection/index",
+    "pages/MineFile/MineFollow/index",
+    "pages/MineFile/MineCertification/index",
+    "pages/MineFile/TalentCertification/index",
+    "pages/MineFile/UnitCertification/index",
+    "pages/MineFile/MineLikeIt/index",
+    "pages/MineFile/MineFans/index",
+    "pages/MineFile/MinePostedIt/index",
+    "pages/MineFile/MineMessage/index",
+    "pages/MineFile/SystemMessage/index",
+    "pages/MineFile/InteractiveMessage/index",
+    "pages/FindDetail/index",
+    "pages/ActivityDetail/index",
+    "pages/ActivityRegistration/index",
+    "pages/IndustryExpert/index"
+    
   ],
   "subpackages": [
     {

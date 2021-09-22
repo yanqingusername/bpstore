@@ -1,0 +1,54 @@
+page {
+    background-color: #FFFFFF;
+}
+
+.mine-container{
+    background-color:#FFFFFF;
+    height: 100%;
+}
+.mine-certification-view{
+    padding: 50rpx 30rpx 0rpx 30rpx;
+    display: flex;
+    align-items: center;
+}
+.mine-certification-view-img{
+    width: 28rpx;
+    height: 28rpx;
+    margin: 0rpx 13rpx 0rpx 10rpx;
+}
+.mine-certification-view-text{
+    font-size: 24rpx;
+font-weight: 500;
+color: #ACBBCB;
+}
+
+.mine-center{
+    margin-top: 40rpx;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mine-center-img{
+    width: 710rpx;
+    height: 260rpx;
+}
+
+.mine-center-title{
+    font-size: 38rpx;
+font-weight: bold;
+color: #FFFFFF;
+position: absolute;
+top: 60rpx;
+left: 60rpx;
+}
+
+.mine-center-text{
+    font-size: 28rpx;
+    font-weight: 500;
+    color: #FFFFFF;
+    position: absolute;
+top: 128rpx;
+left: 60rpx;
+}

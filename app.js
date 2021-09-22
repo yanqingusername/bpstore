@@ -105,11 +105,12 @@ App({
             })
         }
     },
-    goSystemMaintenance: function (MESSAGE) {
-        // wx.clearStorage();
-        // wx.clearStorageSync();
-        wx.navigateTo({
-             url: `/pages/systemMaintenance/systemMaintenance?titleMessage=${MESSAGE}`
-        })
-    },
+    globalData: {
+		isConnected: true,
+		systemInfo: null, //客户端设备信息
+		userInfo: null,
+		conversationList: [],
+		sdkReady: false,
+		tim: null,
+	}
 })

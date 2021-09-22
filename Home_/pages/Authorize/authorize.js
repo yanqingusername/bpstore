@@ -285,7 +285,7 @@ Page({
                         }
 
                     }  else if (_RES.data.code == 90011) {
-                        app.goSystemMaintenance(_RES['data'].message)
+                        
                       }else {
                         Toast(_RES['data'].message);
                     }
@@ -442,7 +442,6 @@ Page({
                          }
                      }, 1000)
                 }else if (_RES.data.code == 90011) {
-                    app.goSystemMaintenance(_RES['data'].message)
                 }else {
                     Toast(_RES['data'].message);
                 }

@@ -1,11 +1,11 @@
 <view class='tabs'>
     <Index wx:if='{{ current == 0 }}' id="index"  Loading='{{ Loading }}' bind:cart="cart" />
 
-    <Other wx:if='{{ current == 1 }}' id='other' Loading='{{ Loading }}' bind:cart="cart" checked="{{checked}}" />
+    <Find wx:if='{{ current == 1 }}' id='find' Loading='{{ Loading }}' bind:cart="cart" checked="{{checked}}" />
 
     <About  wx:if='{{ current == 2 }}' id='about' Loading='{{ Loading }}' bind:cart="cart" />
 
-    <About  wx:if='{{ current == 3 }}' id='about' Loading='{{ Loading }}' bind:cart="cart" />
+    <Mine  wx:if='{{ current == 3 }}' id='about' Loading='{{ Loading }}' bind:cart="cart" />
 
 
     <view class='tabs-bottom {{ phoneBool ? "b" : "" }}' fixed>

@@ -1,0 +1,107 @@
+page {
+    background-color: #FFFFFF;
+}
+
+.mine-container{
+    background-color:#FFFFFF;
+    height: 100%;
+}
+.mine-certification-view{
+    padding: 50rpx 20rpx 0rpx 30rpx;
+    display: flex;
+    align-items: center;
+}
+
+.mine-certification-view-text{
+    font-size: 22rpx;
+color: #ACBBCB;
+}
+
+.flex-between{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.mine-header{
+    padding: 30rpx 26rpx 30rpx 30rpx;
+    
+}
+
+.mine-header-text{
+    font-size: 36rpx;
+font-weight: bold;
+color: #191E25;
+}
+.mine-header-img{
+    width: 110rpx;
+    height: 110rpx;
+}
+.tc-line{
+    width: 750rpx;
+height: 20rpx;
+background: #F6F6F6;
+}
+
+.tc-a{
+    padding: 48rpx 0rpx 20rpx 30rpx;
+    font-size: 36rpx;
+font-weight: bold;
+color: #191E25;
+}
+.tc-b{
+    padding: 0rpx 26rpx 20rpx 30rpx;
+}
+.tc-b-title{
+    font-size: 30rpx;
+color: #5B626C;
+}
+.tc-b input{
+    height: 40rpx;
+font-size: 28rpx;
+font-weight: bold;
+color: #5B626C;
+text-align: right;
+}
+.placeholder{
+    font-size:28rpx;
+color:#ACBBCB;
+}
+.tc-c{
+    padding: 0rpx 20rpx 20rpx 30rpx;
+}
+.mine-view-arrow{
+    width: 16rpx;
+    height: 25rpx;
+}
+
+.mine-view-text{
+    font-size:28rpx;
+color:#ACBBCB;
+    margin-right: 11rpx;
+}
+
+.tc-d{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    margin-top: 80rpx;
+}
+.tc-e{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 690rpx;
+height: 88rpx;
+background: #2A64F5;
+border-radius: 10rpx;
+font-size: 28rpx;
+font-weight: bold;
+color: #FFFFFF;
+}
+
+.tc-empty{
+    width: 750rpx;
+height: 40rpx;
+}

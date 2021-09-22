@@ -1,0 +1,72 @@
+<wxs src="../../utils/substring.wxs" module="tools" />
+<view class="find-container" >
+    <view class="mine-header" >
+        <van-search 
+        value="{{ kerword }}" 
+        placeholder="搜索案例、单位、达人" 
+        bind:change='searchChange' 
+        shape='round' 
+        bind:search="onSearch" 
+        bind:cancel="onCancel" />
+    </view>
+    <view class="mf-table">
+        <view class="mf-table-one" bind:tap="handlerTable" data-id='1'>
+            <view class="{{indexTable == 1 ? 'mf-table-one-title-active':'mf-table-one-title'}}">活动</view>
+            <view class="{{indexTable == 1 ? 'mf-table-one-line-active':'mf-table-one-line'}}"></view>
+        </view>
+        <view class="mf-table-one" bind:tap="handlerTable" data-id='2'>
+            <view class="{{indexTable == 2 ? 'mf-table-one-title-active':'mf-table-one-title'}}">排行榜</view>
+            <view class="{{indexTable == 2 ? 'mf-table-one-line-active':'mf-table-one-line'}}"></view>
+        </view>
+        <view class="mf-table-one" bind:tap="handlerTable" data-id='3'>
+            <view class="{{indexTable == 3 ? 'mf-table-one-title-active':'mf-table-one-title'}}">奖项</view>
+            <view class="{{indexTable == 3 ? 'mf-table-one-line-active':'mf-table-one-line'}}"></view>
+        </view>
+        <view class="mf-table-one" bind:tap="handlerTable" data-id='4'>
+            <view class="{{indexTable == 4 ? 'mf-table-one-title-active':'mf-table-one-title'}}">图谱</view>
+            <view class="{{indexTable == 4 ? 'mf-table-one-line-active':'mf-table-one-line'}}"></view>
+        </view>
+    </view>
+    <view class="mine-f-view" wx:if="{{indexTable ==1}}">
+        <block wx:for="{{10}}" wx:key="index">
+            <view class="activity" bind:tap="routerUrl" data-url="../../pages/ActivityDetail/index">
+                  <view class="activity-item">
+                    <view class="activity-item-title line-clampz2">报名入口丨2021·MarTech线上沙龙，汇聚众多大咖，感知趋势未来</view>
+                    <view class="activity-item-content">
+                      <image src="/assets/images/record.png" />
+                      <view class="activity-item-content-right">
+                        <view class="activity-item-content-right-item">
+                          <image src="/assets/images/record.png" />
+                          <text class="omit">2021/7/19-2021/7/19</text>
+                        </view>
+                        <view class="activity-item-content-right-item">
+                          <image src="/assets/images/site.png" />
+                          <text class="omit">线下活动</text>
+                        </view>
+                        <view class="activity-item-content-right-item">
+                          <image src="/assets/images/attention.png" />
+                          <text class="omit">BP数字产业平台</text>
+                        </view>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+        </block>
+    </view>
+
+    <view class="mine-f-view" wx:if="{{indexTable ==2 || indexTable ==3 || indexTable ==4}}">
+        <block wx:for="{{10}}" wx:key="index">
+            <view class="activity" bind:tap="routerUrl" data-url="../../pages/FindDetail/index">
+                  <view class="ff-item">
+                    <view class="ff-item-content">
+                      <view class="ff-item-content-right">
+                        <view class="activity-item-title line-clampz3">第三节中国零售金融发展峰会在成都召开，多方探索零售金融全新增长曲线</view>
+                      </view>
+                      <image class="ff-img" src="/assets/images/record.png" />
+                    </view>
+                    <view class="ff-text">猎云网<text style="margin-left: 26rpx">7月23日</text></view>
+                  </view>
+                </view>
+        </block>
+    </view>
+</view>

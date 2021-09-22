@@ -1,0 +1,30 @@
+<wxs src="../../../utils/substring.wxs" module="tools" />
+<view class="mine-container" >
+  
+    <view class="mine-certification-view">
+        <view class="mine-certification-view-text">认证权限说明</view>
+        <image class="mine-certification-view-img" src="/utils/image/icon_help_09_14_01.png"></image>
+        <view class="mine-certification-view-text" style="color:#4C73C4;">点击查看</view>
+    </view>
+    <view class="mine-center" bind:tap="routerUrl" data-url="../TalentCertification/index">
+        <image class="mine-center-img" src="/utils/image/icon_help_bg_09_14_02.png"></image>
+        <view class="mine-center-title">专家/达人</view>
+        <view class="mine-center-text">
+            <view style="font-size: 28rpx;">海量项目BP可供查阅，可与500+企业在线沟通</view>
+            <view style="font-size: 28rpx;">免费发布项目案例、在线直播授课</view>
+        </view>
+    </view>
+
+    <view class="mine-center" style="margin-top: 30rpx;" bind:tap="routerUrl" data-url="../UnitCertification/index">
+        <image class="mine-center-img" src="/utils/image/icon_help_bg_09_14_03.png"></image>
+        <view class="mine-center-title" style="display: flex;align-items: flex-end;">
+            <view style="color: #F4E2C7;">企业单位</view>
+            <view style="color: #F4E2C7;font-size: 24rpx;margin-left: 20rpx;margin-bottom: 2px;">(FA、孵化器/产于园区、机构、其它)</view>
+        </view>
+        <view class="mine-center-text">
+            <view style="color: #C59B5B;font-size: 28rpx;">海量企业达人、500强企业、免费发布企业案例</view>
+            <view style="color: #C59B5B;font-size: 28rpx;">定向投递BP、曝光企业单位绝佳机会</view>
+        </view>
+    </view>
+    
+</view>

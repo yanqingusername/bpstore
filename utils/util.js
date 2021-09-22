@@ -162,25 +162,6 @@ const SetPass = data => {
   return newData
 }
 
-let getlatlog=()=>{
-  wx.getLocation({
-    type: 'wgs84',
-    success(res) {
-      const latitude = res.latitude
-      const longitude = res.longitude
-      const speed = res.speed
-      const accuracy = res.accuracy
-      const a = zhuan_dingwei.wgs84togcj02(longitude, latitude)
-      wx.setStorageSync("lat", a[1])
-      wx.setStorageSync("log", a[0])
-    }, 
-    fail(res) { 
-      wx.setStorageSync("lat", 0)
-      wx.setStorageSync("log", 0)
-    }
-  })
-}
-
 const showToast = (data)=>{
   wx.showToast({
     title: data,
@@ -344,7 +325,6 @@ module.exports = {
   time_difference,
   showToast,
   down,
-  getlatlog,
   PreView,
   unique,
   formatDate: formatDate,
