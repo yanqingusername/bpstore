@@ -221,10 +221,13 @@ swiper {
 }
 .case-right {
   flex: 1;
+  overflow: hidden;
 }
 .case-right-title {
   font-size: 32rpx;
   font-weight: bold;
+  overflow: hidden;
+  box-sizing: border-box;
 }
 .case-right-content {
   margin-top: 28rpx;

@@ -10,6 +10,7 @@
     "pages/caseMatch/index",
     "pages/activity/index",
     "pages/activityApply/index",
+    "pages/expertDetail/index",
     "pages/MineFile/MineCollection/index",
     "pages/MineFile/MineFollow/index",
     "pages/MineFile/MineCertification/index",

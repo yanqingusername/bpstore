@@ -13,8 +13,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "pages/case",
-          "pathName": "pages/caseDetail/index",
+          "name": "test",
+          "pathName": "pages/expertDetail/index",
           "query": "",
           "scene": null
         },
