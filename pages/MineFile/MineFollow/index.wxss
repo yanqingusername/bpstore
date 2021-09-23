@@ -178,3 +178,36 @@ font-weight: bold;
 color: #2A64F5;
 opacity: 0.5;
 }
+
+/*  无内容  */
+.loading {
+    height: 42rpx;
+    line-height: 44rpx;
+    text-align: center;
+    font-size: 26rpx;
+    margin-bottom: 60rpx;
+    color: #7f8389;
+    position: relative;
+  }
+
+.classification_no_data {
+    display: flex;
+    padding-top: 206rpx;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .classification_no_data_icon {
+    width: 296rpx;
+    height: 266rpx;
+  }
+  
+  .classification_no_data_lable {
+    font-size: 30rpx;
+    color: #616161;
+    margin-top: 24rpx;
+    text-align: center;
+  }
+  
+  /**/

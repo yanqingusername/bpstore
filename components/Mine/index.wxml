@@ -3,8 +3,8 @@
     <view class="mine-header" >
         <view class="mine-header-between" wx:if="{{userid}}">
             <view class="mine-header-left">
-                <image class="mine-header-img" src="/utils/image/icon_help_bg_09_14_02.png" />
-                <view class="mine-header-name">Janie 萝卜</view>
+                <image class="mine-header-img" src="{{userInfo.avatarUrl}}" />
+                <view class="mine-header-name">{{userInfo.nickName}}</view>
             </view>
             <view class="mine-header-right" bind:tap="routerUrl" data-url="../../pages/MineFile/MineMessage/index">
                 <image class="mine-header-message" src="/utils/image/icon-mine-09-09-02.png" />
@@ -21,19 +21,19 @@
                 <view class="message-radius"></view>
             </view>
         </view>
-        <view class="mine-center">未认证用户</view>
+        <view class="mine-center">{{(userAuthStatistics.celebrity == 0 || userAuthStatistics.company == 0) ? '未认证用户' : userAuthStatistics.celebrity}}</view>
     </view>
     <view class="mine-bottom">
         <view class="mine-bottom-item" bind:tap="routerUrl" data-url="../../pages/MineFile/MineCollection/index">
-            <view class="mine-bottom-item-numbe">21</view>
+            <view class="mine-bottom-item-numbe">{{userStatistics.collectionNum}}</view>
             <view class="mine-bottom-item-title">收藏</view>
         </view>
         <view class="mine-bottom-item" bind:tap="routerUrl" data-url="../../pages/MineFile/MineFollow/index">
-            <view class="mine-bottom-item-numbe">35</view>
+            <view class="mine-bottom-item-numbe">{{userStatistics.followNum}}</view>
             <view class="mine-bottom-item-title">关注</view>
         </view>
         <view class="mine-bottom-item" bind:tap="routerUrl" data-url="../../pages/MineFile/MineFans/index">
-            <view class="mine-bottom-item-numbe">204.6w</view>
+            <view class="mine-bottom-item-numbe">{{userStatistics.fansNum}}</view>
             <view class="mine-bottom-item-title">粉丝</view>
         </view>
         <view class="mine-bottom-item" bind:tap="routerUrl" data-url="../../pages/MineFile/MineLikeIt/index">

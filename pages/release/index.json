@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "van-field": "/components/vant/field"
+    "van-field": "/components/vant/field/index"
   },
   "component": true,
   "navigationBarTitleText": "发布案例"
