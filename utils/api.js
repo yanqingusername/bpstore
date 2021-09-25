@@ -189,4 +189,8 @@ module.exports = {
 		return request("/user/getUserFansList", "post", data);
 	},
 	
+	/* 首页 */
+	getExpertRecommend: data => { // 达人推荐
+		return request("/home/getRecCelebrityList", "post", data)
+	}
 };

@@ -17,12 +17,6 @@
           "pathName": "pages/release/index",
           "query": "",
           "scene": null
-        },
-        {
-          "name": "pages/activity/index",
-          "pathName": "pages/caseMatch/index",
-          "query": "",
-          "scene": null
         }
       ]
     }
