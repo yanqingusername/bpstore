@@ -179,4 +179,14 @@ module.exports = {
 	getUserAuthStatistics: data => { //主页认证状态
 		return request("/user/getUserAuthStatistics", "post", data);
 	},
+	getUserCollectionList: data => { //收藏列表
+		return request("/user/getUserCollectionList", "post", data);
+	},
+	getUserFollowList: data => { //关注列表
+		return request("/user/getUserFollowList", "post", data);
+	},
+	getUserFansList: data => { //粉丝列表
+		return request("/user/getUserFansList", "post", data);
+	},
+	
 };

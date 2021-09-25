@@ -22,9 +22,9 @@ Component({
      */
     data: {
         userid: '',
-        userInfo: {},
-        userStatistics: {},
-        userAuthStatistics: {}
+        userInfo: "",
+        userStatistics: "",
+        userAuthStatistics: ""
     },
 
     lifetimes: {
@@ -32,8 +32,14 @@ Component({
             wx.setNavigationBarTitle({
                 title: 'BP数字产业平台'
             });
+            let userid = wx.getStorageSync('userid');
+            this.setData({
+                userid: userid
+            });
             this.getUserInfo();
             this.loginSilence();
+            this.getUserStatistics();
+            this.getUserAuthStatistics();
         },
         moved() {
 
@@ -45,9 +51,13 @@ Component({
     pageLifetimes: {
         // 组件所在页面的生命周期函数
         show: function () {
-           this.getUserInfo();
-           this.getUserStatistics();
-           this.getUserAuthStatistics();
+            let userid = wx.getStorageSync('userid');
+            this.setData({
+                userid: userid
+            });
+            this.getUserInfo();
+            this.getUserStatistics();
+            this.getUserAuthStatistics();
         },
         hide: function () { },
         resize: function () { },
@@ -118,11 +128,17 @@ Component({
                             })
                             return;
                         }
+                        wx.setStorageSync('userid', res.data.userid);
+                        wx.setStorageSync('token', res.data.token);
+                        
                         that.setData({
                             userid: res.data.userid
                         });
-                        wx.setStorageSync('userid', res.data.userid);
-                        wx.setStorageSync('token', res.data.token);
+                        that.loginSilence();
+                        that.getUserInfo();
+                        that.getUserStatistics();
+                        that.getUserAuthStatistics();
+                        
                         // if (res.code == 1 && res.data.is_relation == 1) {
                         //     that.showDialog();
                         // } else if (res.code == 1 && res.data.is_relation == 2) {
@@ -150,32 +166,36 @@ Component({
             })
         },
         getUserInfo(){
+            let that = this;
             Api.getUserInfo({}).then(function(res) {
                 if (res.code != 1) {
                     return;
                 }
-                this.setData({
-                    userInfo: res.data,
+                console.log(res.data)
+                that.setData({
+                    userInfo: res.data
                 });
             })
         },
         getUserStatistics(){
+            let that = this;
             Api.getUserStatistics({}).then(function(res) {
                 if (res.code != 1) {
                     return;
                 }
-                this.setData({
-                    userStatistics: res.data,
+                that.setData({
+                    userStatistics: res.data
                 });
             })
         },
         getUserAuthStatistics(){
+            let that = this;
             Api.getUserAuthStatistics({}).then(function(res) {
                 if (res.code != 1) {
                     return;
                 }
-                this.setData({
-                    userAuthStatistics: res.data,
+                that.setData({
+                    userAuthStatistics: res.data
                 });
             })
         },

@@ -11,31 +11,40 @@
         </view>
     </view>
     <view class="mine-collection-view" wx:if="{{indexTable ==1}}">
-        <block wx:for="{{10}}" wx:key="index">
+        <block wx:for="{{follow_list}}" wx:key="index" wx:if='{{ follow_list.length > 0}}'>
             <view class="mine-collection-item">
                 <view class="mc-left">
-                    <image class="mc-left-img" src='/utils/image/icon_help_09_14_01.png' />
+                    <image class="mc-left-img" src='{{item.logoUrl}}' />
                     <view class="mc-left-item">
                         <view class="mc-left-item-head">
-                            <view class="mc-left-item-title">tasennr</view>
-                            <view class="mc-left-item-lable">集团</view>
+                            <view class="mc-left-item-title">{{item.companyName}}</view>
+                            <view class="mc-left-item-lable">{{item.companyProperty}}</view>
                         </view>
-                        <view class="mc-right-sub">石油贸易、石油开发与化工等</view>
-                        <view class="mc-right-lable">深圳市 | 销售行业</view>
+                        <view class="mc-right-sub">{{item.trade}}</view>
+                        <view class="mc-right-lable">{{item.city}} | {{item.companyProperty}}</view>
                     </view>
                 </view>
             </view>
         </block>
+        <view style="color:#fff; background-color: #f5f5f5;" wx:if='{{ follow_list.length != 0 && loading }}'>
+            <view  class="loading"><van-loading size='1em' type="spinner" /> 加载ing...</view>
+        </view>
+
+        <!--  暂无 -->
+        <view class='classification_no_data' wx:if='{{ follow_list.length == 0}}'>
+            <!-- <image class="classification_no_data_icon" src="https://image.jiunidu.com/web/classificationNoData.png" mode='aspectFill'></image> -->
+            <view class="classification_no_data_lable">暂无关注</view>
+        </view>
     </view>
 
     <view class="mine-f-view" wx:if="{{indexTable ==2}}">
-        <block wx:for="{{10}}" wx:key="index">
+        <block wx:for="{{follow_list}}" wx:key="index" wx:if='{{ follow_list.length > 0}}'>
             <view class="mine-f-item">
                 <view class="mc-f-left">
-                    <image class="mc-f-left-img" src='/utils/image/icon_help_09_14_01.png' />
+                    <image class="mc-f-left-img" src='{{item.logoUrl}}' />
                     <view class="mc-f-left-item">
-                        <view class="mc-f-left-item-title">tasennr</view>
-                        <view class="mc-f-right-sub">深圳市 | 销售行业</view>
+                        <view class="mc-f-left-item-title">{{item.name}}</view>
+                        <view class="mc-f-right-sub">{{item.city}} | {{item.companyProperty}}</view>
                     </view>
                 </view>
                 <view class="mc-f-right">
@@ -44,6 +53,15 @@
                 </view>
             </view>
         </block>
+        <view style="color:#fff; background-color: #f5f5f5;" wx:if='{{ follow_list.length != 0 && loading }}'>
+            <view  class="loading"><van-loading size='1em' type="spinner" /> 加载ing...</view>
+        </view>
+
+        <!--  暂无 -->
+        <view class='classification_no_data' wx:if='{{ follow_list.length == 0}}'>
+            <!-- <image class="classification_no_data_icon" src="https://image.jiunidu.com/web/classificationNoData.png" mode='aspectFill'></image> -->
+            <view class="classification_no_data_lable">暂无关注</view>
+        </view>
     </view>
     
 </view>
