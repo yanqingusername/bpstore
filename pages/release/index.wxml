@@ -34,7 +34,7 @@
   </view>
 
   <!-- 展示区 -->
-  <view class="show-area" wx:if="{{ currentType }}">
+  <view class="show-area" wx:if="{{ currentType && formData.toppic }}">
     <image wx:if="{{ currentType === '首图' }}" src="{{ formData.toppic }}" />
     <image wx:if="{{ currentType === '小图' }}" src="{{ formData.toppic }}" />
     <video 
