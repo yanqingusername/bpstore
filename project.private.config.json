@@ -14,7 +14,7 @@
       "list": [
         {
           "name": "test",
-          "pathName": "pages/expertDetail/index",
+          "pathName": "pages/release/index",
           "query": "",
           "scene": null
         },

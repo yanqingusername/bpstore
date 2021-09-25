@@ -90,7 +90,7 @@
   </view>
 
   <!-- 按钮 -->
-  <view wx:if="{{ false }}" class="btn">
+  <view wx:if="{{ true }}" class="btn">
     <view class="btn-left">
       <view class="btn-left-item">
         <image src="/assets/images/heart.png" />
