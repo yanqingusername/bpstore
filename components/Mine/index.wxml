@@ -37,7 +37,7 @@
             <view class="mine-bottom-item-title">粉丝</view>
         </view>
         <view class="mine-bottom-item" bind:tap="routerUrl" data-url="../../pages/MineFile/MineLikeIt/index">
-            <view class="mine-bottom-item-numbe">118</view>
+            <view class="mine-bottom-item-numbe">{{userStatistics.fabulousNum}}</view>
             <view class="mine-bottom-item-title">点赞</view>
         </view>
     </view>
