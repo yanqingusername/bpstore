@@ -128,10 +128,12 @@ const uploadVideo = (url) => {
 				const tempFilePath = res.tempFilePath;
 				console.log(tempFilePath)
 				console.log(res)
-				if (res.duration > 120) {
-					toast('时长超过两分钟')
-					return
-				}
+				// if (res.duration > 120) {
+				// 	wx.showToast({
+				// 		title: '时长超过两分钟'
+				// 	})
+				// 	return
+				// }
 				wx.showLoading({
 					title: "上传中",
 				});
@@ -146,7 +148,7 @@ const uploadVideo = (url) => {
 					success(resData) {
 						wx.hideLoading();
 						console.log(resData)
-						resolve(resData.data);
+						resolve(resData);
 					},
 					fail(error) {
 						wx.hideLoading();
@@ -192,5 +194,11 @@ module.exports = {
 	/* 首页 */
 	getExpertRecommend: data => { // 达人推荐
 		return request("/home/getRecCelebrityList", "post", data)
+	},
+	getBannerList: data => {  // banner
+		return request("/home/getBannerList", "post", data)
+	},
+	getNewActivityList: data => {
+		return request("/home/getNewActivityList", "post", data)
 	}
 };

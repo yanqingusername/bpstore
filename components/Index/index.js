@@ -41,8 +41,11 @@ Component({
     },
     pageLifetimes: {
         // 组件所在页面的生命周期函数 ( 只会加载一次 )
-        show: function () {
-           
+        show: async function () {
+            const expert = await Api.getExpertRecommend({
+                pageNum: 1,
+                pageSize:50
+            })
         },
         /**
          * 组件所在页面的关闭函数

@@ -3,7 +3,9 @@
     <view class="release-main">
       <view class="title">
         <van-field
-          value=""
+          value="{{ formData.title }}"
+          data-attribute="title"
+          bind:change="onChange"
           placeholder="请输入案例标题"
           border="{{ false }}"
         />
@@ -11,7 +13,9 @@
       <view class="content">
         <view>
           <van-field
-            value="{{ message }}"
+            value="{{ formData.backdrop }}"
+            data-attribute="backdrop"
+            bind:change="onChange"
             type="textarea"
             placeholder="请填写案例背景"
             autosize
@@ -22,17 +26,31 @@
     </view>
 
     <view class="release-option">
-      <view wx:for="{{ opitonList }}">
+      <view wx:for="{{ opitonList }}" bindtap="handleClickEvent" data-current="{{ item.text }}">
         <image src="{{ item.icon }}" />
         <view >{{ item.text }}</view>
       </view>
     </view>
   </view>
 
+  <!-- 展示区 -->
+  <view class="show-area" wx:if="{{ currentType }}">
+    <image wx:if="{{ currentType === '首图' }}" src="{{ formData.toppic }}" />
+    <image wx:if="{{ currentType === '小图' }}" src="{{ formData.toppic }}" />
+    <video 
+      wx:if="{{ currentType === '视频' }}" 
+      src="{{ formData.toppic }}" 
+      show-fullscreen-btn="{{ false }}"
+    />
+  </view>
+
   <view class="common">
     <view class="common-header">案例介绍</view>
     <view class="common-main-copy">
-      <view class="area introduce" wx:for="{{ introduceList }}">
+      <view 
+        class="area introduce" 
+        wx:for="{{ introduceList }}" 
+      >
         <text >{{ item }}</text>
         <view >
           <image src="/assets/images/arrow-right2.png" />
@@ -87,7 +105,9 @@
     <view class="common-header">备注</view>
     <view class="textarea-container">
       <van-field
-        value="{{ message }}"
+        value="{{ remarks }}"
+        data-attribute="remarks"
+        bind:change="onChange"
         type="textarea"
         placeholder="请填写备注说明…"
         autosize
@@ -116,6 +136,6 @@
   </view>
 
   <view class="btn">
-    <view>提交发布</view>
+    <view bindtap="submit">提交发布</view>
   </view>
 </view>

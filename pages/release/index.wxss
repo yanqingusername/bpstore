@@ -150,3 +150,24 @@
   font-size: 28rpx;
   color: #fff;
 }
+
+
+.show-area {
+  width: 100%;
+  height: 350rpx;
+  margin-top: 20rpx;
+  padding: 35rpx;
+  background-color: #fff;
+  border-radius: 20rpx;
+  box-sizing: border-box;
+}
+
+.show-area > image {
+  width: 100%;
+  height: 100%;
+}
+
+video {
+  width: 100%;
+  height: 100%;
+}
