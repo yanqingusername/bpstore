@@ -182,7 +182,7 @@ Page({
             
             wx.reLaunch({
                 url: '/pages/Tabbar/tabbar?current=3'
-            })
+            });
         })
     },
     routerUrl(e) {
