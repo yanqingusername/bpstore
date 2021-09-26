@@ -25,7 +25,8 @@
     "pages/FindDetail/index",
     "pages/ActivityDetail/index",
     "pages/ActivityRegistration/index",
-    "pages/IndustryExpert/index"
+    "pages/IndustryExpert/index",
+    "pages/SelectLable/index"
     
   ],
   "subpackages": [

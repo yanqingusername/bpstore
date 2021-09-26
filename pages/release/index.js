@@ -108,7 +108,7 @@ Page({
       }
     })
   },
-  handleClickEvent(e) {
+   handleClickEvent(e) {
     const { current } = e.currentTarget.dataset
     this.setData({
       currentType: current
