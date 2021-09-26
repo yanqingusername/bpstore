@@ -54,8 +54,8 @@ Page({
       }
     })
   },
-  async handleUpdataFile() {
-    const { statusCode, data } = await Api.uploadAvatarImg('/upload/upCaseSubsFile')
+   handleUpdataFile() {
+    const { statusCode, data } =  Api.uploadAvatarImg('/upload/upCaseSubsFile')
 
     if(statusCode === 200) {
       const imgData = JSON.parse(data)
@@ -67,7 +67,7 @@ Page({
       })
     }
   },
-  async handleClickEvent(e) {
+   handleClickEvent(e) {
     const { current } = e.currentTarget.dataset
     this.setData({
       currentType: current
@@ -78,7 +78,7 @@ Page({
         this.handleUpdataFile()
         break;
       case '视频':
-        const { statusCode, data } = await Api.uploadVideo('upCaseSubsFile')
+        const { statusCode, data } =  Api.uploadVideo('upCaseSubsFile')
         console.log('====', data, statusCode);
         if(statusCode === 200) {
           const imgData = JSON.parse(data)

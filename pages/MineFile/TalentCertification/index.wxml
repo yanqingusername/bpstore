@@ -13,15 +13,15 @@
         <view class="tc-a">联系方式</view>
         <view class="tc-b flex-between">
             <view class="tc-b-title">真实姓名</view>
-            <input type="text" placeholder="Janie 萝卜" bindinput="username" value="{{name}}" placeholder-class="placeholder" />
+            <input type="text" placeholder="未填写" bindinput="name" value="{{name}}" placeholder-class="placeholder" />
         </view>
         <view class="tc-b flex-between">
             <view class="tc-b-title">微信</view>
-            <input type="text" placeholder="未填写" bindinput="weixin" value="{{weixin}}" placeholder-class="placeholder" />
+            <input type="text" placeholder="未填写" bindinput="wx" value="{{wx}}" placeholder-class="placeholder" />
         </view>
         <view class="tc-b flex-between">
             <view class="tc-b-title">手机</view>
-            <input type="text" placeholder="未填写" bindinput="telephone" value="{{phone}}" placeholder-class="placeholder" />
+            <input type="number" placeholder="未填写" bindinput="phone" value="{{phone}}" placeholder-class="placeholder" />
         </view>
         <view class="tc-b flex-between">
             <view class="tc-b-title">邮箱</view>
@@ -31,24 +31,24 @@
     <view class="tc-line"></view>
     <view class="tc-view">
         <view class="tc-a">自我评价</view>
-        <view class="tc-c flex-between">
+        <view class="tc-c flex-between" bind:tap="routerUrl" data-url="../SelectLable/index?number=1&title=个人标签">
             <view class="tc-b-title">个人标签</view>
             <view style="display: flex;align-items: center;">
-                <view class="mine-view-text">请选择</view>
+                <view class="mine-view-text">{{ clabel ? '已选择':'请选择'}}</view>
                 <image class="mine-view-arrow" src="/utils/image/icon-mine-09-09-01.png" />
             </view>
         </view>
-        <view class="tc-c flex-between">
+        <view class="tc-c flex-between" bind:tap="routerUrl" data-url="../SelectLable/index?number=2&title=自我介绍">
             <view class="tc-b-title">自我介绍</view>
             <view style="display: flex;align-items: center;">
-                <view class="mine-view-text">未填写</view>
+                <view class="mine-view-text">{{ introduce ? '已填写':'未填写'}}</view>
                 <image class="mine-view-arrow" src="/utils/image/icon-mine-09-09-01.png" />
             </view>
         </view>
-        <view class="tc-c flex-between">
+        <view class="tc-c flex-between" bind:tap="routerUrl" data-url="../SelectLable/index?number=3&title=个人荣誉">
             <view class="tc-b-title">个人荣誉</view>
             <view style="display: flex;align-items: center;">
-                <view class="mine-view-text">未填写</view>
+                <view class="mine-view-text">{{ (certificate || honor) ? '已填写':'未填写'}}</view>
                 <image class="mine-view-arrow" src="/utils/image/icon-mine-09-09-01.png" />
             </view>
         </view>
@@ -58,29 +58,33 @@
         <view class="tc-a">任职履历</view>
         <view class="tc-b flex-between">
             <view class="tc-b-title">单位名称</view>
-            <input type="text" placeholder="请填写" bindinput="danwei" value="{{danwei}}" placeholder-class="placeholder" />
+            <input type="text" placeholder="请填写" bindinput="companyName" value="{{companyName}}" placeholder-class="placeholder" />
         </view>
         <view class="tc-b flex-between">
             <view class="tc-b-title">职位名称</view>
-            <input type="text" placeholder="请填写" bindinput="zhiwei" value="{{zhiwei}}" placeholder-class="placeholder" />
+            <input type="text" placeholder="请填写" bindinput="profession" value="{{profession}}" placeholder-class="placeholder" />
         </view>
-        <view class="tc-c flex-between">
+        <view class="tc-c flex-between" bind:tap="routerUrl" data-url="../SelectLable/index?number=4&title=所属行业">
             <view class="tc-b-title">所属行业</view>
             <view style="display: flex;align-items: center;">
-                <view class="mine-view-text">请选择</view>
+                <view class="mine-view-text">{{ industry ? '已选择':'请选择'}}</view>
                 <image class="mine-view-arrow" src="/utils/image/icon-mine-09-09-01.png" />
             </view>
         </view>
-        <view class="tc-c flex-between">
+        <view class="tc-c flex-between" bindtap='selectArea'>
             <view class="tc-b-title">所在城市</view>
             <view style="display: flex;align-items: center;">
-                <view class="mine-view-text">请选择</view>
+                <view class="mine-view-text">{{cityname || '请选择'}}</view>
                 <image class="mine-view-arrow" src="/utils/image/icon-mine-09-09-01.png" />
             </view>
         </view>
     </view>
-    <view class="tc-d">
+    <view class="tc-d" bind:tap="setAddCelebrityInfo">
         <view class="tc-e">提交认证</view>
     </view>
     <view class="tc-empty"></view>
 </view>
+
+<van-popup show="{{ isFlag }}" position="bottom" overlay="true" bind:close="pickerClose">
+  <van-area area-list="{{ celebrityCityList }}" columns-num="{{ 2 }}" value="110000" bind:cancel="pickerClose" bind:confirm="areaConfirm" />
+</van-popup>

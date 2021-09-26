@@ -190,6 +190,9 @@ module.exports = {
 	getUserFansList: data => { //粉丝列表
 		return request("/user/getUserFansList", "post", data);
 	},
+
+
+	
 	
 	/* 首页 */
 	getExpertRecommend: data => { // 达人推荐
@@ -200,5 +203,19 @@ module.exports = {
 	},
 	getNewActivityList: data => {
 		return request("/home/getNewActivityList", "post", data)
-	}
+	},
+
+	addCelebrityInfo: data => { //达人认证
+		return request("/celebrity/addCelebrityInfo", "post", data);
+	},
+	getCelebrityLabelList: data => { //达人标签列表
+		return request("/attached/getCelebrityLabelList", "post", data);
+	},
+	getCelebrityTradeList: data => { //达人行业列表
+		return request("/attached/getCelebrityTradeList", "post", data);
+	},
+	getCelebrityCityList: data => { //达人城市列表
+		return request("/attached/getCityList", "post", data);
+	},
+	
 };

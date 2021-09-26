@@ -1,32 +1,68 @@
 <wxs src="../../../utils/substring.wxs" module="tools" />
 <view class="mine-container" >
-    <view class="sl-1">
+    <view class="sl-1" wx:if="{{number == 1}}">
         <view class="mine-collection-view">
             <view class="mc-right-lable">
-                <block wx:for="{{3}}" wx:key="index"><text>{{'安徽大众汽车'}}</text></block>
+                <block wx:for="{{list}}" wx:key="index"><text class="{{item.isShow ? 'mc-right-lable-activity-text':'mc-right-lable-text'}}" bind:tap="clickItem" data-index="{{index}}" data-id="{{item.id}}" data-name="{{item.name}}">{{item.name}}</text></block>
             </view>
         </view>
-        <view class="tc-b flex-between">
+        <!-- <view class="tc-b flex-between">
             <view class="tc-b-title">所选:</view>
             <input type="text" placeholder="未填写" bindinput="value" value="{{value}}" placeholder-class="placeholder" />
-        </view>
-        <view class="tc-d">
+        </view> -->
+        <view class="tc-d" bind:tap="clickListItems">
             <view class="tc-e">确定</view>
         </view>
         <view class="tc-empty"></view>
     </view>
-    <view class="sl-1">
-        <view class="sl-img-view">
-            <image class="sl-img" src="/utils/image/icon_help_09_14_01.png"/>
+    <view class="sl-1" wx:if="{{number == 2}}">
+        <view class="common">
+            <view class="common-header">自我介绍</view>
+            <view class="textarea-container">
+            <van-field
+                value="{{ introduce }}"
+                data-attribute="introduce"
+                bind:change="onChange"
+                type="textarea"
+                placeholder="请输入简介"
+                autosize
+                maxlength="{{ 200 }}"
+                border="{{ false }}"
+            />
+            </view>
         </view>
-        <view class="sl-add-view">
-            <view class="sl-add-title">+</view>
+        <view class="tc-d" bind:tap="clickIntroduce">
+            <view class="tc-e">确定</view>
+        </view>
+        <view class="tc-empty"></view>
+    </view>
+    <view class="sl-1" wx:if="{{number == 3}}">
+        <view class="sl-add-view" bind:tap="clickAddImg">
+            <view class="sl-add-title">上传图片</view>
+        </view>
+        <view class="sl-img-view" wx:if="{{honorImg}}">
+            <image class="sl-img" src="{{honorImg}}"/>
         </view>
         <view class="tc-b flex-between">
-            <view class="tc-b-title">请输入:</view>
-            <input type="text" placeholder="请输入" bindinput="value" value="{{value}}" placeholder-class="placeholder" />
+            <view class="tc-b-title">个人荣誉:</view>
+            <input type="text" placeholder="请输入个人荣誉" bindinput="honor" value="{{honor}}" placeholder-class="placeholder" />
         </view>
-        <view class="tc-d">
+        <view class="tc-d" bind:tap="clickHonor">
+            <view class="tc-e">确定</view>
+        </view>
+        <view class="tc-empty"></view>
+    </view>
+    <view class="sl-1" wx:if="{{number == 4}}">
+        <view class="mine-collection-view">
+            <view class="mc-right-lable">
+                <block wx:for="{{list}}" wx:key="index"><text class="{{industryIndex == index ? 'mc-right-lable-activity-text':'mc-right-lable-text'}}" bind:tap="clickIndustryIndex" data-index="{{index}}" data-id="{{item.id}}" data-name="{{item.name}}">{{item.name}}</text></block>
+            </view>
+        </view>
+        <view class="tc-b flex-between">
+            <view class="tc-b-title">所属行业:</view>
+            <input type="text" placeholder="未填写" bindinput="industry" value="{{industry}}" placeholder-class="placeholder" />
+        </view>
+        <view class="tc-d" bind:tap="clickIndustry">
             <view class="tc-e">确定</view>
         </view>
         <view class="tc-empty"></view>
