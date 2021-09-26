@@ -4,7 +4,7 @@ const imageUrl = 'https://bpimg.jianlet.com/images/'  //图片域名
 
 const API_BASE_URL = 'https://bp.jianlet.com'; //小程序域名
 const app = getApp();
-const request = (url, method, data) => {
+const request = (url, method, data = {}) => {
 	let _url = API_BASE_URL + url;
 	var userid = wx.getStorageSync("userid");
 	var token = wx.getStorageSync("token");
@@ -200,5 +200,14 @@ module.exports = {
 	},
 	getNewActivityList: data => {
 		return request("/home/getNewActivityList", "post", data)
+	},
+	getCityList: data => {  // 城市列表
+		return request("/attached/getCityList", "post", data)
+	},
+	getAreaList: data => {  // 区域列表
+		return request("/attached/getCompanyRegionList", "post", data)
+	},
+	getCaseTradeList: data => {
+		return request("/attached/getCaseTradeList", "post", data)
 	}
 };

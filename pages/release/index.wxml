@@ -36,12 +36,14 @@
   <!-- 展示区 -->
   <view class="show-area" wx:if="{{ currentType && formData.toppic }}">
     <image wx:if="{{ currentType === '首图' }}" src="{{ formData.toppic }}" />
-    <image wx:if="{{ currentType === '小图' }}" src="{{ formData.toppic }}" />
     <video 
       wx:if="{{ currentType === '视频' }}" 
       src="{{ formData.toppic }}" 
       show-fullscreen-btn="{{ false }}"
     />
+  </view>
+  <view class="show-area" wx:if="{{ currentType && formData.backpic }}">
+    <image src="{{ formData.backpic }}" />
   </view>
 
   <view class="common">
@@ -64,7 +66,7 @@
     <view class="common-main">
       <view class="area">
         <text >七大区</text>
-        <view >
+        <view bindtap="handleClickToShowSelectPanel" data-type="area">
           <text >请选择</text>
           <image src="/assets/images/arrow-right2.png" />
         </view>
@@ -85,7 +87,7 @@
     <view class="common-main">
       <view class="area">
         <text >面向行业</text>
-        <view >
+        <view bindtap="handleClickToShowSelectPanel" data-type="caseTrade">
           <text >请选择</text>
           <image src="/assets/images/arrow-right2.png" />
         </view>
@@ -138,4 +140,27 @@
   <view class="btn">
     <view bindtap="submit">提交发布</view>
   </view>
+
+
+  <van-popup show="{{ area }}" position="bottom" custom-style="height: 40%;">
+    <van-picker 
+      show-toolbar
+      data-type="area"
+      bind:cancel="onClose"
+      bind:confirm="onConfirm"
+      columns="{{ areaList }}" 
+      bind:change="onChangeToPicker" 
+    />
+  </van-popup>
+
+  <van-popup show="{{ caseTrade }}" position="bottom" custom-style="height: 40%;">
+    <van-picker 
+      show-toolbar
+      data-type="caseTrade"
+      bind:cancel="onClose"
+      bind:confirm="onConfirm"
+      columns="{{ caseTradeList }}" 
+      bind:change="onChangeToPicker" 
+    />
+  </van-popup>
 </view>

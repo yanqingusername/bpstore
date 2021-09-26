@@ -1,6 +1,8 @@
 {
   "usingComponents": {
-    "van-field": "/components/vant/field/index"
+    "van-field": "@vant/weapp/field/index",
+    "van-popup": "@vant/weapp/popup/index",
+    "van-picker": "@vant/weapp/picker/index"
   },
   "component": true,
   "navigationBarTitleText": "发布案例"
