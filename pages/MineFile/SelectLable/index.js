@@ -106,10 +106,12 @@ Page({
 
             let listIds = wx.getStorageSync('celebrityinfo_clabelIds');
             if(listIds.length > 0){
-                for(let i = 0; i< listIds.length; i++){
-                    for(let j = 0; j< list.length; j++){
+                
+                for(let j = 0; j< list.length; j++){
+                    for(let i = 0; i< listIds.length; i++){
                         if(listIds[i] == list[j].id){
                             list[j].isShow = true;
+                            break;
                         }else{
                             list[j].isShow = false;
                         }

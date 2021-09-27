@@ -22,6 +22,7 @@ Page({
     onLoad(){
         wx.setNavigationBarTitle({ title: '达人认证' });
         this.getCelebrityCityList();
+        this.getMyCelebrityInfo();
     },
     onShow(){
         let clabel = wx.getStorageSync('celebrityinfo_clabel') || '';
@@ -106,8 +107,7 @@ Page({
         })
     },
     setAddCelebrityInfo() {
-        
-
+        let clabelString = this.data.clabel.join(",");
         if (this.data.name == ''){
             Util.showToast('姓名不能为空');
             return;
@@ -125,7 +125,7 @@ Page({
             Util.showToast('邮箱不能为空');
             return;
         }
-        if (this.data.clabel == ''){
+        if (this.data.clabelString == ''){
             Util.showToast('个人标签不能为空');
             return;
         }
@@ -160,7 +160,7 @@ Page({
             wx: this.data.wx,
             phone: this.data.phone,
             email: this.data.email,
-            clabel: this.data.clabel,
+            clabel: clabelString,
             introduce: this.data.introduce,
             certificate: this.data.certificate,
             honor: this.data.honor,
@@ -217,4 +217,13 @@ Page({
             }
         }
     },
+    getMyCelebrityInfo(){
+        let that = this;
+        Api.getMyCelebrityInfo({}).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+           
+        })
+    }
 })

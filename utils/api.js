@@ -226,5 +226,8 @@ module.exports = {
 	getCelebrityCityList: data => { //达人城市列表
 		return request("/attached/getCityList", "post", data);
 	},
+	getMyCelebrityInfo: data => { //达人信息(自己)
+		return request("/celebrity/getMyCelebrityInfo", "post", data);
+	},
 	
 };
