@@ -42,10 +42,11 @@ Component({
     pageLifetimes: {
         // 组件所在页面的生命周期函数 ( 只会加载一次 )
         show:  function () {
-            const expert =  Api.getExpertRecommend({
-                pageNum: 1,
-                pageSize:50
-            })
+            this.getExpertRecommend()
+            this.getBannerList()
+            this.getNewActivityList()
+            this.getCelebrityList()
+            this.getClassicCaseList()
         },
         /**
          * 组件所在页面的关闭函数
@@ -56,6 +57,40 @@ Component({
 
     },
     methods: {
+            // 达人推荐
+            getExpertRecommend() {
+                Api.getExpertRecommend({
+                    pageNum: 1,
+                    pageSize:50
+                })
+            },
+            // 轮播
+            getBannerList() {
+                Api.getBannerList({
+                    pageNum: 1,
+                    pageSize:50
+                })
+            },
+            // 最新活动
+            getNewActivityList() {
+                Api.getNewActivityList({
+                    pageNum: 1,
+                    pageSize:50
+                })
+            },
+            // 行业达人
+            getCelebrityList() {
+                Api.getCelebrityList({
+                    pageNum: 1,
+                    pageSize:50
+                })
+            },
+            getClassicCaseList() {
+                Api.getClassicCaseList({
+                    pageNum: 1,
+                    pageSize:50
+                })
+            },
 			navigationToPage(e) {
                 const { page } = e.target.dataset
 				wx.navigateTo({

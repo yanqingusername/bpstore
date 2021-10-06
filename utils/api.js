@@ -201,8 +201,14 @@ module.exports = {
 	getBannerList: data => {  // banner
 		return request("/home/getBannerList", "post", data)
 	},
-	getNewActivityList: data => {
+	getNewActivityList: data => { // 最新活动
 		return request("/home/getNewActivityList", "post", data)
+	},
+	getCelebrityList: data => { // 行业达人
+		return request("/home/getCelebrityList", "post", data)
+	},
+	getClassicCaseList: data => { // 经典案例
+		return request("/home/getClassicCaseList", "post", data)
 	},
 	getCityList: data => {  // 城市列表
 		return request("/attached/getCityList", "post", data)
