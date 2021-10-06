@@ -20,7 +20,7 @@ Page({
         text: '文字'
       }
     ],
-    introduceList: ['案例亮点', '应用场景', '参与单位', '内容详情', '应用成效', '用户评价'],
+    introduceList: ['案例亮点', '应用场景', '参与单位', '应用成效', '用户评价'],
     checkImage: '/assets/images/check.png',
     checkActiveImage: '/assets/images/check-active.png',
     isJoin: true,
@@ -40,19 +40,21 @@ Page({
       province: '', // 省
       city: '', // 市
       trade: '', // 面向行业
-      lables: '', // 标签
+      celebrityinfo_clabel: '', // 标签
       remarks: ''  // 备注
     },
     currentType: '',
     area: false,
     areaList: [],
-    caseTrade: false,
-    caseTradeList: []
+    trade: false,
+    caseTradeList: [],
+    multiArray: []
   },
   onShow() {
     this.getCityList()
     this.getAreaList()
     this.getCaseTradeList()
+    this.getStorageData() // 赋值
   },
   getCityList() {
     Api.getCityList().then(res => {
@@ -138,12 +140,17 @@ Page({
     }
   },
   submit() {
-    console.log('formData', this.data.formData, this.data.caseTradeList);
+    console.log('formData', this.data.formData, this.data.multiArray);
   },
   handleClickToShowSelectPanel(e) {
     const { type } = e.currentTarget.dataset
     this.setData({
       [type]: true
+    })
+  },
+  bindRegionChange(e) {
+    this.setData({
+      multiArray: e.detail.value
     })
   },
   onClose(e) {
@@ -153,8 +160,41 @@ Page({
       [type]: false
     })
   },
-  onChangeToPicker(event) {
+  onConfirm(event) {
+    const { type } = event.currentTarget.dataset
     const { picker, value, index } = event.detail
-    console.log('value', value);
+    
+    this.setData({
+      formData: {
+        ...this.data.formData,
+        [type]: value
+      },
+      [type]: false
+    })
+  },
+  navigationToSelectPage(e) {
+    const { number } = e.currentTarget.dataset
+    wx.navigateTo({
+      url: `/pages/MineFile/SelectLable/index?number=${ number }`
+    })
+  },
+  getStorageData() {
+    const list = ['celebrityinfo_clabel']
+    let obj = {}
+
+    list.forEach(key => {
+      const val = wx.getStorageSync(key)
+      if (val) {
+        obj[key] = '已选择'
+      }
+    })
+
+    console.log('this.data.formData,', this.data.formData, obj);
+    this.setData({
+      formData: {
+        ...this.data.formData,
+        ...obj
+      }
+    })
   }
 })

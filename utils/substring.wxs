@@ -210,5 +210,5 @@ var subStringNameTag1 = function (val) {
     subStringNameTag2: subStringNameTag2,
     lineFeed: lineFeed,
     subStringNameTag3: subStringNameTag3,
-    toHide: toHide
+    toHide: toHide,
   }

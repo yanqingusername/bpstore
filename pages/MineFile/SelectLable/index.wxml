@@ -67,4 +67,25 @@
         </view>
         <view class="tc-empty"></view>
     </view>
+    <view class="sl-1" wx:if="{{number == 5}}">
+        <view class="common">
+            <view class="common-header">自我介绍</view>
+            <view class="textarea-container">
+            <van-field
+                value="{{ introduce }}"
+                data-attribute="introduce"
+                bind:change="onChange"
+                type="textarea"
+                placeholder="请输入简介"
+                autosize
+                maxlength="{{ 200 }}"
+                border="{{ false }}"
+            />
+            </view>
+        </view>
+        <view class="tc-d" bind:tap="clickIntroduce">
+            <view class="tc-e">确定</view>
+        </view>
+        <view class="tc-empty"></view>
+    </view>
 </view>

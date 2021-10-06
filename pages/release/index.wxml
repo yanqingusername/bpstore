@@ -1,3 +1,5 @@
+<wxs src="../../utils/substring.wxs" module="tools" />
+
 <view class="release">
   <view class="release-container">
     <view class="release-main">
@@ -52,10 +54,28 @@
       <view 
         class="area introduce" 
         wx:for="{{ introduceList }}" 
+        bindtap="navigationToSelectPage" data-number="1"
       >
         <text >{{ item }}</text>
         <view >
           <image src="/assets/images/arrow-right2.png" />
+        </view>
+      </view>
+
+      <view 
+        class="area introduce"  
+      >
+        <text >内容详情</text>
+        <view >
+          <van-field
+            value="{{ formData.content }}"
+            data-attribute="content"
+            bind:change="onChange"
+            placeholder="请填写内容详情"
+            input-align="right"
+            autosize
+            border="{{ false }}"
+          />
         </view>
       </view>
     </view>
@@ -67,7 +87,7 @@
       <view class="area">
         <text >七大区</text>
         <view bindtap="handleClickToShowSelectPanel" data-type="area">
-          <text >请选择</text>
+          <text >{{ formData.area ? '已选择' : '请选择' }}</text>
           <image src="/assets/images/arrow-right2.png" />
         </view>
       </view>
@@ -75,7 +95,13 @@
       <view class="area">
         <text >省份城市</text>
         <view >
-          <text >请选择</text>
+          <picker mode="region" 
+            bindchange="bindRegionChange"
+            range='{{ multiArray }}'
+          >
+            <text >{{ multiArray.length ? '已选择' : '请选择' }}</text>
+          </picker> 
+          
           <image src="/assets/images/arrow-right2.png" />
         </view>
       </view>
@@ -87,16 +113,16 @@
     <view class="common-main">
       <view class="area">
         <text >面向行业</text>
-        <view bindtap="handleClickToShowSelectPanel" data-type="caseTrade">
-          <text >请选择</text>
+        <view bindtap="handleClickToShowSelectPanel" data-type="trade">
+          <text >{{ formData.trade ? '已选择' : '请选择' }}</text>
           <image src="/assets/images/arrow-right2.png" />
         </view>
       </view>
 
       <view class="area">
         <text >添加标签</text>
-        <view >
-          <text >请选择</text>
+        <view bindtap="navigationToSelectPage" data-number="1">
+          <text >{{ formData.celebrityinfo_clabel ? '已选择' : '请选择' }}</text>
           <image src="/assets/images/arrow-right2.png" />
         </view>
       </view>
@@ -148,19 +174,17 @@
       data-type="area"
       bind:cancel="onClose"
       bind:confirm="onConfirm"
-      columns="{{ areaList }}" 
-      bind:change="onChangeToPicker" 
+      columns="{{ areaList }}"
     />
   </van-popup>
 
-  <van-popup show="{{ caseTrade }}" position="bottom" custom-style="height: 40%;">
+  <van-popup show="{{ trade }}" position="bottom" custom-style="height: 40%;">
     <van-picker 
       show-toolbar
-      data-type="caseTrade"
+      data-type="trade"
       bind:cancel="onClose"
       bind:confirm="onConfirm"
       columns="{{ caseTradeList }}" 
-      bind:change="onChangeToPicker" 
     />
   </van-popup>
 </view>
