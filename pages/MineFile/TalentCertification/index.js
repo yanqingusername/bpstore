@@ -13,7 +13,7 @@ Page({
         cityname: '',
         celebrityCityList: {}, //达人城市列表
         isFlag: false, //所在城市
-        clabel:'',
+        clabel:[],
         introduce:'',
         certificate:'',
         honor:'',
@@ -25,7 +25,7 @@ Page({
         this.getMyCelebrityInfo();
     },
     onShow(){
-        let clabel = wx.getStorageSync('celebrityinfo_clabel') || '';
+        let clabel = wx.getStorageSync('celebrityinfo_clabel') || [];
         let introduce = wx.getStorageSync('celebrityinfo_introduce') || '';
         let certificate = wx.getStorageSync('celebrityinfo_honorImg') || '';
         let honor = wx.getStorageSync('celebrityinfo_honor') || '';
@@ -107,7 +107,7 @@ Page({
         })
     },
     setAddCelebrityInfo() {
-        let clabelString = this.data.clabel.join(",");
+        let clabelString = this.data.clabel.length > 0 ? this.data.clabel.join(",") : '';
         if (this.data.name == ''){
             Util.showToast('姓名不能为空');
             return;

@@ -34,7 +34,7 @@
         <view class="tc-c flex-between" bind:tap="routerUrl" data-url="../SelectLable/index?number=1&title=个人标签">
             <view class="tc-b-title">个人标签</view>
             <view style="display: flex;align-items: center;">
-                <view class="mine-view-text">{{ clabel ? '已选择':'请选择'}}</view>
+                <view class="mine-view-text">{{ clabel.length > 0 ? '已选择':'请选择'}}</view>
                 <image class="mine-view-arrow" src="/utils/image/icon-mine-09-09-01.png" />
             </view>
         </view>
