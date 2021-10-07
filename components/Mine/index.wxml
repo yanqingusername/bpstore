@@ -3,12 +3,12 @@
     <view class="mine-header" >
         <view class="mine-header-between" wx:if="{{userid}}">
             <view class="mine-header-left">
-                <image class="mine-header-img" src="{{userInfo.avatarUrl}}" />
-                <view class="mine-header-name">{{userInfo.nickName}}</view>
+                <image class="mine-header-img" src="{{avatarUrl}}" bind:tap="clickAddImg"/>
+                <view class="mine-header-name" bind:tap="routerUrl" data-url="../../pages/MineFile/SelectLable/index?number=9&title=修改昵称&nickName={{userInfo.nickName}}">{{userInfo.nickName}}</view>
             </view>
             <view class="mine-header-right" bind:tap="routerUrl" data-url="../../pages/MineFile/MineMessage/index">
                 <image class="mine-header-message" src="/utils/image/icon-mine-09-09-02.png" />
-                <view class="message-radius"></view>
+                <view class="message-radius" wx:if="{{userAuthStatistics.isNews == 1}}"></view>
             </view>
         </view>
         <view class="mine-header-between" wx:else bindtap="toLoginLink">

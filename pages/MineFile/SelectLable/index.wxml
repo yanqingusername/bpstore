@@ -88,4 +88,14 @@
         </view>
         <view class="tc-empty"></view>
     </view>
+    <view class="sl-1" wx:if="{{number == 9}}">
+        <view class="tc-b flex-between">
+            <view class="tc-b-title">昵称:</view>
+            <input type="text" placeholder="未填写" bindinput="nickName" value="{{nickName}}" placeholder-class="placeholder" />
+        </view>
+        <view class="tc-d" bind:tap="clicknickName">
+            <view class="tc-e">确定</view>
+        </view>
+        <view class="tc-empty"></view>
+    </view>
 </view>

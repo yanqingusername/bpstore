@@ -36,6 +36,7 @@ color: #191E25;
 .mine-header-img{
     width: 110rpx;
     height: 110rpx;
+    border-radius: 50%;
 }
 .tc-line{
     width: 750rpx;

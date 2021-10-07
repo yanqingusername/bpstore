@@ -235,5 +235,62 @@ module.exports = {
 	getMyCelebrityInfo: data => { //达人信息(自己)
 		return request("/celebrity/getMyCelebrityInfo", "post", data);
 	},
-	
+	getCelebrityInfo: data => { //达人信息
+		return request("/celebrity/getCelebrityInfo", "post", data);
+	},
+
+	upUserNickName: data => { //修改昵称
+		return request("/user/upUserNickName", "post", data);
+	},
+
+
+	collectionCase: data => { //收藏案例  以下接口都未调试
+		return request("/user/collectionCase", "post", data);
+	},
+	upCollectionCase: data => { //取消收藏（可多选）
+		return request("/user/upCollectionCase", "post", data);
+	},
+	upUserFollow: data => { //关注—取消关注
+		return request("/user/upUserFollow", "post", data);
+	},
+
+	getCompanyInfo: data => { //单位信息
+		return request("/company/getCompanyInfo", "post", data);
+	},
+	getMyCompanyInfo: data => { //单位信息(自己)
+		return request("/company/getMyCompanyInfo", "post", data);
+	},
+	getCompanyRegionList: data => { //区域列表
+		return request("/attached/getCompanyRegionList", "post", data);
+	},
+	upLogo: data => { //上传logo
+		return request("/upload/upLogo", "post", data);
+	},
+	addCompanyInfo: data => { //公司单位认证
+		return request("/company/addCompanyInfo", "post", data);
+	},
+	getCompanyValuationList: data => { //公司估值额度列表
+		return request("/attached/getCompanyValuationList", "post", data);
+	},
+	getCompanyTurnoverList: data => { //公司营业额列表
+		return request("/attached/getCompanyTurnoverList", "post", data);
+	},
+	getCompanyTradeList: data => { //公司面向行业列表
+		return request("/attached/getCompanyTradeList", "post", data);
+	},
+	getCompanyTechnologyList: data => { //公司技术类型列表
+		return request("/attached/getCompanyTechnologyList", "post", data);
+	},
+	getCompanyNatureList: data => { //公司性质列表
+		return request("/attached/getCompanyNatureList", "post", data);
+	},
+	getCompanyMarketList: data => { //公司市值金额列表
+		return request("/attached/getCompanyMarketList", "post", data);
+	},
+	getCompanyLabelList: data => { //公司标签列表
+		return request("/attached/getCompanyLabelList", "post", data);
+	},
+	getCompanyFinancingList: data => { //公司融资金额列表
+		return request("/attached/getCompanyFinancingList", "post", data);
+	},
 };

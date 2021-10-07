@@ -24,7 +24,8 @@ Component({
         userid: '',
         userInfo: "",
         userStatistics: "",
-        userAuthStatistics: ""
+        userAuthStatistics: "",
+        avatarUrl: ''
     },
 
     lifetimes: {
@@ -173,7 +174,8 @@ Component({
                 }
                 console.log(res.data)
                 that.setData({
-                    userInfo: res.data
+                    userInfo: res.data,
+                    avatarUrl: res.data.avatarUrl
                 });
             })
         },
@@ -197,6 +199,18 @@ Component({
                 that.setData({
                     userAuthStatistics: res.data
                 });
+            })
+        },
+        clickAddImg(){
+            Api.uploadAvatarImg('/upload/upUserLogo').then((res)=>{
+                if(res.statusCode === 200) {
+                    let imgData = JSON.parse(res.data);
+                    if(imgData.code == 1){
+                        this.setData({
+                            avatarUrl: imgData.data.urlPath
+                        });
+                    }
+                }
             })
         },
     }

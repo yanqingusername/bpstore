@@ -6,7 +6,7 @@
     </view>
     <view class="mine-header flex-between">
         <view class="mine-header-text">头像</view>
-        <image class="mine-header-img"  src="/utils/image/icon_help_09_14_01.png"/>
+        <image class="mine-header-img"  src="{{avatarUrl ? avatarUrl : '/utils/image/icon_help_09_14_01.png'}}"/>
     </view>
     <view class="tc-line"></view>
     <view class="tc-view">

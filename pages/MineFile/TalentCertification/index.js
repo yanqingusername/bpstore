@@ -4,20 +4,21 @@ const Api = require('../../../utils/api');
 const Util = require('../../../utils/util');
 Page({
     data: {
+        avatarUrl: '', // 头像
         name: '',//姓名
         wx: '',//微信号
         phone: '',//手机号
         email: '',//邮箱
         companyName: '',//公司名称
         profession: '',//职位
-        cityname: '',
+        cityname: '', //所在城市
         celebrityCityList: {}, //达人城市列表
         isFlag: false, //所在城市
-        clabel:[],
-        introduce:'',
-        certificate:'',
-        honor:'',
-        industry:''
+        clabel:[], // 个人标签
+        introduce:'', // 自我介绍
+        certificate:'', // 个人荣誉图片
+        honor:'', // 个人荣誉
+        industry:'', //所属行业
     },
     onLoad(){
         wx.setNavigationBarTitle({ title: '达人认证' });
@@ -174,7 +175,7 @@ Page({
                 return;
             }
             wx.removeStorageSync('celebrityinfo_clabel');
-            wx.removeStorageSync('celebrityinfo_clabelIds');
+            // wx.removeStorageSync('celebrityinfo_clabelIds');
             wx.removeStorageSync('celebrityinfo_introduce');
             wx.removeStorageSync('celebrityinfo_honorImg');
             wx.removeStorageSync('celebrityinfo_honor');
@@ -223,7 +224,28 @@ Page({
             if (res.code != 1) {
                 return;
             }
-           
-        })
+            that.setData({
+                avatarUrl: res.data.avatarUrl,
+                name: res.data.name,
+                wx: res.data.wx,
+                phone: res.data.phone,
+                email: res.data.email,
+                companyName: res.data.companyName,
+                profession: res.data.profession,
+                cityname: res.data.city,
+                clabel: res.data.clabel.split(','),
+                introduce: res.data.introduce,
+                certificate: res.data.certificate,
+                honor: res.data.honor,
+                industry: res.data.industry,
+            });
+
+            wx.setStorageSync('celebrityinfo_clabel', that.data.clabel);
+            // wx.setStorageSync('celebrityinfo_clabelIds', that.data.clabel);
+            wx.setStorageSync('celebrityinfo_introduce', that.data.introduce);
+            wx.setStorageSync('celebrityinfo_honorImg', that.data.certificate);
+            wx.setStorageSync('celebrityinfo_honor', that.data.honor);
+            wx.setStorageSync('celebrityinfo_industry', that.data.industry);
+        });
     }
 })

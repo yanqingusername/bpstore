@@ -13,7 +13,8 @@ Page({
         honorImg: '', //个人荣誉图片
         honor:'', //个人荣誉
         industryIndex: -1, //所属行业index
-        industry: ''
+        industry: '',
+        nickName: '', //昵称
     },
     onLoad(options){
         wx.setNavigationBarTitle({ 
@@ -23,6 +24,11 @@ Page({
         if(options && options.number){
             this.setData({
                 number: options.number
+            });
+        }
+        if(options && options.nickName){
+            this.setData({
+                nickName: options.nickName
             });
         }
         if(this.data.number == 1){
@@ -82,7 +88,7 @@ Page({
     clickListItems(){
         console.log(this.data.listIds)
         wx.setStorageSync('celebrityinfo_clabel', this.data.listName);
-        wx.setStorageSync('celebrityinfo_clabelIds', this.data.listIds);
+        // wx.setStorageSync('celebrityinfo_clabelIds', this.data.listIds);
         wx.navigateBack({
             delta: 1
         });
@@ -104,12 +110,12 @@ Page({
                 }
             }
 
-            let listIds = wx.getStorageSync('celebrityinfo_clabelIds');
+            let listIds = wx.getStorageSync('celebrityinfo_clabel');
             if(listIds.length > 0){
                 
                 for(let j = 0; j< list.length; j++){
                     for(let i = 0; i< listIds.length; i++){
-                        if(listIds[i] == list[j].id){
+                        if(listIds[i] == list[j].name){
                             list[j].isShow = true;
                             break;
                         }else{
@@ -200,6 +206,25 @@ Page({
         wx.setStorageSync('celebrityinfo_industry', this.data.industry);
         wx.navigateBack({
             delta: 1
+        });
+    },
+    nickName(e){
+        this.setData({
+            nickName: e.detail.value
+        });
+    },
+    clicknickName(){
+        let that = this;
+        let data = {
+            nickName: that.data.nickName
+        }
+        Api.upUserNickName(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            wx.navigateBack({
+                delta: 1
+            });
         });
     },
 })
