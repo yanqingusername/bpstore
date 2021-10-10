@@ -78,7 +78,7 @@ Page({
             this.getCompanyLabelList();
         }else if(this.data.number == 15){
             let partner =  wx.getStorageSync('partner');
-            let partner1 = partner.splice(',');
+            let partner1 = partner.split(',');
             this.setData({
                 partner1: partner1[0] || 0,
                 partner2: partner1[1] || 0,
