@@ -18,7 +18,7 @@
             </view>
             <view class="mine-header-right">
                 <image class="mine-header-message" src="/utils/image/icon-mine-09-09-02.png" />
-                <view class="message-radius"></view>
+                <!-- <view class="message-radius"></view> -->
             </view>
         </view>
         <view class="mine-center">{{(userAuthStatistics.celebrity == 1 || userAuthStatistics.company == 1) ? '已认证用户' : '未认证用户'}}</view>
@@ -58,7 +58,7 @@
             <view class="mine-view-between-right">
                 <view class="mine-view-name">专家达人</view>
                 <view style="display: flex;align-items: center;">
-                    <view class="mine-view-text">已认证</view>
+                    <view class="mine-view-text" wx:if="{{userAuthStatistics.celebrity == 1}}">已认证</view>
                     <image class="mine-view-arrow" src="/utils/image/icon-mine-09-09-01.png" />
                 </view>
                 
@@ -72,7 +72,7 @@
             <view class="mine-view-between-right">
                 <view class="mine-view-name">我的单位</view>
                 <view style="display: flex;">
-                    <view class="mine-view-radius"></view>
+                    <view class="mine-view-radius" wx:if="{{userAuthStatistics.company == 1}}"></view>
                     <image class="mine-view-arrow" src="/utils/image/icon-mine-09-09-01.png" />
                 </view>
             </view>

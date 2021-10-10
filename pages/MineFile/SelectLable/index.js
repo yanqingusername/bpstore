@@ -3,18 +3,30 @@ const app = getApp();
 const Api = require('../../../utils/api');
 Page({
     data: {
+        titleString: '',
         value: '',
         list: [], //个人标签
         listIds:[], //个人标签id
         listName:[], //个人标签name
         listtwo: [],
-        number: 1, // 1.个人认证-个人标签 2.个人认证-自我介绍 3.个人认证-个人荣誉 4.个人认证-所属行业 
+        number: 1, // 1.个人认证-个人标签 2.个人认证-自我介绍 3.个人认证-个人荣誉 4.个人认证-所属行业 11.单位认证-公司性质列表
         introduce: '', //自我介绍
         honorImg: '', //个人荣誉图片
         honor:'', //个人荣誉
         industryIndex: -1, //所属行业index
         industry: '',
         nickName: '', //昵称
+        CompanyNatureList: [], // 公司性质列表
+        CompanyNatureIndex: -1, //公司性质列表index
+        CompanyNature: '', //公司性质列表
+        CompanyTradeList: [], //面向行业
+        CompanyTradeListIds:[], //面向行业id
+        CompanyTradeListName:[], //面向行业name
+        partner1:0,//	合作伙伴-ISV伙伴
+        partner2:0,//	合作伙伴-咨询伙伴
+        partner3:0,//	合作伙伴-IT服务伙伴
+        partner4:0,//	合作伙伴-分销伙伴
+
     },
     onLoad(options){
         wx.setNavigationBarTitle({ 
@@ -23,7 +35,8 @@ Page({
         
         if(options && options.number){
             this.setData({
-                number: options.number
+                number: options.number,
+                titleString: options.title
             });
         }
         if(options && options.nickName){
@@ -50,6 +63,64 @@ Page({
             let industry =  wx.getStorageSync('celebrityinfo_industry');
             this.setData({
                 industry: industry
+            });
+        }else if(this.data.number ==11){
+            this.getCompanyNatureList();
+            let CompanyNature =  wx.getStorageSync('CompanyNature');
+            this.setData({
+                CompanyNature: CompanyNature
+            });
+        }else if(this.data.number == 12){
+            this.getCompanyTradeList();
+        }else if(this.data.number == 13){
+            this.getCompanyTechnologyList();
+        }else if(this.data.number == 14){
+            this.getCompanyLabelList();
+        }else if(this.data.number == 15){
+            let partner =  wx.getStorageSync('partner');
+            let partner1 = partner.splice(',');
+            this.setData({
+                partner1: partner1[0] || 0,
+                partner2: partner1[1] || 0,
+                partner3: partner1[2] || 0,
+                partner4: partner1[3] || 0
+            });
+        }else if(this.data.number == 16){
+            let honor =  wx.getStorageSync('qualifis');
+            let honorImg =  wx.getStorageSync('qualifisImg');
+            this.setData({
+                honor: honor,
+                honorImg: honorImg
+            });
+        }else if(this.data.number ==17){
+            this.getCompanyTurnoverList();
+            let CompanyNature = wx.getStorageSync('CompanyTurnover');
+            this.setData({
+                CompanyNature: CompanyNature
+            });
+        }else if(this.data.number ==18){
+            this.getCompanyMarketList();
+            let CompanyNature = wx.getStorageSync('CompanyMarket');
+            this.setData({
+                CompanyNature: CompanyNature
+            });
+        }else if(this.data.number ==19){
+            this.getCompanyValuationList();
+            let CompanyNature = wx.getStorageSync('CompanyValuation');
+            this.setData({
+                CompanyNature: CompanyNature
+            });
+        }else if(this.data.number ==20){
+            this.getCompanyFinancingList();
+            let CompanyNature = wx.getStorageSync('CompanyFinancing');
+            this.setData({
+                CompanyNature: CompanyNature
+            });
+        }else if(this.data.number ==21){
+            this.getCompanyRegionList();
+            let CompanyNature = wx.getStorageSync('CompanyRegion');
+            this.setData({
+                CompanyNature: CompanyNature
             });
         }
     },
@@ -142,16 +213,29 @@ Page({
         });
     },
     clickAddImg(){
-        Api.uploadAvatarImg('/upload/upUserAuthPic').then((res)=>{
-            if(res.statusCode === 200) {
-                let imgData = JSON.parse(res.data);
-                if(imgData.code == 1){
-                    this.setData({
-                        honorImg: imgData.data.urlPath
-                    });
+        if(this.data.number ==3){
+            Api.uploadAvatarImg('/upload/upUserAuthPic').then((res)=>{
+                if(res.statusCode === 200) {
+                    let imgData = JSON.parse(res.data);
+                    if(imgData.code == 1){
+                        this.setData({
+                            honorImg: imgData.data.urlPath
+                        });
+                    }
                 }
-            }
-        })
+            })
+        }else if(this.data.number == 16){
+            Api.uploadAvatarImg('/upload/upUserAuthPic').then((res)=>{
+                if(res.statusCode === 200) {
+                    let imgData = JSON.parse(res.data);
+                    if(imgData.code == 1){
+                        this.setData({
+                            honorImg: imgData.data.urlPath
+                        });
+                    }
+                }
+            })
+        }
     },
     honor(e){
         this.setData({
@@ -159,8 +243,13 @@ Page({
         });
     },
     clickHonor(){
-        wx.setStorageSync('celebrityinfo_honor', this.data.honor);
-        wx.setStorageSync('celebrityinfo_honorImg', this.data.honorImg);
+        if(this.data.number ==3){
+            wx.setStorageSync('celebrityinfo_honor', this.data.honor);
+            wx.setStorageSync('celebrityinfo_honorImg', this.data.honorImg);
+        }else if(this.data.number == 16){
+            wx.setStorageSync('qualifis', this.data.honor);
+            wx.setStorageSync('qualifisImg', this.data.honorImg);
+        }
         wx.navigateBack({
             delta: 1
         });
@@ -225,6 +314,380 @@ Page({
             wx.navigateBack({
                 delta: 1
             });
+        });
+    },
+    // 单位
+    getCompanyNatureList(){
+        let that = this;
+        let data = {
+            pageNum: 1,
+            pageSize: 50
+        }
+        Api.getCompanyNatureList(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            let CompanyNatureList = res.data.list
+            if(CompanyNatureList.length > 0){
+                for(let i in CompanyNatureList){
+                    CompanyNatureList[i].isShow = false;
+                }
+            }
+            that.setData({
+                CompanyNatureList: CompanyNatureList
+            });
+        })
+    },
+    clickCompanyNatureIndex(e){
+        let id = e.currentTarget.dataset.id;
+        let name = e.currentTarget.dataset.name;
+        let index = e.currentTarget.dataset.index;
+				
+		this.setData({
+            CompanyNatureIndex: index,
+            CompanyNature: name
+        });
+    },
+    CompanyNature(e){
+        this.setData({
+            CompanyNature: e.detail.value,
+            CompanyNatureIndex: -1
+        });
+    },
+    clickCompanyNature(){
+        if(this.data.number == 11){
+            wx.setStorageSync('CompanyNature', this.data.CompanyNature);
+        }else if(this.data.number == 17){
+            wx.setStorageSync('CompanyTurnover', this.data.CompanyNature);
+        }else if(this.data.number == 18){
+            wx.setStorageSync('CompanyMarket', this.data.CompanyNature);
+        }else if(this.data.number == 19){
+            wx.setStorageSync('CompanyValuation', this.data.CompanyNature);
+        }else if(this.data.number == 20){
+            wx.setStorageSync('CompanyFinancing', this.data.CompanyNature);
+        }
+        
+        wx.navigateBack({
+            delta: 1
+        });
+    },
+    getCompanyTurnoverList(){
+        let that = this;
+        let data = {
+            pageNum: 1,
+            pageSize: 50
+        }
+        Api.getCompanyTurnoverList(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            let CompanyNatureList = res.data.list
+            if(CompanyNatureList.length > 0){
+                for(let i in CompanyNatureList){
+                    CompanyNatureList[i].isShow = false;
+                }
+            }
+            that.setData({
+                CompanyNatureList: CompanyNatureList
+            });
+        })
+    },
+    getCompanyMarketList(){
+        let that = this;
+        let data = {
+            pageNum: 1,
+            pageSize: 50
+        }
+        Api.getCompanyMarketList(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            let CompanyNatureList = res.data.list
+            if(CompanyNatureList.length > 0){
+                for(let i in CompanyNatureList){
+                    CompanyNatureList[i].isShow = false;
+                }
+            }
+            that.setData({
+                CompanyNatureList: CompanyNatureList
+            });
+        })
+    },
+    getCompanyValuationList(){
+        let that = this;
+        let data = {
+            pageNum: 1,
+            pageSize: 50
+        }
+        Api.getCompanyValuationList(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            let CompanyNatureList = res.data.list
+            if(CompanyNatureList.length > 0){
+                for(let i in CompanyNatureList){
+                    CompanyNatureList[i].isShow = false;
+                }
+            }
+            that.setData({
+                CompanyNatureList: CompanyNatureList
+            });
+        })
+    },
+    getCompanyFinancingList(){
+        let that = this;
+        let data = {
+            pageNum: 1,
+            pageSize: 50
+        }
+        Api.getCompanyFinancingList(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            let CompanyNatureList = res.data.list
+            if(CompanyNatureList.length > 0){
+                for(let i in CompanyNatureList){
+                    CompanyNatureList[i].isShow = false;
+                }
+            }
+            that.setData({
+                CompanyNatureList: CompanyNatureList
+            });
+        })
+    },
+    // 面向行业
+    clickCompanyTradeList(e){
+        let id = e.currentTarget.dataset.id;
+        let name = e.currentTarget.dataset.name;
+        let index = e.currentTarget.dataset.index;
+				
+		let selectedData = this.data.CompanyTradeListIds || [];
+        let CompanyTradeListName = this.data.CompanyTradeListName || [];
+		let item = this.data.CompanyTradeList[index];
+		if(item.isShow){
+			item.isShow = false;
+			for (let i = 0; i < selectedData.length; i++) {
+				if(selectedData[i] == id){
+				    selectedData.splice(i, 1);
+                    CompanyTradeListName.splice(i, 1);
+				}
+			}
+		} else {
+			item.isShow = true;
+			selectedData.push(id);
+            CompanyTradeListName.push(name);
+		}
+		this.setData({
+            CompanyTradeListIds: selectedData,
+            CompanyTradeListName: CompanyTradeListName,
+            CompanyTradeList: this.data.CompanyTradeList,
+            CompanyTrade: CompanyTradeListName.length > 0 ? CompanyTradeListName.join(",") : ''
+        });
+    },
+    clickListCompanyTradeList(){
+        if(this.data.number == 12){
+            wx.setStorageSync('CompanyTrade', this.data.CompanyTradeListName);
+        } else if(this.data.number == 13){
+            wx.setStorageSync('CompanyTechnology', this.data.CompanyTradeListName);
+        } else if(this.data.number == 14){
+            wx.setStorageSync('CompanyLabel', this.data.CompanyTradeListName);
+        }else if(this.data.number == 21){
+            wx.setStorageSync('CompanyRegion', this.data.CompanyTradeListName);
+        }
+        
+        wx.navigateBack({
+            delta: 1
+        });
+    },
+    CompanyTrade(e){
+        if(this.data.number == 12){
+            this.getCompanyTradeList();
+        } else if(this.data.number == 13){
+            this.getCompanyTechnologyList();
+        } else if(this.data.number == 14){
+            this.getCompanyLabelList();
+        } else if(this.data.number == 21){
+            this.getCompanyRegionList();
+        }
+        
+        this.setData({
+            CompanyTrade: e.detail.value
+        });
+    },
+    getCompanyTradeList(){
+        let that = this;
+        let data = {
+            pageNum: 1,
+            pageSize: 50
+        }
+        Api.getCompanyTradeList(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            let CompanyTradeList = res.data.list
+            if(CompanyTradeList.length > 0){
+                for(let i in CompanyTradeList){
+                    CompanyTradeList[i].isShow = false;
+                }
+            }
+
+            let CompanyTradeListIds = wx.getStorageSync('CompanyTrade');
+            if(CompanyTradeListIds.length > 0){
+                
+                for(let j = 0; j< CompanyTradeList.length; j++){
+                    for(let i = 0; i< CompanyTradeListIds.length; i++){
+                        if(CompanyTradeListIds[i] == CompanyTradeList[j].name){
+                            CompanyTradeList[j].isShow = true;
+                            break;
+                        }else{
+                            CompanyTradeList[j].isShow = false;
+                        }
+                    }
+                }
+            }
+            that.setData({
+                CompanyTradeList: CompanyTradeList,
+                CompanyTradeListIds: CompanyTradeListIds
+            });
+        })
+    },
+    getCompanyTechnologyList(){
+        let that = this;
+        let data = {
+            pageNum: 1,
+            pageSize: 50
+        }
+        Api.getCompanyTechnologyList(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            let CompanyTradeList = res.data.list
+            if(CompanyTradeList.length > 0){
+                for(let i in CompanyTradeList){
+                    CompanyTradeList[i].isShow = false;
+                }
+            }
+
+            let CompanyTradeListIds = wx.getStorageSync('CompanyTechnology');
+            if(CompanyTradeListIds.length > 0){
+                
+                for(let j = 0; j< CompanyTradeList.length; j++){
+                    for(let i = 0; i< CompanyTradeListIds.length; i++){
+                        if(CompanyTradeListIds[i] == CompanyTradeList[j].name){
+                            CompanyTradeList[j].isShow = true;
+                            break;
+                        }else{
+                            CompanyTradeList[j].isShow = false;
+                        }
+                    }
+                }
+            }
+            that.setData({
+                CompanyTradeList: CompanyTradeList,
+                CompanyTradeListIds: CompanyTradeListIds
+            });
+        })
+    },
+    getCompanyLabelList(){
+        let that = this;
+        let data = {
+            pageNum: 1,
+            pageSize: 50
+        }
+        Api.getCompanyLabelList(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            let CompanyTradeList = res.data.list
+            if(CompanyTradeList.length > 0){
+                for(let i in CompanyTradeList){
+                    CompanyTradeList[i].isShow = false;
+                }
+            }
+
+            let CompanyTradeListIds = wx.getStorageSync('CompanyLabel');
+            if(CompanyTradeListIds.length > 0){
+                
+                for(let j = 0; j< CompanyTradeList.length; j++){
+                    for(let i = 0; i< CompanyTradeListIds.length; i++){
+                        if(CompanyTradeListIds[i] == CompanyTradeList[j].name){
+                            CompanyTradeList[j].isShow = true;
+                            break;
+                        }else{
+                            CompanyTradeList[j].isShow = false;
+                        }
+                    }
+                }
+            }
+            that.setData({
+                CompanyTradeList: CompanyTradeList,
+                CompanyTradeListIds: CompanyTradeListIds
+            });
+        })
+    },
+    getCompanyRegionList(){
+        let that = this;
+        let data = {
+            pageNum: 1,
+            pageSize: 50
+        }
+        Api.getCompanyRegionList(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            let CompanyTradeList = res.data.list
+            if(CompanyTradeList.length > 0){
+                for(let i in CompanyTradeList){
+                    CompanyTradeList[i].isShow = false;
+                }
+            }
+
+            let CompanyTradeListIds = wx.getStorageSync('CompanyTechnology');
+            if(CompanyTradeListIds.length > 0){
+                
+                for(let j = 0; j< CompanyTradeList.length; j++){
+                    for(let i = 0; i< CompanyTradeListIds.length; i++){
+                        if(CompanyTradeListIds[i] == CompanyTradeList[j].name){
+                            CompanyTradeList[j].isShow = true;
+                            break;
+                        }else{
+                            CompanyTradeList[j].isShow = false;
+                        }
+                    }
+                }
+            }
+            that.setData({
+                CompanyTradeList: CompanyTradeList,
+                CompanyTradeListIds: CompanyTradeListIds
+            });
+        })
+    },
+    partner1(e){
+        this.setData({
+            partner1: e.detail.value
+        });
+    },
+    partner2(e){
+        this.setData({
+            partner2: e.detail.value
+        });
+    },
+    partner3(e){
+        this.setData({
+            partner3: e.detail.value
+        });
+    },
+    partner4(e){
+        this.setData({
+            partner4: e.detail.value
+        });
+    },
+    clickCompanyPartner(){
+        let partner = this.data.partner1 + ',' + this.data.partner2 + ',' + this.data.partner3 + ',' + this.data.partner4;
+        wx.setStorageSync('partner', partner);
+        
+        wx.navigateBack({
+            delta: 1
         });
     },
 })

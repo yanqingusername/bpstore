@@ -161,3 +161,17 @@ color: #FFFFFF;
   .van-cell{
       padding: 0rpx !important;
   }
+
+  .companytrade input{
+      width: 400rpx;
+  }
+
+  .flex-justify{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-justify input{
+    width: 100rpx;
+}

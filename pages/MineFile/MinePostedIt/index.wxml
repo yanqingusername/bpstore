@@ -12,18 +12,28 @@
     </view>
 
     <view class="mine-collection-view">
-        <block wx:for="{{10}}" wx:key="index">
+        <block wx:for="{{product_list}}" wx:key="index" wx:if='{{ product_list.length > 0}}'>
             <view class="mine-collection-item">
                 <!-- <view class="mc-right"> -->
-                    <view class="mc-right-title">一叶回答音乐类汇总</view>
-                    <view class="mc-right-content">音响调整到位，能接触更多好录音。</view>
+                    <view class="mc-right-title">{{item.title}}</view>
+                    <view class="mc-right-content line-clampz2">{{item.backdrop}}</view>
                    <view class="mc-b-view">
-                        <view class="mc-right-sub">深圳市 | 销售行业</view>
-                        <image bind:tap="deleteClick" class="mc-b-img" src='/utils/image/icon-mine-09-09-09.png' />
+                        <view class="mc-right-sub">{{item.city}} | {{item.trade}}</view>
+                        <image bind:tap="deleteClick" data-id="{{item.id}}" class="mc-b-img" src='/utils/image/icon-mine-09-09-09.png' />
                    </view>
                 <!-- </view> -->
             </view>
         </block>
+
+        <view style="color:#fff; background-color: #f5f5f5;" wx:if='{{ product_list.length != 0 && loading }}'>
+            <view  class="loading"><van-loading size='1em' type="spinner" /> 加载ing...</view>
+        </view>
+
+        <!--  暂无 -->
+        <view class='classification_no_data' wx:if='{{ product_list.length == 0}}'>
+            <!-- <image class="classification_no_data_icon" src="https://image.jiunidu.com/web/classificationNoData.png" mode='aspectFill'></image> -->
+            <view class="classification_no_data_lable">暂无数据</view>
+        </view>
     </view>
     
 </view>
@@ -31,11 +41,11 @@
 
     <van-popup show="{{ isShow }}" bind:close="onClose" position="top" class="van-popup">
       <view class="popup-posted">
-        <view class="popup-posted-view" style="border-bottom: 1px solid #EEEEEE;">
+        <view class="popup-posted-view" style="border-bottom: 1px solid #EEEEEE;" bind:tap="deleteHandler">
             <image class="popup-posted-img" src='/utils/image/icon-mine-09-09-10.png' />
             <view class="popup-posted-title">删除案例</view>
         </view>
-        <view class="popup-posted-view">
+        <view class="popup-posted-view" bind:tap="shareHandler">
             <image class="popup-posted-img" src='/utils/image/icon-mine-09-09-10.png' />
             <view class="popup-posted-title">分享</view>
         </view>

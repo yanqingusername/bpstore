@@ -3,6 +3,8 @@
         "van-transition": "/components/vant/transition/index",
         "van-toast": "/components/vant/toast/index",
         "van-search": "/components/vant/search/index",
-        "van-popup": "/components/vant/popup/index"
-    }
+        "van-popup": "/components/vant/popup/index",
+        "van-loading": "/components/vant/loading/index"
+    },
+    "enablePullDownRefresh": true
 }

@@ -36,7 +36,7 @@
         </view>
         <view class="tc-empty"></view>
     </view>
-    <view class="sl-1" wx:if="{{number == 3}}">
+    <view class="sl-1" wx:if="{{number == 3 || number == 16}}">
         <view class="sl-add-view" bind:tap="clickAddImg">
             <view class="sl-add-title">上传图片</view>
         </view>
@@ -44,8 +44,8 @@
             <image class="sl-img" src="{{honorImg}}"/>
         </view>
         <view class="tc-b flex-between">
-            <view class="tc-b-title">个人荣誉:</view>
-            <input type="text" placeholder="请输入个人荣誉" bindinput="honor" value="{{honor}}" placeholder-class="placeholder" />
+            <view class="tc-b-title">{{titleString}}:</view>
+            <input type="text" placeholder="请输入{{titleString}}" bindinput="honor" value="{{honor}}" placeholder-class="placeholder" />
         </view>
         <view class="tc-d" bind:tap="clickHonor">
             <view class="tc-e">确定</view>
@@ -94,6 +94,54 @@
             <input type="text" placeholder="未填写" bindinput="nickName" value="{{nickName}}" placeholder-class="placeholder" />
         </view>
         <view class="tc-d" bind:tap="clicknickName">
+            <view class="tc-e">确定</view>
+        </view>
+        <view class="tc-empty"></view>
+    </view>
+
+    <view class="sl-1" wx:if="{{number == 11 || number == 17 || number == 18 || number == 19 || number == 20}}">
+        <view class="mine-collection-view">
+            <view class="mc-right-lable">
+                <block wx:for="{{CompanyNatureList}}" wx:key="index"><text class="{{CompanyNatureIndex == index ? 'mc-right-lable-activity-text':'mc-right-lable-text'}}" bind:tap="clickCompanyNatureIndex" data-index="{{index}}" data-id="{{item.id}}" data-name="{{item.name}}">{{item.name}}</text></block>
+            </view>
+        </view>
+        <view class="tc-b flex-between">
+            <view class="tc-b-title">{{titleString}}:</view>
+            <input type="text" placeholder="未填写" bindinput="CompanyNature" value="{{CompanyNature}}" placeholder-class="placeholder" />
+        </view>
+        <view class="tc-d" bind:tap="clickCompanyNature">
+            <view class="tc-e">确定</view>
+        </view>
+        <view class="tc-empty"></view>
+    </view>
+
+     <view class="sl-1" wx:if="{{number == 12 || number == 13 || number == 14 || number == 21}}">
+        <view class="mine-collection-view">
+            <view class="mc-right-lable">
+                <block wx:for="{{CompanyTradeList}}" wx:key="index"><text class="{{item.isShow ? 'mc-right-lable-activity-text':'mc-right-lable-text'}}" bind:tap="clickCompanyTradeList" data-index="{{index}}" data-id="{{item.id}}" data-name="{{item.name}}">{{item.name}}</text></block>
+            </view>
+        </view>
+        <view class="tc-b flex-between companytrade">
+            <view class="tc-b-title">{{titleString}}:</view>
+            <input type="text" placeholder="未填写" bindinput="CompanyTrade" value="{{CompanyTrade}}" placeholder-class="placeholder" />
+        </view>
+        <view class="tc-d" bind:tap="clickListCompanyTradeList">
+            <view class="tc-e">确定</view>
+        </view>
+        <view class="tc-empty"></view>
+    </view>
+
+    <view class="sl-1" wx:if="{{number == 15}}">
+        
+        <view class="tc-b flex-between">
+            <view class="tc-b-title flex-justify">ISV伙伴:<input type="number" placeholder="未填写" bindinput="partner1" value="{{partner1}}" placeholder-class="placeholder" /></view>
+            <view class="tc-b-title flex-justify">咨询伙伴:<input type="number" placeholder="未填写" bindinput="partner2" value="{{partner2}}" placeholder-class="placeholder" /></view>
+        </view>
+        <view class="tc-b flex-between">
+            <view class="tc-b-title flex-justify">IT服务伙伴:<input type="number" placeholder="未填写" bindinput="partner3" value="{{partner3}}" placeholder-class="placeholder" /></view>
+            <view class="tc-b-title flex-justify">分销伙伴:<input type="number" placeholder="未填写" bindinput="partner4" value="{{partner4}}" placeholder-class="placeholder" /></view>
+        </view>
+        <view class="tc-d" bind:tap="clickCompanyPartner">
             <view class="tc-e">确定</view>
         </view>
         <view class="tc-empty"></view>

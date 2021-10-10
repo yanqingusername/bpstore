@@ -1,21 +1,31 @@
 <wxs src="../../../utils/substring.wxs" module="tools" />
 <view class="mine-container" >
     <view class="mine-collection-view">
-        <block wx:for="{{10}}" wx:key="index">
+        <block wx:for="{{product_list}}" wx:key="index" wx:if='{{ product_list.length > 0}}'>
             <view class="mine-collection-item">
                 <view class="mc-left">
-                    <image class="mc-left-img" src='/utils/image/icon_help_09_14_01.png' />
+                    <image class="mc-left-img" src="{{item.logoUrl || '/utils/image/icon_help_09_14_01.png'}}"/>
                 </view>
                 <view class="mc-right">
-                    <view class="mc-right-title">刘佳欣正式出任大众安徽CEO</view>
-                    <view class="mc-right-content line-clampz3">裴健如6月1日，大众汽车（安徽）有限公司（以下简称大众安徽）发布人事任命，自2021年6月1日起，配件如正式出任大众汽车人的梦醒时分等时代的</view>
-                    <view class="mc-right-sub">深圳市 | 销售行业</view>
+                    <view class="mc-right-title">{{item.title}}</view>
+                    <view class="mc-right-content line-clampz3">{{item.backdrop}}</view>
+                    <view class="mc-right-sub">{{item.city}} | {{item.trade}}</view>
                     <view class="mc-right-lable">
-                        <block wx:for="{{3}}" wx:key="index"><text>{{'安徽大众汽车'}}</text></block>
+                        <block wx:for="{{3}}" wx:key="index"><text>{{item.partakes}}</text></block>
                     </view>
                 </view>
             </view>
         </block>
+
+        <view style="color:#fff; background-color: #f5f5f5;" wx:if='{{ product_list.length != 0 && loading }}'>
+            <view  class="loading"><van-loading size='1em' type="spinner" /> 加载ing...</view>
+        </view>
+
+        <!--  暂无 -->
+        <view class='classification_no_data' wx:if='{{ product_list.length == 0}}'>
+            <!-- <image class="classification_no_data_icon" src="https://image.jiunidu.com/web/classificationNoData.png" mode='aspectFill'></image> -->
+            <view class="classification_no_data_lable">暂无数据</view>
+        </view>
     </view>
     
 </view>

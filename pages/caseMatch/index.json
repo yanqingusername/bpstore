@@ -1,8 +1,8 @@
 {
   "usingComponents": {
-    "van-field": "@vant/weapp/field/index",
-    "van-tab": "@vant/weapp/tab/index",
-    "van-tabs": "@vant/weapp/tabs/index"
+    "van-field": "/components/vant/field/index",
+    "van-tab": "/components/vant/tab/index",
+    "van-tabs": "/components/vant/tabs/index"
   },
   "component": true,
   "navigationBarTitleText": "案例大赛"

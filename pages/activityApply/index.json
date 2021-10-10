@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "van-field": "@vant/weapp/field/index"
+    "van-field": "/components/vant/field/index"
   },
   "component": true,
   "navigationBarTitleText": "活动报名"

@@ -45,6 +45,11 @@ justify-content: center;
     width: 40rpx;
     height: 40rpx;
 }
+.mine-header-img-icon-logo{
+    width: 110rpx;
+height: 110rpx;
+border-radius: 6rpx;
+}
 .mine-header-img{
     width: 110rpx;
     height: 110rpx;
