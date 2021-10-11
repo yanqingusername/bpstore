@@ -33,6 +33,15 @@
   height: 254rpx;
   box-sizing: border-box;
 }
+
+textarea{
+  width: 320px;
+  height: 100px;
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+  
 .release-option {
   display: flex;
   justify-content: space-between;

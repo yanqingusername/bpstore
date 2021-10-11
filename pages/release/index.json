@@ -2,7 +2,9 @@
   "usingComponents": {
     "van-field": "/components/vant/field/index",
     "van-popup": "/components/vant/popup/index",
-    "van-picker": "/components/vant/picker/index"
+    "van-picker": "/components/vant/picker/index",
+    "van-cell-group": "/components/vant/cell-group/index",
+    "van-area": "/components/vant/area/index"
   },
   "component": true,
   "navigationBarTitleText": "发布案例"

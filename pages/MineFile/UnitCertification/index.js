@@ -1,6 +1,7 @@
 
 const app = getApp();
 const Api = require('../../../utils/api');
+const Util = require('../../../utils/util');
 Page({
     data: {
         celebrityCityList: {}, //达人城市列表

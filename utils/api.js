@@ -219,9 +219,17 @@ module.exports = {
 	getAreaList: data => {  // 区域列表
 		return request("/attached/getCompanyRegionList", "post", data)
 	},
-	getCaseTradeList: data => {
+	getCaseTradeList: data => { //案例面向行业列表
 		return request("/attached/getCaseTradeList", "post", data)
 	},
+	releaseCase: data => { //发布案例
+		return request("/case/releaseCase", "post", data)
+	},
+	getCaseLabelList: data => { //案例标签列表
+		return request("/attached/getCaseLabelList", "post", data)
+	},
+	
+	
 
 	addCelebrityInfo: data => { //达人认证
 		return request("/celebrity/addCelebrityInfo", "post", data);
@@ -310,7 +318,98 @@ module.exports = {
 	getCompanyInfo: data => { //单位信息 ouserid 单位userid
 		return request("/company/getCompanyInfo", "post", data);
 	},
+
+	addCaseFabulous: data => { //点赞  userid 当前登陆用户的userid   cid  案例id   type  类型：1案例，2评论
+		return request("/attached/addCaseFabulous", "post", data);
+	},
+	addCaseComment: data => { //评论  userid 当前登陆用户的userid  cid  案例id   content  评论内容
+		return request("/attached/addCaseComment", "post", data);
+	},
+	getCaseCommentList: data => { //评论列表 userid 当前登陆用户的userid  cid  案例id  pageNum 页数  pageSize  每页条数
+		return request("/attached/getCaseCommentList", "post", data);
+	},
+	getCaseInfo: data => { //案例详情  id   案例id
+		return request("/case/getCaseInfo", "post", data);
+	},
+
+	// 产业
+	// pageNum [string]	是	页数默认：1		
+	// pageSize	[string]		每页条数：默认14；选填		
+	// companyProperty	[string]		公司性质		
+	// trade	[string]		面向行业		
+	// technology	[string]		技术类型		
+	// ulabel	[string]		标签		
+	// turnover	[string]		营业额		
+	// partner	[string]		合作伙伴		
+	// listing	[string]		上市情况		
+	// market	[string]		市值		
+	// financing	[string]		融资		
+	// valuation	[string]		估值		
+	// city复制[string]		城市
+	getCompanyList: data => { //单位列表 
+		return request("/company/getCompanyList", "post", data);
+	},
 	
+
+	// 发现
+	getAppAtlasList: data => { //图谱列表  title 标题搜索  pageNum 页数   pageSize  每页条数
+		return request("/discover/getAppAtlasList", "post", data);
+	},
+	getAppAtlasInfo: data => { //图谱详情  id  图谱id
+		return request("/discover/getAppAtlasInfo", "post", data);
+	},
+	getAppRankingInfo: data => { //排行榜详情  id  排行榜id
+		return request("/discover/getAppRankingInfo", "post", data);
+	},
+	getAppRankingList: data => { //排行榜  title  标题搜索  pageNum 页数   pageSize  每页条数
+		return request("/discover/getAppRankingList", "post", data);
+	},
+	upActivityFile: data => { //上传活动图片
+		return request("/upload/upActivityFile", "post", data);
+	},
+
+	// aid	[string]	是	活动id		
+	// userid	[string]	是	用户id		
+	// name	[string]	是	名子		
+	// wx	[string]	是	微信号		
+	// phone	[string]	是	手机号		
+	// companyName	[string]	是	公司名称		
+	// profession复制[string]	是	职位
+	addActivityEnroll: data => { //活动报名
+		return request("/discover/addActivityEnroll", "post", data);
+	},
+	getAppActivityInfo: data => { //活动详情  id   活动id
+		return request("/discover/getAppActivityInfo", "post", data);
+	},
+	getAppActivityList: data => { //活动列表  title   标题搜索  pageNum 页数   pageSize  每页条数
+		return request("/discover/getAppActivityList", "post", data);
+	},
+
+	//消息
+	getMutualMsgList: data => { //互动消息  userid 用户的 userid  pageNum 页数   pageSize  每页条数
+		return request("/imps/getMutualMsgList", "post", data);
+	},
+	getUserSig: data => { //获取IM用户签名  identifier 用户的 userid
+		return request("/imps/getUserSig", "post", data);
+	},
 	
+	//首页
+
+	// userid	[string]	是	用户id		
+	// token	[string]	是			
+	// cid	[string]	是	案例id		
+	// coid   [string]	是	案例大赛id
+	declContestCase: data => { //申报案例
+		return request("/home/declContestCase", "post", data);
+	},
+	getContestAwardList: data => { //获奖案例列表  id  案例大赛id  pageNum 页数   pageSize  每页条数
+		return request("/home/getContestAwardList", "post", data);
+	},
+	getContestPassList: data => { //入围案例列表  id  案例大赛id  pageNum 页数   pageSize  每页条数
+		return request("/home/getContestPassList", "post", data);
+	},
+	getContestInfo: data => { //案例大赛
+		return request("/home/getContestInfo", "post", data);
+	},
 	
 };

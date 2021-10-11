@@ -5,7 +5,7 @@
     <view class="release-main">
       <view class="title">
         <van-field
-          value="{{ formData.title }}"
+          value="{{ title }}"
           data-attribute="title"
           bind:change="onChange"
           placeholder="请输入案例标题"
@@ -14,13 +14,14 @@
       </view>
       <view class="content">
         <view>
-          <van-field
-            value="{{ formData.backdrop }}"
+          <textarea
+            value="{{ backdrop }}"
             data-attribute="backdrop"
-            bind:change="onChange"
+            bindinput="onInputbackdrop"
             type="textarea"
             placeholder="请填写案例背景"
             autosize
+            maxlength="100"
             border="{{ false }}"
           />
         </view>
@@ -36,33 +37,72 @@
   </view>
 
   <!-- 展示区 -->
-  <view class="show-area" wx:if="{{ currentType && formData.toppic }}">
-    <image wx:if="{{ currentType === '首图' }}" src="{{ formData.toppic }}" />
-    <video 
-      wx:if="{{ currentType === '视频' }}" 
-      src="{{ formData.toppic }}" 
+  <view class="show-area" wx:if="{{ currentType1 === '首图' && toppic }}">
+    <image wx:if="{{ currentType1 === '首图' }}" src="{{ toppic }}" />
+  </view>
+  <view class="show-area" wx:if="{{ currentType1 === '视频' && toppic }}">
+    <video
+      src="{{ toppic }}" 
       show-fullscreen-btn="{{ false }}"
     />
   </view>
-  <view class="show-area" wx:if="{{ currentType && formData.backpic }}">
-    <image src="{{ formData.backpic }}" />
+  <view class="show-area" wx:if="{{ backpic }}">
+    <image src="{{ backpic }}" />
   </view>
 
   <view class="common">
     <view class="common-header">案例介绍</view>
     <view class="common-main-copy">
       <view 
-        class="area introduce" 
-        wx:for="{{ introduceList }}" 
-        bindtap="navigationToSelectPage" data-number="1"
-      >
-        <text >{{ item }}</text>
+        class="area introduce"
+        bind:tap="routerUrl" data-url="/pages/MineFile/SelectLable/index?number=23&title=案例亮点">
+        <text >案例亮点</text>
+        <view >
+          <image src="/assets/images/arrow-right2.png" />
+        </view>
+      </view>
+      <view 
+        class="area introduce"
+        bind:tap="routerUrl" data-url="/pages/MineFile/SelectLable/index?number=24&title=应用场景">
+        <text >应用场景</text>
+        <view >
+          <image src="/assets/images/arrow-right2.png" />
+        </view>
+      </view>
+      <view 
+        class="area introduce"
+        bind:tap="routerUrl" data-url="/pages/MineFile/SelectLable/index?number=25&title=参与单位">
+        <text >参与单位</text>
+        <view >
+          <image src="/assets/images/arrow-right2.png" />
+        </view>
+      </view>
+      <view 
+        class="area introduce"
+        bind:tap="routerUrl" data-url="/pages/MineFile/SelectLable/index?number=26&title=内容详情">
+        <text >内容详情</text>
+        <view >
+          <image src="/assets/images/arrow-right2.png" />
+        </view>
+      </view>
+      <view 
+        class="area introduce"
+        bind:tap="routerUrl" data-url="/pages/MineFile/SelectLable/index?number=27&title=应用成效">
+        <text >应用成效</text>
+        <view >
+          <image src="/assets/images/arrow-right2.png" />
+        </view>
+      </view>
+      <view 
+        class="area introduce"
+        bind:tap="routerUrl" data-url="/pages/MineFile/SelectLable/index?number=28&title=用户评价">
+        <text >用户评价</text>
         <view >
           <image src="/assets/images/arrow-right2.png" />
         </view>
       </view>
 
-      <view 
+      <!-- <view 
         class="area introduce"  
       >
         <text >内容详情</text>
@@ -77,7 +117,7 @@
             border="{{ false }}"
           />
         </view>
-      </view>
+      </view> -->
     </view>
   </view>
 
@@ -86,22 +126,16 @@
     <view class="common-main">
       <view class="area">
         <text >七大区</text>
-        <view bindtap="handleClickToShowSelectPanel" data-type="area">
-          <text >{{ formData.area ? '已选择' : '请选择' }}</text>
+        <view bindtap="handleClickToShowSelectPanel" data-type="isShowregion">
+          <text >{{ region ? '已选择' : '请选择' }}</text>
           <image src="/assets/images/arrow-right2.png" />
         </view>
       </view>
 
-      <view class="area">
+      <view class="area" bindtap='selectArea'>
         <text >省份城市</text>
         <view >
-          <picker mode="region" 
-            bindchange="bindRegionChange"
-            range='{{ multiArray }}'
-          >
-            <text >{{ multiArray.length ? '已选择' : '请选择' }}</text>
-          </picker> 
-          
+          <text >{{ (province || city) ? '已选择' : '请选择' }}</text>
           <image src="/assets/images/arrow-right2.png" />
         </view>
       </view>
@@ -111,18 +145,18 @@
   <view class="common">
     <view class="common-header">其它设置</view>
     <view class="common-main">
-      <view class="area">
+      <view class="area" bind:tap="routerUrl" data-url="/pages/MineFile/SelectLable/index?number=29&title=面向行业">
         <text >面向行业</text>
-        <view bindtap="handleClickToShowSelectPanel" data-type="trade">
-          <text >{{ formData.trade ? '已选择' : '请选择' }}</text>
+        <view>
+          <text >{{ trade.length > 0 ? '已选择' : '请选择' }}</text>
           <image src="/assets/images/arrow-right2.png" />
         </view>
       </view>
 
-      <view class="area">
+      <view class="area" bind:tap="routerUrl" data-url="/pages/MineFile/SelectLable/index?number=30&title=添加标签">
         <text >添加标签</text>
-        <view bindtap="navigationToSelectPage" data-number="1">
-          <text >{{ formData.celebrityinfo_clabel ? '已选择' : '请选择' }}</text>
+        <view>
+          <text >{{ lables.length > 0 ? '已选择' : '请选择' }}</text>
           <image src="/assets/images/arrow-right2.png" />
         </view>
       </view>
@@ -132,21 +166,21 @@
   <view class="common">
     <view class="common-header">备注</view>
     <view class="textarea-container">
-      <van-field
+      <textarea
         value="{{ remarks }}"
         data-attribute="remarks"
-        bind:change="onChange"
+        bindinput="onInputremarks"
         type="textarea"
         placeholder="请填写备注说明…"
         autosize
-        maxlength="{{ 200 }}"
+        maxlength="{{ 100 }}"
         border="{{ false }}"
       />
     </view>
   </view>
 
   <view class="select-container">
-    <view class="select-container-item">
+    <view class="select-container-item" bind:tap="isJoinClick">
       <image src="{{ isJoin ? checkActiveImage : checkImage }}"  />
       <view >
         <text >是否参加</text>
@@ -154,8 +188,8 @@
       </view>
     </view>
 
-    <view class="select-container-item">
-      <image src="{{ isJoin ? checkActiveImage : checkImage }}"  />
+    <view class="select-container-item" bind:tap="isJoin1Click">
+      <image src="{{ isJoin1 ? checkActiveImage : checkImage }}"  />
       <view >
         <text >已阅读并同意</text>
         <text >《BP数字产品平台》</text>
@@ -168,7 +202,7 @@
   </view>
 
 
-  <van-popup show="{{ area }}" position="bottom" custom-style="height: 40%;">
+  <van-popup show="{{ isShowregion }}" position="bottom" custom-style="height: 40%;">
     <van-picker 
       show-toolbar
       data-type="area"
@@ -178,7 +212,7 @@
     />
   </van-popup>
 
-  <van-popup show="{{ trade }}" position="bottom" custom-style="height: 40%;">
+  <!-- <van-popup show="{{ trade }}" position="bottom" custom-style="height: 40%;">
     <van-picker 
       show-toolbar
       data-type="trade"
@@ -186,5 +220,9 @@
       bind:confirm="onConfirm"
       columns="{{ caseTradeList }}" 
     />
-  </van-popup>
+  </van-popup> -->
+
+  <van-popup show="{{ isFlag }}" position="bottom" overlay="true" bind:close="pickerClose">
+  <van-area area-list="{{ celebrityCityList }}" columns-num="{{ 2 }}" value="110000" bind:cancel="pickerClose" bind:confirm="areaConfirm" />
+</van-popup>
 </view>

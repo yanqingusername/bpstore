@@ -36,7 +36,7 @@
         </view>
         <view class="tc-empty"></view>
     </view>
-    <view class="sl-1" wx:if="{{number == 3 || number == 16}}">
+    <view class="sl-1" wx:if="{{number == 3 || number == 16 || number == 23 || number == 24 || number == 25 || number == 26 || number == 27 || number == 28}}">
         <view class="sl-add-view" bind:tap="clickAddImg">
             <view class="sl-add-title">上传图片</view>
         </view>
@@ -115,7 +115,7 @@
         <view class="tc-empty"></view>
     </view>
 
-     <view class="sl-1" wx:if="{{number == 12 || number == 13 || number == 14 || number == 21}}">
+     <view class="sl-1" wx:if="{{number == 12 || number == 13 || number == 14 || number == 21 || number == 29 || number == 30}}">
         <view class="mine-collection-view">
             <view class="mc-right-lable">
                 <block wx:for="{{CompanyTradeList}}" wx:key="index"><text class="{{item.isShow ? 'mc-right-lable-activity-text':'mc-right-lable-text'}}" bind:tap="clickCompanyTradeList" data-index="{{index}}" data-id="{{item.id}}" data-name="{{item.name}}">{{item.name}}</text></block>

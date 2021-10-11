@@ -118,11 +118,66 @@ Page({
             });
         }else if(this.data.number ==21){
             this.getCompanyRegionList();
-            let CompanyNature = wx.getStorageSync('CompanyRegion');
+            let CompanyTrade = wx.getStorageSync('CompanyRegion');
             this.setData({
-                CompanyNature: CompanyNature
+                CompanyTrade: CompanyTrade
+            });
+        }else if(this.data.number == 23){
+            let honor =  wx.getStorageSync('highlights');
+            let honorImg =  wx.getStorageSync('highlightspic');
+            this.setData({
+                honor: honor,
+                honorImg: honorImg
+            });
+        }else if(this.data.number == 24){
+            let honor =  wx.getStorageSync('scenario');
+            let honorImg =  wx.getStorageSync('scenariopic');
+            this.setData({
+                honor: honor,
+                honorImg: honorImg
+            });
+        }else if(this.data.number == 25){
+            let honor =  wx.getStorageSync('partakes');
+            let honorImg =  wx.getStorageSync('ptpic');
+            this.setData({
+                honor: honor,
+                honorImg: honorImg
+            });
+        }else if(this.data.number == 26){
+            let honor =  wx.getStorageSync('content');
+            let honorImg =  wx.getStorageSync('cpic');
+            this.setData({
+                honor: honor,
+                honorImg: honorImg
+            });
+        }else if(this.data.number == 27){
+            let honor =  wx.getStorageSync('effect');
+            let honorImg =  wx.getStorageSync('efpic');
+            this.setData({
+                honor: honor,
+                honorImg: honorImg
+            });
+        }else if(this.data.number == 28){
+            let honor =  wx.getStorageSync('evaluate');
+            let honorImg =  wx.getStorageSync('evpic');
+            this.setData({
+                honor: honor,
+                honorImg: honorImg
+            });
+        }else if(this.data.number == 29){
+            this.getCaseTradeList();
+            let CompanyTrade = wx.getStorageSync('CaseTrade');
+            this.setData({
+                CompanyTrade: CompanyTrade
+            });
+        }else if(this.data.number == 30){
+            this.getCaseLabelList();
+            let CompanyTrade = wx.getStorageSync('CaseLabel');
+            this.setData({
+                CompanyTrade: CompanyTrade
             });
         }
+        
     },
     value(e){
         this.setData({
@@ -235,6 +290,17 @@ Page({
                     }
                 }
             })
+        }else if(this.data.number == 23 || this.data.number == 24 || this.data.number == 25 || this.data.number == 26 || this.data.number == 27 || this.data.number == 28){
+            Api.uploadAvatarImg('/upload/upCaseSubsFile').then((res)=>{
+                if(res.statusCode === 200) {
+                    let imgData = JSON.parse(res.data);
+                    if(imgData.code == 1){
+                        this.setData({
+                            honorImg: imgData.data.urlPath
+                        });
+                    }
+                }
+            })
         }
     },
     honor(e){
@@ -249,6 +315,24 @@ Page({
         }else if(this.data.number == 16){
             wx.setStorageSync('qualifis', this.data.honor);
             wx.setStorageSync('qualifisImg', this.data.honorImg);
+        }else if(this.data.number == 23){
+            wx.setStorageSync('highlights', this.data.honor);
+            wx.setStorageSync('highlightspic', this.data.honorImg);
+        }else if(this.data.number == 24){
+            wx.setStorageSync('scenario', this.data.honor);
+            wx.setStorageSync('scenariopic', this.data.honorImg);
+        }else if(this.data.number == 25){
+            wx.setStorageSync('partakes', this.data.honor);
+            wx.setStorageSync('ptpic', this.data.honorImg);
+        }else if(this.data.number == 26){
+            wx.setStorageSync('content', this.data.honor);
+            wx.setStorageSync('cpic', this.data.honorImg);
+        }else if(this.data.number == 27){
+            wx.setStorageSync('effect', this.data.honor);
+            wx.setStorageSync('efpic', this.data.honorImg);
+        }else if(this.data.number == 28){
+            wx.setStorageSync('evaluate', this.data.honor);
+            wx.setStorageSync('evpic', this.data.honorImg);
         }
         wx.navigateBack({
             delta: 1
@@ -493,6 +577,10 @@ Page({
             wx.setStorageSync('CompanyLabel', this.data.CompanyTradeListName);
         }else if(this.data.number == 21){
             wx.setStorageSync('CompanyRegion', this.data.CompanyTradeListName);
+        }else if(this.data.number == 29){
+            wx.setStorageSync('CaseTrade', this.data.CompanyTradeListName);
+        }else if(this.data.number == 30){
+            wx.setStorageSync('CaseLabel', this.data.CompanyTradeListName);
         }
         
         wx.navigateBack({
@@ -508,6 +596,10 @@ Page({
             this.getCompanyLabelList();
         } else if(this.data.number == 21){
             this.getCompanyRegionList();
+        } else if(this.data.number == 29){
+            this.getCaseTradeList();
+        }  else if(this.data.number == 30){
+            this.getCaseLabelList();
         }
         
         this.setData({
@@ -643,6 +735,80 @@ Page({
             }
 
             let CompanyTradeListIds = wx.getStorageSync('CompanyTechnology');
+            if(CompanyTradeListIds.length > 0){
+                
+                for(let j = 0; j< CompanyTradeList.length; j++){
+                    for(let i = 0; i< CompanyTradeListIds.length; i++){
+                        if(CompanyTradeListIds[i] == CompanyTradeList[j].name){
+                            CompanyTradeList[j].isShow = true;
+                            break;
+                        }else{
+                            CompanyTradeList[j].isShow = false;
+                        }
+                    }
+                }
+            }
+            that.setData({
+                CompanyTradeList: CompanyTradeList,
+                CompanyTradeListIds: CompanyTradeListIds
+            });
+        })
+    },
+    getCaseTradeList(){
+        let that = this;
+        let data = {
+            pageNum: 1,
+            pageSize: 50
+        }
+        Api.getCaseTradeList(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            let CompanyTradeList = res.data.list
+            if(CompanyTradeList.length > 0){
+                for(let i in CompanyTradeList){
+                    CompanyTradeList[i].isShow = false;
+                }
+            }
+
+            let CompanyTradeListIds = wx.getStorageSync('CaseTrade');
+            if(CompanyTradeListIds.length > 0){
+                
+                for(let j = 0; j< CompanyTradeList.length; j++){
+                    for(let i = 0; i< CompanyTradeListIds.length; i++){
+                        if(CompanyTradeListIds[i] == CompanyTradeList[j].name){
+                            CompanyTradeList[j].isShow = true;
+                            break;
+                        }else{
+                            CompanyTradeList[j].isShow = false;
+                        }
+                    }
+                }
+            }
+            that.setData({
+                CompanyTradeList: CompanyTradeList,
+                CompanyTradeListIds: CompanyTradeListIds
+            });
+        })
+    },
+    getCaseLabelList(){
+        let that = this;
+        let data = {
+            pageNum: 1,
+            pageSize: 50
+        }
+        Api.getCaseLabelList(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            let CompanyTradeList = res.data.list
+            if(CompanyTradeList.length > 0){
+                for(let i in CompanyTradeList){
+                    CompanyTradeList[i].isShow = false;
+                }
+            }
+
+            let CompanyTradeListIds = wx.getStorageSync('CaseLabel');
             if(CompanyTradeListIds.length > 0){
                 
                 for(let j = 0; j< CompanyTradeList.length; j++){
