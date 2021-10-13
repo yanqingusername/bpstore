@@ -4,15 +4,15 @@
         <view class="tc-a">基本信息</view>
         <view class="tc-b flex-between">
             <view class="tc-b-title">真实姓名</view>
-            <input type="text" placeholder="Janie 萝卜" bindinput="username" value="{{name}}" placeholder-class="placeholder" />
+            <input type="text" placeholder="未填写" bindinput="inputClick" data-typestring="name" value="{{name}}" placeholder-class="placeholder" />
         </view>
         <view class="tc-b flex-between">
             <view class="tc-b-title">微信号</view>
-            <input type="text" placeholder="未填写" bindinput="weixin" value="{{weixin}}" placeholder-class="placeholder" />
+            <input type="text" placeholder="未填写" bindinput="inputClick" data-typestring="wx" value="{{wx}}" placeholder-class="placeholder" />
         </view>
         <view class="tc-b flex-between">
             <view class="tc-b-title">手机号</view>
-            <input type="text" placeholder="未填写" bindinput="telephone" value="{{phone}}" placeholder-class="placeholder" />
+            <input type="text" placeholder="未填写" bindinput="inputClick" data-typestring="phone" value="{{phone}}" placeholder-class="placeholder" />
         </view>
     </view>
     <view class="tc-line"></view>
@@ -21,20 +21,20 @@
         <view class="tc-c flex-between">
             <view class="tc-b-title">公司名称</view>
             <view style="display: flex;align-items: center;">
-                <view class="mine-view-text">请填写公司全称 </view>
+                <view class="mine-view-text"><input type="text" placeholder="请填写公司全称" bindinput="inputClick" data-typestring="companyName" value="{{companyName}}" placeholder-class="placeholder" /></view>
                 <image class="mine-view-arrow" src="/utils/image/icon-mine-09-09-01.png" />
             </view>
         </view>
         <view class="tc-c flex-between">
             <view class="tc-b-title">职务</view>
             <view style="display: flex;align-items: center;">
-                <view class="mine-view-text">请填写岗位职务</view>
+                <view class="mine-view-text"><input type="text" placeholder="请填写岗位职务" bindinput="inputClick" data-typestring="profession" value="{{profession}}" placeholder-class="placeholder" /></view>
                 <image class="mine-view-arrow" src="/utils/image/icon-mine-09-09-01.png" />
             </view>
         </view>
     </view>
     <view class="tc-d">
-        <view class="tc-e">提交报名</view>
+        <view class="tc-e" bind:tap="addActivityEnroll">提交报名</view>
     </view>
     <view class="tc-empty"></view>
 </view>

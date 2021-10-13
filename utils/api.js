@@ -296,6 +296,32 @@ module.exports = {
 		return request("/case/delMyCase", "post", data);
 	},
 
+	// 发现
+	getAppActivityList: data => { //活动列表  title   标题搜索  pageNum 页数   pageSize  每页条数
+		return request("/discover/getAppActivityList", "post", data);
+	},
+	getAppRankingList: data => { //排行榜  title  标题搜索  pageNum 页数   pageSize  每页条数
+		return request("/discover/getAppRankingList", "post", data);
+	},
+	getAppPrizeList: data => { //奖项列表  title 标题搜索  pageNum 页数   pageSize  每页条数
+		return request("/discover/getAppPrizeList", "post", data);
+	},
+	getAppAtlasList: data => { //图谱列表  title 标题搜索  pageNum 页数   pageSize  每页条数
+		return request("/discover/getAppAtlasList", "post", data);
+	},
+	getAppActivityInfo: data => { //活动详情  id   活动id
+		return request("/discover/getAppActivityInfo", "post", data);
+	},
+	// aid	[string]	是	活动id		
+	// userid	[string]	是	用户id		
+	// name	[string]	是	名子		
+	// wx	[string]	是	微信号		
+	// phone	[string]	是	手机号		
+	// companyName	[string]	是	公司名称		
+	// profession复制[string]	是	职位
+	addActivityEnroll: data => { //活动报名
+		return request("/discover/addActivityEnroll", "post", data);
+	},
 	
 
 	/**
@@ -352,38 +378,27 @@ module.exports = {
 	
 
 	// 发现
-	getAppAtlasList: data => { //图谱列表  title 标题搜索  pageNum 页数   pageSize  每页条数
-		return request("/discover/getAppAtlasList", "post", data);
-	},
+	
 	getAppAtlasInfo: data => { //图谱详情  id  图谱id
 		return request("/discover/getAppAtlasInfo", "post", data);
 	},
 	getAppRankingInfo: data => { //排行榜详情  id  排行榜id
 		return request("/discover/getAppRankingInfo", "post", data);
 	},
-	getAppRankingList: data => { //排行榜  title  标题搜索  pageNum 页数   pageSize  每页条数
-		return request("/discover/getAppRankingList", "post", data);
-	},
+	
 	upActivityFile: data => { //上传活动图片
 		return request("/upload/upActivityFile", "post", data);
 	},
 
-	// aid	[string]	是	活动id		
-	// userid	[string]	是	用户id		
-	// name	[string]	是	名子		
-	// wx	[string]	是	微信号		
-	// phone	[string]	是	手机号		
-	// companyName	[string]	是	公司名称		
-	// profession复制[string]	是	职位
-	addActivityEnroll: data => { //活动报名
-		return request("/discover/addActivityEnroll", "post", data);
+	
+	
+	getAppPrizeInfo: data => { //奖项详情  id   图谱id
+		return request("/discover/getAppPrizeInfo", "post", data);
 	},
-	getAppActivityInfo: data => { //活动详情  id   活动id
-		return request("/discover/getAppActivityInfo", "post", data);
-	},
-	getAppActivityList: data => { //活动列表  title   标题搜索  pageNum 页数   pageSize  每页条数
-		return request("/discover/getAppActivityList", "post", data);
-	},
+	
+	
+	
+	
 
 	//消息
 	getMutualMsgList: data => { //互动消息  userid 用户的 userid  pageNum 页数   pageSize  每页条数

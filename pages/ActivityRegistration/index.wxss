@@ -83,6 +83,13 @@ color:#ACBBCB;
     margin-right: 11rpx;
 }
 
+.mine-view-text input{
+    text-align: right;
+    font-size: 28rpx;
+font-weight: bold;
+color: #5B626C;
+}
+
 .tc-d{
     display: flex;
     align-items: center;
