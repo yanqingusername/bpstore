@@ -1,10 +1,12 @@
 
 const app = getApp();
 const Api = require('../../utils/api');
+const Util = require('../../utils/util');
 Page({
     data: {
         id: '',
-        activityInfo: ''
+        activityInfo: '',
+        URL: "https://bpimg.jianlet.com/images/"
     },
     onLoad(options){
         wx.setNavigationBarTitle({ title: '双节大放送活动' });
@@ -17,9 +19,14 @@ Page({
         this.getAppActivityInfo(this.data.id);
     },
     routerUrl(e){
-        wx.navigateTo({
-            url: e.currentTarget.dataset.url
-        });
+        if(this.data.activityInfo.type == 1){
+            wx.navigateTo({
+                url: e.currentTarget.dataset.url
+            });
+        }else{
+            Util.showToast('该活动暂未开启报名');
+        }
+        
     },
     getAppActivityInfo(id){
         var that = this;

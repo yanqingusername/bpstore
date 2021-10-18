@@ -195,7 +195,7 @@ Page({
 		if(item.isShow){
 			item.isShow = false;
 			for (let i = 0; i < selectedData.length; i++) {
-				if(selectedData[i] == id){
+				if(listName[i] == name){
 				    selectedData.splice(i, 1);
                     listName.splice(i, 1);
 				}
@@ -236,12 +236,12 @@ Page({
                 }
             }
 
-            let listIds = wx.getStorageSync('celebrityinfo_clabel');
-            if(listIds.length > 0){
+            let listName = wx.getStorageSync('celebrityinfo_clabel');
+            if(listName.length > 0){
                 
                 for(let j = 0; j< list.length; j++){
-                    for(let i = 0; i< listIds.length; i++){
-                        if(listIds[i] == list[j].name){
+                    for(let i = 0; i< listName.length; i++){
+                        if(listName[i] == list[j].name){
                             list[j].isShow = true;
                             break;
                         }else{
@@ -252,7 +252,7 @@ Page({
             }
             that.setData({
                 list: list,
-                listIds: listIds
+                listName: listName
             });
         })
     },

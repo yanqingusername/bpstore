@@ -312,7 +312,7 @@ module.exports = {
 	getAppActivityInfo: data => { //活动详情  id   活动id
 		return request("/discover/getAppActivityInfo", "post", data);
 	},
-	// aid	[string]	是	活动id		
+	// id	[string]	是	活动id		
 	// userid	[string]	是	用户id		
 	// name	[string]	是	名子		
 	// wx	[string]	是	微信号		
@@ -322,7 +322,16 @@ module.exports = {
 	addActivityEnroll: data => { //活动报名
 		return request("/discover/addActivityEnroll", "post", data);
 	},
-	
+	getAppRankingInfo: data => { //排行榜详情  id  排行榜id
+		return request("/discover/getAppRankingInfo", "post", data);
+	},
+	getAppPrizeInfo: data => { //奖项详情  id   奖项id
+		return request("/discover/getAppPrizeInfo", "post", data);
+	},
+	getAppAtlasInfo: data => { //图谱详情  id  图谱id
+		return request("/discover/getAppAtlasInfo", "post", data);
+	},
+
 
 	/**
 	 * 以下接口都未调试
@@ -379,26 +388,15 @@ module.exports = {
 
 	// 发现
 	
-	getAppAtlasInfo: data => { //图谱详情  id  图谱id
-		return request("/discover/getAppAtlasInfo", "post", data);
-	},
-	getAppRankingInfo: data => { //排行榜详情  id  排行榜id
-		return request("/discover/getAppRankingInfo", "post", data);
-	},
+	
+	
 	
 	upActivityFile: data => { //上传活动图片
 		return request("/upload/upActivityFile", "post", data);
 	},
 
 	
-	
-	getAppPrizeInfo: data => { //奖项详情  id   图谱id
-		return request("/discover/getAppPrizeInfo", "post", data);
-	},
-	
-	
-	
-	
+
 
 	//消息
 	getMutualMsgList: data => { //互动消息  userid 用户的 userid  pageNum 页数   pageSize  每页条数

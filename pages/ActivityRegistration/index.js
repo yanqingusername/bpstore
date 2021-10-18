@@ -27,7 +27,7 @@ Page({
            [type]:e.detail.value
         });
     },
-    // aid	[string]	是	活动id		
+    // id	[string]	是	活动id		
 	// userid	[string]	是	用户id		
 	// name	[string]	是	名子		
 	// wx	[string]	是	微信号		
@@ -37,7 +37,7 @@ Page({
 	addActivityEnroll(){
         var that = this;
         let data = {
-            aid: that.data.id,
+            id: that.data.id,
             name: that.data.name,
             wx: that.data.wx,
             phone: that.data.phone,
@@ -48,7 +48,9 @@ Page({
             if (res.code != 1) {
                 return;
             }
-            console.log('---->:',res)
+            wx.navigateBack({
+                delta: 1
+            });
         })
     }
 })

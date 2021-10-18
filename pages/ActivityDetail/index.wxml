@@ -1,20 +1,22 @@
 <wxs src="../../utils/substring.wxs" module="tools" />
 <view class="mine-container" >
     <view class="mine-collection-view">
-        <image class="mc-left-img" src='{{activityInfo.topimgs[0]}}' />
+        <image class="mc-left-img" src='{{URL+activityInfo.toppic}}' />
         <view class="mc-right-content line-clampz2">{{activityInfo.title}}</view>
-        <view class="mc-right-sub">{{activityInfo.form}}·{{activityInfo.stime}}-{{activityInfo.etime}}</view>
+        <view class="mc-right-sub">{{activityInfo.form}}·{{activityInfo.atime}}</view>
     </view>
     <view class="fd-view">
         <view class="fd-title line-clampz2">{{activityInfo.content}}</view>
+        <image class="fd-img" src='{{URL+activityInfo.cpic}}' />
         <view class="fd-sub">{{activityInfo.remarks}}</view>
+        <image class="fd-img" src='{{URL+activityInfo.rpic}}' />
         <view class="fd-text">【活动地点】</view>
         <view class="fd-address">{{activityInfo.address}}</view>
-        <image class="fd-img" src='{{activityInfo.cpimgs[0]}}' />
-        <view class="fd-text" style="margin-top: 28rpx;">{{activityInfo.content}}</view>
-        <view class="fd-text" style="margin-top: 26rpx;">{{activityInfo.content}}</view>
+        <image class="fd-img" src='{{URL+activityInfo.rpic}}' />
+        <view class="fd-text" style="margin-top: 28rpx;">{{activityInfo.remarks}}</view>
+        <view class="fd-text" style="margin-top: 26rpx;">{{activityInfo.remarks}}</view>
     </view>
-    <view class="fd-time">{{activityInfo.stime}} 发布</view>
+    <view class="fd-time">{{activityInfo.create_time}} 发布</view>
     <view class="ad-view">
         <view class="ad-view-item" bind:tap="routerUrl" data-url="../ActivityRegistration/index?id={{id}}">立即报名</view>
     </view>

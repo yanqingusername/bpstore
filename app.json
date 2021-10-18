@@ -22,6 +22,7 @@
     "pages/MineFile/MineMessage/index",
     "pages/MineFile/SystemMessage/index",
     "pages/MineFile/InteractiveMessage/index",
+    "pages/MineFile/SelectLable/index",
     "pages/FindDetail/index",
     "pages/ActivityDetail/index",
     "pages/ActivityRegistration/index",

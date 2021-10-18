@@ -56,7 +56,7 @@
 
     <view class="mine-f-view" wx:if="{{indexTable ==2 || indexTable ==3 || indexTable ==4}}">
         <block wx:for="{{product_list}}" wx:key="index">
-            <view class="activity" bind:tap="routerUrl" data-url="../../pages/FindDetail/index?id={{item.id}}">
+            <view class="activity" bind:tap="routerUrl" data-url="../../pages/FindDetail/index?id={{item.id}}&indexTable={{indexTable}}">
                   <view class="ff-item">
                     <view class="ff-item-content">
                       <view class="ff-item-content-right">
