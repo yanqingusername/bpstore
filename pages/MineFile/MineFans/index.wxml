@@ -14,10 +14,10 @@
         <block wx:for="{{fans_list}}" wx:key="index" wx:if='{{ fans_list.length > 0}}'>
             <view class="mine-collection-item">
                 <view class="mc-left">
-                    <image class="mc-left-img" src='{{item.logoUrl}}' />
+                    <image class="mc-left-img" src='{{item.avatarUrl}}' />
                     <view class="mc-left-item">
-                        <view class="mc-left-item-title">{{item.name}}</view>
-                        <view class="mc-right-sub">{{item.city}} | {{item.profession}}</view>
+                        <view class="mc-left-item-title">{{item.nickName}}</view>
+                        <view class="mc-right-sub">{{item.industry}} | {{item.profession}}</view>
                     </view>
                 </view>
                 <view class="mc-right">

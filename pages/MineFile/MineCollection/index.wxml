@@ -21,7 +21,7 @@
                     <view class="mc-right-content line-clampz3">{{item.backdrop}}</view>
                     <view class="mc-right-sub">{{item.city}} | {{item.trade}}</view>
                     <view class="mc-right-lable">
-                        <block wx:for="{{3}}" wx:key="index"><text>{{item.partakes}}</text></block>
+                        <block wx:for="{{tools.toList(item.partakes)}}" wx:key="index"><text>{{item}}</text></block>
                     </view>
                 </view>
             </view>

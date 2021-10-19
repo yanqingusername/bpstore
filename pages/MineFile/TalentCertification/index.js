@@ -134,7 +134,7 @@ Page({
             Util.showToast('自我介绍不能为空');
             return;
         }
-        if (this.data.certificate == '' || this.data.honor == ''){
+        if (this.data.certificate == '' && this.data.honor == ''){
             Util.showToast('个人荣誉不能为空');
             return;
         }

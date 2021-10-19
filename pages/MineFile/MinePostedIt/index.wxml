@@ -13,13 +13,13 @@
 
     <view class="mine-collection-view">
         <block wx:for="{{product_list}}" wx:key="index" wx:if='{{ product_list.length > 0}}'>
-            <view class="mine-collection-item">
+            <view class="mine-collection-item" bind:tap="gotoCaseDetail" data-url="/pages/caseDetail/index?id={{item.id}}">
                 <!-- <view class="mc-right"> -->
                     <view class="mc-right-title">{{item.title}}</view>
                     <view class="mc-right-content line-clampz2">{{item.backdrop}}</view>
                    <view class="mc-b-view">
                         <view class="mc-right-sub">{{item.city}} | {{item.trade}}</view>
-                        <image bind:tap="deleteClick" data-id="{{item.id}}" class="mc-b-img" src='/utils/image/icon-mine-09-09-09.png' />
+                        <image catch:tap="deleteClick" data-id="{{item.id}}" class="mc-b-img" src='/utils/image/icon-mine-09-09-09.png' />
                    </view>
                 <!-- </view> -->
             </view>

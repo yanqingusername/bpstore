@@ -21,10 +21,12 @@ page {
 .mc-left{
     width: 72rpx;
     height: 72rpx;
+    border-radius: 50%;
 }
 .mc-left-img{
     width: 72rpx;
     height: 72rpx;
+    border-radius: 50%;
 }
 .mc-right{
     margin-left: 20rpx;

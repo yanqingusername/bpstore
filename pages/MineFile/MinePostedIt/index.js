@@ -16,7 +16,7 @@ Page({
         wx.setNavigationBarTitle({ title: '我发布的' });
         this.getMyCaseList();
     },
-    homeUrl(e){
+    gotoCaseDetail(e){
         wx.navigateTo({
             url: e.currentTarget.dataset.url
         });

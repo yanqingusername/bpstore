@@ -331,7 +331,29 @@ module.exports = {
 	getAppAtlasInfo: data => { //图谱详情  id  图谱id
 		return request("/discover/getAppAtlasInfo", "post", data);
 	},
+	getCaseInfo: data => { //案例详情  id   案例id
+		return request("/case/getCaseInfo", "post", data);
+	},
+	getCaseCommentList: data => { //评论列表 userid 当前登陆用户的userid  cid  案例id  pageNum 页数  pageSize  每页条数
+		return request("/case/getCaseCommentList", "post", data);
+	},
+	upUserFollow: data => { //关注—取消关注 fuserid 关注userid  type 1公司单位，2达人
+		return request("/user/upUserFollow", "post", data);
+	},
+	addCaseComment: data => { //评论  userid 当前登陆用户的userid  cid  案例id   content  评论内容
+		return request("/case/addCaseComment", "post", data);
+	},
+	addCaseFabulous: data => { //点赞  userid 当前登陆用户的userid   cid  案例id   type  类型：1案例，2评论
+		return request("/case/addCaseFabulous", "post", data);
+	},
 
+	collectionCase: data => { //收藏案例 cid 案例的id
+		return request("/user/collectionCase", "post", data);
+	},
+	upCollectionCase: data => { //取消收藏（可多选） ids  收藏的id，多个逗号隔开
+		return request("/user/upCollectionCase", "post", data);
+	},
+	
 
 	/**
 	 * 以下接口都未调试
@@ -341,31 +363,16 @@ module.exports = {
 	getCelebrityInfo: data => { //达人信息 ouserid 达人userid
 		return request("/celebrity/getCelebrityInfo", "post", data);
 	},
-	collectionCase: data => { //收藏案例 cid 案例的id
-		return request("/user/collectionCase", "post", data);
-	},
-	upCollectionCase: data => { //取消收藏（可多选） ids  收藏的id，多个逗号隔开
-		return request("/user/upCollectionCase", "post", data);
-	},
-	upUserFollow: data => { //关注—取消关注 fuserid 关注userid  type 1公司单位，2达人
-		return request("/user/upUserFollow", "post", data);
-	},
+	
+	
 	getCompanyInfo: data => { //单位信息 ouserid 单位userid
 		return request("/company/getCompanyInfo", "post", data);
 	},
 
-	addCaseFabulous: data => { //点赞  userid 当前登陆用户的userid   cid  案例id   type  类型：1案例，2评论
-		return request("/attached/addCaseFabulous", "post", data);
-	},
-	addCaseComment: data => { //评论  userid 当前登陆用户的userid  cid  案例id   content  评论内容
-		return request("/attached/addCaseComment", "post", data);
-	},
-	getCaseCommentList: data => { //评论列表 userid 当前登陆用户的userid  cid  案例id  pageNum 页数  pageSize  每页条数
-		return request("/attached/getCaseCommentList", "post", data);
-	},
-	getCaseInfo: data => { //案例详情  id   案例id
-		return request("/case/getCaseInfo", "post", data);
-	},
+	
+	
+	
+	
 
 	// 产业
 	// pageNum [string]	是	页数默认：1		

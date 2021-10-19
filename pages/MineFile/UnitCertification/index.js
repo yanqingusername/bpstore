@@ -198,7 +198,7 @@ Page({
             return;
         }
 
-        if (this.data.qualifis == '' || this.data.qualifisImg == ''){
+        if (this.data.qualifis == '' && this.data.qualifisImg == ''){
             Util.showToast('个人荣誉不能为空');
             return;
         }

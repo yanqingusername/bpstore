@@ -1,11 +1,11 @@
 <view class="detail">
   <view class="detail-content">
-    <image  />
+    <image  src="{{caseInfo.toppic}}"/>
     <view class="detail-content-container">
-      <view class="title">如何看待明星下培训机构和学费上千的课有什么区别吗？</view>
-      <view class="area">华北区·河北·石家庄·IT互联网</view>
+      <view class="title">{{caseInfo.title}}</view>
+      <view class="area">{{caseInfo.region}}·{{caseInfo.province}}·{{caseInfo.city}}·{{caseInfo.trade}}</view>
       <view class="tag-container">
-        <view class="tag">安徽大众汽车</view>
+        <view class="tag" wx:for="{{lables}}" wx:key="index">{{item}}</view>
       </view>
     </view>
   </view>
@@ -13,15 +13,15 @@
   <view class="content">
     <view class="institution">
       <view class="institution-left">
-        <image  />
+        <image  src="{{caseInfo.avatarUrl}}"/>
         <view class="">
-          <view >新像素UI教育</view>
-          <view >已认证的官方账号</view>
+          <view >{{caseInfo.nickName}}</view>
+          <view wx:if="{{caseInfo.status == 1}}">已认证的官方账号</view>
         </view>
       </view>
-      <view class="institution-right">
-        <view class=""></view>
-        <text>关注</text>
+      <view class="institution-right" bind:tap="clickFollow" data-fuserid="{{caseInfo.userid}}">
+        <view class="" ></view>
+        <text>{{caseInfo.isFabulous ==0 ? "关注" : "已关注"}}</text>
       </view>
     </view>
   </view>
@@ -31,65 +31,93 @@
     <view class="info-item">
       <view class="info-item-title">案例背景</view>
       <view class="info-item-content">
-        <view >价格不是首位考虑因素，重要的是你能在机构中学到什么东西，能做出什么类型的作品集，是否能顺利就业。</view>
-        <image  />
+        <view  wx:if="{{caseInfo.backdrop}}">{{caseInfo.backdrop}}</view>
+        <image wx:if="{{caseInfo.backpic}}" src="{{caseInfo.backpic}}"/>
       </view>
     </view>
 
     <view class="info-item">
       <view class="info-item-title">案例亮点</view>
       <view class="info-item-content">
-        <view >价格不是首位考虑因素，重要的是你能在机构中学到什么东西，能做出什么类型的作品集，是否能顺利就业。</view>
+        <view wx:if="{{caseInfo.highlights}}">{{caseInfo.highlights}}</view>
+        <image wx:if="{{caseInfo.highlightspic}}" src="{{caseInfo.highlightspic}}"/>
       </view>
     </view>
 
     <view class="info-item">
       <view class="info-item-title">应用场景</view>
       <view class="info-item-content">
-        <view >价格不是首位考虑因素，重要的是你能在机构中学到什么东西，能做出什么类型的作品集，是否能顺利就业。</view>
+        <view wx:if="{{caseInfo.scenario}}">{{caseInfo.scenario}}</view>
+        <image wx:if="{{caseInfo.scenariopic}}" src="{{caseInfo.scenariopic}}"/>
       </view>
     </view>
 
     <view class="info-item">
       <view class="info-item-title">参与单位</view>
       <view class="info-item-content">
-        <image class="margin-top-none"  />
+        <view wx:if="{{caseInfo.partakes}}">{{caseInfo.partakes}}</view>
+        <image wx:if="{{caseInfo.ptpic}}" src="{{caseInfo.ptpic}}"/>
+      </view>
+    </view>
+
+    <view class="info-item">
+      <view class="info-item-title">内容详情</view>
+      <view class="info-item-content">
+        <view wx:if="{{caseInfo.content}}">{{caseInfo.content}}</view>
+        <image wx:if="{{caseInfo.cpic}}" src="{{caseInfo.cpic}}"/>
+      </view>
+    </view>
+
+    <view class="info-item">
+      <view class="info-item-title">应用成效</view>
+      <view class="info-item-content">
+        <view wx:if="{{caseInfo.effect}}">{{caseInfo.effect}}</view>
+        <image wx:if="{{caseInfo.efpic}}" src="{{caseInfo.efpic}}"/>
+      </view>
+    </view>
+
+    <view class="info-item">
+      <view class="info-item-title">用户评价</view>
+      <view class="info-item-content">
+        <view wx:if="{{caseInfo.evaluate}}">{{caseInfo.evaluate}}</view>
+        <image wx:if="{{caseInfo.evpic}}" src="{{caseInfo.evpic}}"/>
       </view>
     </view>
 
     <view class="info-item">
       <view class="info-item-title">备注</view>
-      <view class="info-item-content">
-        <view >价格不是首位考虑因素，重要的是你能在机构中学到什么东西，能做出什么类型的作品集，是否能顺利就业。</view>
+      <view class="info-item-content" wx:if="{{caseInfo.remarks}}">
+        <view >{{caseInfo.remarks}}</view>
+        <!-- <image  src="{{caseInfo.backpic}}"/> -->
       </view>
     </view>
 
     <!-- time -->
     <view class="info-time">
-      <text>2021-05-22 16:02 发布</text>
+      <text>{{caseInfo.create_time}} 发布</text>
     </view>
   </view>
 
   <!-- 评论 -->
-  <view class="comment">
-    <view class="comment-header">评论 395</view>
-    <view class="comment-main">
+  <view class="comment" wx:if="{{CaseCommentList.length > 0}}">
+    <view class="comment-header">评论 {{totalSize}}</view>
+    <view class="comment-main" wx:for="{{CaseCommentList}}" wx:key="index">
       <view class="comment-main-list">
         <view class="comment-main-list-item">
           <view class="comment-main-list-item-left">
-            <image  />
+            <image  src="{{item.avatarUrl}}"/>
           </view>
           <view class="comment-main-list-item-right">
-            <view class="comment-main-list-item-right-nickname">猜猜我是谁</view>
-            <view class="comment-main-list-item-right-content">有什么不敢说的，真的是一个饼接着一个饼</view>
+            <view class="comment-main-list-item-right-nickname">{{item.nickName}}</view>
+            <view class="comment-main-list-item-right-content">{{item.content}}</view>
             <view class="comment-main-list-item-right-footer">
               <view class="comment-main-list-item-right-footer-left">
-                <text >4小时前·</text>
-                <text >热评</text>
+                <text >{{item.create_time}}·</text>
+                <text wx:if="{{item.isHot == 1}}">热评</text>
               </view>
-              <view class="comment-main-list-item-right-footer-right">
-                <image src="/assets/images/like-default.png" />
-                <text >554</text>
+              <view class="comment-main-list-item-right-footer-right" bind:tap="clickFabulous" data-typestring="2">
+                <image src="{{item.isFabulous == 1 ? '/assets/images/like-active.png':'/assets/images/like-default.png' }}"/>
+                <text >{{item.fabulous}}</text>
               </view>
             </view>
           </view>
@@ -98,10 +126,21 @@
     </view>
 
     <!-- 展开评论 -->
-    <view class="comment-unfold">
-      <text>展开评论</text>
+    <view class="comment-unfold" bind:tap="clickCommitList">
+      <text>查看全部评论</text>
       <image src="/assets/images/arrow.png" />
     </view>
   </view>
 
+  <view class="com-a">
+    <view class="com-b">
+      <input type="text" placeholder="写评论~" bindinput="inputCommentName" confirm-type="search" bindconfirm="submitComment" value="{{commentName}}" placeholder-class="placeholder" />
+    </view>
+    <view class="com-c" bind:tap="clickCollectionCase" data-iscollect="{{caseInfo.isCollect}}"><image class="com-d" src="/utils/image/icon_img_10_18_01.png" /></view>
+    <view class="com-c" bind:tap="clickFabulous" data-typestring="1"><image class="com-d" src="/utils/image/icon_img_10_18_02.png" /></view>
+    
+    <button class="mine-view-button" open-type="share">
+      <image class="com-d" src="/utils/image/icon_img_10_18_03.png" />
+    </button>
+  </view>
 </view>

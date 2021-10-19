@@ -215,31 +215,31 @@ Page({
             Util.showToast('首图或视频不能为空');
             return;
         }
-        if (this.data.backdrop == '' || this.data.backpic == '') {
+        if (this.data.backdrop == '' && this.data.backpic == '') {
             Util.showToast('案例背景或案例背景图片不能为空');
             return;
         }
-        if (this.data.highlights == '' || this.data.highlightspic == '') {
+        if (this.data.highlights == '' && this.data.highlightspic == '') {
           Util.showToast('案例亮点或案例亮点图片不能为空');
           return;
         }
-        if (this.data.scenario == '' || this.data.scenariopic == '') {
+        if (this.data.scenario == '' && this.data.scenariopic == '') {
           Util.showToast('应用场景或应用场景图片不能为空');
           return;
         }
-        if (this.data.partakes == '' || this.data.ptpic == '') {
+        if (this.data.partakes == '' && this.data.ptpic == '') {
           Util.showToast('参与单位不能为空');
           return;
         }
-        if (this.data.content == '' || this.data.cpic == '') {
+        if (this.data.content == '' && this.data.cpic == '') {
           Util.showToast('内容或内容图片不能为空');
           return;
         }
-        if (this.data.effect == '' || this.data.efpic == '') {
+        if (this.data.effect == '' && this.data.efpic == '') {
           Util.showToast('应用成效或应用成效图片不能为空');
           return;
         }
-        if (this.data.evaluate == '' || this.data.evpic == '') {
+        if (this.data.evaluate == '' && this.data.evpic == '') {
           Util.showToast('评价或评价图片不能为空');
           return;
         }
@@ -247,7 +247,7 @@ Page({
             Util.showToast('区域不能为空');
             return;
         }
-        if (this.data.province == '' || this.data.city == '') {
+        if (this.data.province == '' && this.data.city == '') {
           Util.showToast('省/市不能为空');
           return;
         }

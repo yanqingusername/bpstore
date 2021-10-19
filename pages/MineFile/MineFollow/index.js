@@ -86,13 +86,33 @@ Page({
         this.setData({
             indexTable: id
         });
-        setTimeout(() => {
             that.setData({
                 pageNum: 1,
                 follow_list: []
+            },()=>{
+                that.getList();
             });
-            that.getList();
-        }, 500)
+            
     },
-    
+    clickFollow(e){
+        let fuserid = e.currentTarget.dataset.fuserid;
+        var that = this;
+        let data = {
+            fuserid: fuserid,
+            type: 2,
+        }
+        Api.upUserFollow(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            setTimeout(() => {
+                that.setData({
+                    pageNum: 1
+                });
+                that.getList();
+            }, 500)
+        }).catch(() => {
+           
+        })
+    },
 })

@@ -10,6 +10,7 @@
 }
 .detail-content > image {
   height: 533rpx;
+  width: 100%;
 }
 .detail-content-container {
   padding-top: 25rpx;
@@ -35,6 +36,7 @@
   font-size: 24rpx;
   color: #00C0C2;
   box-sizing: border-box;
+  margin-right: 10rpx;
 }
 
 
@@ -52,12 +54,13 @@
 .institution-left {
   display: flex;
   align-items: center;
-  margin-left: 16rpx;
+  /* margin-left: 16rpx; */
 }
 .institution-left > image {
   width: 66rpx;
   height: 66rpx;
   border-radius: 50%;
+  margin-right: 16rpx;
 }
 .institution-left > view:first-child {
   font-size: 28rpx;
@@ -117,6 +120,7 @@
   padding-bottom: 30rpx;
 }
 .info-item-title {
+  color: #242B37;
   font-size: 32rpx;
   font-weight: bold;
 }
@@ -126,7 +130,7 @@
 .info-item-content > image {
   width: 100%;
   height: 282rpx;
-  background-color: aqua;
+  /* background-color: aqua; */
   margin-top: 36rpx;
 }
 .info-time {
@@ -139,11 +143,13 @@
 .comment {
   padding: 0 20rpx 146rpx;
   box-sizing: border-box;
+  border-top: 1px solid #EEEEEE;
+  margin-top: 30rpx;
 }
 .comment-header {
   display: flex;
   align-items: center;
-  height: 112rpx;
+  height: 82rpx;
   font-size: 28rpx;
   font-weight: bold;
 }
@@ -168,6 +174,8 @@
 .comment-main-list-item-right {
   flex: 1;
   font-size: 26rpx;
+  margin-left: 20rpx;
+
 }
 .comment-main-list-item-right-nickname {
   font-weight: bold;
@@ -215,3 +223,60 @@
   margin-top: 0 !important;
 }
 
+
+.com-a{
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #EEEEEE;
+  height: 88rpx;
+
+}
+
+.com-b {
+  box-sizing: border-box;
+  width: 472rpx;
+height: 66rpx;
+background: #F5F5F5;
+border: 1px solid #EBEBEB;
+border-radius: 33rpx;
+margin-left: 26rpx;
+display: flex;
+align-items: center;
+
+}
+
+.com-b input{
+  font-size: 26rpx;
+color: #8C96A4;
+padding-left: 22rpx;
+width: 420rpx;
+
+}
+
+.com-c{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60rpx;
+  height: 60rpx;
+  margin-left: 16rpx
+}
+
+.com-d{
+  width: 28rpx;
+  height: 28rpx;
+}
+
+.mine-view-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60rpx;
+  height: 60rpx;
+  margin-left: 16rpx;
+  padding: 0rpx;
+  background: #FFFFFF;
+}
+button::after{
+  border: none;
+}

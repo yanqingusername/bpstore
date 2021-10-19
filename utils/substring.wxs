@@ -274,7 +274,11 @@ var subStringNameTag1 = function (val) {
     return [year, month, day].map(formatNumber).join('-') + ' ' + [hour, minute, second].map(formatNumber).join(':')
   }
   
-  
+  var toList= function (val) { 
+    var valList = []
+    valList = val.split(',')
+    return valList
+  } 
 
   module.exports = {
     subStringName: subStringName, 
@@ -295,5 +299,6 @@ var subStringNameTag1 = function (val) {
     lineFeed: lineFeed,
     subStringNameTag3: subStringNameTag3,
     toHide: toHide,
-    formatTime: formatTime
+    formatTime: formatTime,
+    toList: toList
   }
