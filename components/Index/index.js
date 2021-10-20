@@ -21,7 +21,13 @@ Component({
     },
     data: {
         searchVal: '',
-        imgUrls: ['https://img01.yzcdn.cn/vant/cat.jpeg', 'https://img01.yzcdn.cn/vant/cat.jpeg']
+        imgUrls: ['https://img01.yzcdn.cn/vant/cat.jpeg', 'https://img01.yzcdn.cn/vant/cat.jpeg'],
+
+        RecCelebrityList:[],
+        BannerList:[],
+        ActivityList:[],
+        CelebrityList:[],
+        ClassicCaseList:[],
     },
     lifetimes: {
         // 在组件实例进入页面节点树时执行
@@ -42,7 +48,7 @@ Component({
     pageLifetimes: {
         // 组件所在页面的生命周期函数 ( 只会加载一次 )
         show:  function () {
-            this.getExpertRecommend()
+            this.getRecCelebrityList()
             this.getBannerList()
             this.getNewActivityList()
             this.getCelebrityList()
@@ -58,38 +64,84 @@ Component({
     },
     methods: {
             // 达人推荐
-            getExpertRecommend() {
-                Api.getExpertRecommend({
+            getRecCelebrityList() {
+                let that = this;
+                Api.getRecCelebrityList({
                     pageNum: 1,
                     pageSize:50
-                })
+                }).then(function (res) {
+                    if (res.code != 1) {
+                        return;
+                    }
+                    that.setData({
+                        RecCelebrityList: res.rs.data
+                    })
+                }).catch(() => {
+                    
+                });
             },
             // 轮播
             getBannerList() {
                 Api.getBannerList({
                     pageNum: 1,
                     pageSize:50
-                })
+                }).then(function (res) {
+                    if (res.code != 1) {
+                        return;
+                    }
+                    that.setData({
+                        BannerList: res.rs.data
+                    })
+                }).catch(() => {
+                    
+                });
             },
             // 最新活动
             getNewActivityList() {
                 Api.getNewActivityList({
                     pageNum: 1,
                     pageSize:50
-                })
+                }).then(function (res) {
+                    if (res.code != 1) {
+                        return;
+                    }
+                    that.setData({
+                        ActivityList: res.rs.data
+                    })
+                }).catch(() => {
+                    
+                });
             },
             // 行业达人
             getCelebrityList() {
                 Api.getCelebrityList({
                     pageNum: 1,
                     pageSize:50
-                })
+                }).then(function (res) {
+                    if (res.code != 1) {
+                        return;
+                    }
+                    that.setData({
+                        CelebrityList: res.rs.data
+                    })
+                }).catch(() => {
+                    
+                });
             },
             getClassicCaseList() {
                 Api.getClassicCaseList({
                     pageNum: 1,
                     pageSize:50
-                })
+                }).then(function (res) {
+                    if (res.code != 1) {
+                        return;
+                    }
+                    that.setData({
+                        ClassicCaseList: res.rs.data
+                    })
+                }).catch(() => {
+                    
+                });
             },
 			navigationToPage(e) {
                 const { page } = e.target.dataset

@@ -4,7 +4,7 @@
    <view class="mine-header" >
         <van-search 
         value="{{ kerword }}" 
-        placeholder="搜索案例" 
+        placeholder="搜索案例、单位、达人" 
         bind:change='searchChange' 
         shape='round' 
         bind:search="onSearch" 
@@ -12,18 +12,17 @@
     </view>
 
     <view class="mine-f-view">
-        <block wx:for="{{10}}" wx:key="index">
+        <block wx:for="{{follow_list}}" wx:key="index" wx:if='{{ fans_list.length > 0}}'>
             <view class="mine-f-item">
                 <view class="mc-f-left">
-                    <image class="mc-f-left-img" src='/utils/image/icon_help_09_14_01.png' />
+                    <image class="mc-f-left-img" src='{{item.avatarUrl}}'/>
                     <view class="mc-f-left-item">
-                        <view class="mc-f-left-item-title">tasennr</view>
-                        <view class="mc-f-right-sub">深圳市 | 销售行业</view>
+                        <view class="mc-f-left-item-title">{{item.nickName}}</view>
+                        <view class="mc-f-right-sub">{{item.industry}} | {{item.profession}}</view>
                     </view>
                 </view>
                 <view class="mc-f-right">
-                    <view class="mc-f-right-title">私信</view>
-                  
+                    <view class="mc-f-right-title" bind:tap="clickFollow" >私信</view>
                 </view>
             </view>
         </block>

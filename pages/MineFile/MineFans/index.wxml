@@ -20,9 +20,9 @@
                         <view class="mc-right-sub">{{item.industry}} | {{item.profession}}</view>
                     </view>
                 </view>
-                <view class="mc-right">
-                    <view class="mc-right-title">关注</view>
-                  
+                <view class="mc-right" bind:tap="clickFollow" data-fuserid="{{item.fuserid}}" data-typestring="{{item.type}}">
+                    <view wx:if="{{item.isFollow ==1}}" class="mc-right-title-view">关注</view>
+                    <view wx:if="{{item.isFollow ==2}}" class="mc-right-title">已关注</view>
                 </view>
             </view>
         </block>

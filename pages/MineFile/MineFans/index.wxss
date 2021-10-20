@@ -47,6 +47,18 @@ color: #616E7B;
     align-items: center;
     justify-content: center;
 }
+.mc-right-title-view{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 120rpx;
+    height: 54rpx;
+    background: #E3EEFA;
+    border-radius: 27rpx;
+    font-size: 26rpx;
+font-weight: bold;
+color: #2A64F5;
+}
 .mc-right-title{
     display: flex;
     align-items: center;

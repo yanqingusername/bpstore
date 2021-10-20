@@ -92,6 +92,28 @@ Page({
         });
         that.getList();
     },
-
+    clickFollow(e){
+        let fuserid = e.currentTarget.dataset.fuserid;
+        let typestring = e.currentTarget.dataset.typestring;
+        
+        var that = this;
+        let data = {
+            fuserid: fuserid,
+            type: typestring,
+        }
+        Api.upUserFollow(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            setTimeout(() => {
+                that.setData({
+                    pageNum: 1
+                });
+                that.getList();
+            }, 500)
+        }).catch(() => {
+           
+        })
+    },
     
 })

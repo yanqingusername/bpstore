@@ -198,7 +198,7 @@ module.exports = {
 	
 	
 	/* 首页 */
-	getExpertRecommend: data => { // 达人推荐
+	getRecCelebrityList: data => { // 达人推荐
 		return request("/home/getRecCelebrityList", "post", data)
 	},
 	getBannerList: data => {  // banner
@@ -431,5 +431,20 @@ module.exports = {
 	getContestInfo: data => { //案例大赛
 		return request("/home/getContestInfo", "post", data);
 	},
-	
+
+	getUserSearch: data => { //搜索 content 搜索内容
+		return request("/user/getUserSearch", "post", data);
+	},
+	getUserSearchMore: data => { //搜索更多
+		return request("/user/getUserSearchMore", "post", data);
+	},
+	getUserSearchRecordList: data => { //搜索的历史记录
+		return request("/user/getUserSearchRecordList", "post", data);
+	},
+	getHotSearchList: data => { //热门搜索
+		return request("/attached/getHotSearchList", "post", data);
+	},
+	delUserSearchRecord: data => { //删除搜索记录
+		return request("/user/delUserSearchRecord", "post", data);
+	},
 };
