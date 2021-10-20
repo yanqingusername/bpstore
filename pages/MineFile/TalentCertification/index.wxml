@@ -79,8 +79,8 @@
             </view>
         </view>
     </view>
-    <view class="tc-d" bind:tap="setAddCelebrityInfo">
-        <view class="tc-e">提交认证</view>
+    <view class="tc-d">
+        <view class="tc-e" bind:tap="setAddCelebrityInfo">提交认证</view>
     </view>
     <view class="tc-empty"></view>
 </view>

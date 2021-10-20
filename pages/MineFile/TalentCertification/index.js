@@ -126,6 +126,13 @@ Page({
             Util.showToast('邮箱不能为空');
             return;
         }
+
+        let str = /^[a-zA-Z0-9_.-]+@[a-zA-Z0-9-]+(\.[a-zA-Z0-9-]+)*\.[a-zA-Z0-9]{2,6}$/;
+        if (!str.test(this.data.email)) {
+            Util.showToast('请填写正确的邮箱号');
+            return 
+        } 
+
         if (this.data.clabelString == ''){
             Util.showToast('个人标签不能为空');
             return;
@@ -172,6 +179,7 @@ Page({
         }
         Api.addCelebrityInfo(data).then(function (res) {
             if (res.code != 1) {
+                Util.showToast(res.msg);
                 return;
             }
             wx.removeStorageSync('celebrityinfo_clabel');

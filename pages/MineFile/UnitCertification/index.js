@@ -107,6 +107,8 @@ Page({
                     this.setData({
                         logo: imgData.data.urlPath
                     });
+                }else {
+                    Util.showToast(imgData.msg)
                 }
             }
         })

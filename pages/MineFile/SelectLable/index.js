@@ -1,6 +1,7 @@
 
 const app = getApp();
 const Api = require('../../../utils/api');
+const Util = require('../../../utils/util');
 Page({
     data: {
         titleString: '',
@@ -272,10 +273,13 @@ Page({
             Api.uploadAvatarImg('/upload/upUserAuthPic').then((res)=>{
                 if(res.statusCode === 200) {
                     let imgData = JSON.parse(res.data);
+                    console.log('---->:',imgData)
                     if(imgData.code == 1){
                         this.setData({
                             honorImg: imgData.data.urlPath
                         });
+                    }else {
+                        Util.showToast(imgData.msg)
                     }
                 }
             })
@@ -287,6 +291,8 @@ Page({
                         this.setData({
                             honorImg: imgData.data.urlPath
                         });
+                    }else {
+                        Util.showToast(imgData.msg)
                     }
                 }
             })
@@ -298,6 +304,8 @@ Page({
                         this.setData({
                             honorImg: imgData.data.urlPath
                         });
+                    }else {
+                        Util.showToast(imgData.msg)
                     }
                 }
             })
