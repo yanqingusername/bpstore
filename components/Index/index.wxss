@@ -40,6 +40,13 @@
   margin-left: 34rpx;
 }
 
+van-tabs{
+  z-index: 5;
+}
+.van-tabs__wrap{
+  z-index: 5 !important;
+}
+
 .context {
 
 }
@@ -72,6 +79,7 @@ scroll-view {
 }
 .recommend-item-name {
   margin-top: 14rpx;
+  text-align: center;
 }
 
 .swiper-container {
@@ -208,6 +216,7 @@ swiper {
   box-sizing: border-box;
   border-bottom: 1px solid #eee;
   padding-bottom: 42rpx;
+  padding-top: 40rpx;
 }
 .case-avatar {
   flex-shrink: 0;
@@ -253,4 +262,5 @@ swiper {
   box-sizing: border-box;
   border-radius: 2rpx;
   margin-top: 21rpx;
+  margin-right: 10rpx
 }

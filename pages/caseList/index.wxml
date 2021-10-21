@@ -6,28 +6,25 @@
     </view>
   </view>
 
-  <van-dropdown-menu>
-    <van-dropdown-item
-      wx:for="{{ option }}" 
-      value="{{ item.value }}"
-      options="{{ item.option }}"
-      data-current="{{ index }}"
-      bind:open="handleClickToOpenItem"
-    />
-  </van-dropdown-menu>
+  <view class="select-view">
+    <view class="select-view-item" bind:tap="handleClickToOpenItem" data-indexnumber="0"><view class="{{indexNumber == 0 ? 'select-active':'select-default'}}">经典案例</view></view>
+    <view class="select-view-item" bind:tap="handleClickToOpenItem" data-indexnumber="1"><view class="{{indexNumber == 1 ? 'select-active':'select-default'}}">全部地区</view><image class="select-img" src="/assets/images/icon-arrow-up-filling.png" /></view>
+    <view class="select-view-item" bind:tap="handleClickToOpenItem" data-indexnumber="2"><view class="{{indexNumber == 2 ? 'select-active':'select-default'}}">全部行业</view><image class="select-img" src="/assets/images/icon-arrow-up-filling.png" /></view>
+    <view class="select-view-item" bind:tap="handleClickToOpenItem" data-indexnumber="3"><view class="{{indexNumber == 3 ? 'select-active':'select-default'}}">全部筛选</view><image class="select-img" src="/assets/images/icon-arrow-up-filling.png" /></view>
+  </view>
 
   <view class="list">
     <view class="case-container">
-      <view class="case">
+      <view class="case" wx:for="{{follow_list}}" wx:key="index" bind:tap="handleRouter" data-url="/pages/caseDetail/index?id={{item.id}}">
         <view class="case-avatar">
-          <image  />
+          <image  src="{{item.avatarUrl}}"/>
         </view>
         <view class="case-right">
-          <view class="case-right-title">刘佳欣正式出任大众安徽CEO</view>
-          <view class="case-right-content multi-row">裴健如6月1日，大众汽车（安徽）有限公司（以下简称大众安徽）发布人事任命，自2021年6月1日起，配件如正式出任大众…</view>
-          <view class="case-right-type">深圳市</view>
+          <view class="case-right-title line-clampz2">{{item.title}}</view>
+          <view class="case-right-content multi-row">{{item.backdrop}}</view>
+          <view class="case-right-type">{{item.city}} | {{item.trade}}</view>
           <view class="case-right-tag">
-            <view>安徽大众汽车</view>
+            <block wx:for="{{item.lablesl}}" wx:key="index"><view>{{item}}</view></block>
           </view>
         </view>
       </view>

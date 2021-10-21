@@ -12,7 +12,7 @@
     </view>
 
     <view class="mine-f-view">
-        <block wx:for="{{follow_list}}" wx:key="index" wx:if='{{ fans_list.length > 0}}'>
+        <block wx:for="{{follow_list}}" wx:key="index" wx:if='{{ follow_list.length > 0}}'>
             <view class="mine-f-item">
                 <view class="mc-f-left">
                     <image class="mc-f-left-img" src='{{item.avatarUrl}}'/>

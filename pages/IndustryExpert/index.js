@@ -8,11 +8,21 @@ Page({
         loading: false, //  
         pageNum: 1,
         pages: 0,
-        kerword: ''
+        kerword: '',
+        searchmore: 2,
+        keyword: ''
     },
     onLoad(){
         wx.setNavigationBarTitle({ title: '行业达人' });
-        this.getList();
+        this.setData({
+            searchmore: options.searchmore,
+            keyword: options.keyword
+        })
+        if(this.data.searchmore == 1){
+            this.getUserSearchMore()
+        }else{
+            this.getList();
+        }
         
     },
     searchChange(e){
@@ -22,6 +32,52 @@ Page({
     },
     onSearch(){
         // this.getList();
+    },
+    getUserSearchMore() {
+        var that = this;
+        var currentPage = that.data.pageNum;
+        let data = {
+            pageNum: currentPage,
+            pageSize: 14,
+            content: this.data.keyword,
+            type: 2
+        }
+        Api.getUserSearchMore(data).then(function (res) {
+            that.setData({
+                loading: false
+            });
+            if (res.code != 1) {
+                return;
+            }
+            let data = res.data;
+            var maxPage = data.pages;
+            that.setData({
+                pages: maxPage
+            });
+    
+            if (data.pageNum == 1 && data.list.length == 0) {
+                that.setData({
+                    pageNum: 1,
+                    follow_list: []
+                });
+                return;
+            }
+            if (maxPage < currentPage) {
+                that.setData({
+                    pageNum: maxPage
+                });
+                return;
+            }
+            that.setData({
+                follow_list: currentPage == 1 ? data.list : that.data.follow_list.concat(data.list)
+            });
+    
+            console.log(that.data.follow_list)
+        }).catch(() => {
+            that.setData({
+                loading: false
+            });
+        })
     },
     getList() {
         var that = this;
@@ -72,7 +128,11 @@ Page({
             that.setData({
                 pageNum: 1
             });
-            that.getList();
+            if(that.data.searchmore == 1){
+                that.getUserSearchMore()
+            }else{
+                that.getList();
+            }
         }, 500)
         wx.stopPullDownRefresh()
     },
@@ -85,7 +145,11 @@ Page({
             loading: true,
             pageNum: pageNum,
         });
-        that.getList();
+        if(that.data.searchmore == 1){
+            that.getUserSearchMore()
+        }else{
+            that.getList();
+        }
     },
     clickFollow(e){
         

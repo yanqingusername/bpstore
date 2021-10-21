@@ -1,9 +1,6 @@
 {
   "usingComponents": {
-    "van-field": "/components/vant/field/index",
-    "van-dropdown-menu": "/components/vant/dropdown-menu/index",
-    "van-dropdown-item": "/components/vant/dropdown-item/index"
+    "van-field": "/components/vant/field/index"
   },
-  "component": true,
   "navigationBarTitleText": "案例列表"
 }

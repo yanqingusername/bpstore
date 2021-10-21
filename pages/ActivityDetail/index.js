@@ -9,7 +9,7 @@ Page({
         URL: "https://bpimg.jianlet.com/images/"
     },
     onLoad(options){
-        wx.setNavigationBarTitle({ title: '双节大放送活动' });
+        
         this.setData({
             id: options.id
         });
@@ -37,6 +37,7 @@ Page({
             if (res.code != 1) {
                 return;
             }
+            wx.setNavigationBarTitle({ title: res.data.title });
             that.setData({
                 activityInfo: res.data
             });

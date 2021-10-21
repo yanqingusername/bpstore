@@ -1,32 +1,35 @@
 <view class="search">
   <view class="search-input">
     <van-search
-      value="{{ searchVal }}"
+      value="{{ kerword }}"
       custom-class="search-input"
       shape="round"
       placeholder="搜索案例、单位、达人"
+       bind:change='searchChange' 
+        bind:search="onSearch" 
+        bind:cancel="onCancel"
     />
     
-    <view class="search-input-cancel">取消</view>
+    <view class="search-input-cancel" bind:tap="onCancel">取消</view>
   </view>
 
-  <view class="search-history-container" wx:if="{{ false }}">
-    <view class="search-history">
+  <view class="search-history-container" wx:if="{{ isShow }}">
+    <view class="search-history" wx:if="{{SearchRecordList.length > 0}}">
       <view class="search-history-header">
         <text >历史记录</text>
-        <image src="/pages/assets/images/del.png" />
+        <image bind:tap="clickDelete" src="/pages/assets/images/del.png" />
       </view>
       <view class="search-history-main">
-        <view wx:for="{{ 5 }}" class="search-history-main-item">极客帮创投</view>
+        <view wx:for="{{ SearchRecordList }}" bind:tap="clickSearchkeyWord" data-item="{{item}}" class="search-history-main-item">{{item}}</view>
       </view>
     </view>
 
-    <view class="search-history">
+    <view class="search-history" wx:if="{{HotSearchList.length > 0}}">
       <view class="search-history-header">
         <text >热门搜索</text>
       </view>
       <view class="search-history-main">
-        <view wx:for="{{ 5 }}" class="search-history-main-item">极客帮创投</view>
+        <view wx:for="{{ HotSearchList }}" bind:tap="clickSearchkeyWord" data-item="{{item}}" wx:key="index" class="search-history-main-item">{{item}}</view>
       </view>
     </view>
   </view>
@@ -34,7 +37,7 @@
   <!-- 搜索结果 -->
   <view class="search-result" wx:else>
     <view class="search-result-case">
-      <view class="search-result-case-header">
+      <view class="search-result-case-header" bind:tap="handleRouter" data-url="/pages/caseList/index?searchmore=1&keyword={{kerword}}">
         <view>案例（21）</view>
         <view>更多</view>
       </view>
@@ -50,7 +53,7 @@
       </view>
     </view>
     <view class="search-result-expert">
-      <view class="search-result-case-header">
+      <view class="search-result-case-header" bind:tap="handleRouter" data-url="/pages/IndustryExpert/index?searchmore=1&keyword={{kerword}}">
         <view>达人（21）</view>
         <view>更多</view>
       </view>

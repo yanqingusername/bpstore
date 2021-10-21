@@ -36,6 +36,14 @@ Component({
             wx.setNavigationBarTitle({
                 title: 'BP数字产业平台'
             });
+
+            this.getRecCelebrityList()
+            this.getBannerList()
+            this.getNewActivityList()
+            this.getCelebrityList()
+            this.getClassicCaseList()
+
+            
             
         },
         /**
@@ -53,6 +61,8 @@ Component({
             this.getNewActivityList()
             this.getCelebrityList()
             this.getClassicCaseList()
+
+            
         },
         /**
          * 组件所在页面的关闭函数
@@ -74,7 +84,7 @@ Component({
                         return;
                     }
                     that.setData({
-                        RecCelebrityList: res.rs.data
+                        RecCelebrityList: res.data.list
                     })
                 }).catch(() => {
                     
@@ -82,15 +92,17 @@ Component({
             },
             // 轮播
             getBannerList() {
+                let that = this;
                 Api.getBannerList({
                     pageNum: 1,
-                    pageSize:50
+                    pageSize:10,
+                    place: 1
                 }).then(function (res) {
                     if (res.code != 1) {
                         return;
                     }
                     that.setData({
-                        BannerList: res.rs.data
+                        BannerList: res.data.list
                     })
                 }).catch(() => {
                     
@@ -98,15 +110,16 @@ Component({
             },
             // 最新活动
             getNewActivityList() {
+                let that = this;
                 Api.getNewActivityList({
                     pageNum: 1,
-                    pageSize:50
+                    pageSize:10
                 }).then(function (res) {
                     if (res.code != 1) {
                         return;
                     }
                     that.setData({
-                        ActivityList: res.rs.data
+                        ActivityList: res.data.list
                     })
                 }).catch(() => {
                     
@@ -114,6 +127,7 @@ Component({
             },
             // 行业达人
             getCelebrityList() {
+                let that = this;
                 Api.getCelebrityList({
                     pageNum: 1,
                     pageSize:50
@@ -122,13 +136,14 @@ Component({
                         return;
                     }
                     that.setData({
-                        CelebrityList: res.rs.data
+                        CelebrityList: res.data.list
                     })
                 }).catch(() => {
                     
                 });
             },
             getClassicCaseList() {
+                let that = this;
                 Api.getClassicCaseList({
                     pageNum: 1,
                     pageSize:50
@@ -137,14 +152,14 @@ Component({
                         return;
                     }
                     that.setData({
-                        ClassicCaseList: res.rs.data
+                        ClassicCaseList: res.data.list
                     })
                 }).catch(() => {
                     
                 });
             },
 			navigationToPage(e) {
-                const { page } = e.target.dataset
+                const { page } = e.currentTarget.dataset
 				wx.navigateTo({
 					url: `/pages/${ page }/index`
 				})

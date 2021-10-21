@@ -353,6 +353,22 @@ module.exports = {
 	upCollectionCase: data => { //取消收藏（可多选） ids  收藏的id，多个逗号隔开
 		return request("/user/upCollectionCase", "post", data);
 	},
+
+	getHotSearchList: data => { //热门搜索
+		return request("/attached/getHotSearchList", "post", data);
+	},
+	getUserSearchRecordList: data => { //搜索的历史记录
+		return request("/user/getUserSearchRecordList", "post", data);
+	},
+	delUserSearchRecord: data => { //删除搜索记录
+		return request("/user/delUserSearchRecord", "post", data);
+	},
+	getUserSearch: data => { //搜索 content 搜索内容
+		return request("/user/getUserSearch", "post", data);
+	},
+	getUserSearchMore: data => { //搜索更多
+		return request("/user/getUserSearchMore", "post", data);
+	},
 	
 
 	/**
@@ -432,19 +448,9 @@ module.exports = {
 		return request("/home/getContestInfo", "post", data);
 	},
 
-	getUserSearch: data => { //搜索 content 搜索内容
-		return request("/user/getUserSearch", "post", data);
-	},
-	getUserSearchMore: data => { //搜索更多
-		return request("/user/getUserSearchMore", "post", data);
-	},
-	getUserSearchRecordList: data => { //搜索的历史记录
-		return request("/user/getUserSearchRecordList", "post", data);
-	},
-	getHotSearchList: data => { //热门搜索
-		return request("/attached/getHotSearchList", "post", data);
-	},
-	delUserSearchRecord: data => { //删除搜索记录
-		return request("/user/delUserSearchRecord", "post", data);
-	},
+	
+	
+	
+	
+	
 };
