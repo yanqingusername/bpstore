@@ -1,8 +1,15 @@
 {
   "usingComponents": {
+    "van-tab": "/components/vant/tab/index",
+    "van-tabs": "/components/vant/tabs/index",
+    "van-loading": "/components/vant/loading/index",
     "van-transition": "/components/vant/transition/index",
-    "van-action-sheet": "/components/vant/action-sheet/index",
-    "van-icon": "/components/vant/icon/index"
+    "van-toast": "/components/vant/toast/index",
+    "van-icon": "/components/vant/icon/index",
+    "van-stepper": "/components/vant/stepper/index",
+    "van-notice-bar": "/components/vant/notice-bar/index",
+    "van-search": "/components/vant/search/index",
+    "Card": "/components/Card/index"
   },
   "component": true
 }

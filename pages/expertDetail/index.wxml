@@ -2,37 +2,36 @@
   <view class="expert-detail-synopsis">
     <view class="basic-info">
       <view class="basic-info-left">
-        <image  />
-        <image class="authentication" src="/assets/images/authentication.png" />
+        <image  src="{{CelebrityInfo.avatarUrl}}"/>
+        <image class="authentication" wx:if="{{CelebrityInfo.status ==1}}" src="/assets/images/authentication.png" />
       </view>
       <view class="basic-info-right">
         <view class="basic-info-right-nickname">
-          <view class="">Janie luobo</view>
-          <view class="basic-info-right-nickname-tag">达人</view>
+          <view class="">{{CelebrityInfo.nickName}}</view>
+          <view class="basic-info-right-nickname-tag" wx:if="{{CelebrityInfo.status ==1}}">达人</view>
         </view>
-        <view class="basic-info-right-industry">耳东影业 | 投资经理</view>
+        <view class="basic-info-right-industry">{{CelebrityInfo.companyName}} | {{CelebrityInfo.profession}}</view>
       </view>
     </view>
 
     <view class="base-container">
       <view class="base-container-header">联系方式</view>
       <view class="contact-information">
-        <view class="">微信号：asz554568</view>
-        <view class="">手机号：15744551564</view>
-        <view class="">邮箱：oaslncex@163.com</view>
+        <view class="">微信号：{{CelebrityInfo.wx}}</view>
+        <view class="">手机号：{{CelebrityInfo.phone}}</view>
+        <view class="">邮箱：{{CelebrityInfo.email}}</view>
       </view>
     </view>
 
     <view class="base-container">
       <view class="base-container-header">自我介绍</view>
-      <view class="presentation">英国罗素私立中学，伦敦大学国王学院医学物理学史，英国帝国理工学院生物医学工程硕士</view>
+      <view class="presentation">{{CelebrityInfo.introduce}}</view>
     </view>
 
     <view class="base-container">
       <view class="base-container-header">个人标签</view>
       <view class="tag-list">
-        <view>文娱传媒</view>
-        <view>文娱传媒</view>
+        <view wx:for="{{CelebrityInfo.lables}}" wx:key="index">{{item}}</view>
       </view>
     </view>
 
@@ -40,9 +39,9 @@
       <view class="base-container-header">个人荣誉</view>
       <view class="honor">
         <view class="honor-pic">
-          <image  />
+          <image  src="{{CelebrityInfo.certificate}}"/>
         </view>
-        <view>英国罗素私立中学，伦敦大学国王学院医学物理学史，英国帝国理工学院生物医学工程硕士英国罗素私立中学，伦敦大学国王学院医学物理学史，英国帝国理工学院生物医学工程硕士。</view>
+        <view>{{CelebrityInfo.honor}}</view>
       </view>
     </view>
   </view>
@@ -51,20 +50,20 @@
     <view class="record-title">任职履历</view>
     <view class="record-content">
       <view class="record-content-logo">
-        <image  />
+        <image  src="{{CelebrityInfo.companyLogo}}"/>
       </view>
       <view class="record-content-info">
-        <view class="name">简乐团</view>
+        <view class="name">{{CelebrityInfo.companyName}}</view>
         <view >
-          <view >IT互联网 | 董事长&CEO</view>
-          <view class="site">北京</view>
+          <view >{{CelebrityInfo.industry}} | {{CelebrityInfo.profession}}</view>
+          <view class="site">{{CelebrityInfo.city}}</view>
         </view>
       </view>
     </view>
   </view>
 
   <view class="publish">
-    <view class="publish-header">
+    <view class="publish-header" bind:tap="handleRouter" data-url="/pages/caseList/index?searchmore=3&ouserid={{CelebrityInfo.userid}}">
       <view class="">Ta发布的</view>
       <view class="">
         <text class="">查看全部</text>
@@ -73,16 +72,16 @@
     </view>
 
     <view class="publish-main">
-      <view class="case">
+      <view class="case" wx:for="{{CaseList}}" wx:key="index" bind:tap="handleRouter" data-url="/pages/caseDetail/index?id={{item.id}}">
         <view class="case-avatar">
-          <image  />
+          <image  src="{{item.avatarUrl}}"/>
         </view>
         <view class="case-right">
-          <view class="case-right-title line-clampz2">刘佳欣正式出任大众安徽CEO</view>
-          <view class="case-right-content multi-row">裴健如6月1日，大众汽车（安徽）有限公司（以下简称大众安徽）发布人事任命，自2021年6月1日起，配件如正式出任大众…</view>
-          <view class="case-right-type">深圳市</view>
+          <view class="case-right-title line-clampz2">{{item.title}}</view>
+          <view class="case-right-content multi-row">{{item.backdrop}}</view>
+          <view class="case-right-type">{{item.city}} | {{item.trade}}</view>
           <view class="case-right-tag">
-            <view>安徽大众汽车</view>
+            <block wx:for="{{item.lablesl}}" wx:key="index"><view>{{item}}</view></block>
           </view>
         </view>
       </view>
@@ -90,27 +89,29 @@
   </view>
 
   <!-- 按钮 -->
-  <view wx:if="{{ true }}" class="btn">
+  <view wx:if="{{ !isUser }}" class="btn">
     <view class="btn-left">
-      <view class="btn-left-item">
+      <view class="btn-left-item" bind:tap="clickFollow" data-fuserid="{{CelebrityInfo.userid}}">
         <image src="/assets/images/heart.png" />
-        <view class="">关注</view>
+        <view class="">{{CelebrityInfo.isFollow ==1 ? '关注' : '已关注'}}</view>
       </view>
 
-      <view class="btn-left-item">
+      <!-- <view class="btn-left-item">
         <image src="/assets/images/collect2.png" />
         <view class="">收藏</view>
-      </view>
+      </view> -->
 
-      <view class="btn-left-item">
-        <image src="/assets/images/share2.png" />
-        <view class="">分享</view>
-      </view>
+      <button class="mine-view-button1" open-type="share">
+            <image style="width: 32rpx;height: 32rpx;" src="/assets/images/share2.png" />
+            <view style="font-size: 20rpx;color: #616E7B;margin-top: -2px;" class="">分享</view>
+      </button>
     </view>
     <view class="btn-right">私信</view>
   </view>
   <view wx:else class="btn-container">
-    <view>分享资料</view>
-    <view>编辑资料</view>
+    <button class="mine-view-button" open-type="share">
+            <view class="popup-posted-title">分享资料</view>
+        </button>
+    <view bind:tap="handleRouter" data-url="/pages/MineFile/TalentCertification/index">编辑资料</view>
   </view>
 </view>

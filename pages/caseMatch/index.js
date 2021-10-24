@@ -20,9 +20,9 @@ Page({
         isSelectAll: false
   },
   onLoad(options){
-    this.setData({
-        id: options.id
-    })
+    // this.setData({
+    //     id: options.id
+    // })
   },
   onShow(){
     this.getContestInfo();
@@ -40,7 +40,8 @@ Page({
         }
 
         that.setData({
-            ContestInfo: res.data
+            ContestInfo: res.data,
+            id: res.data.id
         })
     }).catch(() => {
         that.setData({
@@ -58,22 +59,22 @@ Page({
             active: position,
             pageNum: 1
         })
-            this.getContestInfo();
-            this.getMyCaseList();
+        that.getContestInfo();
+        that.getMyCaseList();
           break;
       case 1:
         that.setData({
             active: position,
             pageNum: 1
         })
-            this.getContestPassList();
+        that.getContestPassList();
           break;
       case 2:
         that.setData({
             active: position,
             pageNum: 1
         })
-            this.getContestAwardList();
+        that.getContestAwardList();
           break;
       default:
         break;
@@ -128,7 +129,7 @@ getContestAwardList() {
     var currentPage = that.data.pageNum;
     let data = {
         pageNum: currentPage,
-        pageSize: 14,
+        pageSize: 3,
         id: this.data.id
     }
     Api.getContestAwardList(data).then(function (res) {
@@ -160,6 +161,17 @@ getContestAwardList() {
         that.setData({
             AwardList: currentPage == 1 ? data.list : that.data.AwardList.concat(data.list)
         });
+
+        setTimeout(()=>{
+            let query = that.createSelectorQuery();
+            query.select("#awardH").boundingClientRect()
+            query.exec(function(res){
+            console.log('ZHI',res);
+            that.setData({
+                awardHeight:res[0].height
+            })
+            })
+        },200)
     }).catch(() => {
         that.setData({
             loading: false
@@ -174,7 +186,7 @@ onPullDownRefresh: function () {
             pageNum: 1
         });
         if(that.data.active == 1){
-            that.getUserSearchMore()
+            that.getContestPassList()
         }else if(that.data.active == 2){
             that.getContestAwardList();
         }
@@ -191,9 +203,9 @@ onReachBottom: function () {
         pageNum: pageNum,
     });
     if(that.data.active == 1){
-        that.getUserSearchMore()
+        that.getContestPassList()
     }else if(that.data.active == 2){
-        that.getContestAwardList();
+        // that.getContestAwardList();
     }
 },
     handleRouter(e){

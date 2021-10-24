@@ -1,12 +1,12 @@
 <view class="case-list">
-  <view class="search">
+  <view class="search" wx:if="{{searchmore != 3}}">
     <view class="serch-container" data-page="search" bindtap="navigationToPage">
       <image src="/assets/images/search.png" />
       <text>搜索案例、单位、达人</text>
     </view>
   </view>
 
-  <view class="select-view">
+  <view class="select-view" wx:if="{{searchmore != 3}}">
     <view class="select-view-item" bind:tap="handleClickToOpenItem" data-indexnumber="0"><view class="{{indexNumber == 0 ? 'select-active':'select-default'}}">经典案例</view></view>
     <view class="select-view-item" bind:tap="handleClickToOpenItem" data-indexnumber="1"><view class="{{indexNumber == 1 ? 'select-active':'select-default'}}">全部地区</view><image class="select-img" src="/assets/images/icon-arrow-up-filling.png" /></view>
     <view class="select-view-item" bind:tap="handleClickToOpenItem" data-indexnumber="2"><view class="{{indexNumber == 2 ? 'select-active':'select-default'}}">全部行业</view><image class="select-img" src="/assets/images/icon-arrow-up-filling.png" /></view>

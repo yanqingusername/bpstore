@@ -12,17 +12,17 @@
       <image class="search-add"
         src="/assets/images/add.png"
         data-page="release"
-        catchtap="navigationToPage" 
+        catchtap="navigationToPage"
       />
     </view>
 
-    <van-tabs sticky>
-      <van-tab title="推荐" active="{{ 0 }}">
+    <van-tabs sticky active="{{ active }}" bind:click="onClick">
+      <van-tab title="关注" name="关注">
         <view class="context">
           <view class="recommend" wx:if="{{RecCelebrityList.length > 0}}">
             <view class="recommend-title">达人推荐</view>
             <scroll-view scroll-x="{{true}}">
-              <view class="recommend-item" wx:for="{{RecCelebrityList}}" wx:key="index" bind:tap="clickUser" data-userid="{{item.userid}}">
+              <view class="recommend-item" wx:for="{{RecCelebrityList}}" wx:key="index" catch:tap="handleRouter" data-method="navigateTo" data-url="/pages/expertDetail/index?id={{item.userid}}" >
                 <image src="{{item.avatarUrl}}" />
                 <view class="recommend-item-name omit">{{item.nickName}}</view>
               </view>
@@ -71,7 +71,7 @@
             <view wx:if="{{CelebrityList.length > 0}}">
               <Card title="行业达人" bind:tap="handleRouter" data-url="/pages/IndustryExpert/index">
                 <view class="expert">
-                  <view wx:for="{{CelebrityList}}" wx:key="index" class="expert-item">
+                  <view wx:for="{{CelebrityList}}" wx:key="index" class="expert-item" catch:tap="handleRouter" data-method="navigateTo" data-url="/pages/expertDetail/index?id={{item.userid}}">
                     <image class="expert-item-avatar" src="{{item.avatarUrl}}"/>
                     <view class="expert-item-name">{{item.name}}</view>
                     <view class="expert-item-company omit">{{item.profession}}</view>
@@ -103,11 +103,34 @@
           </view>
         </view>
       </van-tab>
-      <van-tab title="标签 2">内容 2</van-tab>
-      <van-tab title="标签 3">内容 3</van-tab>
+      <block wx:for="{{CaseLabelList}}" wx:key="index">
+        <van-tab title="{{item.name}}" name="{{item.name}}">
+          <view wx:if="{{product_list.length > 0}}">
+              <Card >
+                <view class="case-container">
+                  <view class="case" wx:for="{{product_list}}" wx:key="index" bind:tap="handleRouter" data-url="/pages/caseDetail/index?id={{item.id}}">
+                    <view class="case-avatar">
+                      <image  src="{{item.avatarUrl}}"/>
+                    </view>
+                    <view class="case-right">
+                      <view class="case-right-title line-clampz2">{{item.title}}</view>
+                      <view class="case-right-content multi-row">{{item.backdrop}}</view>
+                      <view class="case-right-type">{{item.city}} | {{item.trade}}</view>
+                      <view class="case-right-tag">
+                        <block wx:for="{{item.lablesl}}" wx:key="index"><view>{{item}}</view></block>
+                      </view>
+                    </view>
+                  </view>
+                </view>
+              </Card>
+            </view>
+        </van-tab>
+      </block>
+      
+      <!-- <van-tab title="标签 3">内容 3</van-tab>
       <van-tab title="标签 4">内容 4</van-tab>
       <van-tab title="标签 4">内容 4</van-tab>
-      <van-tab title="标签 4">内容 4</van-tab>
+      <van-tab title="标签 4">内容 4</van-tab> -->
     </van-tabs>
 
 

@@ -28,6 +28,14 @@ Component({
         ActivityList:[],
         CelebrityList:[],
         ClassicCaseList:[],
+        CaseLabelList: [],
+        active: 0,
+        tradeString: '',
+        product_list: [], 
+        total: '', // 
+        loading: false, // loading状态 
+        pageNum: 1,
+        pages: 0,
     },
     lifetimes: {
         // 在组件实例进入页面节点树时执行
@@ -42,8 +50,7 @@ Component({
             this.getNewActivityList()
             this.getCelebrityList()
             this.getClassicCaseList()
-
-            
+            this.getCaseLabelList()
             
         },
         /**
@@ -61,7 +68,7 @@ Component({
             this.getNewActivityList()
             this.getCelebrityList()
             this.getClassicCaseList()
-
+            this.getCaseLabelList()
             
         },
         /**
@@ -146,13 +153,30 @@ Component({
                 let that = this;
                 Api.getClassicCaseList({
                     pageNum: 1,
-                    pageSize:50
+                    pageSize:50,
+                    type: 1
                 }).then(function (res) {
                     if (res.code != 1) {
                         return;
                     }
                     that.setData({
                         ClassicCaseList: res.data.list
+                    })
+                }).catch(() => {
+                    
+                });
+            },
+            getCaseLabelList() {
+                let that = this;
+                Api.getCaseLabelList({
+                    pageNum: 1,
+                    pageSize:10,
+                }).then(function (res) {
+                    if (res.code != 1) {
+                        return;
+                    }
+                    that.setData({
+                        CaseLabelList: res.data.list
                     })
                 }).catch(() => {
                     
@@ -247,11 +271,88 @@ Component({
          * 监听下拉事件
          */
         onPull() {
-          
+            var that = this;
+            setTimeout(() => {
+                that.setData({
+                    pageNum: 1,
+                    product_list: []
+                });
+                that.getClassicCaseListTrde()
+            }, 500)
+            wx.stopPullDownRefresh()
         },
         // 上拉加载
         pullUp() {
+            var that = this
+            var pageNum = that.data.pageNum;
+            if (pageNum >= that.data.pages) return;
+            pageNum += 1
+            that.setData({
+                loading: true,
+                pageNum: pageNum,
+            });
+            this.getClassicCaseListTrde()
+        },
+        onClick(event) {
+            let title = event.detail.title;
+            this.setData({
+                tradeString: title
+            })
+            if(title == '关注'){
+                this.getRecCelebrityList()
+                this.getBannerList()
+                this.getNewActivityList()
+                this.getCelebrityList()
+                this.getClassicCaseList()
+            }else{
+                this.getClassicCaseListTrde()
+            }
             
+        },
+         // 案例分类
+         getClassicCaseListTrde() {
+            var that = this;
+            var currentPage = that.data.pageNum;
+            let data = {
+                pageNum: currentPage,
+                pageSize: 14,
+                type: 2,
+                trade: this.data.tradeString
+            }
+            Api.getClassicCaseList(data).then(function (res) {
+                that.setData({
+                    loading: false
+                });
+                if (res.code != 1) {
+                    return;
+                }
+                let data = res.data;
+                var maxPage = data.pages;
+                that.setData({
+                    pages: maxPage
+                });
+    
+                if (data.pageNum == 1 && data.list.length == 0) {
+                    that.setData({
+                        pageNum: 1,
+                        product_list: []
+                    });
+                    return;
+                }
+                if (maxPage < currentPage) {
+                    that.setData({
+                        pageNum: maxPage
+                    });
+                    return;
+                }
+                that.setData({
+                    product_list: currentPage == 1 ? data.list : that.data.product_list.concat(data.list)
+                });
+            }).catch(() => {
+                that.setData({
+                    loading: false
+                });
+            })
         },
     },
     created: function () { },

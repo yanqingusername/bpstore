@@ -21,7 +21,7 @@
                             <view class="mc-left-item-lable">{{item.companyProperty}}</view>
                         </view>
                         <view class="mc-right-sub">{{item.trade}}</view>
-                        <view class="mc-right-lable">{{item.city}} | {{item.companyProperty}}</view>
+                        <view class="mc-right-lable">{{item.city}} | {{item.industry}}</view>
                     </view>
                 </view>
             </view>

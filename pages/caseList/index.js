@@ -10,17 +10,26 @@ Page({
         pages: 0,
         kerword: '',
         searchmore: 2,
-        keyword: ''
+        keyword: '',
+        ouserid: ''
   },
   onLoad(options){
-    wx.setNavigationBarTitle({ title: '经典案例' });
+    
     this.setData({
         searchmore: options.searchmore,
         keyword: options.keyword
     })
     if(this.data.searchmore == 1){
+        wx.setNavigationBarTitle({ title: '搜索更多案例' });
         this.getUserSearchMore()
-    }else{
+    } else if(this.data.searchmore == 3){
+        wx.setNavigationBarTitle({ title: 'Ta发布的案例' });
+        this.setData({
+            ouserid: options.ouserid
+        })
+        this.getOthersCaseList()
+    } else{
+        wx.setNavigationBarTitle({ title: '经典案例' });
         this.getList();
     }
   },
@@ -75,7 +84,8 @@ Page({
     var currentPage = that.data.pageNum;
     let data = {
         pageNum: currentPage,
-        pageSize: 14
+        pageSize: 14,
+        type: 1
     }
     Api.getClassicCaseList(data).then(function (res) {
         that.setData({
@@ -114,6 +124,50 @@ Page({
         });
     })
 },
+getOthersCaseList() {
+    var that = this;
+    var currentPage = that.data.pageNum;
+    let data = {
+        pageNum: currentPage,
+        pageSize: 14,
+        ouserid:this.data.ouserid
+    }
+    Api.getOthersCaseList(data).then(function (res) {
+        that.setData({
+            loading: false
+        });
+        if (res.code != 1) {
+            return;
+        }
+        let data = res.data;
+        var maxPage = data.pages;
+        that.setData({
+            pages: maxPage
+        });
+
+        if (data.pageNum == 1 && data.list.length == 0) {
+            that.setData({
+                pageNum: 1,
+                follow_list: []
+            });
+            return;
+        }
+        if (maxPage < currentPage) {
+            that.setData({
+                pageNum: maxPage
+            });
+            return;
+        }
+        that.setData({
+            follow_list: currentPage == 1 ? data.list : that.data.follow_list.concat(data.list)
+        });
+
+    }).catch(() => {
+        that.setData({
+            loading: false
+        });
+    })
+},
 //下拉加载
 onPullDownRefresh: function () {
     var that = this;
@@ -123,6 +177,8 @@ onPullDownRefresh: function () {
         });
         if(that.data.searchmore == 1){
             that.getUserSearchMore()
+        }else if(that.data.searchmore == 3){
+            that.getOthersCaseList()
         }else{
             that.getList();
         }
@@ -140,6 +196,8 @@ onReachBottom: function () {
     });
     if(that.data.searchmore == 1){
         that.getUserSearchMore()
+    }else if(that.data.searchmore == 3){
+        that.getOthersCaseList()
     }else{
         that.getList();
     }

@@ -26,6 +26,7 @@
 .finalist-item-content-left {
   font-size: 28rpx;
   color: #616E7B;
+  width: 502rpx;
 }
 .hot {
   margin-top: 16rpx;
@@ -128,6 +129,24 @@
   border: 1px solid #00C0C2;
   border-radius: 2rpx;
   box-sizing: border-box;
+  margin-right: 20rpx;
+}
+
+.case-right-tag {
+  display: flex;
+}
+.case-right-tag > view {
+  display: flex;
+  height: 25rpx;
+  align-items: center;
+  padding: 0 10rpx;
+  font-size: 16rpx;
+  color: #00C0C2;
+  border: 1px solid #00C0C2;
+  box-sizing: border-box;
+  border-radius: 2rpx;
+  margin-top: 6rpx;
+  margin-right: 10rpx
 }
 
 

@@ -45,10 +45,14 @@
             <image class="popup-posted-img" src='/utils/image/icon-mine-09-09-10.png' />
             <view class="popup-posted-title">删除案例</view>
         </view>
-        <view class="popup-posted-view" bind:tap="shareHandler">
+        <button class="mine-view-button" open-type="share">
+            <image class="popup-posted-img" src='/utils/image/icon_img_10_18_03.png' />
+            <view class="popup-posted-title">分享</view>
+        </button>
+        <!-- <view class="popup-posted-view" bind:tap="shareHandler">
             <image class="popup-posted-img" src='/utils/image/icon-mine-09-09-10.png' />
             <view class="popup-posted-title">分享</view>
-        </view>
+        </view> -->
       </view>
     </van-popup>
 </van-transition>

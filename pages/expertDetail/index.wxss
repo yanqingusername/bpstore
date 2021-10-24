@@ -241,6 +241,7 @@
   box-sizing: border-box;
   border-radius: 2rpx;
   margin-top: 21rpx;
+  margin-right: 20rpx
 }
 
 
@@ -258,9 +259,18 @@
 .btn-left {
   flex: 1;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   overflow: hidden;
+}
+.btn-left-item{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-left: 50rpx;
+width: 80rpx;
+
 }
 .btn-left-item > image {
   width: 32rpx;
@@ -309,4 +319,43 @@
 }
 .btn-container > view:last-child {
   color: #616E7B;
+}
+
+.mine-view-button{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 100%;
+  font-size: 28rpx;
+  padding: 0rpx;
+  background: #2A64F5;
+  color: #fff;
+  border-radius: 0px;
+
+}
+button::after{
+  border: none;
+}
+.popup-posted-title{
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #FFFFFF;
+}
+
+.mine-view-button1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80rpx;
+  /* height: 60rpx; */
+  margin-left: 16rpx;
+  padding: 0rpx;
+  background: #FFFFFF;
+  flex-direction: column;
+margin-top: 10rpx;
+
+}
+button::after{
+  border: none;
 }

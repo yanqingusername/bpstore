@@ -1,6 +1,42 @@
-<view class="user {{ !over ? '' : 'user_over' }}">
+<wxs src="../../utils/substring.wxs" module="tools" />
 
-	<van-transition show="{{ show }}" custom-class="block">
-        <view class="" >关于我们</view>
-    </van-transition>
+<view class="">
+  <!-- 页面内容 -->
+  <van-transition custom-class="block">
+    <view class="search">
+      <view class="serch-container" data-page="search" bindtap="navigationToPage">
+        <image src="/assets/images/search.png" />
+        <text>搜索案例、单位、达人</text>
+      </view>
+    </view>
+
+   <view class="mine-collection-view">
+        <block wx:for="{{product_list}}" wx:key="index" wx:if='{{ product_list.length > 0}}'>
+            <view class="mine-collection-item">
+                <view class="mc-left">
+                    <image class="mc-left-img" src='{{item.logo}}' />
+                    <view class="mc-left-item">
+                        <view class="mc-left-item-head">
+                            <view class="mc-left-item-title">{{item.companyName}}</view>
+                            <view class="mc-left-item-lable">{{item.companyProperty}}</view>
+                        </view>
+                        <view class="mc-right-sub">{{item.trade}}</view>
+                        <view class="mc-right-lable">{{item.city}} | {{item.industry}}</view>
+                    </view>
+                </view>
+            </view>
+        </block>
+        <view style="color:#fff; background-color: #f5f5f5;" wx:if='{{ product_list.length != 0 && loading }}'>
+            <view  class="loading"><van-loading size='1em' type="spinner" /> 加载ing...</view>
+        </view>
+    </view>
+
+
+
+  
+
+    <!-- 底部留白区域, 不受各模块影响 -->
+    <view class="root-bottom"></view>
+
+  </van-transition>
 </view>

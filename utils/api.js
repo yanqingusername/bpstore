@@ -388,30 +388,12 @@ module.exports = {
 	declContestCase: data => { //申报案例
 		return request("/home/declContestCase", "post", data);
 	},
-
-
-
-
-
-	/**
-	 * 以下接口都未调试
-	 * @param {*} data 
-	 * @returns 
-	 */
 	getCelebrityInfo: data => { //达人信息 ouserid 达人userid
 		return request("/celebrity/getCelebrityInfo", "post", data);
 	},
-	
-	
-	getCompanyInfo: data => { //单位信息 ouserid 单位userid
-		return request("/company/getCompanyInfo", "post", data);
+	getOthersCaseList: data => { //达人信息 ta发布的案例列表
+		return request("/case/getOthersCaseList", "post", data);
 	},
-
-	
-	
-	
-	
-
 	// 产业
 	// pageNum [string]	是	页数默认：1		
 	// pageSize	[string]		每页条数：默认14；选填		
@@ -429,20 +411,21 @@ module.exports = {
 	getCompanyList: data => { //单位列表 
 		return request("/company/getCompanyList", "post", data);
 	},
-	
 
+
+
+	/**
+	 * 以下接口都未调试
+	 * @param {*} data 
+	 * @returns 
+	 */
+	getCompanyInfo: data => { //单位信息 ouserid 单位userid
+		return request("/company/getCompanyInfo", "post", data);
+	},
 	// 发现
-	
-	
-	
-	
 	upActivityFile: data => { //上传活动图片
 		return request("/upload/upActivityFile", "post", data);
 	},
-
-	
-
-
 	//消息
 	getMutualMsgList: data => { //互动消息  userid 用户的 userid  pageNum 页数   pageSize  每页条数
 		return request("/imps/getMutualMsgList", "post", data);
@@ -450,17 +433,5 @@ module.exports = {
 	getUserSig: data => { //获取IM用户签名  identifier 用户的 userid
 		return request("/imps/getUserSig", "post", data);
 	},
-	
-	//首页
-
-	
-	
-	
-	
-
-	
-	
-	
-	
 	
 };

@@ -2,5 +2,6 @@
   "usingComponents": {
     "van-field": "/components/vant/field/index"
   },
+  "enablePullDownRefresh": true,
   "navigationBarTitleText": "案例列表"
 }

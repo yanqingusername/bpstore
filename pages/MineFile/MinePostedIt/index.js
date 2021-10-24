@@ -122,4 +122,14 @@ Page({
     shareHandler(){
 
     },
+    onShareAppMessage (res) {
+        this.setData({
+            isShow: false
+        })
+        let path = "/pages/caseDetail/index?id=" +  this.data.id ;
+        return {
+            title:"案例详情",
+            path: path,
+        }
+    },
 })

@@ -154,5 +154,9 @@ Page({
     clickFollow(e){
         
     },
-    
+    handleRouter(e){
+        wx.navigateTo({
+            url: e.currentTarget.dataset.url
+        });
+    }
 })
