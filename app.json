@@ -8,8 +8,6 @@
     "pages/caseList/index",
     "pages/caseDetail/index",
     "pages/caseMatch/index",
-    "pages/activity/index",
-    "pages/activityApply/index",
     "pages/expertDetail/index",
     "pages/MineFile/MineCollection/index",
     "pages/MineFile/MineFollow/index",
@@ -26,8 +24,7 @@
     "pages/FindDetail/index",
     "pages/ActivityDetail/index",
     "pages/ActivityRegistration/index",
-    "pages/IndustryExpert/index",
-    "pages/SelectLable/index"
+    "pages/IndustryExpert/index"
     
   ],
   "subpackages": [

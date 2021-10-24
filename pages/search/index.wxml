@@ -17,10 +17,10 @@
     <view class="search-history" wx:if="{{SearchRecordList.length > 0}}">
       <view class="search-history-header">
         <text >历史记录</text>
-        <image bind:tap="clickDelete" src="/pages/assets/images/del.png" />
+        <image bind:tap="clickDelete" src="/assets/images/del.png" />
       </view>
       <view class="search-history-main">
-        <view wx:for="{{ SearchRecordList }}" bind:tap="clickSearchkeyWord" data-item="{{item}}" class="search-history-main-item">{{item}}</view>
+        <view wx:for="{{ SearchRecordList }}" wx:key="index" bind:tap="clickSearchkeyWord" data-item="{{item}}" class="search-history-main-item">{{item}}</view>
       </view>
     </view>
 
@@ -29,64 +29,65 @@
         <text >热门搜索</text>
       </view>
       <view class="search-history-main">
-        <view wx:for="{{ HotSearchList }}" bind:tap="clickSearchkeyWord" data-item="{{item}}" wx:key="index" class="search-history-main-item">{{item}}</view>
+        <view wx:for="{{ HotSearchList }}" wx:key="index" bind:tap="clickSearchkeyWord" data-item="{{item}}" wx:key="index" class="search-history-main-item">{{item}}</view>
       </view>
     </view>
   </view>
 
   <!-- 搜索结果 -->
   <view class="search-result" wx:else>
-    <view class="search-result-case">
+    <view class="search-result-case" wx:if="{{caseList.length > 0}}">
       <view class="search-result-case-header" bind:tap="handleRouter" data-url="/pages/caseList/index?searchmore=1&keyword={{kerword}}">
-        <view>案例（21）</view>
+        <view>案例（{{caseNum}}）</view>
         <view>更多</view>
       </view>
-      <view class="search-result-case-main">
+      <view class="search-result-case-main" wx:for="{{caseList}}" wx:key="index" bind:tap="handleRouter" data-url="/pages/caseDetail/index?id={{item.id}}">
         <view class="avatar-container">
-          <image  />
+          <image  src="{{item.tpics[0]}}"/>
         </view>
         <view class="content-container">
-          <view class="content-container-title">刘佳萝卜式出任大众安徽CEO</view>
-          <view class="multi-row">裴健如6月1日，大众汽车（安徽）有限公司（以下简称大众安徽）发布人事任命，自2021年6月1日起，配件如正式出任大众…</view>
-          <view> 深圳市</view>
+          <view class="content-container-title">{{item.title}}</view>
+          <view class="multi-row">{{item.backdrop}}</view>
+          <view>{{item.city}} | {{item.trade}}</view>
         </view>
       </view>
     </view>
-    <view class="search-result-expert">
+    <view class="search-result-expert" wx:if="{{celebrityList.length > 0}}">
       <view class="search-result-case-header" bind:tap="handleRouter" data-url="/pages/IndustryExpert/index?searchmore=1&keyword={{kerword}}">
-        <view>达人（21）</view>
+        <view>达人（{{celebrityNum}}）</view>
         <view>更多</view>
       </view>
 
       <view class="search-result-expert-main">
-        <view class="search-result-expert-main-item" wx:for="{{ 2 }}">
-          <image  />
+        <view class="search-result-expert-main-item" wx:for="{{ celebrityList }}" wx:key="index">
+          <image  src="{{item.avatarUrl}}"/>
           <view class="figure">
-            <view >Jisen 奥</view>
-            <view >耳东影业</view>
+            <view >{{item.nickName}}</view>
+            <view >{{item.companyName}} | {{item.profession}}</view>
           </view>
         </view>
       </view>
     </view>
-    <view class="search-result-unit">
+    <view class="search-result-unit" wx:if="{{companyList.length > 0}}">
       <view class="search-result-case-header">
-        <view>单位（21）</view>
+        <view>单位（{{companyNum}}）</view>
         <view>更多</view>
       </view>
 
       <view class="search-result-unit-container">
-        <view >
+        <view wx:for="{{ companyList }}" wx:key="index">
           <view class="logo">
-            <image  />
+            <image  src="{{item.logo}}"/>
           </view>
 
           <view class="search-result-unit-container-right">
-            <view >中国萝卜石化</view>
-            <view class="omit">石油贸易、石油开发与化工等</view>
-            <view >中央企业</view>
+            <view >{{item.companyName}}</view>
+            <view class="omit">{{item.companyBusinessArea}}</view>
+            <view >{{item.city}} | {{item.companyProperty}}</view>
           </view>
         </view>
       </view>
     </view>
+    <view style="height:40rpx;"></view>
   </view>
 </view>

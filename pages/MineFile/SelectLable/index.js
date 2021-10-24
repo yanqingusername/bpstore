@@ -195,7 +195,7 @@ Page({
 		let item = this.data.list[index];
 		if(item.isShow){
 			item.isShow = false;
-			for (let i = 0; i < selectedData.length; i++) {
+			for (let i = 0; i < listName.length; i++) {
 				if(listName[i] == name){
 				    selectedData.splice(i, 1);
                     listName.splice(i, 1);

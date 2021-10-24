@@ -11,7 +11,13 @@ Page({
         kerword: '',
         isShow: true,
         HotSearchList: [],
-        SearchRecordList: []
+        SearchRecordList: [],
+        caseList:[],
+        caseNum: 0,
+        celebrityList: [],
+        celebrityNum: 0,
+        companyList:[],
+        companyNum: 0
     },
     onLoad(){
         this.getHotSearchList();
@@ -74,14 +80,21 @@ Page({
     getUserSearch(){
       let that = this;
                 Api.getUserSearch({
-                  content: this.data.kerword
+                  content: this.data.kerword,
+                  pageNum: 1,
+                  pageSize: 5
                 }).then(function (res) {
                     if (res.code != 1) {
                         return;
                     }
                     that.setData({
                       isShow: false,
-                      SearchList: res.data
+                      caseList: res.data.case,
+                      caseNum: res.data.caseNum,
+                      celebrityList: res.data.celebrity,
+                      celebrityNum: res.data.celebrityNum,
+                      companyList:res.data.company,
+                      companyNum:res.data.companyNum
                     })
                 }).catch(() => {
                     
@@ -98,69 +111,4 @@ Page({
         url: e.currentTarget.dataset.url
       });
     },
-    getList() {
-        var that = this;
-        var currentPage = that.data.pageNum;
-        let data = {
-            pageNum: currentPage,
-            pageSize: 14
-        }
-        Api.getCelebrityList(data).then(function (res) {
-            that.setData({
-                loading: false
-            });
-            if (res.code != 1) {
-                return;
-            }
-            let data = res.data;
-            var maxPage = data.pages;
-            that.setData({
-                pages: maxPage
-            });
-
-            if (data.pageNum == 1 && data.list.length == 0) {
-                that.setData({
-                    pageNum: 1,
-                    follow_list: []
-                });
-                return;
-            }
-            if (maxPage < currentPage) {
-                that.setData({
-                    pageNum: maxPage
-                });
-                return;
-            }
-            that.setData({
-                follow_list: currentPage == 1 ? data.list : that.data.follow_list.concat(data.list)
-            });
-        }).catch(() => {
-            that.setData({
-                loading: false
-            });
-        })
-    },
-    //下拉加载
-    onPullDownRefresh: function () {
-        var that = this;
-        setTimeout(() => {
-            that.setData({
-                pageNum: 1
-            });
-            that.getList();
-        }, 500)
-        wx.stopPullDownRefresh()
-    },
-    onReachBottom: function () {
-        var that = this
-        var pageNum = that.data.pageNum;
-        if (pageNum >= that.data.pages) return;
-        pageNum += 1
-        that.setData({
-            loading: true,
-            pageNum: pageNum,
-        });
-        that.getList();
-    },
-    
 })

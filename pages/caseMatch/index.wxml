@@ -1,25 +1,26 @@
 <view class="case-match">
-  <van-tabs bind:click="onClick">
+  <van-tabs active="{{ active }}" bind:change="onChange">
     <van-tab title="案例大赛">
-
+      <image class="anlie-img" src="{{ContestInfo.pics[0]}}" mode="scaleToFill"/>
+      <view style="height: 200rpx;"></view>
       <view class="btn">
-        <view class="">申报案例</view>
+        <view class="" bind:tap="clickRelease">申报案例</view>
       </view>
     </van-tab>
     <van-tab title="入围案例">
-      <view class="finalist">
+      <view class="finalist" wx:for="{{follow_list}}" wx:key="index">
         <view class="finalist-item">
           <view class="finalist-item-title">
             <image src="/assets/images/check2.png" />
-            <text class="omit">能说一个没有十斤脑洞问不出的问题吗？</text>
+            <text class="omit">{{item.title}}</text>
           </view>
           <view class="finalist-item-content">
             <view class="finalist-item-content-left">
-              <view class="line-clampz2">来，我这真有个货真价实的商用配方。我</view>
-              <view class="hot">3151 万热度</view>
+              <view class="line-clampz2">{{item.backdrop}}</view>
+              <view class="hot">{{item.backdrop}} 万热度</view>
             </view>
             <view class="finalist-item-content-right">
-              <image  />
+              <image  src="{{item.toppic}}"/>
             </view>
           </view>
         </view>
@@ -28,20 +29,22 @@
     <van-tab title="获奖案例">
       <view class="award-winning">
         <image src="/assets/images/award-winning.png" />
-        <view class="award-winning-list">
-          <view class="award-winning-list-item">
-            <image src="/assets/images/rank1.png" />
-            <view class="award-winning-list-item-header">
-              <view class="award-winning-list-item-header-tag">近一年涨幅TOP1</view>
-            </view>
-            <view class="award-winning-list-item-main">
-              <view class="award-winning-list-item-main-title omit">北京中小微企业生死存亡</view>
-              <view class="city-industry">
-                <view class="city-industry-left">北京市</view>
-                <view class="city-industry-right">123 万热度</view>
+        <view class="award-winning-list-view">
+          <view class="award-winning-list" wx:for="{{AwardList}}" wx:key="index">
+            <view class="award-winning-list-item">
+              <image src="/assets/images/rank1.png" />
+              <view class="award-winning-list-item-header">
+                <view class="award-winning-list-item-header-tag">近一年涨幅TOP1</view>
               </view>
-              <view class="tag-list">
-                <view class="tag-item">热度前十</view>
+              <view class="award-winning-list-item-main">
+                <view class="award-winning-list-item-main-title omit">{{item.title}}</view>
+                <view class="city-industry">
+                  <view class="city-industry-left">{{item.city}} | {{item.trade}}</view>
+                  <view class="city-industry-right">{{item.city}} 万热度</view>
+                </view>
+                <view class="tag-list">
+                  <view class="tag-item">热度前十</view>
+                </view>
               </view>
             </view>
           </view>
@@ -49,4 +52,53 @@
       </view>
     </van-tab>
   </van-tabs>
+
+  <van-popup show="{{ isShow }}" position="center">
+      <view class="cm-pop">
+        <view class="cm-pop-item">
+          <view class="cm-pop-item-title">请认真阅读参赛规则，用您最为优</view>
+          <view class="cm-pop-item-title">秀的案例，参加案例大赛吧~</view>
+          <view class="cm-pop-item-btn" bind:tap="selectRelease">选择已有案例</view>
+          <view class="cm-pop-item-bomm">
+            <view class="cm-pop-item-bomm-1">我还没有案例，</view>
+            <view class="cm-pop-item-bomm-2" bind:tap="handleRouter" data-url="/pages/release/index?isRelease=1">发布案例 ></view>
+          </view>
+        </view>
+        <image bind:tap="closePop" class="cm-pop-item-img" src="/assets/images/icon_close_2021_10_23.png" />
+      </view>
+      
+  </van-popup>
+
+  <van-popup show="{{ isRelease }}" position="bottom">
+      <view class="cm-pop">
+        <view class="cm-release-item">
+          <view class="cm-release-item-1">
+            <view class="cm-release-item-1-1">请选择您所申报的案例</view>
+            <image bind:tap="closeRelease" class="cm-release-item-1-2" src="/assets/images/icon_01_2021_10_23.png" />
+          </view>
+          <scroll-view scroll-y="{{true}}" class="scroll-release">
+            <view class="cm-release-view" wx:for="{{CaseList}}" wx:key="index">
+              <view class="cm-release-left" bind:tap="clickSelect" data-id="{{item.id}}" data-index="{{index}}">
+                <image class="cm-release-left-img" src="{{item.isShow ? '/assets/images/icon_02_2021_10_23.png' : '/assets/images/icon_03_2021_10_23.png'}}" />
+                <!-- <image class="cm-release-left-img" src="/assets/images/icon_03_2021_10_23.png" /> -->
+              </view>
+              <view class="cm-release-right">
+                <view class="cm-release-right-1 omit">{{item.title}}</view>
+                <view class="cm-release-right-2 line-clampz2">{{item.backdrop}}</view>
+                <view class="cm-release-right-3 omit">{{item.city}} | {{item.trade}}</view>
+              </view>
+            </view>
+          </scroll-view>
+          <view class="cm-release-btn">
+              <view class="cm-release-btn-left" bind:tap="clickSelectAll">
+                <image class="cm-release-left-img" src="{{isSelectAll ? '/assets/images/icon_02_2021_10_23.png' : '/assets/images/icon_03_2021_10_23.png'}}" />
+                <view class="cm-release-btn-title">全选</view>
+              </view>
+              <view class="cm-release-btn-right" bind:tap="clickSubmit">提交 ({{CaseListIds.length}})</view>
+          </view>
+        </view>
+      </view>
+      
+  </van-popup> 
+
 </view>

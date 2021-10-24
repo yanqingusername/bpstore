@@ -369,7 +369,29 @@ module.exports = {
 	getUserSearchMore: data => { //搜索更多
 		return request("/user/getUserSearchMore", "post", data);
 	},
-	
+
+
+
+	getContestInfo: data => { //案例大赛
+		return request("/home/getContestInfo", "post", data);
+	},
+	getContestPassList: data => { //入围案例列表  id  案例大赛id  pageNum 页数   pageSize  每页条数
+		return request("/home/getContestPassList", "post", data);
+	},
+	getContestAwardList: data => { //获奖案例列表  id  案例大赛id  pageNum 页数   pageSize  每页条数
+		return request("/home/getContestAwardList", "post", data);
+	},
+// userid	[string]	是	用户id		
+	// token	[string]	是			
+	// cid	[string]	是	案例id		
+	// coid   [string]	是	案例大赛id
+	declContestCase: data => { //申报案例
+		return request("/home/declContestCase", "post", data);
+	},
+
+
+
+
 
 	/**
 	 * 以下接口都未调试
@@ -431,22 +453,10 @@ module.exports = {
 	
 	//首页
 
-	// userid	[string]	是	用户id		
-	// token	[string]	是			
-	// cid	[string]	是	案例id		
-	// coid   [string]	是	案例大赛id
-	declContestCase: data => { //申报案例
-		return request("/home/declContestCase", "post", data);
-	},
-	getContestAwardList: data => { //获奖案例列表  id  案例大赛id  pageNum 页数   pageSize  每页条数
-		return request("/home/getContestAwardList", "post", data);
-	},
-	getContestPassList: data => { //入围案例列表  id  案例大赛id  pageNum 页数   pageSize  每页条数
-		return request("/home/getContestPassList", "post", data);
-	},
-	getContestInfo: data => { //案例大赛
-		return request("/home/getContestInfo", "post", data);
-	},
+	
+	
+	
+	
 
 	
 	

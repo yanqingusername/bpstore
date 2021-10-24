@@ -52,7 +52,15 @@ Page({
     areaList: [],
     celebrityCityList: {}, //达人城市列表
     isFlag: false, //所在城市
-    isShowregion: false
+    isShowregion: false,
+    isRelease: 2
+  },
+  onLoad(options){
+    if(options && options.isRelease){
+      this.setData({
+        isRelease: options.isRelease
+      })
+    }
   },
   onShow() {
     this.getCityList();
@@ -207,6 +215,7 @@ Page({
     }
   },
   submit() {
+        let that = this;
         if (this.data.title == '') {
             Util.showToast('标题不能为空');
             return;
@@ -319,9 +328,15 @@ Page({
             wx.removeStorageSync('CaseTrade');
             wx.removeStorageSync('CaseLabel');
 
-            wx.reLaunch({
+            if(that.data.isRelease == 1){
+              wx.navigateBack({
+                delta: 1
+              });
+            }else{
+              wx.reLaunch({
                 url: '/pages/Tabbar/tabbar?current=3'
-            });
+              });
+            }
         })
     
   },

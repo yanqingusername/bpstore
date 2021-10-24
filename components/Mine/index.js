@@ -74,9 +74,17 @@ Component({
 
         },
         routerUrl(e){
-            wx.navigateTo({
-                url: e.currentTarget.dataset.url
-            });
+            if(this.data.userid){
+                wx.navigateTo({
+                    url: e.currentTarget.dataset.url
+                });
+            }else{
+                wx.showToast({
+                    title: '请先登录～',
+                    icon: 'none',
+                })
+            }
+            
         },
         toLoginLink() {
             wx.getUserProfile({

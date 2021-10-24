@@ -12,7 +12,7 @@ Page({
         searchmore: 2,
         keyword: ''
     },
-    onLoad(){
+    onLoad(options){
         wx.setNavigationBarTitle({ title: '行业达人' });
         this.setData({
             searchmore: options.searchmore,
