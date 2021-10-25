@@ -1,7 +1,7 @@
 <wxs src="../../utils/substring.wxs" module="tools" />
 <view class="mine-container" >
     
-   <view class="mine-header" >
+   <!-- <view class="mine-header" >
         <van-search 
         value="{{ kerword }}" 
         placeholder="搜索案例、单位、达人" 
@@ -9,7 +9,14 @@
         shape='round' 
         bind:search="onSearch" 
         bind:cancel="onCancel" />
-    </view>
+    </view> -->
+
+    <view class="search">
+            <view class="serch-container" data-page="search" bindtap="navigationToPage">
+                <image src="/assets/images/search.png" />
+                <text>搜索案例、单位、达人</text>
+            </view>
+        </view>
 
     <view class="mine-f-view">
         <block wx:for="{{follow_list}}" wx:key="index" wx:if='{{ follow_list.length > 0}}'>

@@ -1,0 +1,19 @@
+<view class="case-list">
+
+  <view class="publish-main" style="padding-bottom:0rpx;" wx:if="{{follow_list.length > 0}}">
+      <view class="case1" wx:for="{{follow_list}}" wx:key="index" bind:tap="handleRouter" data-url="/pages/expertDetail/index?id={{item.userid}}">
+        <view class="case-avatar1">
+          <image src="{{item.avatarUrl}}"/>
+        </view>
+        <view class="cr-item">
+          <view class="cr-item-top">
+            <view class="cr-item-top-left">
+              <view class="cr-item-top-left-1">{{item.name}}</view>
+              <view class="cr-item-top-left-2">| {{item.profession}}</view>
+            </view>
+          </view>
+          <view class="cr-item-top-left-5 line-clampz2">{{item.introduce}}</view>
+        </view>
+      </view>
+    </view>
+</view>

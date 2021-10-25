@@ -21,7 +21,7 @@ Page({
         CompanyNatureIndex: -1, //公司性质列表index
         CompanyNature: '', //公司性质列表
         CompanyTradeList: [], //面向行业
-        CompanyTradeListIds:[], //面向行业id
+        // CompanyTradeListIds:[], //面向行业id
         CompanyTradeListName:[], //面向行业name
         partner1:0,//	合作伙伴-ISV伙伴
         partner2:0,//	合作伙伴-咨询伙伴
@@ -553,24 +553,24 @@ Page({
         let name = e.currentTarget.dataset.name;
         let index = e.currentTarget.dataset.index;
 				
-		let selectedData = this.data.CompanyTradeListIds || [];
+		// let selectedData = this.data.CompanyTradeListIds || [];
         let CompanyTradeListName = this.data.CompanyTradeListName || [];
 		let item = this.data.CompanyTradeList[index];
 		if(item.isShow){
 			item.isShow = false;
-			for (let i = 0; i < selectedData.length; i++) {
-				if(selectedData[i] == id){
-				    selectedData.splice(i, 1);
+			for (let i = 0; i < CompanyTradeListName.length; i++) {
+				if(CompanyTradeListName[i] == name){
+				    // selectedData.splice(i, 1);
                     CompanyTradeListName.splice(i, 1);
 				}
 			}
 		} else {
 			item.isShow = true;
-			selectedData.push(id);
+			// selectedData.push(id);
             CompanyTradeListName.push(name);
 		}
 		this.setData({
-            CompanyTradeListIds: selectedData,
+            // CompanyTradeListIds: selectedData,
             CompanyTradeListName: CompanyTradeListName,
             CompanyTradeList: this.data.CompanyTradeList,
             CompanyTrade: CompanyTradeListName.length > 0 ? CompanyTradeListName.join(",") : ''
@@ -631,12 +631,12 @@ Page({
                 }
             }
 
-            let CompanyTradeListIds = wx.getStorageSync('CompanyTrade');
-            if(CompanyTradeListIds.length > 0){
+            let CompanyTradeListName = wx.getStorageSync('CompanyTrade');
+            if(CompanyTradeListName.length > 0){
                 
                 for(let j = 0; j< CompanyTradeList.length; j++){
-                    for(let i = 0; i< CompanyTradeListIds.length; i++){
-                        if(CompanyTradeListIds[i] == CompanyTradeList[j].name){
+                    for(let i = 0; i< CompanyTradeListName.length; i++){
+                        if(CompanyTradeListName[i] == CompanyTradeList[j].name){
                             CompanyTradeList[j].isShow = true;
                             break;
                         }else{
@@ -647,7 +647,7 @@ Page({
             }
             that.setData({
                 CompanyTradeList: CompanyTradeList,
-                CompanyTradeListIds: CompanyTradeListIds
+                CompanyTradeListName: CompanyTradeListName
             });
         })
     },
@@ -668,12 +668,12 @@ Page({
                 }
             }
 
-            let CompanyTradeListIds = wx.getStorageSync('CompanyTechnology');
-            if(CompanyTradeListIds.length > 0){
+            let CompanyTradeListName = wx.getStorageSync('CompanyTechnology');
+            if(CompanyTradeListName.length > 0){
                 
                 for(let j = 0; j< CompanyTradeList.length; j++){
-                    for(let i = 0; i< CompanyTradeListIds.length; i++){
-                        if(CompanyTradeListIds[i] == CompanyTradeList[j].name){
+                    for(let i = 0; i< CompanyTradeListName.length; i++){
+                        if(CompanyTradeListName[i] == CompanyTradeList[j].name){
                             CompanyTradeList[j].isShow = true;
                             break;
                         }else{
@@ -684,7 +684,7 @@ Page({
             }
             that.setData({
                 CompanyTradeList: CompanyTradeList,
-                CompanyTradeListIds: CompanyTradeListIds
+                CompanyTradeListName: CompanyTradeListName
             });
         })
     },
@@ -705,12 +705,12 @@ Page({
                 }
             }
 
-            let CompanyTradeListIds = wx.getStorageSync('CompanyLabel');
-            if(CompanyTradeListIds.length > 0){
+            let CompanyTradeListName = wx.getStorageSync('CompanyLabel');
+            if(CompanyTradeListName.length > 0){
                 
                 for(let j = 0; j< CompanyTradeList.length; j++){
-                    for(let i = 0; i< CompanyTradeListIds.length; i++){
-                        if(CompanyTradeListIds[i] == CompanyTradeList[j].name){
+                    for(let i = 0; i< CompanyTradeListName.length; i++){
+                        if(CompanyTradeListName[i] == CompanyTradeList[j].name){
                             CompanyTradeList[j].isShow = true;
                             break;
                         }else{
@@ -721,7 +721,7 @@ Page({
             }
             that.setData({
                 CompanyTradeList: CompanyTradeList,
-                CompanyTradeListIds: CompanyTradeListIds
+                CompanyTradeListName: CompanyTradeListName
             });
         })
     },
@@ -742,12 +742,12 @@ Page({
                 }
             }
 
-            let CompanyTradeListIds = wx.getStorageSync('CompanyTechnology');
-            if(CompanyTradeListIds.length > 0){
+            let CompanyTradeListName = wx.getStorageSync('CompanyTechnology');
+            if(CompanyTradeListName.length > 0){
                 
                 for(let j = 0; j< CompanyTradeList.length; j++){
-                    for(let i = 0; i< CompanyTradeListIds.length; i++){
-                        if(CompanyTradeListIds[i] == CompanyTradeList[j].name){
+                    for(let i = 0; i< CompanyTradeListName.length; i++){
+                        if(CompanyTradeListName[i] == CompanyTradeList[j].name){
                             CompanyTradeList[j].isShow = true;
                             break;
                         }else{
@@ -758,7 +758,7 @@ Page({
             }
             that.setData({
                 CompanyTradeList: CompanyTradeList,
-                CompanyTradeListIds: CompanyTradeListIds
+                CompanyTradeListName: CompanyTradeListName
             });
         })
     },
@@ -779,12 +779,12 @@ Page({
                 }
             }
 
-            let CompanyTradeListIds = wx.getStorageSync('CaseTrade');
-            if(CompanyTradeListIds.length > 0){
+            let CompanyTradeListName = wx.getStorageSync('CaseTrade');
+            if(CompanyTradeListName.length > 0){
                 
                 for(let j = 0; j< CompanyTradeList.length; j++){
-                    for(let i = 0; i< CompanyTradeListIds.length; i++){
-                        if(CompanyTradeListIds[i] == CompanyTradeList[j].name){
+                    for(let i = 0; i< CompanyTradeListName.length; i++){
+                        if(CompanyTradeListName[i] == CompanyTradeList[j].name){
                             CompanyTradeList[j].isShow = true;
                             break;
                         }else{
@@ -795,7 +795,7 @@ Page({
             }
             that.setData({
                 CompanyTradeList: CompanyTradeList,
-                CompanyTradeListIds: CompanyTradeListIds
+                CompanyTradeListName: CompanyTradeListName
             });
         })
     },
@@ -816,12 +816,12 @@ Page({
                 }
             }
 
-            let CompanyTradeListIds = wx.getStorageSync('CaseLabel');
-            if(CompanyTradeListIds.length > 0){
+            let CompanyTradeListName = wx.getStorageSync('CaseLabel');
+            if(CompanyTradeListName.length > 0){
                 
                 for(let j = 0; j< CompanyTradeList.length; j++){
-                    for(let i = 0; i< CompanyTradeListIds.length; i++){
-                        if(CompanyTradeListIds[i] == CompanyTradeList[j].name){
+                    for(let i = 0; i< CompanyTradeListName.length; i++){
+                        if(CompanyTradeListName[i] == CompanyTradeList[j].name){
                             CompanyTradeList[j].isShow = true;
                             break;
                         }else{
@@ -832,7 +832,7 @@ Page({
             }
             that.setData({
                 CompanyTradeList: CompanyTradeList,
-                CompanyTradeListIds: CompanyTradeListIds
+                CompanyTradeListName: CompanyTradeListName
             });
         })
     },

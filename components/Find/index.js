@@ -54,6 +54,12 @@ Component({
         resize: function () { },
     },
     methods: {
+        navigationToPage(e) {
+            const { page } = e.currentTarget.dataset
+            wx.navigateTo({
+                url: `/pages/${ page }/index`
+            })
+        },
         onPull() {
             var that = this;
             setTimeout(() => {

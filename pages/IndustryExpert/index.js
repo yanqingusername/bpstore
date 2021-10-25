@@ -158,5 +158,11 @@ Page({
         wx.navigateTo({
             url: e.currentTarget.dataset.url
         });
-    }
+    },
+    navigationToPage(e) {
+        const { page } = e.currentTarget.dataset
+        wx.navigateTo({
+            url: `/pages/${ page }/index`
+        })
+    },
 })

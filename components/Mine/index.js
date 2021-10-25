@@ -31,7 +31,7 @@ Component({
     lifetimes: {
         attached() { // 在组件实例进入页面节点树时执行
             wx.setNavigationBarTitle({
-                title: 'BP数字产业平台'
+                title: '我的'
             });
             let userid = wx.getStorageSync('userid');
             this.setData({

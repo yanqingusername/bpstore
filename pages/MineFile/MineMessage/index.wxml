@@ -33,14 +33,17 @@
                 <view class="mc-left">
                     <image class="mc-left-img" src='/utils/image/icon-mine-09-09-12.png' />
                 </view>
-                <view class="mc-right">
-                    <view class="mc-right-title">
+                <!-- <view class="mc-right">
+                   
+                   
+                </view> -->
+                <button class="mc-right mine-view-button" style="flex-direction: column;margin-left: 42rpx;" open-type="contact" bindcontact="handleContact">
+                     <view class="mc-right-title" style="height:40rpx;">
                         <view class="mc-right-content omit">BP客服</view>
                         <view class="mc-right-sub">刚刚</view>
                     </view>
-                    <view class="mc-right-lable omit">您好，我是BP小秘书</view>
-                   
-                </view>
+                    <view class="mc-right-lable omit" style="text-align: left;margin-top: -10rpx;height:40rpx">您好，我是BP小秘书</view>
+                </button>
             </view>
     </view>
     <view class="mm-line"></view>

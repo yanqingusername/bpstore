@@ -1,6 +1,6 @@
 <wxs src="../../utils/substring.wxs" module="tools" />
 <view class="find-container" >
-    <view class="mine-header" >
+    <!-- <view class="mine-header" >
         <van-search 
         value="{{ kerword }}" 
         placeholder="搜索案例、单位、达人" 
@@ -8,6 +8,12 @@
         shape='round' 
         bind:search="onSearch" 
         bind:cancel="onCancel" />
+    </view> -->
+    <view class="search">
+      <view class="serch-container" data-page="search" bindtap="navigationToPage">
+        <image src="/assets/images/search.png" />
+        <text>搜索案例、单位、达人</text>
+      </view>
     </view>
     <view class="mf-table">
         <view class="mf-table-one" bind:tap="handlerTable" data-id='1'>

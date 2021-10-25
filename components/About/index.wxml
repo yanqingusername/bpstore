@@ -1,6 +1,6 @@
 <wxs src="../../utils/substring.wxs" module="tools" />
 
-<view class="">
+<view class="root1">
   <!-- 页面内容 -->
   <van-transition custom-class="block">
     <view class="search">
@@ -10,18 +10,27 @@
       </view>
     </view>
 
+    <view class="select-view">
+      <view class="select-view-item" bind:tap="handleClickToOpenItem" data-indexnumber="0"><view class="{{indexNumber == 0 ? 'select-active':'select-default'}}">综合推荐</view></view>
+      <view class="select-view-item" bind:tap="handleClickToOpenItem" data-indexnumber="1"><view class="{{indexNumber == 1 ? 'select-active':'select-default'}}">单位性质</view><image class="select-img" src="/assets/images/icon-arrow-up-filling.png" /></view>
+      <view class="select-view-item" bind:tap="handleClickToOpenItem" data-indexnumber="2"><view class="{{indexNumber == 2 ? 'select-active':'select-default'}}">面向行业</view><image class="select-img" src="/assets/images/icon-arrow-up-filling.png" /></view>
+      <view class="select-view-item" bind:tap="handleClickToOpenItem" data-indexnumber="3"><view class="{{indexNumber == 3 ? 'select-active':'select-default'}}">全部筛选</view><image class="select-img" src="/assets/images/icon-arrow-up-filling.png" /></view>
+
+      
+    </view>
+
    <view class="mine-collection-view">
         <block wx:for="{{product_list}}" wx:key="index" wx:if='{{ product_list.length > 0}}'>
-            <view class="mine-collection-item">
+            <view class="mine-collection-item" catch:tap="handleRouter" data-method="navigateTo" data-url="/pages/TalentDetail/index?id={{item.userid}}" >
                 <view class="mc-left">
                     <image class="mc-left-img" src='{{item.logo}}' />
                     <view class="mc-left-item">
                         <view class="mc-left-item-head">
                             <view class="mc-left-item-title">{{item.companyName}}</view>
-                            <view class="mc-left-item-lable">{{item.companyProperty}}</view>
+                            <view class="mc-left-item-lable" wx:if="{{item.tag}}">{{item.tag}}</view>
                         </view>
-                        <view class="mc-right-sub">{{item.trade}}</view>
-                        <view class="mc-right-lable">{{item.city}} | {{item.industry}}</view>
+                        <view class="mc-right-sub">{{item.companyBusinessArea}}</view>
+                        <view class="mc-right-lable">{{item.city}} | {{item.companyProperty}}</view>
                     </view>
                 </view>
             </view>

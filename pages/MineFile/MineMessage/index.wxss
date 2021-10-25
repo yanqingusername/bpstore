@@ -76,3 +76,14 @@ border-radius: 50%;
     height: 78rpx;
     border-radius: 50%;
 }
+
+.mine-view-button{
+    display: flex;
+    /* align-items: center; */
+    padding: 0rpx;
+    background: #FFFFFF;
+    /* height: 106rpx; */
+}
+button::after{
+    border: none;
+}

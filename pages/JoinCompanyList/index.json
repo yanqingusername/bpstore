@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "van-field": "/components/vant/field/index"
+  },
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": ""
+}

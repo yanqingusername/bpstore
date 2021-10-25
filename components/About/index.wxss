@@ -4,8 +4,8 @@ page{
     background-color:#FFFFFF;
 }
 
-.root {
-    background-color:#F6F6F6;
+.root1 {
+    background-color:#FFFFFF;
     padding-bottom: 128rpx;
   }
   
@@ -437,3 +437,34 @@ opacity: 0.5;
   }
   
   /**/
+
+  .select-view{
+    display: flex;
+    align-items: center;
+    height: 80rpx;
+    border-bottom: 1px solid #E8E8E8;
+    justify-content: space-between;
+    width: 100%;
+  }
+  
+  .select-view-item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 25%;
+  }
+  
+  .select-active{
+    font-size: 24rpx;
+  font-weight: bold;
+  color: #0E0E0E;
+  }
+  .select-default{
+    font-size: 24rpx;
+  color: #8C96A4;
+  }
+  .select-img{
+    width: 13rpx;
+    height: 7rpx;
+    margin-left: 16rpx;
+  }

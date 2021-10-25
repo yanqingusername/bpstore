@@ -24,7 +24,10 @@
     "pages/FindDetail/index",
     "pages/ActivityDetail/index",
     "pages/ActivityRegistration/index",
-    "pages/IndustryExpert/index"
+    "pages/IndustryExpert/index",
+    "pages/TalentDetail/index",
+    "pages/JoinCompanyList/index"
+    
     
   ],
   "subpackages": [

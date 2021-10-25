@@ -412,6 +412,13 @@ module.exports = {
 		return request("/company/getCompanyList", "post", data);
 	},
 
+	getCompanyInfo: data => { //单位信息 ouserid 单位userid
+		return request("/company/getCompanyInfo", "post", data);
+	},
+	getJoinCompanyList: data => { //成员列表 pageNum 页数   pageSize  每页条数
+		return request("/company/getJoinCompanyList", "post", data);
+	},
+
 
 
 	/**
@@ -419,9 +426,7 @@ module.exports = {
 	 * @param {*} data 
 	 * @returns 
 	 */
-	getCompanyInfo: data => { //单位信息 ouserid 单位userid
-		return request("/company/getCompanyInfo", "post", data);
-	},
+	
 	// 发现
 	upActivityFile: data => { //上传活动图片
 		return request("/upload/upActivityFile", "post", data);

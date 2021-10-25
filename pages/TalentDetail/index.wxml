@@ -1,0 +1,160 @@
+<view class="expert-detail">
+  <view class="expert-detail-synopsis">
+    <view class="basic-info">
+      <view class="basic-info-left">
+        <image  src="{{CompanyInfo.logo}}"/>
+      </view>
+      <view class="basic-info-right">
+        <view class="basic-info-right-nickname">
+          <view class="">{{isUser ? '自己公司': CompanyInfo.companyShortName}}</view>
+          <view class="basic-info-right-nickname-tag">战略融资</view>
+        </view>
+        <view class="basic-info-right-industry">{{CompanyInfo.companyName}}</view>
+      </view>
+    </view>
+
+<view class="base-container" style="margin-bottom:40rpx">
+      <view class="base-container-header" style="margin-bottom:0rpx">单位标签</view>
+      <view class="case-right-tag1">
+            <block wx:for="{{ulabel}}" wx:key="index"><view>{{item}}</view></block>
+          </view>
+    </view>
+
+    <view class="base-container" style="margin-bottom: 40rpx;">
+      <view class="base-container-header">基本信息</view>
+      <view class="contact-information">
+        <view class="" style="display: flex;font-size:26rpx;margin-bottom: 20rpx;"><view style="width:146rpx;">单位全称：</view>{{CompanyInfo.companyName}}</view>
+        <view class="" style="display: flex;font-size:26rpx;margin-bottom: 20rpx;"><view style="width:146rpx;">单位简称：</view>{{CompanyInfo.companyShortName}}</view>
+        <view class="" style="display: flex;font-size:26rpx;margin-bottom: 20rpx;"><view style="width:146rpx;">面向行业：</view>{{CompanyInfo.trade}}</view>
+        <view class="" style="display: flex;font-size:26rpx;margin-bottom: 20rpx;"><view style="width:146rpx;">技术类型：</view>{{CompanyInfo.technology}}</view>
+        <view class="" style="display: flex;font-size:26rpx;margin-bottom: 20rpx;"><view style="width:146rpx;">主营业务：</view>{{CompanyInfo.companyBusinessArea}}</view>
+        <view class="" style="display: flex;font-size:26rpx;margin-bottom: 20rpx;"><view style="width:146rpx;">年营业额：</view>{{CompanyInfo.turnover}}</view>
+        <view class="" style="display: flex;font-size:26rpx;margin-bottom: 20rpx;"><view style="width:146rpx;">市   值：</view>{{CompanyInfo.market}}</view>
+        <view class="" style="display: flex;font-size:26rpx;margin-bottom: 20rpx;"><view style="width:146rpx;">估   值：</view>{{CompanyInfo.valuation}}</view>
+        <view class="" style="display: flex;font-size:26rpx;margin-bottom: 20rpx;"><view style="width:146rpx;">融资情况：</view>{{CompanyInfo.financing}}</view>
+      </view>
+    </view>
+     
+     <view style="height:2rpx;background:#EEEEEE;"></view>
+
+     <view class="base-container" style="margin-top: 30rpx;margin-bottom: 40rpx;">
+      <view class="base-container-header">生态伙伴</view>
+      <view class="contact-information1">
+        <view class="contact-information1-left">
+          <view class="contact-information1-left-title"><view style="width:170rpx;">ISV伙伴：</view>{{CompanyInfo.pList[0]}}</view>
+          <view class="contact-information1-left-title"><view style="width:170rpx;">咨询伙伴：</view>{{CompanyInfo.pList[1]}}</view>
+        </view>
+        <view class="contact-information1-left" style="margin-top:10rpx">
+          <view class="contact-information1-left-title"><view style="width:170rpx;">IT服务伙伴：</view>{{CompanyInfo.pList[2]}}</view>
+          <view class="contact-information1-left-title"><view style="width:170rpx;">分销伙伴：</view>{{CompanyInfo.pList[3]}}</view>
+        </view>
+      </view>
+    </view>
+
+     <view class="base-container" style="margin-bottom: 40rpx;">
+      <view class="base-container-header">单位资质</view>
+      <view class="honor">
+        <view class="honor-pic">
+          <image  src="{{CompanyInfo.qimg}}"/>
+        </view>
+        <view>{{CompanyInfo.qualifis}}</view>
+      </view>
+    </view>
+
+    <view style="height:2rpx;background:#EEEEEE;"></view>
+
+    <view class="base-container" style="margin-top: 30rpx;margin-bottom: 40rpx;">
+      <view class="base-container-header">联系方式</view>
+      <view class="contact-information">
+        <view class="" style="margin-bottom: 10rpx;">手机号：{{CompanyInfo.phone}}</view>
+        <view class="" style="margin-bottom: 10rpx;">邮箱：{{CompanyInfo.email}}</view>
+        <view class="" style="margin-bottom: 10rpx;">所在城市：{{CompanyInfo.city}}</view>
+        <view class="" style="margin-bottom: 10rpx;">业务分部区域：{{CompanyInfo.business}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view style="height:2rpx;background:#EEEEEE;"></view>
+
+  <view class="publish">
+    <view class="publish-header" style="margin-top: 0rpx;" bind:tap="handleRouter" data-url="/pages/JoinCompanyList/index?companyname={{CompanyInfo.companyName}}">
+      <view class="">主要成员</view>
+      <view class="">
+        <text class="">查看全部</text>
+        <image src="/assets/images/arrows-right.png" />
+      </view>
+    </view>
+
+    <view class="publish-main" style="padding-bottom:0rpx;" wx:if="{{JoinCompanyList.length > 0}}">
+      <view class="case1" wx:for="{{JoinCompanyList}}" wx:key="index" bind:tap="handleRouter" data-url="/pages/expertDetail/index?id={{item.userid}}">
+        <view class="case-avatar1">
+          <image src="{{item.avatarUrl}}"/>
+        </view>
+        <view class="cr-item">
+          <view class="cr-item-top">
+            <view class="cr-item-top-left">
+              <view class="cr-item-top-left-1">{{item.name}}</view>
+              <view class="cr-item-top-left-2">| {{item.profession}}</view>
+              <view class="cr-item-top-left-3">{{item.name}}</view>
+            </view>
+            <view class="cr-item-top-right">
+              <view class="cr-item-top-left-4">私信</view>
+            </view>
+          </view>
+          <view class="cr-item-top-left-5 line-clampz2">{{item.introduce}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view style="height:30rpx; background: #EEEEEE;" wx:if="{{CaseList.length > 0}}"></view>
+  <view class="publish" wx:if="{{CaseList.length > 0}}">
+    <view class="publish-header" style="border-bottom: 1px solid #eee;margin-top:0rpx;" bind:tap="handleRouter" data-url="/pages/caseList/index?searchmore=3&ouserid={{CompanyInfo.userid}}">
+      <view class="">Ta发布的</view>
+      <view class="">
+        <text class="">查看全部</text>
+        <image src="/assets/images/arrows-right.png" />
+      </view>
+    </view>
+
+    <view class="publish-main1">
+      <view class="case" wx:for="{{CaseList}}" wx:key="index" bind:tap="handleRouter" data-url="/pages/caseDetail/index?id={{item.id}}">
+        <view class="case-avatar">
+          <image  src="{{item.avatarUrl}}"/>
+        </view>
+        <view class="case-right">
+          <view class="case-right-title line-clampz2">{{item.title}}</view>
+          <view class="case-right-content multi-row">{{item.backdrop}}</view>
+          <view class="case-right-type">{{item.city}} | {{item.trade}}</view>
+          <view class="case-right-tag">
+            <block wx:for="{{item.lablesl}}" wx:key="index"><view>{{item}}</view></block>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+<view style="height:140rpx; "></view>
+  <!-- 按钮 -->
+  <view wx:if="{{ !isUser }}" class="btn">
+    <view class="btn-left">
+      <view class="btn-left-item" bind:tap="clickFollow" data-fuserid="{{CompanyInfo.userid}}">
+        <image src="/assets/images/heart.png" />
+        <view class="">{{CompanyInfo.isFollow ==1 ? '关注' : '已关注'}}</view>
+      </view>
+
+
+      <button class="mine-view-button1" open-type="share">
+            <image style="width: 32rpx;height: 32rpx;" src="/assets/images/share2.png" />
+            <view style="font-size: 20rpx;color: #616E7B;margin-top: -2px;" class="">分享</view>
+      </button>
+    </view>
+    <view class="btn-right" bind:tap="phoneTap" data-phone="{{CompanyInfo.phone}}">联系单位</view>
+  </view>
+  <view wx:else class="btn-container">
+    <button class="mine-view-button" open-type="share">
+            <view class="popup-posted-title">分享资料</view>
+        </button>
+    
+  </view>
+</view>

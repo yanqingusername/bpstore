@@ -5,6 +5,8 @@ page{
 .find-container{
     background-color:#FFFFFF;
     height: 100%;
+    padding-bottom: 128rpx;
+
 }
 
 .mf-table{
@@ -130,5 +132,34 @@ color: #333333;
   }
   .ff-text{
     font-size: 22rpx;
+    color: #8C96A4;
+  }
+
+  .search {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 76rpx;
+    padding: 0 20rpx 20rpx;
+    background-color: #fff;
+    box-sizing: border-box;
+  }
+  .serch-container {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    padding-left: 27rpx;
+    border-radius: 28rpx;
+    border: 1px solid #eee;
+    box-sizing: border-box;
+  }
+  .serch-container > image {
+    width: 32rpx;
+    height: 32rpx;
+    margin-right: 7rpx;
+  }
+  .serch-container > text {
+    font-size: 24rpx;
     color: #8C96A4;
   }

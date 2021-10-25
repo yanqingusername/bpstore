@@ -11,5 +11,6 @@
     "van-search": "/components/vant/search/index",
     "Card": "/components/Card/index"
   },
-  "component": true
+  "component": true,
+  "navigationBarTitleText":""
 }

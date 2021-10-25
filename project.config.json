@@ -86,6 +86,13 @@
 					"id": -1,
 					"name": "pages/MineFile/UnitCertification/index",
 					"pathName": "pages/MineFile/UnitCertification/index",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/TalentDetail/index",
+					"pathName": "pages/TalentDetail/index",
 					"scene": null
 				}
 			]

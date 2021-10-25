@@ -36,10 +36,14 @@ Component({
                 financing: "", //融资		
                 valuation: "", //估值		
                 city: "", //城市
+                indexNumber:0
     },
     lifetimes: {
         // 在组件实例进入页面节点树时执行
         attached() {
+            wx.setNavigationBarTitle({
+                title: ''
+            });
             this.getCompanyList()
         },
         /**
@@ -227,6 +231,12 @@ Component({
                 });
             })
         },
+        handleClickToOpenItem(e) {
+            let indexNumber = e.currentTarget.dataset.indexnumber;
+            this.setData({
+              indexNumber: indexNumber
+            });
+          },
     },
     created: function () { },
     onUnload: function () {

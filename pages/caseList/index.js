@@ -210,7 +210,10 @@ onReachBottom: function () {
       });
     },
     navigationToPage() {
-      console.log('sss=>>>');
+        const { page } = e.currentTarget.dataset
+        wx.navigateTo({
+            url: `/pages/${ page }/index`
+        })
     },
     handleRouter(e){
       wx.navigateTo({

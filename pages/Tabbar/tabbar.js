@@ -93,7 +93,7 @@ Page({
   // 底部导航选中
   menuActive(e, io) {
     app.version()
-    const ID = (e.currentTarget != undefined) ? e.currentTarget.dataset.id : e;
+    let ID = (e.currentTarget != undefined) ? e.currentTarget.dataset.id : e;
     
     switch (parseInt(ID)) {
       case 0:
@@ -122,10 +122,7 @@ Page({
             break;
      
       case 2:
-       
-        this.setData({
-          current: ID
-        })
+        
         wx.setNavigationBarTitle({
           title: '产业'
         });
@@ -141,13 +138,13 @@ Page({
             })
         }
        
-        
-
-        case 3:
-       
         this.setData({
           current: ID
         })
+        break;
+        case 3:
+       
+        
         wx.setNavigationBarTitle({
           title: '我的'
         });
@@ -162,7 +159,9 @@ Page({
                 backgroundColor: '#ffffff'
             })
         }
-     
+        this.setData({
+          current: ID
+        })
         break;
      
     }
