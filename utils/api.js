@@ -419,6 +419,11 @@ module.exports = {
 		return request("/company/getJoinCompanyList", "post", data);
 	},
 
+	getCompanyPartnerList: data => { //公司生态伙伴列表 pageNum 页数   pageSize  每页条数
+		return request("/attached/getCompanyPartnerList", "post", data);
+	},
+
+	
 
 
 	/**
@@ -439,4 +444,6 @@ module.exports = {
 		return request("/imps/getUserSig", "post", data);
 	},
 	
+
+
 };

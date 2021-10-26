@@ -36,7 +36,69 @@ Component({
                 financing: "", //融资		
                 valuation: "", //估值		
                 city: "", //城市
-                indexNumber:0
+                indexNumber:0,
+                CompanyNatureList:[],
+                isNature: false,
+                natureIndex: -1,
+                CompanyTradeList:[],
+                isTrade: false,
+                tradeIndex: -1,
+                
+                isShowAll: false,
+                region: '', //区域
+                province: '', //省份
+
+                CompanyRegionList:[],
+                regionIndex: -1,
+                province_list:[],
+                provinceIndex: -1,
+                city_list:[],
+                cityIndex: -1,
+                CompanyTechnologyList:[],
+                technologyIndex: -1,
+                CompanyLabelList:[],
+                labelIndex: -1,
+                CompanyTurnoverList:[],
+                turnoverIndex: -1,
+                CompanyPartnerList:[],
+                partnerIndex: -1,
+                CompanyMarketList:[],
+                marketIndex: -1,
+                CompanyFinancingList:[],
+                financingIndex: -1,
+                CompanyValuationList:[],
+                valuationIndex: -1,
+                listData1:[
+                    '营收百强','市值百强','特别榜单','信创服务商',
+                ],
+                listData1Index: -1,
+                listData1String:'',
+                listData2:[
+                    '综合类奖项','业务类奖项','行业类奖项','优秀案例',
+                ],
+                listData2Index: -1,
+                listData2String:'',
+                listData3:[
+                    '云服务运营商','基础设施即服务提供商','行业云服务商',
+                ],
+                listData3Index: -1,
+                listData3String:'',
+                listData4:[
+                    '云计算领军企业','云服务运营商领军企业','云计算杰出企业',
+                ],
+                listData4Index: -1,
+                listData4String:'',
+                listData5:[
+                    '已上市','未上市',
+                ],
+                listData5Index: -1,
+                listData5String:'',
+                listData6:[
+                    '邯郸','石家庄','淄博','滨州',
+                ],
+                listData6Index: -1,
+                listData6String:''
+
     },
     lifetimes: {
         // 在组件实例进入页面节点树时执行
@@ -45,6 +107,9 @@ Component({
                 title: ''
             });
             this.getCompanyList()
+            this.getCompanyNatureList()
+            this.getCompanyTradeList()
+            this.getHttp()
         },
         /**
          * 当组件从节点中移除  -- ( 清除所有的计时器以及延时的异步操作 )
@@ -57,6 +122,9 @@ Component({
         // 组件所在页面的生命周期函数 ( 只会加载一次 )
         show:  function () {
             this.getCompanyList()
+            this.getCompanyNatureList()
+            this.getCompanyTradeList()
+            this.getHttp()
         },
         /**
          * 组件所在页面的关闭函数
@@ -236,7 +304,321 @@ Component({
             this.setData({
               indexNumber: indexNumber
             });
+            if(indexNumber == 1){
+                this.setData({
+                    isNature: !this.data.isNature,
+                    isTrade: false,
+                    isShowAll: false
+                });
+            }else if(indexNumber == 2){
+                this.setData({
+                    isTrade: !this.data.isTrade,
+                    isNature: false,
+                    isShowAll: false
+                })
+            }else if(indexNumber ==3){
+                this.setData({
+                    isShowAll: !this.data.isShowAll,
+                    isNature: false,
+                    isTrade: false
+                })
+            }else{
+                this.setData({
+                    isNature: false,
+                    isTrade: false,
+                    isShowAll: false
+                });
+            }
           },
+          // 单位
+    getCompanyNatureList(){
+        let that = this;
+        let data = {
+            pageNum: 1,
+            pageSize: 50
+        }
+        Api.getCompanyNatureList(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            let CompanyNatureList = res.data.list
+            that.setData({
+                CompanyNatureList: CompanyNatureList
+            });
+        })
+    },
+    clickNature(e){
+        let natureIndex = e.currentTarget.dataset.index;
+        this.setData({
+            isNature: false,
+            natureIndex: natureIndex,
+            companyProperty: e.currentTarget.dataset.item
+        })
+        this.setData({
+            pageNum: 1,
+            product_list: []
+        });
+        this.getCompanyList()
+    },
+    getCompanyTradeList(){
+        let that = this;
+        let data = {
+            pageNum: 1,
+            pageSize: 50
+        }
+        Api.getCompanyTradeList(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            that.setData({
+                CompanyTradeList: res.data.list
+            });
+        })
+    },
+    clickTrade(e){
+        let tradeIndex = e.currentTarget.dataset.index;
+        this.setData({
+            isTrade: false,
+            tradeIndex: tradeIndex,
+            trade: e.currentTarget.dataset.item
+        })
+        this.setData({
+            pageNum: 1,
+            product_list: []
+        });
+        this.getCompanyList()
+    },
+    getHttp(){
+        this.getCompanyRegionList()
+        this.getCelebrityCityList()
+        this.getCompanyTechnologyList()
+        this.getCompanyLabelList()
+        this.getCompanyTurnoverList()
+        this.getCompanyPartnerList()
+        this.getCompanyMarketList()
+        this.getCompanyFinancingList()
+        this.getCompanyValuationList()
+    },
+    // 筛选
+    getCompanyRegionList(){
+        let that = this;
+        let data = {
+            pageNum: 1,
+            pageSize: 50
+        }
+        Api.getCompanyRegionList(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            let CompanyRegionList = res.data.list
+            that.setData({
+                CompanyRegionList: CompanyRegionList,
+            });
+        })
+    },
+    getCelebrityCityList(){
+        let that = this;
+        let data = {
+            pageNum: 1,
+            pageSize: 50
+        }
+        Api.getCelebrityCityList(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            let proList = []
+            let cityList = []
+            for(let i = 0; i < res.data.length; i++){
+                let cityItem = res.data[i];
+                proList.push(cityItem.name);
+            }
+
+            for(let i = 0; i < res.data.length; i++){
+                let appAreaList = res.data[i].appAreaList;
+                for(let j = 0; j < appAreaList.length; j++){
+                    cityList.push(appAreaList[j].name);
+                }
+            }
+            that.setData({
+                province_list: proList,
+                city_list: cityList
+            });
+        })
+    },
+    getCompanyTechnologyList(){
+        let that = this;
+        let data = {
+            pageNum: 1,
+            pageSize: 50
+        }
+        Api.getCompanyTechnologyList(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            let CompanyTechnologyList = res.data.list
+            that.setData({
+                CompanyTechnologyList: CompanyTechnologyList
+            });
+        })
+    },
+    getCompanyLabelList(){
+        let that = this;
+        let data = {
+            pageNum: 1,
+            pageSize: 50
+        }
+        Api.getCompanyLabelList(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            let CompanyLabelList = res.data.list
+           
+            that.setData({
+                CompanyLabelList: CompanyLabelList,
+            });
+        })
+    },
+    getCompanyTurnoverList(){
+        let that = this;
+        let data = {
+            pageNum: 1,
+            pageSize: 50
+        }
+        Api.getCompanyTurnoverList(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            let CompanyTurnoverList = res.data.list
+            that.setData({
+                CompanyTurnoverList: CompanyTurnoverList
+            });
+        })
+    },
+    getCompanyPartnerList(){
+        let that = this;
+        let data = {
+            pageNum: 1,
+            pageSize: 50
+        }
+        Api.getCompanyPartnerList(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            let CompanyPartnerList = res.data.list
+            that.setData({
+                CompanyPartnerList: CompanyPartnerList
+            });
+        })
+    },
+    getCompanyMarketList(){
+        let that = this;
+        let data = {
+            pageNum: 1,
+            pageSize: 50
+        }
+        Api.getCompanyMarketList(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            let CompanyMarketList = res.data.list
+           
+            that.setData({
+                CompanyMarketList: CompanyMarketList
+            });
+        })
+    },
+    getCompanyFinancingList(){
+        let that = this;
+        let data = {
+            pageNum: 1,
+            pageSize: 50
+        }
+        Api.getCompanyFinancingList(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            let CompanyFinancingList = res.data.list
+            that.setData({
+                CompanyFinancingList: CompanyFinancingList
+            });
+        })
+    },
+    getCompanyValuationList(){
+        let that = this;
+        let data = {
+            pageNum: 1,
+            pageSize: 50
+        }
+        Api.getCompanyValuationList(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            let CompanyValuationList = res.data.list
+            that.setData({
+                CompanyValuationList: CompanyValuationList
+            });
+        })
+    },
+    clickSelectAll(e){
+        let index = e.currentTarget.dataset.index;
+        let item = e.currentTarget.dataset.item;
+        let typeindex = e.currentTarget.dataset.typeindex;
+        let typestring = e.currentTarget.dataset.typestring;
+        this.setData({
+            [typeindex]: index,
+            [typestring]: item,
+        })
+    },
+    clearAllSelect(){
+        this.setData({
+            region: '',
+            regionIndex: -1,
+            province: '',
+            provinceIndex:-1,
+            city: '',
+            cityIndex:-1,
+            technology: '',
+            technologyIndex: -1,
+            ulabel: '',
+            labelIndex: -1,
+            listData1String: '',
+            listData1Index: -1,
+            listData2String: '',
+            listData2Index: -1,
+            listData3String: '',
+            listData3Index: -1,
+            listData4String: '',
+            listData4Index: -1,
+            turnover: '',
+            turnoverIndex: -1,
+            partner: '',
+            partnerIndex: -1,
+            listing: '',
+            listData5Index: -1,
+            market: '',
+            marketIndex: -1,
+            financing: '',
+            financingIndex: -1,
+            valuation:'',
+            valuationIndex: -1,
+            listData6String: '',
+            listData6Index: -1,
+            isNature: false,
+            isTrade: false,
+            isShowAll: false
+
+        })
+        this.getCompanyList()
+        
+    },
+    setAllSelect(){
+        this.setData({
+            isNature: false,
+            isTrade: false,
+            isShowAll: false
+        })
+        this.getCompanyList()
+    },
     },
     created: function () { },
     onUnload: function () {

@@ -11,7 +11,18 @@ Page({
         kerword: '',
         searchmore: 2,
         keyword: '',
-        ouserid: ''
+        ouserid: '',
+        areaList:'',
+        caseTradeList: [],
+        tradeIndex: -1,
+        trade: '',
+        region:'',
+        province: '',
+        city: '',
+        isSelectRegion: false,
+        celebrityCityList: {}, //达人城市列表
+    isFlag: false, //所在城市
+    isSelectPop: false
   },
   onLoad(options){
     
@@ -32,6 +43,9 @@ Page({
         wx.setNavigationBarTitle({ title: '经典案例' });
         this.getList();
     }
+    this.getAreaList();
+    this.getCaseTradeList();
+    this.getCityList();
   },
   getUserSearchMore() {
     var that = this;
@@ -85,7 +99,11 @@ Page({
     let data = {
         pageNum: currentPage,
         pageSize: 14,
-        type: 1
+        type: 1,
+        trade: this.data.trade,
+        region: this.data.region,
+        province: this.data.province,
+        city: this.data.city,
     }
     Api.getClassicCaseList(data).then(function (res) {
         that.setData({
@@ -208,6 +226,15 @@ onReachBottom: function () {
       this.setData({
         indexNumber: indexNumber
       });
+      if(indexNumber == 1 || indexNumber==2||indexNumber==3){
+          this.setData({
+            isSelectPop: !this.data.isSelectPop
+          })
+      }else{
+        this.setData({
+            isSelectPop: false
+          })
+      }
     },
     navigationToPage() {
         const { page } = e.currentTarget.dataset
@@ -220,5 +247,128 @@ onReachBottom: function () {
           url: e.currentTarget.dataset.url
       });
   },
-  
+  getAreaList() {
+    Api.getAreaList({
+      pageNum: 1
+    }).then(({ data }) => {
+      this.setData({
+        areaList: data.list.map(item => item.name)
+      })
+    })
+  },
+  getCaseTradeList() {
+    Api.getCaseTradeList({
+      pageNum: 1,
+      pageSize: 50
+    }).then(({ data }) => {
+      this.setData({
+        caseTradeList: data.list.map(item => item.name)
+      })
+    })
+  },
+  clickTrade(e){
+      let trade = e.currentTarget.dataset.item;
+      let index = e.currentTarget.dataset.index;
+        this.setData({
+            tradeIndex :index,
+            trade: trade
+        })
+  },
+  clickSelectRegion(e){
+    this.setData({
+        isSelectRegion: !this.data.isSelectRegion
+    })
+},
+clickRegion(e){
+    let region = e.currentTarget.dataset.item;
+      this.setData({
+        region :region,
+        isSelectRegion: false
+      })
+},
+getCityList() {
+    let that = this;
+        let data = {
+            pageNum: 1,
+            pageSize: 50
+        }
+        Api.getCityList(data).then(function (res) {
+            if (res.code != 1) {
+                return;
+            }
+            let proList = {}
+            let cityList = {}
+            for(let i = 0; i < res.data.length; i++){
+                let cityItem = res.data[i];
+                proList[cityItem.code] = cityItem.name;
+            }
+
+            for(let i = 0; i < res.data.length; i++){
+                let appAreaList = res.data[i].appAreaList;
+                for(let j = 0; j < appAreaList.length; j++){
+                    cityList[appAreaList[j].code] = appAreaList[j].name;
+                }
+            }
+            let araeList = {};
+            araeList['province_list'] = proList;
+            araeList['city_list'] = cityList
+            that.setData({
+                celebrityCityList: araeList
+            });
+        })
+  },
+  selectArea: function () {
+    this.setData({
+        isFlag: true
+    });
+  },
+  pickerClose: function () {
+    this.setData({
+        isFlag: false
+    });
+},
+areaConfirm: function (e) {
+    let value = e.detail.values;
+    console.log(value)
+    if(value.length > 0){
+        if(value[0].name && value[1] != undefined){
+            this.setData({
+              isFlag: false,
+                province: value[0].name, // 省
+                city: value[1].name, // 市
+            });
+        } else{
+          this.setData({
+            isFlag: false,
+              province: value[0].name, // 省
+              city: value[0].name, // 市
+          });
+        }
+    }
+  },
+  clickClear(){
+      this.setData({
+        trade: '',
+        region: '',
+        province: '',
+        city: '',
+        pageNum: 1,
+        isSelectPop: false,
+        tradeIndex: -1,
+      })
+      
+    this.getList();
+  },
+  clickSubmit(){
+    this.setData({
+        pageNum: 1,
+        isSelectPop: false
+    });
+    this.getList();
+  },
+  onClose(){
+    this.setData({
+        isSelectPop: false
+    });
+  }
 })

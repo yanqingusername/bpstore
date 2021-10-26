@@ -30,4 +30,47 @@
       </view>
     </view>
   </view>
+
+  <van-popup
+  show="{{ isSelectPop }}"
+  position="right"
+  overlay="{{ true }}"
+  bind:close="onClose"
+>
+  <view class="cl-pop">
+    <view class="cl-pop-1">区域</view>
+    <view class="cl-pop-2">
+      <view class="cl-pop-3" bind:tap="clickSelectRegion">
+        <view class="cl-pop-3-1">大区</view>
+        <view class="cl-pop-3-2"><view class="cl-pop-3-2-1">{{region || '请选择'}}</view><image class="cl-pop-3-2-img" src="/assets/images/arrow.png"  /></view>
+      </view>
+      <view class="cl-pop-2-item" wx:if="{{isSelectRegion}}">
+        <scroll-view scroll-y="{{true}}">
+          <view wx:for="{{areaList}}" bind:tap="clickRegion" data-item="{{item}}" class="cl-pop-2-item-title">{{item}}</view>
+        </scroll-view>
+      </view>
+    </view>
+    <view class="cl-pop-2">
+      <view class="cl-pop-3" style="margin-top: 30rpx" bind:tap="selectArea">
+        <view class="cl-pop-3-1">省/市</view>
+        <view class="cl-pop-3-2"><view class="cl-pop-3-2-1" wx:if="{{province || city}}">{{province}}/{{city}}</view><view class="cl-pop-3-2-1" wx:else>请选择</view><image class="cl-pop-3-2-img" src="/assets/images/arrow.png"  /></view>
+      </view>
+    </view>
+    <view style="height:1px;background: #F4F4F4;margin-top:50rpx;"></view>
+    <view class="cl-pop-1">行业</view>
+    <view class="tag-container">
+        <view class="{{tradeIndex == index ? 'tag':'tag-deault'}}" wx:for="{{caseTradeList}}" wx:key="index" bind:tap="clickTrade" data-index="{{index}}" data-item="{{item}}">{{item}}</view>
+      </view>
+
+      <view class="cl-bottom">
+        <view class="cl-bottom-1" bind:tap="clickClear">重置</view>
+        <view class="cl-bottom-2" bind:tap="clickSubmit">完成</view>
+      </view>
+  </view>
+</van-popup>
+
+<van-popup show="{{ isFlag }}" position="bottom" overlay="true" bind:close="pickerClose">
+  <van-area area-list="{{ celebrityCityList }}" columns-num="{{ 2 }}" value="110000" bind:cancel="pickerClose" bind:confirm="areaConfirm" />
+</van-popup>
 </view>
+

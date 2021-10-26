@@ -16,6 +16,196 @@
       <view class="select-view-item" bind:tap="handleClickToOpenItem" data-indexnumber="2"><view class="{{indexNumber == 2 ? 'select-active':'select-default'}}">面向行业</view><image class="select-img" src="/assets/images/icon-arrow-up-filling.png" /></view>
       <view class="select-view-item" bind:tap="handleClickToOpenItem" data-indexnumber="3"><view class="{{indexNumber == 3 ? 'select-active':'select-default'}}">全部筛选</view><image class="select-img" src="/assets/images/icon-arrow-up-filling.png" /></view>
 
+      <view class="ab-view-pop" wx:if="{{isNature}}">
+        <view class="ab-view">
+        <scroll-view scroll-y="{{true}}" class="ab-scroll">
+          <view class="ab-tag-container">
+            <block wx:for="{{CompanyNatureList}}" wx:key="index"><view class="{{natureIndex == index ? 'ab-tag':'ab-tag-deault'}}" bind:tap="clickNature" data-index="{{index}}" data-item="{{item.name}}">{{item.name}}</view></block>
+          </view>
+        </scroll-view>
+        </view>
+      </view>
+
+      <view class="ab-view-pop" wx:if="{{isTrade}}">
+        <view class="ab-view">
+        <scroll-view scroll-y="{{true}}" class="ab-scroll">
+          <view class="ab-tag-container">
+            <block wx:for="{{CompanyTradeList}}" wx:key="index"><view class="{{tradeIndex == index ? 'ab-tag':'ab-tag-deault'}}" bind:tap="clickTrade" data-index="{{index}}" data-item="{{item.name}}">{{item.name}}</view></block>
+          </view>
+        </scroll-view>
+        </view>
+      </view>
+
+      <view class="ab-all-view-pop" wx:if="{{isShowAll}}">
+        <scroll-view scroll-y="{{true}}" class="ab-all-sc">
+        <view class="ab-all-view">
+          <view class="ab-all-spacebeet">
+            <view class="ab-all-spacebeet-1">区域</view>
+            <view class="ab-all-spacebeet-2">展开<image class="select-img" src="/assets/images/icon-arrow-up-filling.png"/></view>
+          </view>
+          <scroll-view scroll-y="{{true}}" class="ab-all-scroll">
+            <view class="ab-tag-container">
+              <block wx:for="{{CompanyRegionList}}" wx:key="index"><view class="{{regionIndex == index ? 'ab-tag':'ab-tag-deault'}}" bind:tap="clickSelectAll" data-index="{{index}}" data-item="{{item.name}}" data-typeindex="regionIndex" data-typestring="region">{{item.name}}</view></block>
+            </view>
+          </scroll-view>
+
+          <view class="ab-all-spacebeet">
+            <view class="ab-all-spacebeet-1">省份</view>
+            <view class="ab-all-spacebeet-2">展开<image class="select-img" src="/assets/images/icon-arrow-up-filling.png"/></view>
+          </view>
+          <scroll-view scroll-y="{{true}}" class="ab-all-scroll">
+            <view class="ab-tag-container">
+              <block wx:for="{{province_list}}" wx:key="index"><view class="{{provinceIndex == index ? 'ab-tag':'ab-tag-deault'}}" bind:tap="clickSelectAll" data-index="{{index}}" data-item="{{item}}" data-typeindex="provinceIndex" data-typestring="province">{{item}}</view></block>
+            </view>
+          </scroll-view>
+
+          <view class="ab-all-spacebeet">
+            <view class="ab-all-spacebeet-1">城市</view>
+            <view class="ab-all-spacebeet-2">展开<image class="select-img" src="/assets/images/icon-arrow-up-filling.png"/></view>
+          </view>
+          <scroll-view scroll-y="{{true}}" class="ab-all-scroll">
+            <view class="ab-tag-container">
+              <block wx:for="{{city_list}}" wx:key="index"><view class="{{cityIndex == index ? 'ab-tag':'ab-tag-deault'}}" bind:tap="clickSelectAll" data-index="{{index}}" data-item="{{item}}" data-typeindex="cityIndex" data-typestring="city">{{item}}</view></block>
+            </view>
+          </scroll-view>
+
+          <view class="ab-all-spacebeet">
+            <view class="ab-all-spacebeet-1">技术类型</view>
+            <view class="ab-all-spacebeet-2">展开<image class="select-img" src="/assets/images/icon-arrow-up-filling.png"/></view>
+          </view>
+          <scroll-view scroll-y="{{true}}" class="ab-all-scroll">
+            <view class="ab-tag-container">
+              <block wx:for="{{CompanyTechnologyList}}" wx:key="index"><view class="{{technologyIndex == index ? 'ab-tag':'ab-tag-deault'}}" bind:tap="clickSelectAll" data-index="{{index}}" data-item="{{item.name}}" data-typeindex="technologyIndex" data-typestring="technology">{{item.name}}</view></block>
+            </view>
+          </scroll-view>
+
+          <view class="ab-all-spacebeet">
+            <view class="ab-all-spacebeet-1">单位标签</view>
+            <!-- <view class="ab-all-spacebeet-2">展开<image class="select-img" src="/assets/images/icon-arrow-up-filling.png"/></view> -->
+          </view>
+          <scroll-view scroll-y="{{true}}" class="ab-all-scroll">
+            <view class="ab-tag-container">
+              <block wx:for="{{CompanyLabelList}}" wx:key="index"><view class="{{labelIndex == index ? 'ab-tag':'ab-tag-deault'}}" bind:tap="clickSelectAll" data-index="{{index}}" data-item="{{item.name}}" data-typeindex="labelIndex" data-typestring="ulabel">{{item.name}}</view></block>
+            </view>
+          </scroll-view>
+
+          <view class="ab-all-spacebeet">
+            <view class="ab-all-spacebeet-1">数字生态500强</view>
+            <view class="ab-all-spacebeet-2">展开<image class="select-img" src="/assets/images/icon-arrow-up-filling.png"/></view>
+          </view>
+          <scroll-view scroll-y="{{true}}" class="ab-all-scroll">
+            <view class="ab-tag-container">
+              <block wx:for="{{listData1}}" wx:key="index"><view class="{{listData1Index == index ? 'ab-tag':'ab-tag-deault'}}" bind:tap="clickSelectAll" data-index="{{index}}" data-item="{{item}}" data-typeindex="listData1Index" data-typestring="listData1String">{{item}}</view></block>
+            </view>
+          </scroll-view>
+
+          <view class="ab-all-spacebeet">
+            <view class="ab-all-spacebeet-1">数字生态奖项</view>
+            <view class="ab-all-spacebeet-2">展开<image class="select-img" src="/assets/images/icon-arrow-up-filling.png"/></view>
+          </view>
+          <scroll-view scroll-y="{{true}}" class="ab-all-scroll">
+            <view class="ab-tag-container">
+              <block wx:for="{{listData2}}" wx:key="index"><view class="{{listData2Index == index ? 'ab-tag':'ab-tag-deault'}}" bind:tap="clickSelectAll" data-index="{{index}}" data-item="{{item}}" data-typeindex="listData2Index" data-typestring="listData2String">{{item}}</view></block>
+            </view>
+          </scroll-view>
+
+          <view class="ab-all-spacebeet">
+            <view class="ab-all-spacebeet-1">云计算500强</view>
+            <view class="ab-all-spacebeet-2">展开<image class="select-img" src="/assets/images/icon-arrow-up-filling.png"/></view>
+          </view>
+          <scroll-view scroll-y="{{true}}" class="ab-all-scroll">
+            <view class="ab-tag-container">
+              <block wx:for="{{listData3}}" wx:key="index"><view class="{{listData3Index == index ? 'ab-tag':'ab-tag-deault'}}" bind:tap="clickSelectAll" data-index="{{index}}" data-item="{{item}}" data-typeindex="listData3Index" data-typestring="listData3String">{{item}}</view></block>
+            </view>
+          </scroll-view>
+
+          <view class="ab-all-spacebeet">
+            <view class="ab-all-spacebeet-1">云计算奖项</view>
+            <view class="ab-all-spacebeet-2">展开<image class="select-img" src="/assets/images/icon-arrow-up-filling.png"/></view>
+          </view>
+          <scroll-view scroll-y="{{true}}" class="ab-all-scroll">
+            <view class="ab-tag-container">
+              <block wx:for="{{listData4}}" wx:key="index"><view class="{{listData4Index == index ? 'ab-tag':'ab-tag-deault'}}" bind:tap="clickSelectAll" data-index="{{index}}" data-item="{{item}}" data-typeindex="listData4Index" data-typestring="listData4String">{{item}}</view></block>
+            </view>
+          </scroll-view>
+
+          <view class="ab-all-spacebeet">
+            <view class="ab-all-spacebeet-1">营业额</view>
+            <!-- <view class="ab-all-spacebeet-2">展开<image class="select-img" src="/assets/images/icon-arrow-up-filling.png"/></view> -->
+          </view>
+          <scroll-view scroll-y="{{true}}" class="ab-all-scroll">
+            <view class="ab-tag-container">
+              <block wx:for="{{CompanyTurnoverList}}" wx:key="index"><view class="{{technologyIndex == index ? 'ab-tag':'ab-tag-deault'}}" bind:tap="clickSelectAll" data-index="{{index}}" data-item="{{item.name}}" data-typeindex="turnoverIndex" data-typestring="turnover">{{item.name}}</view></block>
+            </view>
+          </scroll-view>
+
+          <view class="ab-all-spacebeet">
+            <view class="ab-all-spacebeet-1">生态伙伴</view>
+            <!-- <view class="ab-all-spacebeet-2">展开<image class="select-img" src="/assets/images/icon-arrow-up-filling.png"/></view> -->
+          </view>
+          <scroll-view scroll-y="{{true}}" class="ab-all-scroll">
+            <view class="ab-tag-container">
+              <block wx:for="{{CompanyPartnerList}}" wx:key="index"><view class="{{partnerIndex == index ? 'ab-tag':'ab-tag-deault'}}" bind:tap="clickSelectAll" data-index="{{index}}" data-item="{{item.name}}" data-typeindex="partnerIndex" data-typestring="partner">{{item.name}}</view></block>
+            </view>
+          </scroll-view>
+
+          <view class="ab-all-spacebeet">
+            <view class="ab-all-spacebeet-1">上市情况</view>
+            <!-- <view class="ab-all-spacebeet-2">展开<image class="select-img" src="/assets/images/icon-arrow-up-filling.png"/></view> -->
+          </view>
+          <scroll-view scroll-y="{{true}}" class="ab-all-scroll">
+            <view class="ab-tag-container">
+              <block wx:for="{{listData5}}" wx:key="index"><view class="{{listData5Index == index ? 'ab-tag':'ab-tag-deault'}}" bind:tap="clickSelectAll" data-index="{{index}}" data-item="{{item}}" data-typeindex="listData5Index" data-typestring="listing">{{item}}</view></block>
+            </view>
+          </scroll-view>
+
+          <view class="ab-all-spacebeet">
+            <view class="ab-all-spacebeet-1">市值</view>
+            <!-- <view class="ab-all-spacebeet-2">展开<image class="select-img" src="/assets/images/icon-arrow-up-filling.png"/></view> -->
+          </view>
+          <scroll-view scroll-y="{{true}}" class="ab-all-scroll">
+            <view class="ab-tag-container">
+              <block wx:for="{{CompanyMarketList}}" wx:key="index"><view class="{{marketIndex == index ? 'ab-tag':'ab-tag-deault'}}" bind:tap="clickSelectAll" data-index="{{index}}" data-item="{{item.name}}" data-typeindex="marketIndex" data-typestring="market">{{item.name}}</view></block>
+            </view>
+          </scroll-view>
+
+          <view class="ab-all-spacebeet">
+            <view class="ab-all-spacebeet-1">融资情况</view>
+            <!-- <view class="ab-all-spacebeet-2">展开<image class="select-img" src="/assets/images/icon-arrow-up-filling.png"/></view> -->
+          </view>
+          <scroll-view scroll-y="{{true}}" class="ab-all-scroll">
+            <view class="ab-tag-container">
+              <block wx:for="{{CompanyFinancingList}}" wx:key="index"><view class="{{financingIndex == index ? 'ab-tag':'ab-tag-deault'}}" bind:tap="clickSelectAll" data-index="{{index}}" data-item="{{item.name}}" data-typeindex="financingIndex" data-typestring="financing">{{item.name}}</view></block>
+            </view>
+          </scroll-view>
+
+          <view class="ab-all-spacebeet">
+            <view class="ab-all-spacebeet-1">估值</view>
+            <!-- <view class="ab-all-spacebeet-2">展开<image class="select-img" src="/assets/images/icon-arrow-up-filling.png"/></view> -->
+          </view>
+          <scroll-view scroll-y="{{true}}" class="ab-all-scroll">
+            <view class="ab-tag-container">
+              <block wx:for="{{CompanyValuationList}}" wx:key="index"><view class="{{valuationIndex == index ? 'ab-tag':'ab-tag-deault'}}" bind:tap="clickSelectAll" data-index="{{index}}" data-item="{{item.name}}" data-typeindex="valuationIndex" data-typestring="valuation">{{item.name}}</view></block>
+            </view>
+          </scroll-view>
+
+          <view class="ab-all-spacebeet">
+            <view class="ab-all-spacebeet-1">总部所在城市</view>
+            <view class="ab-all-spacebeet-2">展开<image class="select-img" src="/assets/images/icon-arrow-up-filling.png"/></view>
+          </view>
+          <scroll-view scroll-y="{{true}}" class="ab-all-scroll">
+            <view class="ab-tag-container">
+              <block wx:for="{{listData6}}" wx:key="index"><view class="{{listData6Index == index ? 'ab-tag':'ab-tag-deault'}}" bind:tap="clickSelectAll" data-index="{{index}}" data-item="{{item}}" data-typeindex="listData6Index" data-typestring="listData6String">{{item}}</view></block>
+            </view>
+          </scroll-view>
+          <view class="ab-all-sc-boto">
+            <view class="ab-all-sc-boto-1" bind:tap="clearAllSelect">重置</view>
+            <view class="ab-all-sc-boto-2" bind:tap="setAllSelect">完成</view>
+          </view>
+          <view style="height: 200rpx;"></view>
+        </view>
+        </scroll-view>
+      </view>
       
     </view>
 

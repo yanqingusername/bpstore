@@ -95,7 +95,7 @@
             <view class="cr-item-top-left">
               <view class="cr-item-top-left-1">{{item.name}}</view>
               <view class="cr-item-top-left-2">| {{item.profession}}</view>
-              <view class="cr-item-top-left-3">{{item.name}}</view>
+              <!-- <view class="cr-item-top-left-3">{{item.name}}</view> -->
             </view>
             <view class="cr-item-top-right">
               <view class="cr-item-top-left-4">私信</view>

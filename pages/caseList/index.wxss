@@ -118,3 +118,138 @@ color: #8C96A4;
   margin-top: 21rpx;
   margin-right: 20rpx;
 }
+
+van-popup{
+  width: 100% !important;
+  height: 100% !important;
+}
+
+.cl-pop{
+  width: 628rpx;
+  min-height: 1208rpx;
+  background: #FFFFFF;
+  position: relative;
+}
+.cl-pop-1{
+  padding: 30rpx 0rpx 30rpx 34rpx;
+  font-size: 28rpx;
+font-weight: bold;
+color: #333333;
+}
+
+.cl-pop-2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+position: relative;
+
+}
+.cl-pop-3{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 570rpx;
+height: 60rpx;
+background: #F6F6F6;
+border-radius: 8rpx;
+}
+
+.cl-pop-3-1{
+  font-size: 28rpx;
+color: #333333;
+margin-left: 48rpx;
+}
+
+.cl-pop-3-2{
+  display: flex;
+  align-items: center;
+  margin-right: 14rpx;
+}
+.cl-pop-3-2-1{
+  font-size: 28rpx;
+color: #8A98A7;
+margin-right: 20rpx;
+}
+.cl-pop-3-2-img{
+width: 14rpx;
+height: 14rpx;
+}
+
+.tag-container {
+  margin-top: 0rpx;
+  padding: 0rpx 20rpx 0rpx 30rpx;
+}
+.tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+  margin-right: 20rpx;
+margin-bottom: 30rpx;
+height: 60rpx;
+background: #E6F4FB;
+border-radius: 8rpx;
+font-size: 28rpx;
+color: #006ED9;
+}
+
+.tag-deault {
+  display: inline-flex;
+  align-items: center;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+  margin-right: 20rpx;
+margin-bottom: 30rpx;
+height: 60rpx;
+background: #F7F7F7;
+border-radius: 8rpx;
+font-size: 28rpx;
+color: #666666;
+}
+
+
+.cl-bottom{
+  position: fixed;
+  bottom: 0rpx;
+  width: 100%;
+  display: flex;
+
+}
+
+.cl-bottom-1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 210rpx;
+height: 98rpx;
+background: #F9F9F9;
+font-size: 30rpx;
+color: #242B37;
+}
+
+.cl-bottom-2{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 418rpx;
+height: 98rpx;
+background: #006ED9;
+font-size: 32rpx;
+color: #FFFFFF;
+}
+
+.cl-pop-2-item{
+  position: absolute;
+top: 30px;
+z-index: 99;
+width: 570rpx;
+background: #FFFFFF;
+
+}
+.cl-pop-2-item-title{
+  padding: 20rpx;
+}
+scroll-view{
+  height: 180px !important;
+}
