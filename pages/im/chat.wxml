@@ -1,0 +1,54 @@
+<wxs module="time" src="./time.wxs"></wxs>
+<scroll-view scroll-into-view="{{toView}}" style="height: {{scroll_height}}px;" refresher-enabled="{{true}}" bindscrolltoupper="getMore" upper-threshold="100" scroll-y="true" enable-back-to-top="true" class="chat">
+  <!-- <button wx:if="{{!isCompleted}}" bindtap="getMore">更多消息</button> -->
+  <!-- 每一行 -->
+  <block wx:for="{{messageList}}" wx:key="index">
+    <!-- 日期 -->
+    <view class="datetime" wx:if="{{ time.timeChn(item.time*1000) != ''}}">{{time.timeChn(item.time*1000)}}</view>
+    <!-- 头像与内容文本 -->
+   
+    <view class="chat_item {{item.flow == 'in' ? 'row' : 'my'}}"  id="row_{{index+1}}">
+        <view class="item_avatar">
+          <image wx:if="{{item.flow=='in'}}" class="avatar" src="{{toUserAvatar}}" />
+          <image wx:else class="avatar" src="{{userAvatar}}" />
+        </view>
+        <view class="item_content" wx:if="{{item.type == 'TIMTextElem'}}">
+          <block wx:for="{{time.parseText(item.payload.text)}}" wx:for-item="textObj" wx:key="index">
+            <view wx:if="{{textObj.name=='span'}}" class="content_text">{{textObj.text}}</view>
+            <view wx:if="{{textObj.name=='img'}}" class="content_text"><image src="{{textObj.src}}" style="width:20px;height:20px;display:block" /></view>
+          </block>
+        </view>
+        <view wx:elif="{{item.type == 'TIMImageElem'}}" class="content_img">
+            <image src="{{item.payload.imageInfoArray[0].url}}" mode="widthFix" bindtap='previewImg' data-src='{{item.payload.imageInfoArray[0].url}}'/>
+        </view>
+        <view wx:elif="{{item.type == 'TIMSoundElem'}}" data-id="{{item.ID}}" data-src="{{item.payload.url}}" bindtap="play" class="item_content">
+          <view class="{{ 'content_voice' + (audioNodeID == item.ID?' on': '')}}">
+            <view class="voiceicon"><text></text></view>
+            <view class="voicetext" style="width:{{item.payload.second/60*600}}rpx">{{item.payload.second}}''</view>
+          </view>
+        </view>
+    </view>
+  </block>
+</scroll-view>      
+<view class="reply">
+    <block wx:if="{{isRecord}}">
+      <view class="rvoice imfont icon_jp" bindtap='toggleVoice'></view>
+      <view class="rtxt" bindlongpress="startRecording" bindtouchmove="handleTouchMove" bindtouchend="handleRecordStop">
+        <text>{{!isRecording?'按住 说话':'抬起 停止'}}</text>
+      </view>
+    </block>
+    <block wx:else>
+      <view class="rvoice imfont icon_voice" bindtap='toggleVoice'></view>
+      <view class="rtxt"><input type="text" bindinput="onMessageContent" bindconfirm="send" value="{{messageContent}}"/></view>
+    </block>
+    <view class="ricon imfont icon_icon" bindtap='toggleEmoji'></view>
+    <view  wx:if="{{!isTyping}}"  class="rpic imfont icon_pic" bindtap='sendImg'></view>
+    <button wx:if="{{isTyping}}" class="send" bindtap='send'>发送</button>
+</view>
+<van-popup show="{{ isEmojiOpen }}" position="bottom" bind:close="toggleEmoji" custom-style="bottom: 54px">
+<scroll-view scroll-y="true" style="height: 750rpx;"><view class="emoji_content">
+  <view wx:for="{{emojiMap}}" wx:key="index" class="item_emoji">
+      <image src="{{emojiUrl+item}}" data-name="{{index}}" style="width:24px;height:24px;"  bindtap="chooseEmoji"/>
+  </view></view>
+</scroll-view>
+</van-popup>

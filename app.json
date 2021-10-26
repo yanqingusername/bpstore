@@ -26,9 +26,9 @@
     "pages/ActivityRegistration/index",
     "pages/IndustryExpert/index",
     "pages/TalentDetail/index",
-    "pages/JoinCompanyList/index"
-    
-    
+    "pages/JoinCompanyList/index",
+    "pages/im/chat",
+    "pages/im/list"
   ],
   "subpackages": [
     {

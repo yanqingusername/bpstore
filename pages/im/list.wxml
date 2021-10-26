@@ -1,0 +1,66 @@
+<wxs module="time" src="./time.wxs"></wxs>
+<import src="/miniprogram_dist/template.wxml" />
+<view class="message mb20" bindtap="tomessage">
+<image src="/img/mes.png"></image>
+ <!-- <van-tag type="danger" round wx:if="{{sysMesNum!=0}}">{{sysMesNum}}</van-tag> -->
+<view class="content">
+<view class="view_one">系统通知</view>
+<view>欢迎您来到象蚁店！海量商品任你选…</view>
+</view>
+</view>
+<view wx:if="{{conversationList.length == 0}}" class="nolist">暂无消息</view>
+<view class="address">
+  <view wx:for="{{conversationList}}" wx:key="index" data-uid="{{item.userProfile.userID}}" bindtap="toConversation" class="mess_item" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{item.right}}rpx" data-index='{{index}}'>
+    <view style="display: flex;align-items: center;width: 100%;">
+      <view class="img">
+        <image src="{{item.userProfile.avatar || '/img/logo.png'}}"></image>
+        <text class="num" wx-if="{{item.unreadCount>0}}">{{item.unreadCount}}</text>
+      </view>
+      <view class="content">
+        <view>{{item.userProfile.nick || '匿名'}}</view>
+        <text>{{item.lastMessage.messageForShow}}</text>
+      </view>
+      <view class="time" wx:if="{{item.lastMessage.lastTime > 0}}">
+        {{ time.timeChn(item.lastMessage.lastTime*1000)}}
+      </view> 
+    </view>
+    <view class="invalidDatadel">
+              <view class="rightBtn" catchtap="listdel" data-uid="{{item.conversationID}}">删除</view>
+          </view>
+  </view>
+</view>
+
+
+<!-- <van-swipe-cell right-width="{{ 40 }}" left-width="disabled"wx:for="{{conversationList}}" wx:key="index" class="mess_item" :before-close="beforeClose">
+				<van-cell-group>
+					<van-cell data-uid="{{item.userProfile.userID}}" bindtap="toConversation" :before-close="beforeClose">
+							<view class="img">
+                <image src="{{item.userProfile.avatar || '/img/logo.png'}}"></image>
+                <text class="num" wx-if="{{item.unreadCount>0}}">{{item.unreadCount}}</text>
+              </view>
+              <view class="content">
+                <view>{{item.userProfile.nick || '匿名'}}</view>
+                <text>{{item.lastMessage.messageForShow}}</text>
+              </view>
+              <view class="time">
+                {{ time.timeChn(item.lastMessage.lastTime*1000)}}
+              </view>
+					</van-cell>
+				</van-cell-group>
+				<view  slot="right" class="invalidDatadel" catchtap="invalidDatadel" data-invalid="{{item}}">删除</view>
+	</van-swipe-cell> -->
+
+
+<!--—————— 精选推荐推荐商品 ——————-->
+<!-- <view class="recommand_goods">
+  <view class="aixin">
+			<text class="iconfont icontuijian-01"></text>
+			<text>精选推荐</text>
+  </view>
+  <view class='goods_list'>
+    <view class="nolist" wx:if="{{list2.length==0}}">暂无商品推荐</view>
+			<block wx:for="{{list2}}" wx:key="{{index}}">
+				<template is="indexList" data="{{item:item,type:2}}"></template>
+			</block>
+  </view>
+</view> -->

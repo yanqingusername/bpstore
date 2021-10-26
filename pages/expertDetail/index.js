@@ -139,4 +139,19 @@ clickFollow(e){
        
     })
 },
+clickChat(e){
+    let userid = e.currentTarget.dataset.userid
+        let myuserId = wx.getStorageSync('userid');
+		if (userid == myuserId) {
+			wx.showToast({
+				icon: 'none',
+				title: '不能给自己发私信'
+			});
+			return;
+		}
+		
+        wx.navigateTo({
+			url: '/pages/im/chat?type=merchant&to=' + userid
+		});
+}
 })

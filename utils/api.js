@@ -423,11 +423,15 @@ module.exports = {
 		return request("/attached/getCompanyPartnerList", "post", data);
 	},
 
-	
-
+	//消息
+	getMutualMsgList: data => { //互动消息  userid 用户的 userid  pageNum 页数   pageSize  每页条数
+		return request("/imps/getMutualMsgList", "post", data);
+	},
+	getUserSig: data => { //获取IM用户签名  identifier 用户的 userid
+		return request("/imps/getUserSig", "post", data);
+	},
 
 	/**
-	 * 以下接口都未调试
 	 * @param {*} data 
 	 * @returns 
 	 */
@@ -436,13 +440,8 @@ module.exports = {
 	upActivityFile: data => { //上传活动图片
 		return request("/upload/upActivityFile", "post", data);
 	},
-	//消息
-	getMutualMsgList: data => { //互动消息  userid 用户的 userid  pageNum 页数   pageSize  每页条数
-		return request("/imps/getMutualMsgList", "post", data);
-	},
-	getUserSig: data => { //获取IM用户签名  identifier 用户的 userid
-		return request("/imps/getUserSig", "post", data);
-	},
+	
+	
 	
 
 

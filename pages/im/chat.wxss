@@ -1,0 +1,54 @@
+    @font-face {font-family: "imfont";
+  src: url('data:application/x-font-woff2;charset=utf-8;base64,d09GMgABAAAAAAVcAAsAAAAACtgAAAUOAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAHEIGVgCDMgqIbIc/ATYCJAMUCwwABCAFhG0HVBtXCRFVnPXJfha4extgw49d9C1G+enCxx+uLYxI3yuo74du75WfUopK6BJ0FQYVozACSxcWh5EYz/ggFDr/k5f9ATOlPSiVLlEl0y3MFRS8t8fW68NtGiCAgO7VmiYpkjArq+6ayNiSR/+wR/T7gfF1GoxvhSSLV4fJXxtYXfvvhG9y+63VlNIBQxkPBah3bxbBBCiiHL8Xz/ybFBa+12Vk8ToEUIc1jjAioxPFUIUA6RYm7EcriqCai0DUSARVf2FuZYN6gANVZivzFYDP8Pf1C9zFBwySBfJND+VRpXCzjeysszAFBrksDLDjpYDxXeAAFwAB6CibeQSPXRehp879XcANQB2qYGDbyHbONrqzrlCQOu7IV1f/8MAhQGCAuCA9TWLcdAPYI0YFB/Y5Fs6LQgUBf+sRbEDLs+sAc0CHAP0WjGWqQOKwmmpLKEQ0miLtvpglUmsIBKp9Vfk9ouoXhCl3loxSe01b8Oao6P0vSbMZIvIVZT5Px8D3Y/xR2wPsoVUuQ3b+pV2Z8tKjM0Jp8hwJc+TBWc74Yxu1xYd6TOnaC9tSe2g1sSkmtyT0jozajr6AlBCEmKKkNI22LY2N6zymcSp4CD+/rPWVxIjUAekQ48XH+iQmHpAOLCytTRtuX8WKqG3pQfBQKWLzLBAEThmCuW3mMIqBn0cO2lcBI+SV0lWynXY4f91ERMqW1vDz+8VXiiL3Ac/LcDqD7pSQcvEX4mwbkeqCGClddMXTGqTfqEKkfVALBgaE221DjCE+jORNAzztV5sxPFxYt6pvSowMXgMu8Wqm8lew1NhYDqRNpEIcrq8fmWEPK09mPLzVO8w8DjH+eCcszF1DA2Y8PP5bLf76u7HhburW2wdCj6sr5wec64t9tHC1vznM1Z3PkcaHFbqCqaOfOep9zmcihHZJOiTkKvv3FxvOlwHCMXisaAnZPuZZ3uqAnnCobG0z8Lgy6u7V0KNPdB9tLpoRdh4Vj04/qkqGRlzBY0ezzrWcPKmaKWv5bXXeChQF79nKyuz3iji0jnSK6Hn1FdbPTxaczwPEksHR9wMqHdLS7Sr8lNXaYJx+c5IlxSE/5Io081x9oqJVEf5AeB3+2nXNVsWRQXwYMOx2oyGnT4eMnifdB/JqMV5dLc+45P1ICKdEPbrBU2zhhfeLQ8vL5d69IPcyRw+aCWck9wT+Q2f+Go9VxgSsusrn1bVreSffIDi1Uf7YdQTBCB6vjMXXjXy8wr61ZZCojcEGM4549Kjqi5qBmnKVsjsafAHgMMz6ZqGhbIb1xSrskX6eddq4n8Zz7PBUgUrgPx/pA/b8jqvjNOuAsQeOKdHMevG2NtxWzy2xsstobrHcWBbj04caGg5rc7ykkS70fRzHN/JugVRz1jGYihW4qg0lGBeQGi6hqLqGunPXdzcMFCu0GnDmUYB0PYFp+wHX9UYJxjuksX8ourGgbtfJIxuOQrfPC1aELdRL0E0MQsdpO5p4g7J3VcnaQ+kDlk7XYezsWuxfY8ByjCu6mZwQCRAlergSb0PnIqQSDTbEFFGacpdy7otYE/1g270CVQhqgdoS0BpRINzuZLv08zeQ1HMqpWbFpfEDVHT0wcEYc+ZBufYErxWvZXpnRpogaglAjMdHHriiFHKqE4HEn2SgBmHUHq1kitNOwtfDzu/zn7G1z1pVvk9mcoVShfI+6SrsLvulDlmj6quwWesqpqUgN0y1M+nwYAAAAA==') format('woff2')
+}
+
+.imfont {
+  font-family: "imfont" !important;
+  font-style: normal;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+.chat_item{display: flex;flex-direction: row;align-items: flex-start;justify-content: flex-start;padding: 10rpx 20rpx;}
+.item_avatar{width: 80rpx;height: 80rpx;border-radius: 80rpx;overflow: hidden;background-color: #fff}
+.item_avatar image{display: block;width: 80rpx;height: 80rpx;border-radius: 80rpx}
+.item_content{margin: 0 20rpx;max-width:470rpx;position: relative;background-color:#F8D304;border: 1rpx solid #DCDCDC;border-radius: 8rpx;padding: 20rpx;font-size: 30rpx;}
+.item_content::before {content: '';position: absolute;width: 0;height: 0;left:-20rpx;top: 30rpx;border: 10rpx solid;border-color: transparent #DCDCDC transparent transparent}
+.item_content:after {content: '';position: absolute;width: 0;height: 0;left: -16rpx;top:32rpx;border: 8rpx solid;border-color:transparent #F8D304 transparent transparent}
+.chat_item.my{flex-flow: row-reverse}
+.chat_item.my .item_content{background-color: #fff}
+.chat_item.my .item_content::before{left:auto;right:-20rpx;border-color: transparent transparent transparent #DCDCDC}
+.chat_item.my .item_content::after{left:auto;right:-16rpx;border-color: transparent transparent transparent #ffffff}
+.content_img{max-width: 300rpx;overflow: hidden;border-radius: 8rpx;border: 1rpx solid #DCDCDC;margin: 0 20rpx}
+.content_img image{display: block;width:300rpx}
+.datetime{font-size: 24rpx;color: #666;text-align: center;padding: 10rpx 0}
+.content_text{display:inline-block;vertical-align: middle}
+/*回复框*/
+.reply {height:54px;background-color: #fff;display: flex;align-items: center;justify-content: center;position:fixed;left: 0;right: 0;bottom: 0;padding: 0 20rpx;z-index: 102}
+.rtxt{flex: 1;margin-left: 20rpx;border:1px solid #C8C8C8; background-color: #F8F8F8;border-radius: 10rpx;height:36px;overflow: hidden}
+.reply .imfont{font-size: 48rpx;}
+.rtxt text{display: block;line-height: 36px;text-align: center;font-size: 30rpx;}
+.rtxt input{width: 100%;font-size: 30rpx;padding: 10rpx 25rpx;box-sizing: border-box;height: 100%;}
+.ricon{margin: 0 20rpx}
+.icon_voice::after{content:'\e7e2'}
+.icon_jp::after{content:'\e65b'}
+.icon_icon::after{content:'\e60b'}
+.icon_pic::after{content:'\e669'}
+.send{background-color: #FED90E;color: #010101;font-size: 28rpx}
+/*语音*/
+.voiceicon{width: 50rpx;height: 50rpx;box-sizing: border-box;overflow: hidden;transform: rotate(135deg);position: relative;}
+.voiceicon text{width: 25rpx;height: 25rpx;top: 35rpx;left: 35rpx;border: 5rpx solid #333;border-radius: 50%;position: absolute;}
+.voiceicon::before{content:'';border: 5rpx solid #333;border-radius: 50%;position: absolute;width: 5rpx;height: 5rpx;top: 45rpx;left: 45rpx;}
+.voiceicon::after{content:'';border: 5rpx solid #333;border-radius: 50%;position: absolute;width: 40rpx;height: 40rpx;top: 25rpx;left: 25rpx;}
+.content_voice{display: flex;align-items: center;}.voicetext{margin-left: -20rpx;min-width: 40rpx;max-width:430rpx;overflow: hidden;}
+.chat_item.my .content_voice{flex-flow: row-reverse}
+.chat_item.my .voiceicon{transform: rotate(-45deg);}
+.chat_item.my .voicetext{margin-left: 0;margin-right: -20rpx;text-align: right;}
+.on .voiceicon text{animation: fadeInOut 1s infinite 0.2s;}
+.on .voiceicon::after{animation: fadeInOut 1s infinite 0.4s;}
+@keyframes fadeInOut {
+    0% {opacity: 0;}100% {opacity: 1;}
+}
+
+/*表情*/
+.emoji_content{display: flex;flex-wrap: wrap;background-color: #f8f8f8}
+.emoji_content .item_emoji{width:75rpx;height:75rpx;display: flex;align-items: center;justify-content: center}

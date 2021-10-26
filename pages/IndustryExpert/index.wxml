@@ -29,7 +29,7 @@
                     </view>
                 </view>
                 <view class="mc-f-right">
-                    <view class="mc-f-right-title" catch:tap="clickFollow" >私信</view>
+                    <view class="mc-f-right-title" catch:tap="clickFollow" data-userid="{{item.userid}}">私信</view>
                 </view>
             </view>
         </block>

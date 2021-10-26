@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "消息",
+  "usingComponents": {
+    "van-tag": "/components/vant/tag/index",
+    "van-swipe-cell": "/components/vant/swipe-cell/index",
+    "van-button": "/components/vant/button/index"
+  }
+}

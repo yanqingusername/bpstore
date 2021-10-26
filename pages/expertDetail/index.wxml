@@ -106,7 +106,7 @@
             <view style="font-size: 20rpx;color: #616E7B;margin-top: -2px;" class="">分享</view>
       </button>
     </view>
-    <view class="btn-right">私信</view>
+    <view class="btn-right" catch:tap="clickChat" data-userid="{{CelebrityInfo.userid}}">私信</view>
   </view>
   <view wx:else class="btn-container">
     <button class="mine-view-button" open-type="share">

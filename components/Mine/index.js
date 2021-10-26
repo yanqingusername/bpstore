@@ -1,6 +1,9 @@
 const app = getApp()
 const Api = require('../../utils/api')
 const Utils = require('../../utils/util')
+import {
+	createTim
+} from '../../utils/tim.js';
 
 Component({
     /**
@@ -180,7 +183,7 @@ Component({
                 if (res.code != 1) {
                     return;
                 }
-                console.log(res.data)
+                createTim(app, that.data.userid)
                 that.setData({
                     userInfo: res.data,
                     avatarUrl: res.data.avatarUrl
