@@ -6,16 +6,16 @@
 	"setting": {
 		"urlCheck": true,
 		"es6": true,
-		"enhance": false,
+		"enhance": true,
 		"postcss": true,
 		"minified": true,
-		"newFeature": true,
+		"newFeature": false,
 		"coverView": true,
-		"nodeModules": true,
+		"nodeModules": false,
 		"autoAudits": false,
 		"showShadowRootInWxmlPanel": true,
 		"scopeDataCheck": false,
-		"uglifyFileName": true,
+		"uglifyFileName": false,
 		"checkInvalidKey": true,
 		"checkSiteMap": true,
 		"uploadWithSourceMap": true,
@@ -24,41 +24,28 @@
 			"disablePlugins": [],
 			"outputPath": ""
 		},
+		"bundle": false,
 		"preloadBackgroundData": false,
 		"compileHotReLoad": false,
 		"useMultiFrameRuntime": true,
 		"useApiHook": true,
-		"useApiHostProcess": true,
-		"enableEngineNative": false,
+		"useApiHostProcess": false,
 		"useIsolateContext": true,
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false,
 		"userConfirmedBundleSwitch": false,
-		"packNpmManually": true,
-		"packNpmRelationList": [
-			{
-				"packageJsonPath": "./package.json",
-				"miniprogramNpmDistDir": "./"
-			}
-		],
-		"minifyWXSS": true,
-		"showES6CompileOption": false,
-		"minifyWXML": true
+		"packNpmManually": false,
+		"packNpmRelationList": [],
+		"minifyWXSS": true
 	},
 	"compileType": "miniprogram",
 	"appid": "wx1ec634a95a93f232",
 	"projectname": "BP",
-	"cloudfunctionTemplateRoot": "",
-	"watchOptions": {
-		"ignore": []
-	},
 	"debugOptions": {
 		"hidedInDevtools": []
 	},
 	"scripts": {},
-	"apiMock": {
-		"useApiMock": false,
-		"apiList": {},
-		"apiMockConfig": ""
-	},
+	"isGameTourist": false,
 	"simulatorType": "wechat",
 	"simulatorPluginLibVersion": {},
 	"libVersion": "2.16.0",
