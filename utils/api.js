@@ -431,6 +431,11 @@ module.exports = {
 		return request("/imps/getUserSig", "post", data);
 	},
 
+	//消息
+	getSystemMsgList: data => { //互动消息  userid 用户的 userid  pageNum 页数   pageSize  每页条数
+		return request("/imps/getSystemMsgList", "post", data);
+	},
+
 	/**
 	 * @param {*} data 
 	 * @returns 

@@ -1,14 +1,14 @@
 <wxs src="../../../utils/substring.wxs" module="tools" />
 <view class="mine-container" >
     <view class="mine-collection-view">
-        <block wx:for="{{10}}" wx:key="index">
+        <block wx:for="{{follow_list}}" wx:key="index">
             <view class="mine-collection-item">
                 <view class="mc-left">
                     <image class="mc-left-img" src='/utils/image/icon_help_09_14_01.png' />
                     <view class="mc-left-item">
-                        <view class="mc-left-item-title">正直的小老板 赞了你的评论</view>
-                        <view class="mc-right-sub">速度搞完这个案例吧…</view>
-                        <view class="mc-right-lable">刚刚</view>
+                        <view class="mc-left-item-title">{{item.nickName}} {{item.title}}</view>
+                        <view class="mc-right-sub">{{item.content}}</view>
+                        <view class="mc-right-lable">{{item.create_time}}</view>
                     </view>
                 </view>
             </view>

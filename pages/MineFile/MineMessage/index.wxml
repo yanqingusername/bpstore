@@ -1,4 +1,5 @@
 <wxs src="../../../utils/substring.wxs" module="tools" />
+<wxs module="time" src="../../im/time.wxs"></wxs>
 <view class="mine-container" >
    
 
@@ -48,17 +49,17 @@
     </view>
     <view class="mm-line"></view>
     <view class="mine-collection-view" style="padding: 0rpx 30rpx 30rpx 30rpx;">
-        <block wx:for="{{10}}" wx:key="index">
-            <view class="mine-collection-item" style="border-bottom: 1rpx solid #E8E8E8;">
+        <block wx:for="{{conversationList}}" wx:key="index">
+            <view class="mine-collection-item" style="border-bottom: 1rpx solid #E8E8E8;" data-uid="{{item.userProfile.userID}}" bindtap="toConversation">
                 <view class="mm-left">
-                    <image class="mm-left-img" src='/utils/image/icon-mine-09-09-11.png' />
+                    <image class="mm-left-img" src="{{item.userProfile.avatar || '/utils/image/icon-mine-09-09-11.png'}}" />
                 </view>
                 <view class="mc-right">
                     <view class="mc-right-title">
-                        <view class="mc-right-content omit">罗伯特</view>
-                        <view class="mc-right-sub">星期二</view>
+                        <view class="mc-right-content omit">{{item.userProfile.nick || '匿名'}}</view>
+                        <view class="mc-right-sub">{{ time.timeChn(item.lastMessage.lastTime*1000)}}</view>
                     </view>
-                    <view class="mc-right-lable omit">欢迎您，非常高兴加入BP数字创业平台，您…</view>
+                    <view class="mc-right-lable omit">{{item.lastMessage.messageForShow}}</view>
                    
                 </view>
             </view>
