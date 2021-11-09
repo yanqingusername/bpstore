@@ -7,7 +7,8 @@ Page({
         id: '',
         activityInfo: '',
         indexTable: 2,
-        URL: "https://bpimg.jianlet.com/images/"
+        URL: "https://bpimg.jianlet.com/images/",
+        deschtml: ''
     },
     onLoad(options){
         this.setData({
@@ -39,8 +40,10 @@ Page({
                 return;
             }
             wx.setNavigationBarTitle({ title: res.data.title });
+            let deschtml = res.data.content || '';
             that.setData({
-                activityInfo: res.data
+                activityInfo: res.data,
+                deschtml: deschtml
             });
         })
     },
@@ -54,8 +57,10 @@ Page({
                 return;
             }
             wx.setNavigationBarTitle({ title: res.data.title });
+            let deschtml = res.data.content || '';
             that.setData({
-                activityInfo: res.data
+                activityInfo: res.data,
+                deschtml: deschtml
             });
         })
     },
@@ -69,8 +74,10 @@ Page({
                 return;
             }
             wx.setNavigationBarTitle({ title: res.data.title });
+            let deschtml = res.data.content || '';
             that.setData({
-                activityInfo: res.data
+                activityInfo: res.data,
+                deschtml: deschtml
             });
         })
     }

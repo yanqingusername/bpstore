@@ -27,7 +27,8 @@ Component({
         loading: false, // loading状态 
         pageNum: 1,
         pages: 0,
-        kerword: ''
+        kerword: '',
+        URL: "https://bpimg.jianlet.com/images/"
     },
 
     lifetimes: {

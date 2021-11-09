@@ -5,16 +5,12 @@
         <view class="mc-right-content line-clampz2">{{activityInfo.title}}</view>
         <view class="mc-right-sub">{{activityInfo.form}}·{{activityInfo.atime}}</view>
     </view>
+    <view class="fd-view" style="border-bottom:none">
+        <mp-html content="{{deschtml}}" />
+    </view>
     <view class="fd-view">
-        <view class="fd-title line-clampz2">{{activityInfo.content}}</view>
-        <image class="fd-img" src='{{URL+activityInfo.cpic}}' />
-        <view class="fd-sub">{{activityInfo.remarks}}</view>
-        <image class="fd-img" src='{{URL+activityInfo.rpic}}' />
-        <view class="fd-text">【活动地点】</view>
+        <view class="fd-text" style="margin-top:10px;">【活动地点】</view>
         <view class="fd-address">{{activityInfo.address}}</view>
-        <image class="fd-img" src='{{URL+activityInfo.rpic}}' />
-        <view class="fd-text" style="margin-top: 28rpx;">{{activityInfo.remarks}}</view>
-        <view class="fd-text" style="margin-top: 26rpx;">{{activityInfo.remarks}}</view>
     </view>
     <view class="fd-time">{{activityInfo.create_time}} 发布</view>
     <view class="ad-view">

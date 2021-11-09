@@ -6,7 +6,8 @@ Page({
     data: {
         id: '',
         activityInfo: '',
-        URL: "https://bpimg.jianlet.com/images/"
+        URL: "https://bpimg.jianlet.com/images/",
+        deschtml: ''
     },
     onLoad(options){
         
@@ -38,8 +39,10 @@ Page({
                 return;
             }
             wx.setNavigationBarTitle({ title: res.data.title });
+            let deschtml = res.data.content || '';
             that.setData({
-                activityInfo: res.data
+                activityInfo: res.data,
+                deschtml: deschtml
             });
         })
     }

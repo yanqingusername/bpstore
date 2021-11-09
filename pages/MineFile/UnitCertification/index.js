@@ -266,6 +266,7 @@ Page({
         }
         Api.addCompanyInfo(data).then(function (res) {
             if (res.code != 1) {
+                Util.showToast(res.msg);
                 return;
             }
             wx.removeStorageSync('CompanyNature');
