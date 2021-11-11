@@ -21,7 +21,7 @@
                 <!-- <view class="message-radius"></view> -->
             </view>
         </view>
-        <view class="mine-center">{{(userAuthStatistics.celebrity == 1 || userAuthStatistics.company == 1) ? '已认证用户' : '未认证用户'}}</view>
+        <view class="mine-center" style="width: {{userInfo.is_auth == 3 ? 160:138}}rpx">{{userInfo.is_auth == 3 ? '达人/单位认证' : userInfo.is_auth == 2 ? '单位认证' : userInfo.is_auth == 1 ? '达人认证' : '未认证'}}</view>
     </view>
     <view class="mine-bottom">
         <view class="mine-bottom-item" bind:tap="routerUrl" data-url="../../pages/MineFile/MineCollection/index">

@@ -1,7 +1,7 @@
 <wxs src="../../utils/substring.wxs" module="tools" />
 <view class="mine-container" >
     <view class="mine-collection-view">
-        <image class="mc-left-img" src='{{URL+activityInfo.toppic}}' />
+        <image class="mc-left-img" src='{{activityInfo.toppic}}' />
         <view class="mc-right-content line-clampz2">{{activityInfo.title}}</view>
         <view class="mc-right-sub">{{activityInfo.form}}·{{activityInfo.atime}}</view>
     </view>
