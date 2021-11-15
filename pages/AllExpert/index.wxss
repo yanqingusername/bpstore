@@ -1,0 +1,50 @@
+page {
+    background-color: #FFFFFF;
+}
+
+.mine-container{
+    background-color:#FFFFFF;
+    height: 100%;
+    border-top: 1px solid #EEEEEE;
+}
+
+.search-result-unit {
+    border-top: 20rpx solid #E8E8E8;
+  }
+  .search-result-unit-container {
+    padding: 0 20rpx;
+    box-sizing: border-box;
+  }
+  .search-result-unit-container > view {
+    display: flex;
+    height: 148rpx;
+    border-bottom: 1px solid #eee;
+    box-sizing: border-box;
+  }
+  .logo {
+    flex-shrink: 0;
+    width: 104rpx;
+    padding-top: 24rpx;
+  }
+  .logo > image {
+    width: 80rpx;
+    height: 80rpx;
+    border-radius: 50%;
+    background-color: aquamarine;
+  }
+  .search-result-unit-container-right {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 28rpx;
+    color: #333;
+  }
+  .search-result-unit-container-right > view:nth-child(2) {
+    font-size: 22rpx;
+    color: #999999;
+    margin: 16rpx 0 14rpx;
+  }
+  .search-result-unit-container-right > view:last-child {
+    color: #ACBBCB;
+    font-size: 22rpx;
+  }

@@ -39,14 +39,14 @@
             </swiper>
           </view>
 
-          <view class="card-container" wx:if="{{ActivityList.length > 0}}">
-            <view>
+          <view class="card-container">
+            <view wx:if="{{ActivityList.length > 0}}">
               <Card title="最新活动" bind:tap="handleRouter" data-method="reLaunch" data-url="/pages/Tabbar/tabbar?current=1">
                 <view class="activity" catch:tap="handleRouter" data-method="navigateTo" data-url="/pages/ActivityDetail/index?id={{ActivityList[0].id}}">
                   <view class="activity-item">
                     <view class="activity-item-title omit">{{ActivityList[0].title}}</view>
                     <view class="activity-item-content">
-                      <image src="{{ActivityList[0].topimgs[0]}}"/>
+                      <image src="{{ActivityList[0].toppic}}"/>
                       <view class="activity-item-content-right">
                         <view class="activity-item-content-right-item">
                           <image src="/assets/images/record.png" />
@@ -92,8 +92,8 @@
                       <view class="case-right-title line-clampz2">{{item.title}}</view>
                       <view class="case-right-content multi-row">{{item.backdrop}}</view>
                       <view class="case-right-type">{{item.city}} | {{item.trade}}</view>
-                      <view class="case-right-tag">
-                        <block wx:for="{{item.lablesl}}" wx:key="index"><view>{{item}}</view></block>
+                      <view class="case-right-tag-new">
+                        <block wx:for="{{item.lablesl}}" wx:key="index"><text>{{item}}</text></block>
                       </view>
                     </view>
                   </view>

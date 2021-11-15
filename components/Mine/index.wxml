@@ -80,7 +80,7 @@
     </view>
 
     <view class="mine-view">
-        <view class="mine-view-between" >
+        <!-- <view class="mine-view-between" >
             <view class="mine-view-left">
                 <image class="mine-view-img" src="/utils/image/icon-mine-09-09-06.png" />
             </view>
@@ -88,7 +88,7 @@
                 <view class="mine-view-name">意见反馈</view>
                 <image class="mine-view-arrow" src="/utils/image/icon-mine-09-09-01.png" />
             </view>
-        </view>
+        </view> -->
         <button class="mine-view-button" open-type="contact" bindcontact="handleContact">
             <view class="mine-view-left">
                 <image class="mine-view-img" src="/utils/image/icon-mine-09-09-07.png" />

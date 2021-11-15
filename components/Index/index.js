@@ -50,7 +50,7 @@ Component({
             this.getNewActivityList()
             this.getCelebrityList()
             this.getClassicCaseList()
-            this.getCaseLabelList()
+            this.getCaseTradeList()
             
         },
         /**
@@ -68,7 +68,7 @@ Component({
             this.getNewActivityList()
             this.getCelebrityList()
             this.getClassicCaseList()
-            this.getCaseLabelList()
+            this.getCaseTradeList()
             
         },
         /**
@@ -166,9 +166,9 @@ Component({
                     
                 });
             },
-            getCaseLabelList() {
+            getCaseTradeList() {
                 let that = this;
-                Api.getCaseLabelList({
+                Api.getCaseTradeList({
                     pageNum: 1,
                     pageSize:10,
                 }).then(function (res) {

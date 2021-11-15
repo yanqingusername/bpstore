@@ -43,7 +43,7 @@
       </view>
       <view class="search-result-case-main" wx:for="{{caseList}}" wx:key="index" bind:tap="handleRouter" data-url="/pages/caseDetail/index?id={{item.id}}">
         <view class="avatar-container">
-          <image  src="{{item.tpics[0]}}"/>
+          <image  src="{{item.toppic}}"/>
         </view>
         <view class="content-container">
           <view class="content-container-title">{{item.title}}</view>
@@ -59,7 +59,7 @@
       </view>
 
       <view class="search-result-expert-main">
-        <view class="search-result-expert-main-item" wx:for="{{ celebrityList }}" wx:key="index">
+        <view class="search-result-expert-main-item" wx:for="{{ celebrityList }}" wx:key="index" bind:tap="handleRouter" data-url="/pages/expertDetail/index?id={{item.userid}}">
           <image  src="{{item.avatarUrl}}"/>
           <view class="figure">
             <view >{{item.nickName}}</view>
@@ -69,13 +69,13 @@
       </view>
     </view>
     <view class="search-result-unit" wx:if="{{companyList.length > 0}}">
-      <view class="search-result-case-header">
+      <view class="search-result-case-header" bind:tap="handleRouter" data-url="/pages/AllExpert/index?searchmore=1&keyword={{kerword}}">
         <view>单位（{{companyNum}}）</view>
         <view>更多</view>
       </view>
 
       <view class="search-result-unit-container">
-        <view wx:for="{{ companyList }}" wx:key="index">
+        <view wx:for="{{ companyList }}" wx:key="index" bind:tap="handleRouter" data-url="/pages/TalentDetail/index?id={{item.userid}}">
           <view class="logo">
             <image  src="{{item.logo}}"/>
           </view>

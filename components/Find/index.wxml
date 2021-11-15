@@ -68,7 +68,7 @@
                       <view class="ff-item-content-right">
                         <view class="activity-item-title line-clampz3">{{item.title}}</view>
                       </view>
-                      <image class="ff-img" src="{{item.topimgs[0]}}" />
+                      <image class="ff-img" src="{{item.toppic}}" />
                     </view>
                     <view class="ff-text">{{item.sponsor}}<text style="margin-left: 26rpx">{{tools.formatTime(item.stime, 'MM')}}月{{tools.formatTime(item.stime, 'DD')}}日</text></view>
                   </view>

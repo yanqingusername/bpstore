@@ -249,10 +249,10 @@ swiper {
   margin-top: 31rpx;
 }
 .case-right-tag {
-  display: flex;
+  /* display: flex; */
 }
-.case-right-tag > view {
-  display: flex;
+.case-right-tag-new > text {
+  /* display: flex; */
   height: 42rpx;
   align-items: center;
   padding: 0 10rpx;

@@ -343,5 +343,11 @@ clickSubmit(){
             loading: false
         });
     });
-}
+},
+clickRouter(e){
+   
+  wx.navigateTo({
+      url: e.currentTarget.dataset.url
+  });
+},
 })

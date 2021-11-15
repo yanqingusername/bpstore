@@ -25,7 +25,7 @@
                     <image class="mc-f-left-img" src='{{item.avatarUrl}}'/>
                     <view class="mc-f-left-item">
                         <view class="mc-f-left-item-title">{{item.nickName}}</view>
-                        <view class="mc-f-right-sub">{{item.industry}} | {{item.profession}}</view>
+                        <view class="mc-f-right-sub">{{searchmore == 1 ? item.companyName : item.industry}} | {{item.profession}}</view>
                     </view>
                 </view>
                 <view class="mc-f-right">

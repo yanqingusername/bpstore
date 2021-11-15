@@ -1,7 +1,7 @@
 <view class="case-match">
   <van-tabs active="{{ active }}" bind:change="onChange">
     <van-tab title="案例大赛">
-      <image class="anlie-img" src="{{ContestInfo.pics[0]}}" mode="scaleToFill"/>
+      <image class="anlie-img" src="{{ContestInfo.pics[0]}}" mode="scaleToFill" bind:tap="clickRouter" data-url='/pages/caseDetail/index?id={{item.id}}'/>
       <view style="height: 200rpx;"></view>
       <view class="btn">
         <view class="" bind:tap="clickRelease">申报案例</view>
@@ -9,7 +9,7 @@
     </van-tab>
     <van-tab title="入围案例">
       <view class="finalist" wx:for="{{follow_list}}" wx:key="index">
-        <view class="finalist-item">
+        <view class="finalist-item" bind:tap="clickRouter" data-url='/pages/caseDetail/index?id={{item.id}}'>
           <view class="finalist-item-title">
             <image src="/assets/images/check2.png" />
             <text class="omit">{{item.title}}</text>
@@ -17,7 +17,7 @@
           <view class="finalist-item-content">
             <view class="finalist-item-content-left">
               <view class="line-clampz2">{{item.backdrop}}</view>
-              <view class="hot">{{item.heat}} 万热度</view>
+              <view class="hot" wx:if="{{item.heat !=null }}">{{item.heat}} 万热度</view>
             </view>
             <view class="finalist-item-content-right">
               <image  src="{{item.toppic}}"/>
@@ -31,7 +31,7 @@
         <image src="/assets/images/award-winning.png" />
         <view class="award-winning-list-view">
           <view class="award-winning-list" wx:for="{{AwardList}}" wx:key="index">
-            <view class="award-winning-list-item">
+            <view class="award-winning-list-item" bind:tap="clickRouter" data-url='/pages/caseDetail/index?id={{item.id}}'>
               <image wx:if="{{index==0}}" src="/assets/images/rank1.png" />
               <image wx:if="{{index==1}}" src="/assets/images/rank2.png" />
               <image wx:if="{{index==2}}" src="/assets/images/rank3.png" />
@@ -41,14 +41,14 @@
               <view class="award-winning-list-item-main">
                 <view class="award-winning-list-item-main-title omit">{{item.title}}</view>
                 <view class="city-industry">
-                  <view class="city-industry-left">{{item.city}} | {{item.lable}}</view>
-                  <view class="city-industry-right">{{item.heat}} 万热度</view>
+                  <view class="city-industry-left">{{item.city}} | {{item.trade}}</view>
+                  <view class="city-industry-right" wx:if="{{item.heat !=null }}">{{item.heat}} 万热度</view>
                 </view>
                 <!-- <view class="tag-list">
                   <view wx:for="{{item.lables}}" wx:key="index" class="tag-item">{{item}}</view>
                 </view> -->
                 <view class="case-right-tag">
-                        <block wx:for="{{item.lables}}" wx:key="index"><view>{{item}}</view></block>
+                        <block wx:for="{{item.lablist}}" wx:key="index"><view>{{item}}</view></block>
                       </view>
               </view>
             </view>
