@@ -21,7 +21,8 @@
                 <!-- <view class="message-radius"></view> -->
             </view>
         </view>
-        <view class="mine-center" style="width: {{userInfo.is_auth == 3 ? 160:138}}rpx">{{userInfo.is_auth == 3 ? '达人/单位认证' : userInfo.is_auth == 2 ? '单位认证' : userInfo.is_auth == 1 ? '达人认证' : '未认证'}}</view>
+        <view wx:if="{{userInfo.is_auth == 3 || userInfo.is_auth == 2 || userInfo.is_auth == 1}}" class="mine-center" style="width: {{userInfo.is_auth == 3 ? 160:138}}rpx">{{userInfo.is_auth == 3 ? '达人/单位认证' : userInfo.is_auth == 2 ? '单位认证' : userInfo.is_auth == 1 ? '达人认证' : '未认证'}}</view>
+        <view wx:else class="mine-center" style="width: {{userInfo.is_auth == 3 ? 160:138}}rpx" bind:tap="routerUrl" data-url="../../pages/MineFile/MineCertification/index"> 未认证</view>
     </view>
     <view class="mine-bottom">
         <view class="mine-bottom-item" bind:tap="routerUrl" data-url="../../pages/MineFile/MineCollection/index">
