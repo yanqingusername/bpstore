@@ -12,7 +12,7 @@
       <image class="search-add"
         src="/assets/images/add.png"
         data-page="release"
-        catchtap="navigationToPage"
+        catchtap="navigationToRelease"
       />
     </view>
 

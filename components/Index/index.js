@@ -188,6 +188,29 @@ Component({
 					url: `/pages/${ page }/index`
 				})
 			},
+            
+            navigationToRelease(e) {
+                const { page } = e.currentTarget.dataset
+                let that = this;
+                Api.getUserInfo({}).then(function(res) {
+                    if (res.code != 1) {
+                        wx.showToast({
+                            title: '请先登录～',
+                            icon: 'none',
+                        })
+                        return;
+                    }
+                    if(res.data.is_auth == 1 || res.data.is_auth == 3){
+                        wx.navigateTo({
+                            url: `/pages/${ page }/index`
+                        })
+                    }else{
+                        wx.navigateTo({
+                            url: `/pages/MineFile/MineCertification/index`
+                        })
+                    }
+                })
+			},
         /**
          * 公共路由跳转方法
          * @param {String/Obejct} url 传入string即跳转, 传入事件对象默认取dataset中的 url 参数
