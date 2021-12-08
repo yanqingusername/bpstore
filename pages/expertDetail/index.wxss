@@ -244,6 +244,20 @@
   margin-right: 20rpx
 }
 
+.case-right-tag-new > text {
+  /* display: flex; */
+  height: 42rpx;
+  align-items: center;
+  padding: 0 10rpx;
+  font-size: 24rpx;
+  color: #00C0C2;
+  border: 1px solid #00C0C2;
+  box-sizing: border-box;
+  border-radius: 2rpx;
+  margin-top: 21rpx;
+  margin-right: 10rpx
+}
+
 
 .btn {
   display: flex;

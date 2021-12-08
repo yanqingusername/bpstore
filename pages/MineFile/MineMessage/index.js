@@ -53,6 +53,12 @@ Page({
             url: e.currentTarget.dataset.url
         });
     },
+    toConversation(e) {
+      var uid = e.currentTarget.dataset.uid;
+      wx.navigateTo({
+        url: '/pages/im/chat?type=merchant&to=' + uid,
+      })
+    },
     onUnload() {
         let tim = app.globalData.tim;
         tim.off(TIM.EVENT.CONVERSATION_LIST_UPDATED, that.groupUpdate);

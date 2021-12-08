@@ -121,7 +121,7 @@ Page({
   toConversation(e) {
     var uid = e.currentTarget.dataset.uid;
     wx.navigateTo({
-      url: '/pages/im/chat?to=' + uid,
+      url: '/pages/im/chat?type=merchant&to=' + uid,
     })
   },
   tomessage() {

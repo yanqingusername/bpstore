@@ -80,8 +80,8 @@
           <view class="case-right-title line-clampz2">{{item.title}}</view>
           <view class="case-right-content multi-row">{{item.backdrop}}</view>
           <view class="case-right-type">{{item.city}} | {{item.trade}}</view>
-          <view class="case-right-tag">
-            <block wx:for="{{item.lablesl}}" wx:key="index"><view>{{item}}</view></block>
+          <view class="case-right-tag-new">
+            <block wx:for="{{item.lablesl}}" wx:key="index"><text>{{item}}</text></block>
           </view>
         </view>
       </view>
