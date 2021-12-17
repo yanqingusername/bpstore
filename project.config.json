@@ -39,7 +39,7 @@
 		"minifyWXSS": true
 	},
 	"compileType": "miniprogram",
-	"appid": "wx1ec634a95a93f232",
+	"appid": "wxb4f47ddf9a4ccdfa",
 	"projectname": "BP",
 	"debugOptions": {
 		"hidedInDevtools": []

@@ -9,10 +9,8 @@ function createTim(app, userid) {
 	console.log(userid)
 	const tim = TIM.create({
 
-		//测试sdk
-		// SDKAppID: 1400328950
 		//正式sdk
-		SDKAppID: 1400330666
+		SDKAppID: 1400608314
 	})
 	tim.registerPlugin({
 		'cos-wx-sdk': COS
