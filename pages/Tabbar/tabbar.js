@@ -60,8 +60,8 @@ Page({
         backgroundColor: '#ffffff'
     })
 
-    let userInfo = wx.getStorageSync('data');
-    if (userInfo.user_id) {
+    let userid1 = wx.getStorageSync('userid');
+    if (userid1) {
 
     }else{
       wx.hideShareMenu();
@@ -166,7 +166,12 @@ Page({
      
     }
   },
-  onShareAppMessage() {
-    
-  }
+  onShareAppMessage (res) {
+    let path = '/pages/Tabbar/tabbar?current=' + this.data.current
+
+    return {
+        title:"首页",
+        path: path,
+    }
+  },
 })
