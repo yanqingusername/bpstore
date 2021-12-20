@@ -9,8 +9,8 @@
         <mp-html content="{{deschtml}}" />
     </view>
     <view class="fd-view">
-        <view class="fd-text" style="margin-top:10px;">【活动地点】</view>
-        <view class="fd-address">{{activityInfo.address}}</view>
+        <!-- <view class="fd-text" style="margin-top:10px;">【活动地点】</view>
+        <view class="fd-address">{{activityInfo.address}}</view> -->
     </view>
     <view class="fd-time">{{activityInfo.create_time}} 发布</view>
 </view>

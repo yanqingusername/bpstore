@@ -37,7 +37,17 @@ Component({
                 title: ''
             });
 
-            this.getAppActivityList();
+            // this.getAppActivityList();
+            let that = this;
+            if(that.data.indexTable== 1){
+                that.getAppActivityList();
+            } else if (that.data.indexTable ==2){
+                that.getAppRankingList();
+            } else if (that.data.indexTable ==3){
+                that.getAppPrizeList();
+            } else if (that.data.indexTable ==4){
+                that.getAppAtlasList();
+            }
         },
         moved() {
 
@@ -49,7 +59,17 @@ Component({
     pageLifetimes: {
         // 组件所在页面的生命周期函数
         show: function () {
-            this.getAppActivityList();
+            // this.getAppActivityList();
+            let that = this;
+            if(that.data.indexTable== 1){
+                that.getAppActivityList();
+            } else if (that.data.indexTable ==2){
+                that.getAppRankingList();
+            } else if (that.data.indexTable ==3){
+                that.getAppPrizeList();
+            } else if (that.data.indexTable ==4){
+                that.getAppAtlasList();
+            }
         },
         hide: function () { },
         resize: function () { },
