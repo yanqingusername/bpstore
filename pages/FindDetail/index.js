@@ -82,7 +82,7 @@ Page({
         })
     },
     onShareAppMessage (res) {
-        let path = "/pages/caseDetail/index?id=" +  this.data.id + '&indexTable=' + this.data.indexTable;
+        let path = "/pages/FindDetail/index?id=" +  this.data.id + '&indexTable=' + this.data.indexTable;
         return {
             title:"排行榜详情",
             path: path,
