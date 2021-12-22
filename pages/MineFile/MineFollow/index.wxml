@@ -39,7 +39,7 @@
 
     <view class="mine-f-view" wx:if="{{indexTable ==2}}">
         <block wx:for="{{follow_list}}" wx:key="index" wx:if='{{ follow_list.length > 0}}'>
-            <view class="mine-f-item">
+            <view class="mine-f-item" bind:tap="handleRouter" data-url="/pages/expertDetail/index?id={{item.fuserid}}">
                 <view class="mc-f-left">
                     <image class="mc-f-left-img" src='{{item.avatarUrl}}' />
                     <view class="mc-f-left-item">
@@ -47,7 +47,7 @@
                         <view class="mc-f-right-sub">{{item.industry}} | {{item.profession}}</view>
                     </view>
                 </view>
-                <view class="mc-f-right" bind:tap="clickFollow" data-fuserid="{{item.fuserid}}">
+                <view class="mc-f-right" catch:tap="clickFollow" data-fuserid="{{item.fuserid}}">
                     <view class="mc-f-right-title">已关注</view>
                   
                 </view>

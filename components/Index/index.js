@@ -36,6 +36,7 @@ Component({
         loading: false, // loading状态 
         pageNum: 1,
         pages: 0,
+        ContestInfo:''
     },
     lifetimes: {
         // 在组件实例进入页面节点树时执行
@@ -46,7 +47,7 @@ Component({
             });
 
             this.getRecCelebrityList()
-            this.getBannerList()
+            this.getContestInfo()
             this.getNewActivityList()
             this.getCelebrityList()
             this.getClassicCaseList()
@@ -64,7 +65,7 @@ Component({
         // 组件所在页面的生命周期函数 ( 只会加载一次 )
         show:  function () {
             this.getRecCelebrityList()
-            this.getBannerList()
+            this.getContestInfo()
             this.getNewActivityList()
             this.getCelebrityList()
             this.getClassicCaseList()
@@ -115,6 +116,22 @@ Component({
                     
                 });
             },
+            // 案例大赛
+            getContestInfo(){
+                var that = this;
+                let data = {}
+                Api.getContestInfo(data).then(function (res) {
+                    if (res.code != 1) {
+                        return;
+                    }
+            
+                    that.setData({
+                        ContestInfo: res.data
+                    })
+                }).catch(() => {
+                    
+                })
+              },
             // 最新活动
             getNewActivityList() {
                 let that = this;
@@ -323,7 +340,7 @@ Component({
             })
             if(title == '关注'){
                 this.getRecCelebrityList()
-                this.getBannerList()
+                this.getContestInfo()
                 this.getNewActivityList()
                 this.getCelebrityList()
                 this.getClassicCaseList()

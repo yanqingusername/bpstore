@@ -14,7 +14,7 @@
   width: 100%;
   height: 110rpx;
   border-radius: 50%;
-  background-color: aqua;
+  background-color: #FFFFFF;
 }
 .authentication {
   width: 28rpx;
@@ -103,7 +103,7 @@
 .honor-pic > image {
   width: 314rpx;
   height: 210rpx;
-  background-color: aqua;
+  background-color: #FFFFFF;
 }
 .honor > view:last-child {
   font-size: 26rpx;
@@ -131,20 +131,20 @@
   height: 84rpx;
   padding: 10rpx;
   box-sizing: border-box;
-  border: 1px solid #eee;
+  border: 1px solid #FFFFFF;
   border-radius: 6rpx;
+  margin-right: 29rpx;
 }
 .record-content-logo > image {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background-color: aqua;
+  background-color: #FFFFFF;
 }
 .record-content-info {
   flex: 1;
   font-size: 22rpx;
   color: #616E7B;
-  margin-left: 29rpx;
 }
 .name {
   font-size: 28rpx;

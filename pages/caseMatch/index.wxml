@@ -1,7 +1,7 @@
 <view class="case-match">
   <van-tabs active="{{ active }}" bind:change="onChange">
     <van-tab title="案例大赛">
-      <image class="anlie-img" src="{{ContestInfo.pics[0]}}" mode="scaleToFill" bind:tap="clickRouter" data-url='/pages/caseDetail/index?id={{item.id}}'/>
+      <image class="anlie-img" src="{{ContestInfo.pic}}" mode="widthFix" data-url='/pages/caseDetail/index?id={{ContestInfo.id}}'/>
       <view style="height: 200rpx;"></view>
       <view class="btn">
         <view class="" bind:tap="clickRelease">申报案例</view>

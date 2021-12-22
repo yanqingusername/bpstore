@@ -55,8 +55,10 @@ Page({
     },
     toConversation(e) {
       var uid = e.currentTarget.dataset.uid;
+      var nick = e.currentTarget.dataset.nick;
+      
       wx.navigateTo({
-        url: '/pages/im/chat?type=merchant&to=' + uid,
+        url: '/pages/im/chat?type=merchant&to=' + uid + '&nickname=' + nick
       })
     },
     onUnload() {

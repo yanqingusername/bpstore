@@ -45,5 +45,12 @@ Page({
                 deschtml: deschtml
             });
         })
-    }
+    },
+    onShareAppMessage (res) {
+        let path = "/pages/ActivityDetail/index?id=" +  this.data.id;
+        return {
+            title: this.data.activityInfo.title || "活动详情",
+            path: path,
+        }
+    },
 })

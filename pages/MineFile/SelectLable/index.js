@@ -213,7 +213,14 @@ Page({
         });
     },
     clickListItems(){
-        console.log(this.data.listIds)
+        let listName = this.data.listName;
+        var listNameList = listName.filter((s) => {
+            return s && s.trim();     // 注：IE9(不包含IE9)以下的版本没有trim()方法
+        });
+        this.setData({
+            listName: listNameList
+        });
+
         wx.setStorageSync('celebrityinfo_clabel', this.data.listName);
         // wx.setStorageSync('celebrityinfo_clabelIds', this.data.listIds);
         wx.navigateBack({

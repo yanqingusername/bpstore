@@ -87,7 +87,7 @@
   width: 72rpx;
   height: 72rpx;
   border-radius: 50%;
-  background-color: aquamarine;
+  background-color: #FFFFFF;
 }
 .content-container {
   font-size: 22rpx;
@@ -121,7 +121,7 @@
   width: 78rpx;
   height: 78rpx;
   border-radius: 50%;
-  background-color: aquamarine;
+  background-color: #FFFFFF;
   margin-right: 27rpx;
 }
 .figure {
@@ -158,7 +158,7 @@
   width: 80rpx;
   height: 80rpx;
   border-radius: 50%;
-  background-color: aquamarine;
+  background-color: #FFFFFF;
 }
 .search-result-unit-container-right {
   display: flex;

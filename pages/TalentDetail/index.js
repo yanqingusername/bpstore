@@ -163,7 +163,9 @@ phoneTap(e) {
     });
   },
   clickChat(e){
-    let userid = e.currentTarget.dataset.userid
+    let userid = e.currentTarget.dataset.userid;
+    let nickname = e.currentTarget.dataset.nickname;
+
         let myuserId = wx.getStorageSync('userid');
 		if (userid == myuserId) {
 			wx.showToast({
@@ -174,7 +176,7 @@ phoneTap(e) {
 		}
 		
         wx.navigateTo({
-			url: '/pages/im/chat?type=merchant&to=' + userid
+			url: '/pages/im/chat?type=merchant&to=' + userid + '&nickname=' + nickname
 		});
 }
 })

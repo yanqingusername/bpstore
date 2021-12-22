@@ -30,7 +30,7 @@
 
     <view class="base-container">
       <view class="base-container-header">个人标签</view>
-      <view class="tag-list">
+      <view class="tag-list" wx:if="{{CelebrityInfo.lables.length > 0}}">
         <view wx:for="{{CelebrityInfo.lables}}" wx:key="index">{{item}}</view>
       </view>
     </view>
@@ -38,7 +38,7 @@
     <view class="base-container">
       <view class="base-container-header">个人荣誉</view>
       <view class="honor">
-        <view class="honor-pic">
+        <view class="honor-pic" wx:if="{{CelebrityInfo.certificate}}">
           <image  src="{{CelebrityInfo.certificate}}"/>
         </view>
         <view>{{CelebrityInfo.honor}}</view>
@@ -49,7 +49,7 @@
   <view class="record">
     <view class="record-title">任职履历</view>
     <view class="record-content">
-      <view class="record-content-logo">
+      <view class="record-content-logo" wx:if="{{CelebrityInfo.companyLogo}}">
         <image  src="{{CelebrityInfo.companyLogo}}"/>
       </view>
       <view class="record-content-info">
@@ -106,7 +106,7 @@
             <view style="font-size: 20rpx;color: #616E7B;margin-top: -2px;" class="">分享</view>
       </button>
     </view>
-    <view class="btn-right" catch:tap="clickChat" data-userid="{{CelebrityInfo.userid}}">私信</view>
+    <view class="btn-right" catch:tap="clickChat" data-userid="{{CelebrityInfo.userid}}" data-nickname="{{CelebrityInfo.nickName}}">私信</view>
   </view>
   <view wx:else class="btn-container">
     <button class="mine-view-button" open-type="share">

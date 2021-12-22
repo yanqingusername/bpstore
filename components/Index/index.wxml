@@ -31,11 +31,11 @@
           <!-- swiper -->
           <view class="swiper-container">
             <swiper indicator-dots="{{true}}" autoplay="{{true}}" interval="{{5000}}" duration="{{500}}">
-              <block wx:for="{{BannerList}}" wx:key="index">
+              <!-- <block wx:for="{{BannerList}}" wx:key="index"> -->
                 <swiper-item>
-                  <image class="swiper-image" src="{{item.picUrl}}" catch:tap="handleRouter" data-method="navigateTo" data-url="/pages/caseMatch/index?id={{item.id}}"/>
+                  <image class="swiper-image" src="{{ContestInfo.pic}}" catch:tap="handleRouter" data-method="navigateTo" data-url="/pages/caseMatch/index?id={{ContestInfo.id}}"/>
                 </swiper-item>
-              </block>
+              <!-- </block> -->
             </swiper>
           </view>
 

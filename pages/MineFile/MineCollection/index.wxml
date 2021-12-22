@@ -12,7 +12,7 @@
 
     <view class="mine-collection-view">
         <block wx:for="{{product_list}}" wx:key="index" wx:if='{{ product_list.length > 0}}'>
-            <view class="mine-collection-item">
+            <view class="mine-collection-item" bind:tap="handleRouter" data-url="/pages/caseDetail/index?id={{item.cid}}">
                 <view class="mc-left">
                     <image class="mc-left-img" src='{{item.avatarUrl}}' />
                 </view>

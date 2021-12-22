@@ -21,7 +21,7 @@
             type="textarea"
             placeholder="请填写案例背景"
             autosize
-            maxlength="100"
+            maxlength="-1"
             border="{{ false }}"
           />
         </view>
@@ -38,16 +38,16 @@
 
   <!-- 展示区 -->
   <view class="show-area" wx:if="{{ currentType1 === '首图' && toppic }}">
-    <image wx:if="{{ currentType1 === '首图' }}" src="{{ toppic }}" />
+    <image wx:if="{{ currentType1 === '首图' }}" src="{{ toppic }}" mode="widthFix"/>
   </view>
-  <view class="show-area" wx:if="{{ currentType1 === '视频' && toppic }}">
+  <view class="show-area" wx:if="{{ currentType1 === '视频' && toppic }}" style="height: 350rpx;">
     <video
       src="{{ toppic }}" 
       show-fullscreen-btn="{{ false }}"
     />
   </view>
   <view class="show-area" wx:if="{{ backpic }}">
-    <image src="{{ backpic }}" />
+    <image src="{{ backpic }}" mode="widthFix"/>
   </view>
 
   <view class="common">

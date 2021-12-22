@@ -130,7 +130,7 @@
 .info-item-content > image {
   width: 100%;
   height: 282rpx;
-  /* background-color: aqua; */
+  /* background-color: #FFFFFF; */
   margin-top: 36rpx;
 }
 .info-time {

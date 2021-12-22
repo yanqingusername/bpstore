@@ -57,7 +57,8 @@ Page({
     //语音
     sendLock: true,
     isRecording: false,
-    startPoint: 0
+    startPoint: 0,
+    nickname: ''
   },
   groupUpdate({
     data: messageList
@@ -93,14 +94,19 @@ Page({
   onLoad: function(options) {
     that = this;
     let toUserID = options.to;
+    let nickname = options.nickname || '';
     // if(toUserID.indexOf('merchant') < 0 && toUserID.indexOf('buyers') < 0){
     //     toUserID = options.type=='merchant' ? ('merchant' + toUserID) : ('buyers' +  toUserID);
     // }
     let tim = app.globalData.tim;
     that.setData({
       tim,
-      toUserID: toUserID
+      toUserID: toUserID,
+      nickname: nickname
     });
+
+    wx.setNavigationBarTitle({ title: nickname });
+
     var convID = "C2C" + toUserID;
     var userid = wx.getStorageSync("userid");
     var userInfo = wx.getStorageSync("userInfo");

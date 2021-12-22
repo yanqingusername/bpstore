@@ -116,6 +116,8 @@ Page({
             }
             if(typestring==2){
                 that.getCaseCommentList();
+            }else{
+                that.getCaseInfo(that.data.id);
             }
             
         }).catch(() => {
@@ -161,7 +163,7 @@ Page({
     onShareAppMessage (res) {
         let path = "/pages/caseDetail/index?id=" +  this.data.id ;
         return {
-            title:"案例详情",
+            title: this.data.caseInfo.title || "案例详情",
             path: path,
         }
     },

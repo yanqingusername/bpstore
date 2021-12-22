@@ -50,7 +50,7 @@
     <view class="mm-line"></view>
     <view class="mine-collection-view" style="padding: 0rpx 30rpx 30rpx 30rpx;">
         <block wx:for="{{conversationList}}" wx:key="index">
-            <view class="mine-collection-item" style="border-bottom: 1rpx solid #E8E8E8;" data-uid="{{item.userProfile.userID}}" bindtap="toConversation">
+            <view class="mine-collection-item" style="border-bottom: 1rpx solid #E8E8E8;" data-uid="{{item.userProfile.userID}}" data-nick="{{item.userProfile.nick}}" bindtap="toConversation">
                 <view class="mm-left">
                     <image class="mm-left-img" src="{{item.userProfile.avatar || '/utils/image/icon-mine-09-09-11.png'}}" />
                 </view>

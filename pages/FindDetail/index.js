@@ -84,7 +84,7 @@ Page({
     onShareAppMessage (res) {
         let path = "/pages/FindDetail/index?id=" +  this.data.id + '&indexTable=' + this.data.indexTable;
         return {
-            title:"排行榜详情",
+            title: this.data.activityInfo.title || "排行榜详情",
             path: path,
         }
     },

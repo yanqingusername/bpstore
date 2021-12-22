@@ -133,7 +133,7 @@ Page({
             return 
         } 
 
-        if (this.data.clabelString == ''){
+        if (clabelString == ''){
             Util.showToast('个人标签不能为空');
             return;
         }

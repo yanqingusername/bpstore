@@ -98,7 +98,7 @@
               <!-- <view class="cr-item-top-left-3">{{item.name}}</view> -->
             </view>
             <view class="cr-item-top-right">
-              <view class="cr-item-top-left-4" catch:tap="clickChat" data-userid="{{item.userid}}">私信</view>
+              <view class="cr-item-top-left-4" catch:tap="clickChat" data-userid="{{item.userid}}" data-nickname="{{item.name}}">私信</view>
             </view>
           </view>
           <view class="cr-item-top-left-5 line-clampz2">{{item.introduce}}</view>

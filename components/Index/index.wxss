@@ -195,7 +195,7 @@ swiper {
   width: 70rpx;
   height: 70rpx;
   border-radius: 50%;
-  background-color: aqua;
+  background-color: #FFFFFF;
 }
 .expert-item-name {
   font-size: 26rpx;

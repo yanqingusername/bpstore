@@ -30,7 +30,7 @@ page {
     width: 80rpx;
     height: 80rpx;
     border-radius: 50%;
-    background-color: aquamarine;
+    background-color: #FFFFFF;
   }
   .search-result-unit-container-right {
     display: flex;

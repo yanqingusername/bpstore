@@ -10,7 +10,7 @@
 </view>
 <view wx:if="{{conversationList.length == 0}}" class="nolist">暂无消息</view>
 <view class="address">
-  <view wx:for="{{conversationList}}" wx:key="index" data-uid="{{item.userProfile.userID}}" bindtap="toConversation" class="mess_item" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{item.right}}rpx" data-index='{{index}}'>
+  <view wx:for="{{conversationList}}" wx:key="index" data-uid="{{item.userProfile.userID}}" data-nick="{{item.userProfile.nick}}" bindtap="toConversation" class="mess_item" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{item.right}}rpx" data-index='{{index}}'>
     <view style="display: flex;align-items: center;width: 100%;">
       <view class="img">
         <image src="{{item.userProfile.avatar || '/img/logo.png'}}"></image>

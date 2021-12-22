@@ -163,7 +163,7 @@ textarea{
 
 .show-area {
   width: 100%;
-  height: 350rpx;
+  /* height: 350rpx; */
   margin-top: 20rpx;
   padding: 35rpx;
   background-color: #fff;
@@ -173,7 +173,7 @@ textarea{
 
 .show-area > image {
   width: 100%;
-  height: 100%;
+  height: 350rpx;
 }
 
 video {
