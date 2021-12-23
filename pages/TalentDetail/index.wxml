@@ -28,16 +28,16 @@
         <view class="" style="display: flex;font-size:26rpx;margin-bottom: 20rpx;"><view style="width:146rpx;">面向行业：</view>{{CompanyInfo.trade}}</view>
         <view class="" style="display: flex;font-size:26rpx;margin-bottom: 20rpx;"><view style="width:146rpx;">技术类型：</view>{{CompanyInfo.technology}}</view>
         <view class="" style="display: flex;font-size:26rpx;margin-bottom: 20rpx;"><view style="width:146rpx;">主营业务：</view>{{CompanyInfo.companyBusinessArea}}</view>
-        <view class="" style="display: flex;font-size:26rpx;margin-bottom: 20rpx;"><view style="width:146rpx;">年营业额：</view>{{CompanyInfo.turnover}}</view>
-        <view class="" style="display: flex;font-size:26rpx;margin-bottom: 20rpx;"><view style="width:146rpx;">市   值：</view>{{CompanyInfo.market}}</view>
-        <view class="" style="display: flex;font-size:26rpx;margin-bottom: 20rpx;"><view style="width:146rpx;">估   值：</view>{{CompanyInfo.valuation}}</view>
-        <view class="" style="display: flex;font-size:26rpx;margin-bottom: 20rpx;"><view style="width:146rpx;">融资情况：</view>{{CompanyInfo.financing}}</view>
+        <view class="" style="display: flex;font-size:26rpx;margin-bottom: 20rpx;" wx:if="{{CompanyInfo.turnover}}"><view style="width:146rpx;">年营业额：</view>{{CompanyInfo.turnover}}</view>
+        <view class="" style="display: flex;font-size:26rpx;margin-bottom: 20rpx;" wx:if="{{CompanyInfo.market}}"><view style="width:146rpx;">市   值：</view>{{CompanyInfo.market}}</view>
+        <view class="" style="display: flex;font-size:26rpx;margin-bottom: 20rpx;" wx:if="{{CompanyInfo.valuation}}"><view style="width:146rpx;">估   值：</view>{{CompanyInfo.valuation}}</view>
+        <view class="" style="display: flex;font-size:26rpx;margin-bottom: 20rpx;" wx:if="{{CompanyInfo.financing}}"><view style="width:146rpx;">融资情况：</view>{{CompanyInfo.financing}}</view>
       </view>
     </view>
      
      <view style="height:2rpx;background:#EEEEEE;"></view>
 
-     <view class="base-container" style="margin-top: 30rpx;margin-bottom: 40rpx;">
+     <view class="base-container" style="margin-top: 30rpx;margin-bottom: 40rpx;" wx:if="{{CompanyInfo.pList.length > 0}}">
       <view class="base-container-header">生态伙伴</view>
       <view class="contact-information1">
         <view class="contact-information1-left">
@@ -51,10 +51,10 @@
       </view>
     </view>
 
-     <view class="base-container" style="margin-bottom: 40rpx;">
+     <view class="base-container" style="margin-bottom: 40rpx;" wx:if="{{CompanyInfo.qimg || CompanyInfo.qualifis}}">
       <view class="base-container-header">单位资质</view>
       <view class="honor">
-        <view class="honor-pic">
+        <view class="honor-pic" wx:if="{{CompanyInfo.qimg}}">
           <image  src="{{CompanyInfo.qimg}}"/>
         </view>
         <view>{{CompanyInfo.qualifis}}</view>
