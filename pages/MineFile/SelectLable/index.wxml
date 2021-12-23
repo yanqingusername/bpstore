@@ -43,9 +43,27 @@
         <view class="sl-img-view" wx:if="{{honorImg}}">
             <image class="sl-img" src="{{honorImg}}"/>
         </view>
-        <view class="tc-b flex-between">
+        <view class="tc-b flex-between" wx:if="{{number == 3 || number == 16}}">
             <view class="tc-b-title">{{titleString}}:</view>
             <input type="text" placeholder="请输入{{titleString}}" bindinput="honor" value="{{honor}}" placeholder-class="placeholder" />
+        </view>
+
+        <view class="flex-ver" wx:else>
+            <view class="tc-b-title">{{titleString}}:</view>
+            <view class="content">
+                <view>
+                <textarea
+                    value="{{ honor }}"
+                    data-attribute="honor"
+                    bindinput="honor"
+                    type="textarea"
+                    placeholder="请输入{{titleString}}"
+                    autosize
+                    maxlength="-1"
+                    border="{{ false }}"
+                />
+                </view>
+            </view>
         </view>
         <view class="tc-d" bind:tap="clickHonor">
             <view class="tc-e">确定</view>
