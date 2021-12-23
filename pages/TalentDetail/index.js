@@ -45,7 +45,7 @@ Page({
         wx.setNavigationBarTitle({ title: '自己公司' });
         that.setData({
             CompanyInfo: res.data,
-            ulabel: res.data.ulabel.split(',')
+            ulabel: res.data.ulabel && res.data.ulabel.split(',')
         });
         that.getJoinCompanyList(res.data.companyName);
     });
@@ -61,7 +61,7 @@ Page({
         wx.setNavigationBarTitle({ title: res.data.companyShortName });
         that.setData({
             CompanyInfo: res.data,
-            ulabel: res.data.ulabel.split(',')
+            ulabel: res.data.ulabel && res.data.ulabel.split(',')
         });
         that.getJoinCompanyList(res.data.companyName);
     });

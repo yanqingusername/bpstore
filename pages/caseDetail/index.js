@@ -34,7 +34,7 @@ Page({
             wx.setNavigationBarTitle({ title: res.data.title });
             that.setData({
                 caseInfo: res.data,
-                lables: res.data.lables.split(',')
+                lables: res.data.lables && res.data.lables.split(',')
             });
         })
     },

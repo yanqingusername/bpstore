@@ -276,7 +276,9 @@ var subStringNameTag1 = function (val) {
   
   var toList= function (val) { 
     var valList = []
-    valList = val.split(',')
+    if(val){
+      valList = val.split(',')
+    }
     return valList
   } 
 

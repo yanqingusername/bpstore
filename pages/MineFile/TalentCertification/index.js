@@ -241,7 +241,7 @@ Page({
                 companyName: res.data.companyName,
                 profession: res.data.profession,
                 cityname: res.data.city,
-                clabel: res.data.clabel.split(','),
+                clabel: res.data.clabel && res.data.clabel.split(','),
                 introduce: res.data.introduce,
                 certificate: res.data.certificate,
                 honor: res.data.honor,
