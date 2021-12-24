@@ -3,7 +3,7 @@
     <view class="mine-collection-view">
         <image class="mc-left-img" src='{{activityInfo.toppic}}' />
         <view class="mc-right-content line-clampz2">{{activityInfo.title}}</view>
-        <view class="mc-right-sub">{{activityInfo.form}}·{{activityInfo.atime}}</view>
+        <view class="mc-right-sub" wx:if="{{activityInfo.form && activityInfo.atime}}">{{activityInfo.form}}·{{activityInfo.atime}}</view>
     </view>
     <view class="fd-view" style="border-bottom:none">
         <mp-html content="{{deschtml}}" />

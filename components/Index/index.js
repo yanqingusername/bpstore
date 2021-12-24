@@ -154,7 +154,7 @@ Component({
                 let that = this;
                 Api.getCelebrityList({
                     pageNum: 1,
-                    pageSize:50
+                    pageSize:6
                 }).then(function (res) {
                     if (res.code != 1) {
                         return;

@@ -43,7 +43,7 @@
                       <view class="activity-item-content-right">
                         <view class="activity-item-content-right-item">
                           <image src="/assets/images/record.png" />
-                          <text class="omit">{{tools.formatTime(item.stime, 'YY/MM/DD')}}-{{tools.formatTime(item.etime, 'YY/MM/DD')}}</text>
+                          <text class="omit">{{item.stime}}-{{item.etime}}</text>
                         </view>
                         <view class="activity-item-content-right-item">
                           <image src="/assets/images/site.png" />
@@ -70,7 +70,7 @@
                       </view>
                       <image class="ff-img" src="{{item.toppic}}" />
                     </view>
-                    <view class="ff-text">{{item.sponsor}}<text style="margin-left: 26rpx">{{tools.formatTime(item.stime, 'MM')}}月{{tools.formatTime(item.stime, 'DD')}}日</text></view>
+                    <view class="ff-text"><view style="margin-right: 26rpx" wx:if="{{item.sponsor}}">{{item.sponsor}}</view><text>{{tools.formatTime(item.stime, 'MM')}}月{{tools.formatTime(item.stime, 'DD')}}日</text></view>
                   </view>
                 </view>
         </block>
