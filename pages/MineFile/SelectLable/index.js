@@ -126,6 +126,7 @@ Page({
         }else if(this.data.number == 23){
             let honor =  wx.getStorageSync('highlights');
             let honorImg =  wx.getStorageSync('highlightspic');
+            honor = honor.replace(/<br\/\>/g, "\n");
             this.setData({
                 honor: honor,
                 honorImg: honorImg
@@ -133,6 +134,7 @@ Page({
         }else if(this.data.number == 24){
             let honor =  wx.getStorageSync('scenario');
             let honorImg =  wx.getStorageSync('scenariopic');
+            honor = honor.replace(/<br\/\>/g, "\n");
             this.setData({
                 honor: honor,
                 honorImg: honorImg
@@ -140,6 +142,7 @@ Page({
         }else if(this.data.number == 25){
             let honor =  wx.getStorageSync('partakes');
             let honorImg =  wx.getStorageSync('ptpic');
+            honor = honor.replace(/<br\/\>/g, "\n");
             this.setData({
                 honor: honor,
                 honorImg: honorImg
@@ -147,6 +150,7 @@ Page({
         }else if(this.data.number == 26){
             let honor =  wx.getStorageSync('content');
             let honorImg =  wx.getStorageSync('cpic');
+            honor = honor.replace(/<br\/\>/g, "\n");
             this.setData({
                 honor: honor,
                 honorImg: honorImg
@@ -154,6 +158,7 @@ Page({
         }else if(this.data.number == 27){
             let honor =  wx.getStorageSync('effect');
             let honorImg =  wx.getStorageSync('efpic');
+            honor = honor.replace(/<br\/\>/g, "\n");
             this.setData({
                 honor: honor,
                 honorImg: honorImg
@@ -161,6 +166,7 @@ Page({
         }else if(this.data.number == 28){
             let honor =  wx.getStorageSync('evaluate');
             let honorImg =  wx.getStorageSync('evpic');
+            honor = honor.replace(/<br\/\>/g, "\n");
             this.setData({
                 honor: honor,
                 honorImg: honorImg
@@ -331,21 +337,51 @@ Page({
             wx.setStorageSync('qualifis', this.data.honor);
             wx.setStorageSync('qualifisImg', this.data.honorImg);
         }else if(this.data.number == 23){
+            let content = this.data.honor;
+            content = content.replace(/\n/g, '<br/>');
+            this.setData({
+                honor: content
+            })
             wx.setStorageSync('highlights', this.data.honor);
             wx.setStorageSync('highlightspic', this.data.honorImg);
         }else if(this.data.number == 24){
+            let content = this.data.honor;
+            content = content.replace(/\n/g, '<br/>');
+            this.setData({
+                honor: content
+            })
             wx.setStorageSync('scenario', this.data.honor);
             wx.setStorageSync('scenariopic', this.data.honorImg);
         }else if(this.data.number == 25){
+            let content = this.data.honor;
+            content = content.replace(/\n/g, '<br/>');
+            this.setData({
+                honor: content
+            })
             wx.setStorageSync('partakes', this.data.honor);
             wx.setStorageSync('ptpic', this.data.honorImg);
         }else if(this.data.number == 26){
+            let content = this.data.honor;
+            content = content.replace(/\n/g, '<br/>');
+            this.setData({
+                honor: content
+            })
             wx.setStorageSync('content', this.data.honor);
             wx.setStorageSync('cpic', this.data.honorImg);
         }else if(this.data.number == 27){
+            let content = this.data.honor;
+            content = content.replace(/\n/g, '<br/>');
+            this.setData({
+                honor: content
+            })
             wx.setStorageSync('effect', this.data.honor);
             wx.setStorageSync('efpic', this.data.honorImg);
         }else if(this.data.number == 28){
+            let content = this.data.honor;
+            content = content.replace(/\n/g, '<br/>');
+            this.setData({
+                honor: content
+            })
             wx.setStorageSync('evaluate', this.data.honor);
             wx.setStorageSync('evpic', this.data.honorImg);
         }
