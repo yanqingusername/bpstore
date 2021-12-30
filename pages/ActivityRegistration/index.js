@@ -46,6 +46,10 @@ Page({
         }
         Api.addActivityEnroll(data).then(function (res) {
             if (res.code != 1) {
+                wx.showToast({
+                    icon: 'none',
+                    title: res.msg
+                });
                 return;
             }
             wx.navigateBack({

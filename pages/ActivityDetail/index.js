@@ -21,9 +21,22 @@ Page({
     },
     routerUrl(e){
         if(this.data.activityInfo.type == 1){
-            wx.navigateTo({
-                url: e.currentTarget.dataset.url
-            });
+            let etime = this.data.activityInfo.etime;
+            let end = new Date(etime).getTime();
+            let current = new Date().getTime();
+            if(current < end){
+                if(this.data.activityInfo.is_enroll == 1){
+                    wx.navigateTo({
+                        url: e.currentTarget.dataset.url
+                    });
+                }else if(this.data.activityInfo.is_enroll == 2){
+                    Util.showToast('该活动已截止报名');
+                }else if(this.data.activityInfo.is_enroll == 3){
+                    Util.showToast('该活动已结束');
+                }
+            }else{
+                Util.showToast('该活动已结束');
+            }
         }else{
             Util.showToast('该活动暂未开启报名');
         }
