@@ -59,7 +59,7 @@
             <view class="mine-view-between-right">
                 <view class="mine-view-name">专家达人</view>
                 <view style="display: flex;align-items: center;">
-                    <view class="mine-view-text" wx:if="{{userAuthStatistics.celebrity == 1}}">已认证</view>
+                    <view class="mine-view-text">{{userInfo.is_auth == 3 ? '达人/单位认证' : userInfo.is_auth == 2 ? '单位认证' : userInfo.is_auth == 1 ? '达人认证' : '未认证'}}</view>
                     <image class="mine-view-arrow" src="/utils/image/icon-mine-09-09-01.png" />
                 </view>
                 
