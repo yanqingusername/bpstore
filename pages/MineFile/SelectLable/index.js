@@ -172,13 +172,13 @@ Page({
                 honorImg: honorImg
             });
         }else if(this.data.number == 29){
-            this.getCaseTradeList();
+            this.getCaseTradeList(1);
             let CompanyTrade = wx.getStorageSync('CaseTrade');
             this.setData({
                 CompanyTrade: CompanyTrade
             });
         }else if(this.data.number == 30){
-            this.getCaseLabelList();
+            this.getCaseLabelList(1);
             let CompanyTrade = wx.getStorageSync('CaseLabel');
             this.setData({
                 CompanyTrade: CompanyTrade
@@ -393,7 +393,7 @@ Page({
         let that = this;
         let data = {
             pageNum: 1,
-            pageSize: 50
+            pageSize: 100
         }
         Api.getCelebrityTradeList(data).then(function (res) {
             if (res.code != 1) {
@@ -456,7 +456,7 @@ Page({
         let that = this;
         let data = {
             pageNum: 1,
-            pageSize: 50
+            pageSize: 100
         }
         Api.getCompanyNatureList(data).then(function (res) {
             if (res.code != 1) {
@@ -510,7 +510,7 @@ Page({
         let that = this;
         let data = {
             pageNum: 1,
-            pageSize: 50
+            pageSize: 100
         }
         Api.getCompanyTurnoverList(data).then(function (res) {
             if (res.code != 1) {
@@ -531,7 +531,7 @@ Page({
         let that = this;
         let data = {
             pageNum: 1,
-            pageSize: 50
+            pageSize: 100
         }
         Api.getCompanyMarketList(data).then(function (res) {
             if (res.code != 1) {
@@ -552,7 +552,7 @@ Page({
         let that = this;
         let data = {
             pageNum: 1,
-            pageSize: 50
+            pageSize: 100
         }
         Api.getCompanyValuationList(data).then(function (res) {
             if (res.code != 1) {
@@ -573,7 +573,7 @@ Page({
         let that = this;
         let data = {
             pageNum: 1,
-            pageSize: 50
+            pageSize: 100
         }
         Api.getCompanyFinancingList(data).then(function (res) {
             if (res.code != 1) {
@@ -639,6 +639,10 @@ Page({
         });
     },
     CompanyTrade(e){
+        this.setData({
+            CompanyTrade: e.detail.value
+        });
+
         if(this.data.number == 12){
             this.getCompanyTradeList();
         } else if(this.data.number == 13){
@@ -648,20 +652,20 @@ Page({
         } else if(this.data.number == 21){
             this.getCompanyRegionList();
         } else if(this.data.number == 29){
-            this.getCaseTradeList();
+            this.getCaseTradeList(2);
         }  else if(this.data.number == 30){
-            this.getCaseLabelList();
+            this.getCaseLabelList(2);
         }
         
-        this.setData({
-            CompanyTrade: e.detail.value
-        });
+        // this.setData({
+        //     CompanyTrade: e.detail.value
+        // });
     },
     getCompanyTradeList(){
         let that = this;
         let data = {
             pageNum: 1,
-            pageSize: 50
+            pageSize: 100
         }
         Api.getCompanyTradeList(data).then(function (res) {
             if (res.code != 1) {
@@ -698,7 +702,7 @@ Page({
         let that = this;
         let data = {
             pageNum: 1,
-            pageSize: 50
+            pageSize: 100
         }
         Api.getCompanyTechnologyList(data).then(function (res) {
             if (res.code != 1) {
@@ -735,7 +739,7 @@ Page({
         let that = this;
         let data = {
             pageNum: 1,
-            pageSize: 50
+            pageSize: 100
         }
         Api.getCompanyLabelList(data).then(function (res) {
             if (res.code != 1) {
@@ -772,7 +776,7 @@ Page({
         let that = this;
         let data = {
             pageNum: 1,
-            pageSize: 50
+            pageSize: 100
         }
         Api.getCompanyRegionList(data).then(function (res) {
             if (res.code != 1) {
@@ -805,11 +809,11 @@ Page({
             });
         })
     },
-    getCaseTradeList(){
+    getCaseTradeList(typeNumber){
         let that = this;
         let data = {
             pageNum: 1,
-            pageSize: 50
+            pageSize: 100
         }
         Api.getCaseTradeList(data).then(function (res) {
             if (res.code != 1) {
@@ -823,6 +827,9 @@ Page({
             }
 
             let CompanyTradeListName = wx.getStorageSync('CaseTrade');
+            if(typeNumber == 2){
+                CompanyTradeListName = that.data.CompanyTrade && that.data.CompanyTrade.split(',');
+            }
             if(CompanyTradeListName.length > 0){
                 
                 for(let j = 0; j< CompanyTradeList.length; j++){
@@ -842,11 +849,11 @@ Page({
             });
         })
     },
-    getCaseLabelList(){
+    getCaseLabelList(typeNumber){
         let that = this;
         let data = {
             pageNum: 1,
-            pageSize: 50
+            pageSize: 100
         }
         Api.getCaseLabelList(data).then(function (res) {
             if (res.code != 1) {
@@ -860,6 +867,9 @@ Page({
             }
 
             let CompanyTradeListName = wx.getStorageSync('CaseLabel');
+            if(typeNumber == 2){
+                CompanyTradeListName = that.data.CompanyTrade && that.data.CompanyTrade.split(',');
+            }
             if(CompanyTradeListName.length > 0){
                 
                 for(let j = 0; j< CompanyTradeList.length; j++){
