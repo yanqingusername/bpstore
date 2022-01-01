@@ -72,11 +72,23 @@ Page({
                 CompanyNature: CompanyNature
             });
         }else if(this.data.number == 12){
-            this.getCompanyTradeList();
+            this.getCompanyTradeList(1);
+            let CompanyTrade = wx.getStorageSync('CompanyTrade');
+            this.setData({
+                CompanyTrade: CompanyTrade
+            });
         }else if(this.data.number == 13){
-            this.getCompanyTechnologyList();
+            this.getCompanyTechnologyList(1);
+            let CompanyTrade = wx.getStorageSync('CompanyTechnology');
+            this.setData({
+                CompanyTrade: CompanyTrade
+            });
         }else if(this.data.number == 14){
-            this.getCompanyLabelList();
+            this.getCompanyLabelList(1);
+            let CompanyTrade = wx.getStorageSync('CompanyLabel');
+            this.setData({
+                CompanyTrade: CompanyTrade
+            });
         }else if(this.data.number == 15){
             let partner =  wx.getStorageSync('partner');
             let partner1 = partner.split(',');
@@ -118,7 +130,7 @@ Page({
                 CompanyNature: CompanyNature
             });
         }else if(this.data.number ==21){
-            this.getCompanyRegionList();
+            this.getCompanyRegionList(1);
             let CompanyTrade = wx.getStorageSync('CompanyRegion');
             this.setData({
                 CompanyTrade: CompanyTrade
@@ -644,13 +656,13 @@ Page({
         });
 
         if(this.data.number == 12){
-            this.getCompanyTradeList();
+            this.getCompanyTradeList(2);
         } else if(this.data.number == 13){
-            this.getCompanyTechnologyList();
+            this.getCompanyTechnologyList(2);
         } else if(this.data.number == 14){
-            this.getCompanyLabelList();
+            this.getCompanyLabelList(2);
         } else if(this.data.number == 21){
-            this.getCompanyRegionList();
+            this.getCompanyRegionList(2);
         } else if(this.data.number == 29){
             this.getCaseTradeList(2);
         }  else if(this.data.number == 30){
@@ -661,7 +673,7 @@ Page({
         //     CompanyTrade: e.detail.value
         // });
     },
-    getCompanyTradeList(){
+    getCompanyTradeList(typeNumber){
         let that = this;
         let data = {
             pageNum: 1,
@@ -679,6 +691,9 @@ Page({
             }
 
             let CompanyTradeListName = wx.getStorageSync('CompanyTrade');
+            if(typeNumber == 2){
+                CompanyTradeListName = that.data.CompanyTrade && that.data.CompanyTrade.split(',');
+            }
             if(CompanyTradeListName.length > 0){
                 
                 for(let j = 0; j< CompanyTradeList.length; j++){
@@ -698,7 +713,7 @@ Page({
             });
         })
     },
-    getCompanyTechnologyList(){
+    getCompanyTechnologyList(typeNumber){
         let that = this;
         let data = {
             pageNum: 1,
@@ -716,6 +731,9 @@ Page({
             }
 
             let CompanyTradeListName = wx.getStorageSync('CompanyTechnology');
+            if(typeNumber == 2){
+                CompanyTradeListName = that.data.CompanyTrade && that.data.CompanyTrade.split(',');
+            }
             if(CompanyTradeListName.length > 0){
                 
                 for(let j = 0; j< CompanyTradeList.length; j++){
@@ -735,7 +753,7 @@ Page({
             });
         })
     },
-    getCompanyLabelList(){
+    getCompanyLabelList(typeNumber){
         let that = this;
         let data = {
             pageNum: 1,
@@ -753,6 +771,9 @@ Page({
             }
 
             let CompanyTradeListName = wx.getStorageSync('CompanyLabel');
+            if(typeNumber == 2){
+                CompanyTradeListName = that.data.CompanyTrade && that.data.CompanyTrade.split(',');
+            }
             if(CompanyTradeListName.length > 0){
                 
                 for(let j = 0; j< CompanyTradeList.length; j++){
@@ -772,7 +793,7 @@ Page({
             });
         })
     },
-    getCompanyRegionList(){
+    getCompanyRegionList(typeNumber){
         let that = this;
         let data = {
             pageNum: 1,
@@ -789,7 +810,10 @@ Page({
                 }
             }
 
-            let CompanyTradeListName = wx.getStorageSync('CompanyTechnology');
+            let CompanyTradeListName = wx.getStorageSync('CompanyRegion');
+            if(typeNumber == 2){
+                CompanyTradeListName = that.data.CompanyTrade && that.data.CompanyTrade.split(',');
+            }
             if(CompanyTradeListName.length > 0){
                 
                 for(let j = 0; j< CompanyTradeList.length; j++){
