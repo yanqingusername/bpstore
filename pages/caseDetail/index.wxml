@@ -39,7 +39,7 @@
     <view class="info-item">
       <view class="info-item-title">案例亮点</view>
       <view class="info-item-content">
-        <view wx:if="{{caseInfo.highlights}}">{{caseInfo.highlights}}</view>
+        <text wx:if="{{highlights}}">{{highlights}}</text>
         <image wx:if="{{caseInfo.highlightspic}}" src="{{caseInfo.highlightspic}}" mode="widthFix"/>
       </view>
     </view>
@@ -47,7 +47,7 @@
     <view class="info-item">
       <view class="info-item-title">应用场景</view>
       <view class="info-item-content">
-        <view wx:if="{{caseInfo.scenario}}">{{caseInfo.scenario}}</view>
+        <text wx:if="{{scenario}}">{{scenario}}</text>
         <image wx:if="{{caseInfo.scenariopic}}" src="{{caseInfo.scenariopic}}" mode="widthFix"/>
       </view>
     </view>
@@ -55,7 +55,7 @@
     <view class="info-item">
       <view class="info-item-title">参与单位</view>
       <view class="info-item-content">
-        <view wx:if="{{caseInfo.partakes}}">{{caseInfo.partakes}}</view>
+        <text wx:if="{{partakes}}">{{partakes}}</text>
         <image wx:if="{{caseInfo.ptpic}}" src="{{caseInfo.ptpic}}" mode="widthFix"/>
       </view>
     </view>
@@ -63,7 +63,7 @@
     <view class="info-item">
       <view class="info-item-title">内容详情</view>
       <view class="info-item-content">
-        <view wx:if="{{caseInfo.content}}">{{caseInfo.content}}</view>
+        <text wx:if="{{content}}">{{content}}</text>
         <image wx:if="{{caseInfo.cpic}}" src="{{caseInfo.cpic}}" mode="widthFix"/>
       </view>
     </view>
@@ -71,7 +71,7 @@
     <view class="info-item">
       <view class="info-item-title">应用成效</view>
       <view class="info-item-content">
-        <view wx:if="{{caseInfo.effect}}">{{caseInfo.effect}}</view>
+        <text wx:if="{{effect}}">{{effect}}</text>
         <image wx:if="{{caseInfo.efpic}}" src="{{caseInfo.efpic}}" mode="widthFix"/>
       </view>
     </view>
@@ -79,7 +79,7 @@
     <view class="info-item">
       <view class="info-item-title">用户评价</view>
       <view class="info-item-content">
-        <view wx:if="{{caseInfo.evaluate}}">{{caseInfo.evaluate}}</view>
+        <text wx:if="{{evaluate}}">{{evaluate}}</text>
         <image wx:if="{{caseInfo.evpic}}" src="{{caseInfo.evpic}}" mode="widthFix"/>
       </view>
     </view>

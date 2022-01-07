@@ -173,7 +173,7 @@
         type="textarea"
         placeholder="请填写备注说明…"
         autosize
-        maxlength="{{ 100 }}"
+        maxlength="-1"
         border="{{ false }}"
       />
     </view>

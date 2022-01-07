@@ -11,6 +11,12 @@ Page({
         commentName: '',
         pageNum: 1,
         pageSize: 2,
+        highlights:'',
+        scenario:'',
+        partakes:'',
+        content:'',
+        effect:'',
+        evaluate:'',
     },
     onLoad(options){
         this.setData({
@@ -34,7 +40,14 @@ Page({
             wx.setNavigationBarTitle({ title: res.data.title });
             that.setData({
                 caseInfo: res.data,
-                lables: res.data.lables && res.data.lables.split(',')
+                lables: res.data.lables && res.data.lables.split(','),
+                highlights: res.data.highlights.replace(/<br\/\>/g, "\n"),
+                scenario: res.data.scenario.replace(/<br\/\>/g, "\n"),
+                partakes: res.data.partakes.replace(/<br\/\>/g, "\n"),
+                content: res.data.content.replace(/<br\/\>/g, "\n"),
+                effect: res.data.effect.replace(/<br\/\>/g, "\n"),
+                evaluate: res.data.evaluate.replace(/<br\/\>/g, "\n"),
+
             });
         })
     },
