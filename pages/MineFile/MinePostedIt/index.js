@@ -114,6 +114,9 @@ Page({
             if (res.code != 1) {
                 return;
             }
+            that.setData({
+                isShow: false
+            })
             that.getMyCaseList();
         }).catch(() => {
             
