@@ -6,10 +6,10 @@
             <view class="tc-b-title">真实姓名</view>
             <input type="text" placeholder="未填写" bindinput="inputClick" data-typestring="name" value="{{name}}" placeholder-class="placeholder" />
         </view>
-        <view class="tc-b flex-between">
+        <!-- <view class="tc-b flex-between">
             <view class="tc-b-title">微信号</view>
             <input type="text" placeholder="未填写" bindinput="inputClick" data-typestring="wx" value="{{wx}}" placeholder-class="placeholder" />
-        </view>
+        </view> -->
         <view class="tc-b flex-between">
             <view class="tc-b-title">手机号</view>
             <input type="number" placeholder="未填写" bindinput="inputClick" data-typestring="phone" value="{{phone}}" placeholder-class="placeholder" />

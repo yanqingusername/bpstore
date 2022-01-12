@@ -39,7 +39,7 @@ Page({
         let data = {
             id: that.data.id,
             name: that.data.name,
-            wx: that.data.wx,
+            // wx: that.data.wx,
             phone: that.data.phone,
             companyName: that.data.companyName,
             profession: that.data.profession
