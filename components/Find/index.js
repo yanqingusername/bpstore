@@ -103,12 +103,12 @@ Component({
         },
         homeLoad() {
             var that = this
-            var pageNum = that.data.pageNum;
-            if (pageNum >= that.data.pages) return;
-            pageNum += 1
+            // var pageNum = that.data.pageNum;
+            // if (pageNum >= that.data.pages) return;
+            // pageNum += 1
             that.setData({
                 loading: true,
-                pageNum: pageNum,
+                // pageNum: pageNum,
             });
             if(that.data.indexTable== 1){
                 that.getAppActivityList();
@@ -181,10 +181,10 @@ Component({
                     return;
                 }
                 let data = res.data;
-                var maxPage = data.pages;
-                that.setData({
-                    pages: maxPage
-                });
+                // var maxPage = data.pages;
+                // that.setData({
+                //     pages: maxPage
+                // });
     
                 if (data.pageNum == 1 && data.list.length == 0) {
                     that.setData({
@@ -193,11 +193,12 @@ Component({
                     });
                     return;
                 }
-                if (maxPage < currentPage) {
+                if(data.list.length > 0){
+                    let pageNum = that.data.pageNum;
+                    pageNum++
                     that.setData({
-                        pageNum: maxPage
+                        pageNum: pageNum
                     });
-                    return;
                 }
                 that.setData({
                     product_list: currentPage == 1 ? data.list : that.data.product_list.concat(data.list)
@@ -224,10 +225,10 @@ Component({
                     return;
                 }
                 let data = res.data;
-                var maxPage = data.pages;
-                that.setData({
-                    pages: maxPage
-                });
+                // var maxPage = data.pages;
+                // that.setData({
+                //     pages: maxPage
+                // });
     
                 if (data.pageNum == 1 && data.list.length == 0) {
                     that.setData({
@@ -236,11 +237,12 @@ Component({
                     });
                     return;
                 }
-                if (maxPage < currentPage) {
+                if(data.list.length > 0){
+                    let pageNum = that.data.pageNum;
+                    pageNum++
                     that.setData({
-                        pageNum: maxPage
+                        pageNum: pageNum
                     });
-                    return;
                 }
                 that.setData({
                     product_list: currentPage == 1 ? data.list : that.data.product_list.concat(data.list)
@@ -267,10 +269,10 @@ Component({
                     return;
                 }
                 let data = res.data;
-                var maxPage = data.pages;
-                that.setData({
-                    pages: maxPage
-                });
+                // var maxPage = data.pages;
+                // that.setData({
+                //     pages: maxPage
+                // });
     
                 if (data.pageNum == 1 && data.list.length == 0) {
                     that.setData({
@@ -279,11 +281,12 @@ Component({
                     });
                     return;
                 }
-                if (maxPage < currentPage) {
+                if(data.list.length > 0){
+                    let pageNum = that.data.pageNum;
+                    pageNum++
                     that.setData({
-                        pageNum: maxPage
+                        pageNum: pageNum
                     });
-                    return;
                 }
                 that.setData({
                     product_list: currentPage == 1 ? data.list : that.data.product_list.concat(data.list)
@@ -310,10 +313,10 @@ Component({
                     return;
                 }
                 let data = res.data;
-                var maxPage = data.pages;
-                that.setData({
-                    pages: maxPage
-                });
+                // var maxPage = data.pages;
+                // that.setData({
+                //     pages: maxPage
+                // });
     
                 if (data.pageNum == 1 && data.list.length == 0) {
                     that.setData({
@@ -322,11 +325,12 @@ Component({
                     });
                     return;
                 }
-                if (maxPage < currentPage) {
+                if(data.list.length > 0){
+                    let pageNum = that.data.pageNum;
+                    pageNum++
                     that.setData({
-                        pageNum: maxPage
+                        pageNum: pageNum
                     });
-                    return;
                 }
                 that.setData({
                     product_list: currentPage == 1 ? data.list : that.data.product_list.concat(data.list)
