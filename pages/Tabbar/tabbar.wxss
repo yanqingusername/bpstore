@@ -2,11 +2,11 @@ page {
   -webkit-overflow-scrolling:touch;
 }
 
-.tabs {
+/* .tabs {
     width: 100vw;
     height: 100vh;
     overflow-y: scroll;
-}
+} */
 .tabs-bottom {
     position: fixed;
     bottom: 0;

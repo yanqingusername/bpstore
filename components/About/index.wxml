@@ -225,7 +225,7 @@
                 </view>
             </view>
         </block>
-        <view style="color:#fff; background-color: #f5f5f5;" wx:if='{{ product_list.length != 0 && loading }}'>
+        <view style="color:#f5f5f5; background-color: #fff;" wx:if='{{ product_list.length != 0 && loading }}'>
             <view  class="loading"><van-loading size='1em' type="spinner" /> 加载ing...</view>
         </view>
     </view>
